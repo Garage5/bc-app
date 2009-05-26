@@ -28,3 +28,103 @@ ActionView::MissingTemplate (Missing template matt/is/fail.erb in view path app/
   app/controllers/preview_controller.rb:4:in `index'
 
 Rendering rescues/layout (internal_server_error)
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:52:20) [GET]
+  Parameters: {"view"=>["index"]}
+
+ActionView::MissingTemplate (Missing template preview/index.erb in view path app/views):
+  app/controllers/preview_controller.rb:4:in `index'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:52:28) [GET]
+  Parameters: {"view"=>["index", "blah"]}
+Rendering template within layouts/application
+Rendering index/blah
+
+ActionView::MissingTemplate (Missing template index/blah.erb in view path app/views):
+  app/controllers/preview_controller.rb:4:in `index'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:52:32) [GET]
+  Parameters: {"view"=>["index", "blah", "vlah"]}
+Rendering template within layouts/application
+Rendering index/blah/vlah
+
+ActionView::MissingTemplate (Missing template index/blah/vlah.erb in view path app/views):
+  app/controllers/preview_controller.rb:4:in `index'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:53:10) [GET]
+  Parameters: {"view"=>["matt", "index"]}
+Rendering template within layouts/application
+Rendering matt/index
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://localhost/preview/matt/index]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:54:21) [GET]
+  Parameters: {"view"=>["matt", "index"]}
+Rendering template within layouts/application
+Rendering matt/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/preview/matt/index]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:54:46) [GET]
+  Parameters: {"view"=>["matt", "index"]}
+Rendering template within layouts/application
+Rendering matt/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/preview/matt/index]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:55:07) [GET]
+  Parameters: {"view"=>["matt", "index"]}
+Rendering matt/index
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/preview/matt/index]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:55:08) [GET]
+  Parameters: {"view"=>["matt", "index"]}
+Rendering matt/index
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/preview/matt/index]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:56:51) [GET]
+  Parameters: {"view"=>["stuff", "stuff"]}
+Rendering stuff/stuff
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://localhost/preview/stuff/stuff]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:58:06) [GET]
+  Parameters: {"view"=>["stuff", "stuff"]}
+Rendering stuff/stuff
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/preview/stuff/stuff]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:58:06) [GET]
+  Parameters: {"view"=>["stuff", "stuff"]}
+Rendering stuff/stuff
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/preview/stuff/stuff]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:58:07) [GET]
+  Parameters: {"view"=>["stuff", "stuff"]}
+Rendering stuff/stuff
+Completed in 4ms (View: 1, DB: 0) | 200 OK [http://localhost/preview/stuff/stuff]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:58:07) [GET]
+  Parameters: {"view"=>["stuff", "stuff"]}
+Rendering stuff/stuff
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/preview/stuff/stuff]
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:58:15) [GET]
+  Parameters: {"view"=>["stuff", "stuff"]}
+Rendering stuff/stuff
+Completed in 75ms (View: 73, DB: 0) | 200 OK [http://localhost/preview/stuff/stuff]
