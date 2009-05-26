@@ -1,0 +1,30 @@
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:20:32) [GET]
+  Parameters: {"path"=>["account", "hello", "omg"]}
+Rendering account/hello/omg
+
+ActionView::MissingTemplate (Missing template account/hello/omg.erb in view path app/views):
+  app/controllers/preview_controller.rb:4:in `index'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:21:47) [GET]
+  Parameters: {"view"=>["account", "hello", "omg"]}
+Rendering account/hello/omg
+
+ActionView::MissingTemplate (Missing template account/hello/omg.erb in view path app/views):
+  app/controllers/preview_controller.rb:4:in `index'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PreviewController#index (for 127.0.0.1 at 2009-05-26 01:21:56) [GET]
+  Parameters: {"view"=>["matt", "is", "fail"]}
+Rendering matt/is/fail
+
+ActionView::MissingTemplate (Missing template matt/is/fail.erb in view path app/views):
+  app/controllers/preview_controller.rb:4:in `index'
+
+Rendering rescues/layout (internal_server_error)
