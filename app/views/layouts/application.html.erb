@@ -1,1 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>The Battle Begins</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="en-us" />
+	<meta name="robots" content="all" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<%= stylesheet_link_tag 'screen' %>
+	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+	<h1>The Battle Begins</h1><!-- / logo -->
+	<div id="nav">
+		<ul style="float: left;">
+			<li><a title="" href="/preview/accounts/dashboard/">Dashboard</a></li>
+			<li><a title="" href="">Brackets</a></li>
+			<li><a title="" href="">Schedule</a></li>
+		</ul>
+		
+		<ul id="acct-nav">
+			<li><a title="" href="">Account/Billing</a></li>
+			<li><a title="" href="">Settings</a></li>
+		</ul>
+		
+	</div><!-- / nav -->
+</div><!-- / header -->
+
+<div id="content-wrapper">
+	<div id="user-nav" class="clear">
+		<div id="user-dash">
+			
+			<div id="user-avatar">
+				<a href=""><img src="/images/avatar_big.jpg" /></a>
+			</div>
+			
+			<div id="user-name">
+				<h2>mattdetails</h2>
+				<ul class="clear">
+					<li><a href="">Account</a></li>
+					<li style="padding: 6px 5px 5px 0;">|</li>
+					<li><a href="">Logout</a></li>
+				</ul>
+			</div>
+			
+		</div><!-- / user-dash -->
+		<h1>Recent Tournament Activity</h1>
+		<ul id="subnav" class="clear" style="display: block;">
+			<li class="active"><a href="/preview/accounts/overview/">Overview</a></li>
+			<li><a href="">Messages</a></li>
+			<li><a href="">Brackets</a></li>
+			<li><a href="">Schedule</a></li>
+			<li><a href="">Chat</a></li>
+		</ul><!-- / subnav -->
+	</div><!-- / user-nav -->
+<div id="content" class="clear">
 <%= yield %>
+</div><!-- / content -->
+</div><!-- / content-wrapper -->
+
+</div><!-- / wrapper -->
+<div id="footer">
+	<a href="">The Battle Center</a> is a service of <a href="">The Battle Begins</a>.
+	<a href="">Privacy Policy</a><a href="">Terms of Service</a>
+</div><!-- / footer -->
+</body>
+</html>
