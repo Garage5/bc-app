@@ -5,13 +5,13 @@
 		  <%= f.error_messages %>
 		  <dl>
 				<dt class="username"><%= f.label :login, "Username" %></dt>
-				<dd><%= f.text_field :login %></dd>
+				<dd><%= f.text_field :login, :class => 'text' %></dd>
 				<dt><%= f.label :email, "Email" %></dt>
-				<dd><%= f.text_field :email %></dd>
+				<dd><%= f.text_field :email, :class => 'text' %></dd>
 				<dt><%= f.label :password, "Password" %></dt>
-				<dd><%= f.password_field :password %></dd>
+				<dd><%= f.password_field :password, :class => 'text' %></dd>
 				<dt><%= f.label :password_confirmation, "Confirm Password" %></dt>
-				<dd><%= f.password_field :password_confirmation %></dd>
+				<dd><%= f.password_field :password_confirmation, :class => 'text' %></dd>
 				<dt class="btn-submit"><button type="submit">Signup</button></dt>
 				<dd class="agree"><%= f.check_box :terms_of_service %><label for="user[terms_of_service]">I Agree to the <a target="_blank" href="http://www.google.com">Terms of Service</a>.</label></dd>
 			</dl>

@@ -6,9 +6,9 @@
 	    <%= f.error_messages %>
 	    <dl>
 				<dt class="username"><%= f.label :login, "Username" %></dt>
-				<dd><%= f.text_field :login %></dd>
+				<dd><%= f.text_field :login, :class => 'text' %></dd>
 				<dt><%= f.label :password, "Password" %></dt>
-				<dd><%= f.password_field :password %></dd>
+				<dd><%= f.password_field :password, :class => 'text' %></dd>
 				<dt class="btn-submit"><button type="submit">Login</button></dt>
 				<dd class="remember"><input type="checkbox" id="rememberme" /><label for="rememberme">Remember Me</label></dd>
 			</dl>
