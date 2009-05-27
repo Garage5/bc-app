@@ -4,7 +4,7 @@
 	</div>
 	
 	<div id="user-name">
-		<h2>mattdetails</h2>
+		<h2><%= current_user.try(:login) || 'nologin' %></h2>
 		<ul class="clear">
 			<li><a href="">Account</a></li>
 			<li style="padding: 6px 5px 5px 0;">|</li>

@@ -1,0 +1,7 @@
+one:
+  login: MyString
+  password: MyString
+
+two:
+  login: MyString
+  password: MyString

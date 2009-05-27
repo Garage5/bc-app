@@ -1,0 +1,20 @@
+<body id="login">
+<div id="wrapper">
+	<div id="content">
+		<% form_for @user, :url => '/signup' do |f| -%>
+		  <%= f.error_messages %>
+		  <dl>
+				<dt class="username"><%= f.label :login, "Username" %></dt>
+				<dd><%= f.text_field :login %></dd>
+				<dt><%= f.label :email, "Email" %></dt>
+				<dd><%= f.text_field :email %></dd>
+				<dt><%= f.label :password, "Password" %></dt>
+				<dd><%= f.password_field :password %></dd>
+				<dt><%= f.label :password_confirmation, "Confirm Password" %></dt>
+				<dd><%= f.password_field :password_confirmation %></dd>
+				<dt class="btn-submit"><button type="submit">Signup</button></dt>
+				<dd class="agree"><input type="checkbox" id="rememberme" /><label for="rememberme">I Agree to the <a target="_blank" href="http://www.google.com">Terms of Service</a>.</label></dd>
+			</dl>
+		<% end -%>
+	</div><!-- / content -->
+</div><!-- / wrapper -->
