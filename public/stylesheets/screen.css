@@ -8,6 +8,8 @@ SCREEN Stylesheet --------------------------------------------------------------
 
 @import url(reset.css);
 @import url(global.css);
+@import url(forms.css);
+@import url(signup.css);
 
 /* 
 ---------------------------------------------------------------------------------------------

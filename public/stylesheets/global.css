@@ -109,8 +109,6 @@ a:hover.bl-icon-add {
 	border-color: #333;
 }
 
-
-
 /* Main Structure
 ----------------------------------------------------------------------------- */
 #wrapper {}
@@ -476,36 +474,6 @@ table#overview tr.last td {
 
 .tnav ul li.last {
 	border: 0;
-}
-
-label {
-	font-weight: bold;
-	font-size: 1.2em;
-	color: #333;
-	position: relative;
-	top: 1px;
-	margin: 0 5px 0 0;
-}
-
-input[type="text"], textarea {
-	-moz-border-radius:5px;
-	-webkit-border-radius: 5px;
-	-x-system-font:none;
-	border:1px solid #CCCCCC;
-	font-size: 1.2em;
-	font-family: Arial, sans-serif;
-	padding: 5px 5px 4px 5px;
-	font-weight: bold;
-	color: #777;
-}
-
-input:focus, textarea:focus {
-	border:1px solid #0197d6;
-	outline-color:-moz-use-text-color;
-	outline-style:none;
-	outline-width:medium;
-	background: #dbf4ff;
-	color: #0197d6;
 }
 
 #footer {

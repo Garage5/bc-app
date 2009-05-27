@@ -1,0 +1,100 @@
+body#login #wrapper {
+	width: 450px;
+	margin: 5% auto;
+}
+
+body#login #wrapper #content {
+	padding: 10px;
+}
+
+body#login #wrapper #content form {
+	background: #0197d6;
+	padding: 15px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+body#login #wrapper #content dl dt label {
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #FFF;
+	display: block;
+	margin: 0 0 3px 0;
+}
+
+body#login #wrapper #content dl dt {
+	margin: 15px 0 0 0;
+}
+
+body#login #wrapper #content dl dt.username {
+	margin: 0;
+}
+
+body#login #wrapper #content dl dt.btn-submit {
+	margin: 15px 0 0 0;
+	float: right;
+}
+
+body#login #wrapper #content dl dt.btn-submit button {
+	display: block;
+	width: 70px;
+}
+
+body#login #wrapper #content dl dd.agree label a {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+body#login #wrapper #content dl dd.agree label a:hover {
+	text-decoration: none;
+}
+
+body#login #wrapper #content dl dd.agree {
+	margin: 13px 0 0 0;
+}
+
+body#login #wrapper #content dl dd.agree label {
+	color: #FFF;
+	font-weight: normal;
+	position: relative;
+	top: -3px;
+	font-size: 1.3em;
+	left: 2px;
+}
+
+body#login #wrapper #content dl dd.remember {
+	margin: 13px 0 0 0;
+}
+
+body#login #wrapper #content dl dd.remember label {
+	color: #FFF;
+	font-weight: normal;
+	position: relative;
+	top: -3px;
+	font-size: 1.3em;
+	left: 2px;
+}
+
+input.text, input.password {
+	width: 94%;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-x-system-font: none;
+	border: 3px solid #007db1;
+	font-size: 1.5em;
+	font-family: Arial, sans-serif;
+	padding: 8px;
+	font-weight: bold;
+	color: #777;
+	background: #dbf4ff;
+}
+
+input:focus {
+	border: 3px solid #005c82;
+	outline-color: -moz-use-text-color;
+	outline-style: none;
+	outline-width: medium;
+	background: #FFF;
+	color: #0197d6;
+}
+
