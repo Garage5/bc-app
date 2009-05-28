@@ -16,6 +16,14 @@ body {
 	font-size: 62.5%;
 }
 
+.gray{
+  color: #999;
+}
+
+strong{
+  font-weight: bold;
+}
+
 a, a:visited {
 	color: #017ecc;
 	text-decoration: none;
@@ -260,6 +268,12 @@ ul#acct-nav {
 	-webkit-border-radius: 7px;
 }
 
+#content h3{
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 ul#subnav {
 	position: relative;
 	top: 8px;
@@ -330,6 +344,7 @@ button:hover.btn {
 }
 
 #maincol {
+  color: #000;
 	float: left;
 	width: 75%;
 }
@@ -340,7 +355,7 @@ button:hover.btn {
 }
 
 .pod {
-	margin: 10px;
+  margin: 10px;
 	background: #FFF;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -367,6 +382,18 @@ button:hover.btn {
 	color: #000;
 	padding: 10px;
 	font-size: 1.3em;
+}
+
+.pod .pod{
+  margin: 0 0 10px 0;
+  padding: 10px;
+}
+
+.pod.darkpod{
+  background: #f0f0f0;
+  color: #666;
+  border-color: #ddd;
+  line-height: 18px;
 }
 
 #sidecol .pod {
