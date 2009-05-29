@@ -13,14 +13,41 @@
 	</div><!-- / user-nav -->
 <div id="content" class="clear">
 <div id="maincol">
-	<div class="pod">
-	<div class="bd">
-		<div class="darkpod">
-		<h4 id="tournament_step1">Select a Game</h4>
-		<dl class="clear" id="tournament_game">
-			<dd><input id="game" type="text"/></dd>
-		</dl>
+	
+	<div class="pod" id="new_tournament">
+		<div id="process_steps" class="clear">
+			<ul>
+				<li class="active"><span><span class="step-icon">1</span> <em>Select a Game</em></span></li>
+				<li><span><span class="step-icon">2</span> <em>Select a Game</em></span></li>
+				<li><span><span class="step-icon">3</span> <em>Select a Game</em></span></li>
+				<li><span><span class="step-icon">4</span> <em>Select a Game</em></span></li>
+				<li><span><span class="step-icon">5</span> <em>Select a Game</em></span></li>
 		</div>
+	<div class="bd">
+		<div id="tournament_game" class="darkpod step clear">
+			<div class="clear">
+				<h4><span class="step-icon">1</span> <em>Select a Game</em></h4>
+			</div>
+			<dl>
+				<dd><input id="game" type="text"/></dd>
+				<dt><a class="rc biglink wh" href="">Set Game</a></dt>
+			</dl>
+			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.</p>
+		</div><!-- / darkpod -->
+		
+		<br />
+		
+		<div id="tournament_rules" class="darkpod step clear">
+			<div class="clear">
+				<h4><span class="step-icon">2</span> <em>Set the Rules</em></h4>
+			</div>
+			<dl class="">
+				<dd><textarea rows="15" cols="60" id="game"></textarea></dd>
+				<dt><a class="rc biglink wh" href="">Save Rules</a></dt>
+			</dl>
+			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.</p>
+		</div><!-- / darkpod -->
+		
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	

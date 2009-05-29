@@ -68,7 +68,7 @@ Global Buttons
 ------------------------------------------------------------------------------
 */
 
-a.smlink, a.smlink:visited {
+.smlink, .smlink:visited {
 	text-decoration: none;
 	font-weight: normal;
 	font-size: 12px;
@@ -76,7 +76,7 @@ a.smlink, a.smlink:visited {
 	display: inline-block;
 }
 
-a.medlink, a.medlink:visited {
+.medlink, .medlink:visited {
 	text-decoration: none;
 	font-weight: normal;
 	font-size: 13px;
@@ -84,59 +84,65 @@ a.medlink, a.medlink:visited {
 	display: inline-block;
 }
 
-a.biglink, a.biglink:visited {
+.biglink, .biglink:visited {
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 14px;
-	padding: 5px 12px 4px 12px;
+	font-size: 12px;
+	padding: 8px 10px 7px 10px;
 	display: inline-block;
 	margin: 3px 0 3px 0;
+	position: relative;
+	top: -2px;
 }
 
-a.bl {
-	background: #0197d6;
+.bl {
+	background: #0197d6 url(/images/btn-grad.png) left bottom repeat-x;
 	color: #FFF;
-	border: 2px #007bae solid;
+	border: 1px #007bae solid;
 }
 
-a.oj {
-	background: #ff6000;
+.oj {
+	background: #ff6000 url(/images/btn-grad.png) left bottom repeat-x;
 	color: #FFF;
-	border: 2px #de5400 solid;
+	border: 1px #de5400 solid;
 }
 
-a.wh {
+.wh {
+	background: #FFF url(/images/btn-grad.png) left bottom repeat-x;
+	color: #017ecc;
+	border: 1px #BBB solid;
+}
+
+.smlink:hover, .medlink:hover, .biglink:hover {
+	border-color: #999;
 	background: #FFF;
 	color: #333;
-	border: 2px #CCC solid;
 }
 
-a.smlink:hover, a.medlink:hover, a.biglink:hover {
-	border-color: #999;
-	background: #CCC;
-	color: #333;
+.smlink:active, .medlink:active, .biglink:active {
+	background: #FFF url(/images/btn-grad.png) left top repeat-x;
 }
 
-a.alert-rd {
+.alert-rd {
 	border: 2px #999 solid;
 	background: #CCC;
 	color: #333;
 }
 
-a:hover.alert-rd {
+:hover.alert-rd {
 	background: #c50000;
 	color: #FFF;
 	border: 2px #910000 solid;
 }
 
-a.bl-icon-add {
+.bl-icon-add {
 	background: #0197d6 url(../images/icon-add.gif) 8px 7px no-repeat;
 	color: #FFF;
 	border: 2px #007bae solid;
 	padding: 5px 12px 4px 20px !important;
 }
 
-a:hover.bl-icon-add {
+:hover.bl-icon-add {
 	background: #666 url(../images/icon-add.gif) 8px 7px no-repeat;
 	color: #FFF;
 	text-decoration: underline;
@@ -145,6 +151,7 @@ a:hover.bl-icon-add {
 
 button {
 	cursor: pointer;
+	font-size: 13px;
 }
 
 button.btn {

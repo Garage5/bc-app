@@ -1,5 +1,98 @@
-h4#tournament_step1 {
-	color: #017ecc;
+span.step-icon {
+	-moz-border-radius: 50px;
+	padding: 8px 11px 6px 11px;
+	font-size: 15px;
+	line-height: 15px;
+	font-weight: bold;
+	color: #FFF;
+	float: left;
+	display: block;
+	background: #004774;
+}
+
+#process_steps {
+	padding: 10px 0 0 15px;
+}
+
+#process_steps ul li {
+	margin: 0 10px 0 10px;
+	display: block;
+	float: left;
+}
+
+#process_steps ul li.active span span.step-icon {
+	background: #333;
+	color: #FFF;
+}
+
+#process_steps ul li.active span em {
+	color: #333;
+}
+
+#process_steps ul li span span.step-icon {
+	background: #BBB;
+	color: #FFF;
+	font-size: 13px;
+	padding: 4px 8px 4px 8px;
+}
+
+#process_steps ul li span em {
+	color: #999;
+	display: block;
+	padding: 6px 0 0 7px;
+	font-size: 14px;
+	float: left;
+}
+
+#new_tournament .step h4 {
+	background: #017ecc;
+	float: left;
+	padding: 6px 10px 6px 10px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	position: relative;
+	top: -11px;
+	left: 7px;
+}
+
+#new_tournament .step h4 em {
+	color: #FFF;
 	font-size: 16px;
 	font-weight: bold;
+	padding: 6px 0 0 7px;
+	display: block;
+	float: left;
+}
+
+#new_tournament dl {
+	float: left;
+	margin: 6px 0 0 6px;
+}
+
+#new_tournament #tournament_game dl dd, #new_tournament #tournament_game dl dt {
+	float: left;
+	display: block;
+}
+
+#new_tournament #tournament_game dl dd input {
+	font-size: 17px;
+	padding: 6px;
+	margin: 0 5px 0 0;
+}
+
+#new_tournament #tournament_game p.note {
+	width: 410px;
+	position: relative;
+	top: -40px;
+	margin: 0 0 -40px 0;
+	left: 21px;
+	float: left;
+}
+
+#new_tournament #tournament_rules p.note {
+	width: 200px;
+	float: left;
+	position: relative;
+	top: 7px;
+	left: 21px;
 }
