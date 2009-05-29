@@ -1,0 +1,67 @@
+<% content_for :head do -%>
+<%= stylesheet_link_tag 'settings' %>
+<% end -%>
+<div id="content-wrapper">
+	<div id="user-nav" class="clear">
+		
+		<%= render :partial => "layouts/user_nav" %>
+		
+		<h1>Settings</h1>
+		
+	</div><!-- / user-nav -->
+<div id="content" class="clear">
+<div id="maincol">
+	<div class="pod">
+  <div class="bd">
+    
+	  <h3>Your Logo</h3>
+    <div id="your_logo" class="darkpod">
+	    <p>Your logo appears on the Login, Dashboard, and Overview pages.</p>
+	    <p class="note"><strong>NOTE:</strong> The logo must not be lmore than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
+	    <p>
+        <% form_for '@account' do |f| -%>
+	        <img src="/images/missing_logo.gif" alt="logo" />
+	        <%= f.file_field :logo %>
+	        <button type="submit">Upload Logo</button>
+	        <% end -%>
+	    </p>
+	  </div>	 
+	
+	  <h3>Your Site Name</h3>
+    <div id="your_site_name" class="darkpod">
+	    <p>Your site name appears at the top of every page.</p>
+	    <% form_for '@account' do |f| -%>
+	      <%= f.text_field :name %>
+	    <% end -%>
+	    </p>
+	  </div>
+	
+	  <h3>Message Categories</h3>
+	  <div id="message_categories" class="darkpod">
+	    <table>
+        <tr>
+        	<td>Announcements</td>
+        	<td class="remove"><a href="#">remove</a></td>
+        </tr>
+        <tr>
+        	<td>Comments</td>
+        	<td class="remove"><a href="#">remove</a></td>
+        </tr>
+        <tr>
+        	<td>Stuff</td>
+        	<td class="remove"><a href="#">remove</a></td>
+        </tr>
+	    </table>
+	    <% form_for '@account' do |f| -%>
+	    	<%= f.text_field :title %>
+				<button type="submit">Add Category</button>
+	    <% end -%>
+	    </p>
+	  </div>
+	</div><!-- / bd -->
+	</div><!-- / pod -->
+	
+</div><!-- / main-col -->
+
+<div id="sidecol">
+</div><!-- / sidecol -->
