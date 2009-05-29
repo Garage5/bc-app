@@ -1,9 +1,14 @@
+dl dt {
+	display: block;
+	float: left;
+}
+
 label {
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 14px;
 	color: #333;
 	position: relative;
-	top: 1px;
+	top: 6px;
 	margin: 0 5px 0 0;
 }
 
@@ -12,7 +17,7 @@ input[type="text"], input[type="password"], textarea {
 	-webkit-border-radius: 5px;
 	-x-system-font: none;
 	border: 1px solid #CCCCCC;
-	font-size: 1.5em;
+	font-size: 14px;
 	font-family: Arial, sans-serif;
 	padding: 5px 5px 4px 5px;
 	font-weight: bold;
@@ -20,10 +25,10 @@ input[type="text"], input[type="password"], textarea {
 }
 
 input:focus, textarea:focus {
-	border: 1px solid #0197d6;
+	background: #dbf4ff;
+	border-color: #0197d6;
+	color: #0197d6;
 	outline-color: -moz-use-text-color;
 	outline-style: none;
 	outline-width: medium;
-	background: #dbf4ff;
-	color: #0197d6;
 }

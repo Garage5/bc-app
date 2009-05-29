@@ -1,3 +1,6 @@
+<% content_for :head do -%>
+<%= stylesheet_link_tag 'new_tournament' %>
+<% end -%>
 <div id="content-wrapper">
 	<div id="user-nav" class="clear">
 		
@@ -12,7 +15,12 @@
 <div id="maincol">
 	<div class="pod">
 	<div class="bd">
-		
+		<div class="darkpod">
+		<h4 id="tournament_step1">Select a Game</h4>
+		<dl class="clear" id="tournament_game">
+			<dd><input id="game" type="text"/></dd>
+		</dl>
+		</div>
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	

@@ -6,8 +6,10 @@ GLOBAL Stylesheet --------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
 */
 
-/* Globals
------------------------------------------------------------------------------ */
+/* 
+Global
+-------------------------------------------------------------------------------------
+*/
 
 body {
 	background: #252525;
@@ -16,7 +18,7 @@ body {
 	font-size: 62.5%;
 }
 
-.gray{
+.gray {
   color: #999;
 }
 
@@ -35,10 +37,41 @@ a:hover {
 	text-decoration: underline;
 }
 
+.rc {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+/* 
+Headings
+-------------------------------------------------------------------------------------
+*/
+
+.pod h3 {
+  font-size: 16px;
+  font-weight: bold;
+	margin: 20px 0 10px 0;
+}
+
+.pod h3.first {
+	margin: 0 0 10px 0;
+}
+
+.pod .hd h2 {
+	font-size: 15px;
+	color: #333;
+	font-weight: bold;
+}
+
+/* 
+Global Buttons
+------------------------------------------------------------------------------
+*/
+
 a.smlink, a.smlink:visited {
 	text-decoration: none;
 	font-weight: normal;
-	font-size: 1em;
+	font-size: 12px;
 	padding: 5px 8px 2px 8px;
 	display: inline-block;
 }
@@ -46,7 +79,7 @@ a.smlink, a.smlink:visited {
 a.medlink, a.medlink:visited {
 	text-decoration: none;
 	font-weight: normal;
-	font-size: 1.1em;
+	font-size: 13px;
 	padding: 5px 12px 4px 12px;
 	display: inline-block;
 }
@@ -54,7 +87,7 @@ a.medlink, a.medlink:visited {
 a.biglink, a.biglink:visited {
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 1.3em;
+	font-size: 14px;
 	padding: 5px 12px 4px 12px;
 	display: inline-block;
 	margin: 3px 0 3px 0;
@@ -84,6 +117,18 @@ a.smlink:hover, a.medlink:hover, a.biglink:hover {
 	color: #333;
 }
 
+a.alert-rd {
+	border: 2px #999 solid;
+	background: #CCC;
+	color: #333;
+}
+
+a:hover.alert-rd {
+	background: #c50000;
+	color: #FFF;
+	border: 2px #910000 solid;
+}
+
 a.bl-icon-add {
 	background: #0197d6 url(../images/icon-add.gif) 8px 7px no-repeat;
 	color: #FFF;
@@ -98,225 +143,8 @@ a:hover.bl-icon-add {
 	border-color: #333;
 }
 
-.tnav a.icon-add {
-	-moz-border-radius-bottomleft: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	background: #0197d6 url(../images/icon-add.gif) 11px 12px no-repeat;
-	color: #FFF;
-	border: 2px #007bae solid;
-	margin: 2px;
-	padding-left: 25px;
-}
-
-.tnav a:hover.icon-add {
-	background: #666 url(../images/icon-add.gif) 11px 12px no-repeat;
-	color: #FFF;
-	text-decoration: underline;
-	border-color: #333;
-}
-
-/* Main Structure
------------------------------------------------------------------------------ */
-#wrapper {}
-
-#header {
-	background: #0197d6;
-	height: 60px;
-	-webkit-border-bottom-left-radius: 7px;
-	-webkit-border-bottom-right-radius: 7px;
-	-moz-border-radius-bottomleft: 7px;
-	-moz-border-radius-bottomright: 7px;
-	margin: 0 20px 0 20px;
-}
-
-#header h1 {
-	font-size: 2em;
-	font-weight: bold;
-	padding: 19px 0 0 20px;
-	float: left;
-}
-
-#logo {}
-
-#logo a {
-	display: block;
-	text-indent: -9999px;
-}
-
-#logo a:hover {
-	filter:alpha(opacity=70);
-	opacity:0.7; 
-	-moz-opacity:0.7;
-}
-
-#nav {
-	padding: 0 0 0 250px;
-}
-
-#nav ul {}
-
-#nav ul li {
-	margin: 0 5px 0 5px;
-	float: left;
-	display: block;
-}
-
-#nav ul li a {
-	font-size: 1.4em;
-	display: block;
-	padding: 23px 12px 28px 14px;
-	color: #FFF;
-	font-weight: bold;
-	text-decoration: none;
-	border: 1px #0197d6 solid;
-	border-top: 0;
-	background: #0197d6;
-	-moz-border-radius-bottomleft: 7px;
-	-moz-border-radius-bottomright: 7px;
-	-webkit-border-bottom-left-radius: 7px;
-	-webkit-border-bottom-right-radius: 7px;
-}
-
-#nav ul li a:hover {
-	text-decoration: underline;
-	background: #0071a0;
-	color: #cee4ed;
-}
-
-ul#acct-nav {
-	float: right;
-	margin: 0 20px 0 0;
-}
-
-
-#content-wrapper {
-	margin: 30px auto;
-	margin-bottom: 0;
-	width: 100%;
-}
-
-#user-nav {
-	margin: 0 20px 0 20px;
-	padding: 20px 20px 0 20px;
-}
-
-#user-nav h1 {
-	font-size: 2em;
-	font-weight: bold;
-	padding: 0 0 20px 0;
-}
-
-#user-dash {
-	float: right;
-	width: 175px;
-	margin: 0 0 20px 0;
-}
-
-#user-dash #user-avatar {
-	float: left;
-}
-
-#user-dash #user-avatar a img {
-	display: block;
-	width: 50px;
-	border: 1px #888 solid;
-	padding: 1px;
-}
-
-#user-dash #user-name {
-	float: left;
-	margin: 6px 0 0 10px;
-}
-
-#user-dash #user-name h2 {
-	font-size: 2em;
-	font-weight: bold;
-	color: #FFF;
-}
-
-#user-dash #user-name ul {
-}
-
-#user-dash #user-name ul li {
-	display: block;
-	float: left;
-	color: #999;
-	padding: 5px 5px 5px 0;
-}
-
-#user-dash #user-name ul li a {
-	color: #FFF;
-	display: block;
-	font-size: 1.2em;
-}
-
-#user-dash #user-name ul li a:hover {
-	color: #999;
-}
-
-#user-dash a:hover span, #user-dash a:hover {
-	color: #999;
-	text-decoration: none;
-}
-
-#content {
-	margin: 0 20px 0 20px;
-	background: #ececec;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-}
-
-#content h3{
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-ul#subnav {
-	position: relative;
-	top: 8px;
-	left: 0;
-	display: block;
-}
-
-ul#subnav li {
-	float: left;
-	display: block;
-	margin: 0 5px 0 0;
-}
-
-ul#subnav li a {
-	font-size: 1.2em;
-	font-weight: bold;
-	color: #BBB;
-	background: #141616;
-	-moz-border-radius-topleft: 7px;
-	-moz-border-radius-topright: 7px;
-	-webkit-border-top-left-radius: 7px;
-	-webkit-border-top-right-radius: 7px;
-	display: block;
-	padding: 8px 16px 6px 16px;
-	text-decoration: none;
-}
-
-ul#subnav li a:hover {
-	color: #FFF;
-	background: #0197d6;
-	text-decoration: underline;
-}
-
-ul#subnav li.active a {
-	color: #333;
-	background: #ececec;
-	text-decoration: none;
-}
-
-ul#subnav li.active a:hover {
-	color: #000;
-	background: #ececec;
-	text-decoration: underline;
+button {
+	cursor: pointer;
 }
 
 button.btn {
@@ -333,14 +161,55 @@ button.btn {
 	left: 5px;
 }
 
-.rc {
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-}
-
 button:hover.btn {
 	background: #999;
 	text-decoration: underline;
+}
+
+/* 
+Main Structure
+-------------------------------------------------------------------------------------
+*/
+
+#content-wrapper {
+	margin: 30px auto;
+	margin-bottom: 0;
+	width: 100%;
+}
+
+#header {
+	background: #0197d6;
+	height: 60px;
+	-webkit-border-bottom-left-radius: 7px;
+	-webkit-border-bottom-right-radius: 7px;
+	-moz-border-radius-bottomleft: 7px;
+	-moz-border-radius-bottomright: 7px;
+	margin: 0 20px 0 20px;
+}
+
+#header h1 {
+	font-size: 20px;
+	font-weight: bold;
+	padding: 19px 0 0 20px;
+	float: left;
+}
+
+#logo a {
+	display: block;
+	text-indent: -9999px;
+}
+
+#logo a:hover {
+	filter:alpha(opacity=70);
+	opacity:0.7; 
+	-moz-opacity:0.7;
+}
+
+#content {
+	margin: 0 20px 0 20px;
+	background: #ececec;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
 }
 
 #maincol {
@@ -372,118 +241,111 @@ button:hover.btn {
 	border-bottom: 1px #BBB solid;
 }
 
-.pod .hd h2 {
-	font-size: 1.5em;
-	color: #333;
-	font-weight: bold;
-}
-
 .pod .bd {
 	color: #000;
 	padding: 10px;
-	font-size: 1.3em;
+	font-size: 13px;
 }
 
-.pod .pod{
-  margin: 0 0 10px 0;
-  padding: 10px;
-}
-
-.darkpod{
+.darkpod {
   background: #f0f0f0;
   color: #666;
   border-color: #ddd;
   line-height: 18px;
+	border: 1px solid #ccc;
+  padding: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+.darkpod p {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 18px;
+}
+
+.darkpod p.note {
+  background: #fff8cf;
+  color: #9b7f3c;
+  padding: 10px;
+  border: 1px solid #e2d484;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
 }
 
 #sidecol .pod {
 	margin-left: 0;
 }
 
-table#overview {
-	width: 100%;
+.pod .pod {
+  margin: 10px 0 0 0;
+  padding: 10px;
 }
 
-table#overview tr td {
-	border-bottom: 1px #DDD solid;
-	padding: 6px 6px 6px 0;
+/* 
+Navigation - Main
+-------------------------------------------------------------------------------------
+*/
+
+#nav {
+	padding: 0 0 0 250px;
 }
 
-table#overview tr td.item-icon {
-	width: 150px;
+#nav ul li {
+	margin: 0 5px 0 5px;
+	float: left;
+	display: block;
 }
 
-table#overview tr td.item-icon span {
+#nav ul li a {
+	font-size: 14px;
+	display: block;
+	padding: 23px 12px 28px 14px;
 	color: #FFF;
 	font-weight: bold;
-	text-align: right;
-	padding: 6px 6px 6px 0;
-	display: block;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	-webkit-border-radius: 2px;
+	text-decoration: none;
+	border: 1px #0197d6 solid;
+	border-top: 0;
+	background: #0197d6;
+	-moz-border-radius-bottomleft: 7px;
+	-moz-border-radius-bottomright: 7px;
+	-webkit-border-bottom-left-radius: 7px;
+	-webkit-border-bottom-right-radius: 7px;
 }
 
-table#overview tr.announcement td.item-icon span {
-	background: #fd5f00;
-}
-
-table#overview tr.message td.item-icon span {
-	background: #368700;
-}
-
-table#overview tr.comment td.item-icon span {
-	background: #5e9f33;
-}
-
-table#overview tr.brackets td.item-icon span {
-	background: #006a8d;
-}
-
-table#overview tr.schedule td.item-icon span {
-	background: #009ed9;
-}
-
-table#overview tr.dispute td.item-icon span {
-	background: #bc0000;
-}
-
-table#overview tr.dispute td.item-title a {
-	color: #bc0000;
-}
-
-table#overview tr.dispute td.item-title a:hover {
-	color: #333;
+#nav ul li a:hover {
 	text-decoration: underline;
+	background: #0071a0;
+	color: #cee4ed;
 }
 
-table#overview tr td.item-title {
-	width: 420px;
+ul#acct-nav {
+	float: right;
+	margin: 0 20px 0 0;
 }
 
-table#overview tr td.item-title a {
-	display: block;
+/* 
+Navigation - Tournament - Sidecol
+-------------------------------------------------------------------------------------
+*/
+
+.tnav a.icon-add {
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	background: #0197d6 url(../images/icon-add.gif) 11px 12px no-repeat;
+	color: #FFF;
+	border: 2px #007bae solid;
+	margin: 2px;
+	padding-left: 25px;
 }
 
-table#overview tr td.item-action {
-	width: 100px;
-	text-align: right;
-	color: #999;
-}
-
-table#overview tr td.item-posted {
-	padding-right: 0;
-	text-align: left;
-	color: #333;
-}
-
-table#overview tr td.item-date {
-	text-align: left;
-	color: #333;
-}
-
-table#overview tr.last td {
-	border: 0;
+.tnav a:hover.icon-add {
+	background: #666 url(../images/icon-add.gif) 11px 12px no-repeat;
+	color: #FFF;
+	text-decoration: underline;
+	border-color: #333;
 }
 
 .tnav .bd {
@@ -502,6 +364,127 @@ table#overview tr.last td {
 .tnav ul li.last {
 	border: 0;
 }
+
+/* 
+Navigation - User Navigation (Avatar, profile, etc)
+-------------------------------------------------------------------------------------
+*/
+
+#user-nav {
+	margin: 0 20px 0 20px;
+	padding: 20px 20px 0 20px;
+}
+
+#user-nav h1 {
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0 0 20px 0;
+}
+
+#user-dash {
+	float: right;
+	width: 175px;
+	margin: 0 0 20px 0;
+}
+
+#user-dash #user-avatar {
+	float: left;
+}
+
+#user-dash #user-avatar a img {
+	display: block;
+	width: 50px;
+	border: 1px #888 solid;
+	padding: 1px;
+}
+
+#user-dash #user-name {
+	float: left;
+	margin: 6px 0 0 10px;
+}
+
+#user-dash #user-name h2 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+#user-dash #user-name ul li {
+	display: block;
+	float: left;
+	color: #999;
+	padding: 5px 5px 5px 0;
+}
+
+#user-dash #user-name ul li a {
+	color: #FFF;
+	display: block;
+	font-size: 12px;
+}
+
+#user-dash #user-name ul li a:hover {
+	color: #999;
+}
+
+#user-dash a:hover span, #user-dash a:hover {
+	color: #999;
+	text-decoration: none;
+}
+
+/* 
+Navigation - Sub Navigation
+-------------------------------------------------------------------------------------
+*/
+
+ul#subnav {
+	position: relative;
+	top: 8px;
+	left: 0;
+	display: block;
+}
+
+ul#subnav li {
+	float: left;
+	display: block;
+	margin: 0 5px 0 0;
+}
+
+ul#subnav li a {
+	font-size: 12px;
+	font-weight: bold;
+	color: #BBB;
+	background: #141616;
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+	-webkit-border-top-left-radius: 7px;
+	-webkit-border-top-right-radius: 7px;
+	display: block;
+	padding: 8px 16px 6px 16px;
+	text-decoration: none;
+}
+
+ul#subnav li a:hover {
+	color: #FFF;
+	background: #0197d6;
+	text-decoration: underline;
+}
+
+ul#subnav li.active a {
+	color: #333;
+	background: #ececec;
+	text-decoration: none;
+}
+
+ul#subnav li.active a:hover {
+	color: #000;
+	background: #ececec;
+	text-decoration: underline;
+}
+
+/* 
+Footer
+-------------------------------------------------------------------------------------
+*/
 
 #footer {
 	margin: 5px 0 0 25px;

@@ -75,7 +75,7 @@ body#login #wrapper #content dl dd.remember label {
 	left: 2px;
 }
 
-input.text, input.password {
+body#login input.text, input.password {
 	width: 94%;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
@@ -89,7 +89,7 @@ input.text, input.password {
 	background: #dbf4ff;
 }
 
-input:focus {
+body#login input:focus {
 	border: 3px solid #005c82;
 	outline-color: -moz-use-text-color;
 	outline-style: none;

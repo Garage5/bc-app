@@ -1,47 +1,30 @@
-.bd{
-  padding: 20px !important;
+div#your_logo dl dt {
+	float: left;
 }
 
-#your_logo img{
-  vertical-align: middle;
-  margin-right: 10px;
+div#your_logo dl dd {
+	display: block;
+	position: relative;
+	left: 15px;
+	top: 30px;
+	margin: 5px 0 5px 0;
 }
 
-div.darkpod{
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 20px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
+div#settings ul li {
+	margin: 0 0 8px 0;
 }
 
-div.darkpod p{
-  color: #666;
-  margin-bottom: 15px;
-  line-height: 18px;
-}
-
-div.darkpod p.note{
-  background: #fff8cf;
-  color: #9b7f3c;
-  width: 500px;
-  padding: 5px;
-  border: 1px solid #e2d484;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-}
-
-#message_categories table{
+#message_categories table {
   width: 300px;
   margin-bottom: 10px;
   border-collapse: collapse;
 }
 
-#message_categories table td{
+#message_categories table td {
   border-bottom: 1px solid #ccc;
   padding: 5px;
 }
 
-#message_categories table td.remove{
+#message_categories table td.remove {
   text-align: right;
 }

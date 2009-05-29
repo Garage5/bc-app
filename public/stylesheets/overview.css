@@ -1,0 +1,85 @@
+table#overview {
+	width: 100%;
+}
+
+table#overview tr td {
+	border-bottom: 1px #DDD solid;
+	padding: 6px 6px 6px 0;
+}
+
+table#overview tr td.item-icon {
+	width: 150px;
+}
+
+table#overview tr td.item-icon span {
+	color: #FFF;
+	font-weight: bold;
+	text-align: right;
+	padding: 6px 6px 6px 0;
+	display: block;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+table#overview tr.announcement td.item-icon span {
+	background: #fd5f00;
+}
+
+table#overview tr.message td.item-icon span {
+	background: #368700;
+}
+
+table#overview tr.comment td.item-icon span {
+	background: #5e9f33;
+}
+
+table#overview tr.brackets td.item-icon span {
+	background: #006a8d;
+}
+
+table#overview tr.schedule td.item-icon span {
+	background: #009ed9;
+}
+
+table#overview tr.dispute td.item-icon span {
+	background: #bc0000;
+}
+
+table#overview tr.dispute td.item-title a {
+	color: #bc0000;
+}
+
+table#overview tr.dispute td.item-title a:hover {
+	color: #333;
+	text-decoration: underline;
+}
+
+table#overview tr td.item-title {
+	width: 420px;
+}
+
+table#overview tr td.item-title a {
+	display: block;
+}
+
+table#overview tr td.item-action {
+	width: 100px;
+	text-align: right;
+	color: #999;
+}
+
+table#overview tr td.item-posted {
+	padding-right: 0;
+	text-align: left;
+	color: #333;
+}
+
+table#overview tr td.item-date {
+	text-align: left;
+	color: #333;
+}
+
+table#overview tr.last td {
+	border: 0;
+}

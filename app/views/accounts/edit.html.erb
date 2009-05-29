@@ -13,18 +13,17 @@
 <div id="maincol">
 	<div class="pod">
   <div class="bd">
-    
-	  <h3>Your Logo</h3>
-    <div id="your_logo" class="darkpod">
+	  <h3 class="first">Your Logo</h3>
+    <div id="your_logo" class="darkpod clear">
 	    <p>Your logo appears on the Login, Dashboard, and Overview pages.</p>
 	    <p class="note"><strong>NOTE:</strong> The logo must not be lmore than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
-	    <p>
-        <% form_for '@account' do |f| -%>
-	        <img src="/images/missing_logo.gif" alt="logo" />
-	        <%= f.file_field :logo %>
-	        <button type="submit">Upload Logo</button>
-	        <% end -%>
-	    </p>
+				<% form_for '@account' do |f| -%>
+					<dl>
+						<dt><img src="/images/missing_logo.gif" alt="logo" /></dt>
+	        	<dd><%= f.file_field :logo %></dd>
+	        	<dd><button type="submit">Upload Logo</button></dd>
+					</dl>
+				<% end -%>
 	  </div>	 
 	
 	  <h3>Your Site Name</h3>
@@ -33,11 +32,10 @@
 	    <% form_for '@account' do |f| -%>
 	      <%= f.text_field :name %>
 	    <% end -%>
-	    </p>
 	  </div>
 	
 	  <h3>Message Categories</h3>
-	  <div id="message_categories" class="darkpod">
+	  <div id="message_categories" class="darkpod darkpod-last">
 	    <table>
         <tr>
         	<td>Announcements</td>
@@ -56,11 +54,9 @@
 	    	<%= f.text_field :title %>
 				<button type="submit">Add Category</button>
 	    <% end -%>
-	    </p>
 	  </div>
 	</div><!-- / bd -->
-	</div><!-- / pod -->
-	
+</div><!-- / pod -->
 </div><!-- / main-col -->
 
 <div id="sidecol">
