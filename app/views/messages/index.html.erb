@@ -1,0 +1,59 @@
+<% stylesheet :messages %>
+<div id="content-wrapper">
+	<div id="user-nav" class="clear">
+		
+		<%= render :partial => "layouts/user_nav" %>
+		
+		<h1>Tournament Name</h1>
+		
+		<%= render :partial => "layouts/sub_nav" %>
+		
+	</div><!-- / user-nav -->
+<div id="content" class="clear">
+<div id="maincol">
+	<div class="pod">
+  	<div class="hd">
+  	 <h2>Messages</h2>
+  	</div>
+  	<div class="bd">
+		  <table id="messages">
+		    <tr>
+          <td class="message_main">
+		        <span class="message_subject"><strong class="announcment rc">Announcment:</strong> <a href="#">Message Subject</a></span>
+  		      <p>Posted by 
+  		        <a href="#" class="message_user">plankton</a> on 10/02/2009 at 3:23pm</p>
+          </td>
+          <td class="message_status"><p>
+            <img src="/images/comment.gif" alt="comment" />
+            <span>23</span> | <a href="#">2 unread</a></p>
+          </td>		      
+          <td class="message_latest">
+		        <p>Latest Comment by 
+		        <a href="#" class="message_user">mattdetails</a><br /> Yesterday 3:53am</p>
+		      </td>
+		    </tr><!-- /comment -->
+		    <tr>
+          <td class="message_main">
+		        <span class="message_subject"><a href="#">Message Subject</a></span>
+  		      <p>Posted by 
+  		        <a href="#" class="message_user">plankton</a> on 10/02/2009 at 3:23pm</p>
+          </td>
+          <td class="message_status"><p>
+            <img src="/images/comment.gif" alt="comment" />
+            <span>23</span> | <a href="#">2 unread</a></p>
+          </td>
+          <td class="message_latest">
+		        <p>Latest Comment by 
+		          <a href="#" class="message_user">mattdetails</a><br /> Yesterday 3:53am</p>
+		      </td>
+		    </tr><!-- /comment -->
+		  </table>
+		  
+		  <a href="#" class="rc biglink wh">New Message</a>
+  	</div><!-- / bd -->
+	</div><!-- / pod -->
+	
+</div><!-- / main-col -->
+
+<div id="sidecol">
+</div><!-- / sidecol -->

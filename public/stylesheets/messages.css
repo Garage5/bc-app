@@ -1,0 +1,45 @@
+#messages{
+  color: #9f9f9f;
+  width: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+#messages .announcment {
+  background: #ce2d0e;
+  padding: 3px 6px;
+  color: #fff;
+  font-size: 12px;
+}
+
+#messages td{
+	border-bottom: 1px solid #ddd;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+#messages tr td a{
+  font-weight: bold !important;
+}
+
+#messages .message_status p {position: relative;top: 5px;}
+#messages .message_status a {color: #000}
+
+
+#messages .message_subject {
+  color: #000;
+  font-size: 14px; 
+  margin-bottom: 5px;
+}
+
+#messages .message_main {width: 60%;}
+
+#messages .message_comments p{
+  position: relative;
+  top: 8px;
+}
+
+#messages .message_latest{
+  text-align: right;
+}
