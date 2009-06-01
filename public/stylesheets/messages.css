@@ -94,3 +94,9 @@ h2 {
 .comment_body p {
   margin-bottom: 15px;
 }
+
+label{
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
