@@ -43,3 +43,54 @@
 #messages .message_latest{
   text-align: right;
 }
+
+#message_header,
+.comment_header {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+#message_header img,
+.comment_header img {
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+
+#message_header h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#message_body {
+  padding: 20px 10px;
+  line-height: 18px;
+  width: 700px;
+}
+
+#message_body p {
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.comment_header {
+  margin-bottom: 10px;
+}
+
+.comment_header h3 {
+  color: #000;
+  margin: 0 0 2px;
+}
+
+.comment_header p{
+  margin-bottom: 0;
+}
+
+.comment_body p {
+  margin-bottom: 15px;
+}

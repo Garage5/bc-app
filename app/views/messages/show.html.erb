@@ -1,3 +1,4 @@
+<% stylesheet :messages %>
 <div id="content-wrapper">
 	<div id="user-nav" class="clear">
 		
@@ -11,8 +12,52 @@
 <div id="content" class="clear">
 <div id="maincol">
 	<div class="pod">
-	<div class="bd">
-		
+	<div class="bd clear">
+	  <div id="message_header" class="clear">
+	   	<img src="/images/avatar_big.jpg" height="50" class="left" />
+   	  <h2>Message Subject goes Here...</h2>
+   	  <p class="gray">Posted by <a href="#">mattdetails</a> 23 days ago</p>
+	  </div>
+	  <div id="message_body">
+	    <p>
+  	   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+  	  </p>
+  	  <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  	  </p>
+	  </div>
+	  
+	  <h2>Comments</h2>
+	  <ul>
+	    <li class="comment pod darkpod">
+	      <div class="comment_header">
+	       <img src="/images/avatar_big.jpg" height="40" />
+	       <h3>mattdetails says:</h3>
+	       <p>posted 3 hours ago</p>
+	      </div>
+	      <div class="comment_body">
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	      </div>
+	    </li>
+	    <li class="comment pod darkpod">
+	      <div class="comment_header">
+	       <img src="/images/avatar_big.jpg" height="40" />
+	       <h3>mattdetails says:</h3>
+	       <p>posted 3 hours ago</p>
+	      </div>
+	      <div class="comment_body">
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+	      </div>
+	    </li>
+	  </ul><!-- /comments ul -->
+	  
+	  <br/>
+	  <div class="step darkpod clear">
+			<div class="clear"><h4><em>Post a Comment</em></h4></div>
+      <textarea rows="5" cols="60" id="game"></textarea>
+      <br />
+			<a class="rc biglink wh" href="">Post Comment</a>
+		</div><!-- / darkpod -->
+	  
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	

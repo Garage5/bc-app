@@ -1,3 +1,5 @@
+<% stylesheet :new_message %>
+
 <div id="content-wrapper">
 	<div id="user-nav" class="clear">
 		
@@ -12,7 +14,34 @@
 <div id="maincol">
 	<div class="pod">
 	<div class="bd">
-		New Messages
+	  <h3>Post a Message</h3>
+	  
+	  <div id="message_main" class="darkpod step clear">
+			<dl>
+			  <dt><label>Subject</label></dt>
+			  <dd><input type="text" size="40"/></dd>
+			  <dt><label>Message</label></dt>
+				<dd><textarea rows="15" cols="60" id="game"></textarea></dd>
+			</dl>
+		</div><!-- / darkpod -->
+		<br />
+		<div id="message_attach" class="darkpod step clear">
+			<dl>
+			  <dt><label>Attach a File</label></dt>
+			  <p class="note">Files cannot be larger than 42 and must contain references to cats.</p>
+			  <dd><input type="file" size="40"/></dd>
+			</dl>
+		</div><!-- / darkpod -->
+		<br />
+		<div id="message_subscribe" class="darkpod step clear">
+			<dl>
+			  <dt><label>Subscribe the following users to receive email notifications:</label></dt>
+			  <dd><input type="checkbox" size="40"/> mattdetails</dd>
+			  <dd><input type="checkbox" size="40"/> plankton</dd>
+			</dl>
+		</div><!-- / darkpod -->
+		<br />
+		<a class="rc biglink wh" href="">Post Message</a>
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	
