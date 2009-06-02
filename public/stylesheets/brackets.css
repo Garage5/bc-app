@@ -1,0 +1,69 @@
+#brackets ul.round {
+  width: 120px;
+  padding: 0 20px;
+  float: left;
+}
+
+#brackets li.match {
+  margin-bottom: 40px;
+}
+
+#brackets li.player{
+  background: #181e21;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  -webkit-border-radius: 3px;
+}
+
+#brackets li.comments{
+  text-align: center;
+}
+
+#brackets li.comments span{
+  display: block;
+  height: 12px;
+  padding: 14px;
+}
+
+#brackets ul.round#r1{
+  padding-left: 0;
+}
+
+
+#brackets ul.round#r2{
+  position: relative;
+  top: 40px;
+}
+#brackets ul.round#r2 li.comments{
+  margin: 40px 0;
+}
+#brackets ul.round#r2 li.match{
+  margin-bottom: 120px;
+}
+
+
+
+#brackets ul.round#r3{
+  position: relative;
+  top: 120px;
+}
+#brackets ul.round#r3 li.comments{
+  margin: 120px 0;
+}
+#brackets ul.round#r3 li.match{
+  margin-bottom: 120px;
+}
+
+
+
+#brackets ul.round#r4{
+  position: relative;
+  top: 280px;
+}
+#brackets ul.round#r4 li.comments{
+  margin: 280px 0;
+}
+#brackets ul.round#r4 li.match{
+  margin-bottom: 280px;
+}
