@@ -71,9 +71,11 @@ Global Buttons
 .smlink, .smlink:visited {
 	text-decoration: none;
 	font-weight: normal;
-	font-size: 12px;
-	padding: 5px 8px 2px 8px;
+	font-size: 11px;
+	padding: 5px 8px 3px 8px;
 	display: inline-block;
+	position: relative;
+	top: -2px;
 }
 
 .medlink, .medlink:visited {
@@ -82,6 +84,8 @@ Global Buttons
 	font-size: 13px;
 	padding: 5px 12px 4px 12px;
 	display: inline-block;
+	position: relative;
+	top: -2px;
 }
 
 .biglink, .biglink:visited {
@@ -95,19 +99,19 @@ Global Buttons
 	top: -2px;
 }
 
-.bl {
+.bl, .bl:visited {
 	background: #0197d6 url(/images/btn-grad.png) left bottom repeat-x;
 	color: #FFF;
 	border: 1px #007bae solid;
 }
 
-.oj {
+.oj, .oj:visited {
 	background: #ff6000 url(/images/btn-grad.png) left bottom repeat-x;
 	color: #FFF;
 	border: 1px #de5400 solid;
 }
 
-.wh {
+.wh, .wh:visited {
 	background: #FFF url(/images/btn-grad.png) left bottom repeat-x;
 	color: #017ecc;
 	border: 1px #BBB solid;
@@ -115,12 +119,48 @@ Global Buttons
 
 .smlink:hover, .medlink:hover, .biglink:hover {
 	border-color: #999;
-	background: #FFF;
+	background: #FFF url(/images/btn-grad.png) left top repeat-x;
 	color: #333;
 }
 
 .smlink:active, .medlink:active, .biglink:active {
+	background: #FFF;
+}
+
+.bl:hover {
+	background: #0197d6 url(/images/btn-grad.png) left top repeat-x;
+	color: #FFF;
+	border: 1px #007bae solid;
+}
+
+.bl:active {
+	background: #0197d6;
+	color: #FFF;
+	border: 1px #007bae solid;
+}
+
+.oj:hover {
+	background: #ff6000 url(/images/btn-grad.png) left top repeat-x;
+	color: #FFF;
+	border: 1px #de5400 solid;
+}
+
+.oj:active {
+	background: #ff6000;
+	color: #FFF;
+	border: 1px #de5400 solid;
+}
+
+.wh:hover {
 	background: #FFF url(/images/btn-grad.png) left top repeat-x;
+	color: #017ecc;
+	border: 1px #BBB solid;
+}
+
+.wh:active {
+	background: #FFF;
+	color: #017ecc;
+	border: 1px #BBB solid;
 }
 
 .alert-rd {
@@ -254,6 +294,12 @@ Main Structure
 	font-size: 13px;
 }
 
+.pod .bd p {
+	color: #555;
+	font-size: 13px;
+	line-height: 20px;
+}
+
 .darkpod {
   background: #f0f0f0;
   color: #666;
@@ -287,6 +333,10 @@ Main Structure
 .pod .pod {
   margin: 10px 0 0 0;
   padding: 10px;
+}
+
+.group {
+	margin: 0 0 20px 0;
 }
 
 /* 

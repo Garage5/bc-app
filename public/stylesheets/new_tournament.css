@@ -11,7 +11,7 @@ span.step-icon {
 }
 
 #process_steps {
-	padding: 10px 0 0 15px;
+	padding: 10px 0 0 20px;
 }
 
 #process_steps ul li {
@@ -95,4 +95,126 @@ span.step-icon {
 	position: relative;
 	top: 7px;
 	left: 21px;
+}
+
+.calendar_date_select {
+	display: block;
+	float: left;
+	background: #FFF;
+	padding: 10px;
+	border: 1px #BBB solid;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	margin: 15px 15px 0 7px;
+}
+
+.calendar_date_select .header {
+	text-align: center;
+}
+
+.calendar_date_select .header .pager a {
+	padding: 3px 6px 2px 8px;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.calendar_date_select .body {
+	margin: 10px 0 0 0;
+}
+
+.calendar_date_select .body table tbody tr.weekdays th {
+	padding: 4px 8px 4px 8px;
+	font-weight: bold;
+	background: #dfecf9;
+	text-align: center;
+}
+
+.calendar_date_select .body table tbody tr.days td {
+	padding: 2px;
+	text-align: center;
+}
+
+.calendar_date_select .body table tbody tr.days td a {
+	background: #EEE;
+	display: block;
+	padding: 4px 8px 4px 8px;
+}
+
+.calendar_date_select .body table tbody tr.days td a:hover {
+	background: #DDD;
+}
+
+.calendar_date_select .body table tbody tr.days td.today a {
+	color: #FFF;
+	background: #FF6000;
+}
+
+.calendar_date_select .body table tbody tr.days td.selected a {
+	color: #FFF;
+	background: #0197d6;
+}
+
+.calendar_date_select .body table tbody tr.days td.other a {
+	color: #999;
+	background: transparent;
+}
+
+div.tournament_dates {
+	float: left;
+}
+
+div.tournament_dates table {
+  width: 400px;
+  margin: 10px 0 10px 0;
+  border-collapse: collapse;
+}
+
+div.tournament_dates table tr td select {
+	margin: 0 0 5px 0;
+}
+
+div.tournament_dates table tr td {
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+}
+
+div.tournament_dates table tr th {
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+	font-weight: bold;
+}
+
+div.tournament_dates table tr td.date {
+	width: 250px;
+}
+
+div.tournament_dates table tr td.edit {
+  text-align: right;
+}
+
+div#tournament_prize ul li label, div#tournament_players ul li label {
+	margin: 0 0 0 10px;
+}
+
+div#tournament_players ul li {
+	margin: 0 0 5px 0;
+}
+
+div#tournament_players ul li.dropdown {
+	margin: 0 0 15px 0;
+}
+
+div#tournament_players ul li label.checkbox {
+	position: relative;
+	top: -3px;
+	margin: 0 0 0 5px;
+}
+
+div.save_wrapper {
+	padding: 10px 0 0 0;
+}
+
+div.save_wrapper ul li {
+	margin: 0 0 5px 0;
 }
