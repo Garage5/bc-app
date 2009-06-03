@@ -1,23 +1,66 @@
+#brackets {
+  padding: 20px;
+}
+
 #brackets ul.round {
-  width: 120px;
-  padding: 0 20px;
   float: left;
+  width: 159px;
 }
 
 #brackets li.match {
-  margin-bottom: 40px;
+  margin-bottom: 40px
 }
 
+#brackets li.match .bracket_path{
+  float: right;
+  position: relative;
+  top: 19px;
+}
+
+
 #brackets li.player{
-  background: #181e21;
+}
+
+#brackets li.player, #brackets li.comments{
+  text-align: center;
+}
+
+
+#brackets li.player img{
+  display: block;
+  float: left;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+#brackets li.player a{
+  background: #71787c;
+  border: 1px solid #62676a;
+  color: #fff;
   height: 40px;
   line-height: 40px;
-  text-align: center;
+  width: 120px;
+  display: block;
   -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+#brackets li.player a:hover{
+  background: #017ecc;
+  color: #fff;
+  border-color: #017ecc;
 }
 
 #brackets li.comments{
   text-align: center;
+  padding-right: 30px;
+}
+
+#brackets li.comments a{
+  color: #666;
+  font-weight: normal;
+  font-size: 11px;
 }
 
 #brackets li.comments span{
@@ -26,7 +69,8 @@
   padding: 14px;
 }
 
-#brackets ul.round#r1{
+#brackets ul.round#r1 li.player, 
+#brackets ul.round#r1 li.comments{
   padding-left: 0;
 }
 
