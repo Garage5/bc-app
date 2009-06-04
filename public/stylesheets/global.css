@@ -340,6 +340,53 @@ Main Structure
 }
 
 /* 
+Tabbed Headers in Pods ----------------------------------------------------------------------
+*/
+
+.tab-pod .hd {
+	position: relative;
+}
+
+.tab-pod .hd ul.tabbed {
+	float: right;
+	margin: 0 10px 0 0;
+	position: absolute;
+	bottom: -3px;
+	right: 0;
+}
+
+.tab-pod .hd ul.tabbed li {
+	float: left;
+	display: block;
+	margin: 0 2px 0 2px;
+}
+
+.tab-pod .hd ul.tabbed li a {
+	padding: 8px 15px 9px 15px;
+	display: block;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #666;
+}
+
+.tab-pod .hd ul.tabbed li.active a {
+	padding: 8px 14px 9px 14px;
+	background: #FFF;
+	border: 1px #959595 solid;
+	border-bottom: 0;
+	color: #333;
+}
+
+.tab-pod .hd ul.tabbed li.active a:hover {
+	color: #017ecc;
+}
+
+.tab-pod .hd ul.tabbed li a:hover {
+	color: #017ecc;
+	text-decoration: underline;
+}
+
+/* 
 Navigation - Main
 -------------------------------------------------------------------------------------
 */
