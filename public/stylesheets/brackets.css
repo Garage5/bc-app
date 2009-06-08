@@ -1,113 +1,154 @@
-#brackets {
-  padding: 20px;
-}
+/* General Bracket Styles
+-------------------------------------------*/
 
-#brackets ul.round {
-  float: left;
-  width: 159px;
-}
-
-#brackets li.match {
-  margin-bottom: 40px
-}
-
-#brackets li.match .bracket_path{
-  float: right;
-  position: relative;
-  top: 19px;
-}
-
-
-#brackets li.player{
-}
-
-#brackets li.player, #brackets li.comments{
-  text-align: center;
-}
-
-
-#brackets li.player img{
-  display: block;
-  float: left;
-  position: relative;
-  top: 5px;
-  left: 5px;
-}
-
-#brackets li.player a{
-  background: #71787c;
-  border: 1px solid #62676a;
+#bracket_window {
+  background: #101212;
   color: #fff;
-  height: 40px;
-  line-height: 40px;
-  width: 120px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+ul.round {
+  float: left;
+  width: 164px;
+  border-right: 1px solid #171a1a;
+}
+
+ul.round li.round_header {
+  background-color: #1d2020;
+}
+
+ul.round:first-child li.round_header {
+  -webkit-border-top-left-radius:  4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topleft:  4px;
+  -moz-border-radius-topright: 4px;
+}
+
+ul.round li.round_header h3 {
+  font-size: 13px;
+  font-weight: bold;
+  height: 36px;
+  line-height: 36px;
+  text-indent: 15px;
+  margin: 0;
+  border-right: 1px solid #272b2b;
+  margin-right: -1px;
+}
+
+li.match {
+  padding: 0 47px 0 23px;
+  margin-right: -24px;
+}
+
+
+li.match li.player a {
   display: block;
+  background-color: #425154;
+  height: 27px;
+  border: 1px solid #4c5a5d;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-}
-
-#brackets li.player a:hover{
-  background: #017ecc;
   color: #fff;
-  border-color: #017ecc;
+  line-height: 27px;
 }
 
-#brackets li.comments{
+li.match li.player a:hover {
+  background-color: #0082b9;
+  border-color: #0094c4;
+  text-decoration: none;
+}
+
+li.match li.player img {
+  float: left;
+  height: 21px;
+  width: 21px;
+  margin-right: 6px;
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+
+li.match li.comments {
+  color: #2a2f30;
   text-align: center;
-  padding-right: 30px;
 }
 
-#brackets li.comments a{
-  color: #666;
+li.match li.comments a {
+  color: #fff;
+  font-size: 10px;
   font-weight: normal;
-  font-size: 11px;
 }
 
-#brackets li.comments span{
-  display: block;
-  height: 12px;
-  padding: 14px;
+/* Round 1 Styles
+-------------------------------------------*/
+
+ul.round#r1 {
+  z-index: 2;
 }
 
-#brackets ul.round#r1 li.player, 
-#brackets ul.round#r1 li.comments{
-  padding-left: 0;
+ul.round#r1 li.match {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background: url(../images/bracket_r1.gif) right 25px no-repeat;
+}
+
+ul.round#r1 li.match li.comments {
+  height: 31px;
+  line-height: 31px;
+}
+
+/* Round 2 Styles
+-------------------------------------------*/
+
+ul.round#r1 {
+  z-index: 1;
+}
+
+ul.round#r2 li.match {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  background: url(../images/bracket_r2.gif) right 55px no-repeat;
+}
+
+ul.round#r2 li.match li.comments {
+  height: 110px;
+  line-height: 110px;
+}
+
+/* Round 3 Styles
+-------------------------------------------*/
+
+ul.round#r3 li.match {
+  padding-top: 124px;
+  padding-bottom: 124px;
+  background: url(../images/bracket_r3.gif) right 124px no-repeat;
+}
+
+ul.round#r3 li.match li.comments {
+  height: 248px;
+  line-height: 248px;
 }
 
 
-#brackets ul.round#r2{
-  position: relative;
-  top: 40px;
+/* Round 5 Styles
+-------------------------------------------*/
+
+ul.round#r4 li.match {
+  padding-top: 260px;
+  padding-bottom: 260px;
+  background: url(../images/bracket_r3.gif) 260px right no-repeat;
 }
-#brackets ul.round#r2 li.comments{
-  margin: 40px 0;
-}
-#brackets ul.round#r2 li.match{
-  margin-bottom: 120px;
+
+ul.round#r4 li.match li.comments {
+  height: 520px;
+  line-height: 520px;
 }
 
 
+/* Overides
+--------------------------------------------*/
 
-#brackets ul.round#r3{
-  position: relative;
-  top: 120px;
-}
-#brackets ul.round#r3 li.comments{
-  margin: 120px 0;
-}
-#brackets ul.round#r3 li.match{
-  margin-bottom: 120px;
-}
-
-
-
-#brackets ul.round#r4{
-  position: relative;
-  top: 280px;
-}
-#brackets ul.round#r4 li.comments{
-  margin: 280px 0;
-}
-#brackets ul.round#r4 li.match{
-  margin-bottom: 280px;
+ul.round.final li.match {
+  background-image: none !important;
 }
