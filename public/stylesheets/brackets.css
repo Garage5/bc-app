@@ -1,5 +1,8 @@
 /* General Bracket Styles
 -------------------------------------------*/
+.full_width {
+  width: 100% !important;
+}
 
 #bracket_window {
   background: #101212;
@@ -53,13 +56,14 @@ li.match li.player a {
   line-height: 27px;
 }
 
-li.match li.player a:hover {
+li.match li.player a:hover, li.match li.player.disqualified a:hover  {
+  color: #fff;
   background-color: #0082b9;
   border-color: #0094c4;
   text-decoration: none;
 }
 
-li.match li.player img {
+li.match li.player img.bracket_avatar {
   float: left;
   height: 21px;
   width: 21px;
@@ -67,6 +71,19 @@ li.match li.player img {
   position: relative;
   top: 3px;
   left: 3px;
+}
+
+li.match li.player.disqualified a {
+  background-color: #1f2526;
+  border-color: #222829;
+  color: #4d5454;
+}
+
+li.match li.player img.disqualified {
+  float: right;
+  position: relative;
+  top: -22px;
+  right: -9px;
 }
 
 li.match li.comments {
@@ -131,18 +148,48 @@ ul.round#r3 li.match li.comments {
 }
 
 
-/* Round 5 Styles
+/* Round 4 Styles
 -------------------------------------------*/
 
 ul.round#r4 li.match {
-  padding-top: 260px;
-  padding-bottom: 260px;
-  background: url(../images/bracket_r3.gif) 260px right no-repeat;
+  padding-top: 261px;
+  padding-bottom: 261px;
+  background: url(../images/bracket_r4.gif) 260px right no-repeat;
 }
 
 ul.round#r4 li.match li.comments {
-  height: 520px;
-  line-height: 520px;
+  height: 527px;
+  line-height: 527px;
+}
+
+
+/* Round 5 Styles
+-------------------------------------------*/
+
+ul.round#r5 li.match {
+  padding-top: 538px;
+  padding-bottom: 538px;
+  background: url(../images/bracket_r5.gif) 538px right no-repeat;
+}
+
+ul.round#r5 li.match li.comments {
+  height: 1077px;
+  line-height: 1077px;
+}
+
+
+/* Round 6 Styles
+-------------------------------------------*/
+
+ul.round#r6 li.match {
+  padding-top: 1094px;
+  padding-bottom: 1094px;
+  background: url(../images/bracket_r5.gif) 260px right no-repeat;
+}
+
+ul.round#r6 li.match li.comments {
+  height: 1077px;
+  line-height: 1077px;
 }
 
 
