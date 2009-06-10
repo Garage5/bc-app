@@ -1,4 +1,22 @@
+<% javascript 'http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js' %>
+<% javascript 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js' %>
+<% javascript 'jquery.background_layers' %>
+<% javascript 'jquery.pulse' %>
 <% stylesheet :brackets %>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.player').hover(
+      function(){ $("a:contains('" + $(this).text() + "')").addClass('hover') },
+      function(){ $("a:contains('" + $(this).text() + "')").removeClass('hover')}
+    )
+    
+    $('.player#me').pulse({
+      opacityRange: [0.5, 1.0]
+    })
+  })
+</script>
+
 <div id="content-wrapper">
 	<div id="user-nav" class="clear">
 		
@@ -14,25 +32,61 @@
 	<div class="pod">
   	<div id="brackets" class="bd clear">
   	  <div id="bracket_window" class="clear">
-  	    <% player_count = 16 %>
   	    <!-- ROUND 1 -->
         <ul class="round" id="r1">
           <li class="round_header"><h3>Round 1</h3></li>
-          
-          <% (player_count/2).times do %>
+
           <li class="match">
             <ul>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a></li>
+              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Luke</a></li>
               <li class="comments"><span><a href="#">
                 <img src="/images/bracket_comment.gif"/> 2</a> | 
                 <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
               </a></span></li>
-              <li class="player disqualified"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a>
+              <li class="player disqualified"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Darth Vader</a>
                 <img class="disqualified" src="/images/bracket_x.gif">
               </li>
             </ul>
           </li>
-          <% end %>
+        
+          <li class="match">
+            <ul>
+              <li class="player" id="mattdetails-r1"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
+              <li class="comments"><span><a href="#">
+                <img src="/images/bracket_comment.gif"/> 2</a> | 
+                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
+              </a></span></li>
+              <li class="player disqualified"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Boba Fett</a>
+                <img class="disqualified" src="/images/bracket_x.gif">
+              </li>
+            </ul>
+          </li>
+          
+          <li class="match">
+            <ul>
+              <li class="player" id="mattdetails-r1"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
+              <li class="comments"><span><a href="#">
+                <img src="/images/bracket_comment.gif"/> 2</a> | 
+                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
+              </a></span></li>
+              <li class="player disqualified"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> CThreepio</a>
+                <img class="disqualified" src="/images/bracket_x.gif">
+              </li>
+            </ul>
+          </li>
+          
+          <li class="match">
+            <ul>
+              <li class="player" id="mattdetails-r1"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Anakin</a></li>
+              <li class="comments"><span><a href="#">
+                <img src="/images/bracket_comment.gif"/> 2</a> | 
+                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
+              </a></span></li>
+              <li class="player disqualified"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Obi Kenobi</a>
+                <img class="disqualified" src="/images/bracket_x.gif">
+              </li>
+            </ul>
+          </li>
         </ul>
   	    <!-- END ROUND 1 -->
 
@@ -40,67 +94,58 @@
         <ul class="round" id="r2">
           <li class="round_header"><h3>Round 2</h3></li>
           
-          <% (player_count/4).times do %>
           <li class="match">
             <ul>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a></li>
+              <li class="player" id="me"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Luke</a></li>
               <li class="comments"><span><a href="#">
                 <img src="/images/bracket_comment.gif"/> 2</a> | 
                 <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
               </a></span></li>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a></li>
+              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
             </ul>
           </li>
-          <% end %>
+          
+          <li class="match">
+            <ul>
+              <li class="player" id="mattdetails-r2"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
+              <li class="comments"><span><a href="#">
+                <img src="/images/bracket_comment.gif"/> 2</a> | 
+                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
+              </a></span></li>
+              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Obi Kenobi</a></li>
+            </ul>
+          </li>
         </ul>
         <!-- END ROUND 2 -->
         
   	    <!-- ROUND 3 -->
         <ul class="round" id="r3">
           <li class="round_header"><h3>Round 3</h3></li>
-          <% (player_count/8).times do %>
           <li class="match">
             <ul>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a></li>
+              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
               <li class="comments"><span><a href="#">
                 <img src="/images/bracket_comment.gif"/> 2</a> | 
                 <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
               </a></span></li>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a></li>
+              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
             </ul>
           </li>
-          <% end %>
         </ul>
   	    <!-- END ROUND 3 -->
-
+        
         <!-- ROUND 4 -->
-        <ul class="round" id="r4">
+        <ul class="round final" id="r4">
           <li class="round_header"><h3>Round 4</h3></li>
-          <% (player_count/16).times do %>
           <li class="match">
             <ul>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a></li>
-              <li class="comments"><span><a href="#">
-                <img src="/images/bracket_comment.gif"/> 2</a> | 
-                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
-              </a></span></li>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a></li>
+              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
             </ul>
           </li>
-          <% end %>
         </ul>
   	    <!-- END ROUND 4 -->
- 
-  	    <!-- ROUND 5 -->
-        <ul class="round final" id="r5">
-          <li class="round_header"><h3>Winner</h3></li>
-          <li class="match">
-            <ul>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> mattdetails</a></li>
-            </ul>
-          </li>
-        </ul>
-  	    <!-- END ROUND 5 -->
+
+
    	  </div>
   	</div><!-- / bd -->
 	</div><!-- / pod -->
