@@ -7,13 +7,24 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
     $('.player').hover(
-      function(){ $("a:contains('" + $(this).text() + "')").addClass('hover') },
-      function(){ $("a:contains('" + $(this).text() + "')").removeClass('hover')}
+      function(){
+        box = $("a:contains('" + $(this).text() + "')")        
+        box.addClass('hover')
+        
+        match = box.parent().parent().parent()
+        match.each(function(i){
+          if (++i != match.size()){
+            $(this).prepend($('<div class="highlight"></div>').css({left: $(this).offset().left + 141 + 'px'}))
+          }
+        })    
+      },
+      function(){
+        $("a:contains('" + $(this).text() + "')").removeClass('hover')
+        $(".highlight").remove()
+      }
     )
     
-    $('.player#me').pulse({
-      opacityRange: [0.5, 1.0]
-    })
+    $('.player#me').pulse({opacityRange: [0.5, 1.0]})
   })
 </script>
 
@@ -36,7 +47,7 @@
         <ul class="round" id="r1">
           <li class="round_header"><h3>Round 1</h3></li>
 
-          <li class="match">
+          <li class="match winner-p1">
             <ul>
               <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Luke</a></li>
               <li class="comments"><span><a href="#">
@@ -49,7 +60,7 @@
             </ul>
           </li>
         
-          <li class="match">
+          <li class="match winner-p1">
             <ul>
               <li class="player" id="mattdetails-r1"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
               <li class="comments"><span><a href="#">
@@ -62,7 +73,7 @@
             </ul>
           </li>
           
-          <li class="match">
+          <li class="match winner-p1">
             <ul>
               <li class="player" id="mattdetails-r1"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
               <li class="comments"><span><a href="#">
@@ -75,7 +86,7 @@
             </ul>
           </li>
           
-          <li class="match">
+          <li class="match winner-p1">
             <ul>
               <li class="player" id="mattdetails-r1"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Anakin</a></li>
               <li class="comments"><span><a href="#">
@@ -94,9 +105,9 @@
         <ul class="round" id="r2">
           <li class="round_header"><h3>Round 2</h3></li>
           
-          <li class="match">
+          <li class="match winner-p1">
             <ul>
-              <li class="player" id="me"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Luke</a></li>
+              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Luke</a></li>
               <li class="comments"><span><a href="#">
                 <img src="/images/bracket_comment.gif"/> 2</a> | 
                 <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
@@ -105,7 +116,7 @@
             </ul>
           </li>
           
-          <li class="match">
+          <li class="match winner-p1">
             <ul>
               <li class="player" id="mattdetails-r2"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
               <li class="comments"><span><a href="#">
@@ -121,7 +132,7 @@
   	    <!-- ROUND 3 -->
         <ul class="round" id="r3">
           <li class="round_header"><h3>Round 3</h3></li>
-          <li class="match">
+          <li class="match winner-p2">
             <ul>
               <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
               <li class="comments"><span><a href="#">
@@ -139,7 +150,7 @@
           <li class="round_header"><h3>Round 4</h3></li>
           <li class="match">
             <ul>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
+              <li class="player" id="me"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
             </ul>
           </li>
         </ul>

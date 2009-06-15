@@ -44,7 +44,10 @@ li.match {
   margin-right: -24px;
 }
 
-
+li.match li.player {
+  height: 27px;
+  overflow: visible;
+}
 
 li.match li.player#me a {
   background-color: #ca5a00;
@@ -102,6 +105,7 @@ li.match li.comments a {
   font-weight: normal;
 }
 
+
 /* Round 1 Styles
 -------------------------------------------*/
 
@@ -119,6 +123,20 @@ ul.round#r1 li.match li.comments {
   height: 31px;
   line-height: 31px;
 }
+
+ul.round#r1 li.match.winner-p1 {
+  background-image: url(../images/bracket_r1_p1.gif);
+}
+
+ul.round#r1 li.match.winner-p2 {
+  background-image: url(../images/bracket_r1_p2.gif);
+}
+
+ul.round#r1 li.match .highlight {
+  background-image: url(../images/bracket_r1_highlight.gif);
+  height: 89px;
+}
+
 
 /* Round 2 Styles
 -------------------------------------------*/
@@ -138,6 +156,20 @@ ul.round#r2 li.match li.comments {
   line-height: 110px;
 }
 
+ul.round#r2 li.match.winner-p1 {
+  background-image: url(../images/bracket_r2_p1.gif);
+}
+
+ul.round#r2 li.match.winner-p2 {
+  background-image: url(../images/bracket_r2_p2.gif);
+}
+
+ul.round#r2 li.match .highlight {
+  background-image: url(../images/bracket_r2_highlight.gif);
+  height: 168px;
+}
+
+
 /* Round 3 Styles
 -------------------------------------------*/
 
@@ -150,6 +182,19 @@ ul.round#r3 li.match {
 ul.round#r3 li.match li.comments {
   height: 248px;
   line-height: 248px;
+}
+
+ul.round#r3 li.match.winner-p1 {
+  background-image: url(../images/bracket_r3_p1.gif);
+}
+
+ul.round#r3 li.match.winner-p2 {
+  background-image: url(../images/bracket_r3_p2.gif);
+}
+
+ul.round#r3 li.match .highlight {
+  background-image: url(../images/bracket_r3_highlight.gif);
+  height: 306px;
 }
 
 
@@ -167,6 +212,18 @@ ul.round#r4 li.match li.comments {
   line-height: 527px;
 }
 
+ul.round#r4 li.match.winner-p1 {
+  background-image: url(../images/bracket_r4_p1.gif);
+}
+
+ul.round#r4 li.match.winner-p2 {
+  background-image: url(../images/bracket_r4_p2.gif);
+}
+
+ul.round#r4 li.match .highlight {
+  background-image: url(../images/bracket_r2_highlight.gif);
+  height: 585px;
+}
 
 /* Round 5 Styles
 -------------------------------------------*/
@@ -182,6 +239,18 @@ ul.round#r5 li.match li.comments {
   line-height: 1077px;
 }
 
+ul.round#r5 li.match.winner-p1 {
+  background-image: url(../images/bracket_r5_p1.gif);
+}
+
+ul.round#r5 li.match.winner-p2 {
+  background-image: url(../images/bracket_r5_p2.gif);
+}
+
+ul.round#r5 li.match .highlight {
+  background-image: url(../images/bracket_r5_highlight.gif);
+  height: 1141px;
+}
 
 /* Round 6 Styles
 -------------------------------------------*/
@@ -189,7 +258,7 @@ ul.round#r5 li.match li.comments {
 ul.round#r6 li.match {
   padding-top: 1094px;
   padding-bottom: 1094px;
-  background: url(../images/bracket_r5.gif) 260px right no-repeat;
+  background: url(../images/bracket_r6.gif) 260px right no-repeat;
 }
 
 ul.round#r6 li.match li.comments {
@@ -197,10 +266,31 @@ ul.round#r6 li.match li.comments {
   line-height: 1077px;
 }
 
+ul.round#r6 li.match.winner-p1 {
+  background-image: url(../images/bracket_r6_p1.gif);
+}
 
-/* Overides
+ul.round#r6 li.match.winner-p2 {
+  background-image: url(../images/bracket_r6_p2.gif);
+}
+
+/* misc
 --------------------------------------------*/
+ul.round li.match.winner-p2 .highlight {
+  background-position: top right;
+}
 
 ul.round.final li.match {
   background-image: none !important;
+}
+
+.highlight{
+  width: 47px;
+  height: 100px;
+  position: absolute;
+}
+
+
+ul.round#r1 .hightlight {
+  
 }
