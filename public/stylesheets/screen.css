@@ -10,6 +10,8 @@ SCREEN Stylesheet --------------------------------------------------------------
 @import url(global.css);
 @import url(forms.css);
 @import url(signup.css);
+@import url(new_tournament.css);
+@import url(tournament_rules.css);
 
 /* 
 ---------------------------------------------------------------------------------------------

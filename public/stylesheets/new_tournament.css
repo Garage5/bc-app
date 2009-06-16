@@ -48,11 +48,11 @@ span.step-icon {
 	background: #017ecc;
 	float: left;
 	padding: 6px 10px 6px 10px;
-	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomleft: 0px;
 	-moz-border-radius-bottomright: 5px;
 	position: relative;
 	top: -11px;
-	left: 7px;
+	left: -11px;
 }
 
 #new_tournament .step h4 em {
@@ -78,23 +78,6 @@ span.step-icon {
 	font-size: 17px;
 	padding: 6px;
 	margin: 0 5px 0 0;
-}
-
-#new_tournament #tournament_game p.note {
-	width: 410px;
-	position: relative;
-	top: -40px;
-	margin: 0 0 -40px 0;
-	left: 21px;
-	float: left;
-}
-
-#new_tournament #tournament_rules p.note {
-	width: 200px;
-	float: left;
-	position: relative;
-	top: 7px;
-	left: 21px;
 }
 
 .calendar_date_select {
@@ -162,6 +145,7 @@ span.step-icon {
 
 div.tournament_dates {
 	float: left;
+	margin: -22px 0 0 0;
 }
 
 div.tournament_dates table {
@@ -183,6 +167,7 @@ div.tournament_dates table tr th {
   border-bottom: 1px solid #ccc;
   padding: 5px;
 	font-weight: bold;
+	width: 200px;
 }
 
 div.tournament_dates table tr td.date {
@@ -217,4 +202,30 @@ div.save_wrapper {
 
 div.save_wrapper ul li {
 	margin: 0 0 5px 0;
+}
+
+div.container {
+	font-size: 16px;
+	padding: 5px;
+}
+
+div.container h3 {
+	border-bottom: 1px #BBB solid;
+}
+
+div.container ul#prizes li {
+	padding: 8px 0 8px 0;
+	border-bottom: 1px #BBB solid;
+}
+
+div.container ul#prizes li div {
+	display: block;
+	float: left;
+	width: 100px;
+	text-align: right;
+	margin: 0 15px 0 0;
+}
+
+div.container ul#prizes li.last {
+	border: 0;
 }

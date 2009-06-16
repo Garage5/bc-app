@@ -1,0 +1,64 @@
+.tournament-rules h2 {
+	margin: 0 0 5px 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	border-bottom: 1px #BBB solid;
+}
+
+.tinfo .calendar_date_select {
+	display: block;
+	float: none;
+	background: transparent;
+	border: 0;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	margin: 0;
+}
+
+#sidecol .tinfo ul#basic_info li, #sidecol .tinfo ul#prizes li {
+	padding: 8px 0 5px 0;
+	display: block;
+	font-size: 14px;
+	border-bottom: 1px #BBB solid;
+	color: #444;
+}
+
+#sidecol .tinfo ul#basic_info li.last, #sidecol .tinfo ul#prizes li.last {
+	border: 0;
+}
+
+#sidecol .tinfo ul#basic_info li strong {
+	color: #333;
+}
+
+#sidecol .tinfo h3 {
+	margin: 15px 0 5px 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	border-bottom: 1px #BBB solid;
+}
+
+.tinfo #calendar_key {
+	margin: 0 0 0 20px;
+}
+
+span.swatch {
+	padding: 0px 4px 0 4px;
+	position: relative;
+	top: -2px;
+	font-size: 10px;
+	margin: 0 3px 0 0;
+}
+
+.tinfo #calendar_key li {
+	font-size: 12px !important;
+	color: #333;
+	float: left;
+	display: block;
+	margin: 0 10px 0 0;
+	padding: 5px 0 5px 0;
+}
+
+.tinfo 

@@ -1,9 +1,9 @@
-#messages{
+#messages {
   color: #9f9f9f;
-  width: 100%;
   font-size: 12px;
   line-height: 20px;
   margin-bottom: 10px;
+	width: 100%;
 }
 
 #messages .announcment {
@@ -12,19 +12,24 @@
   font-size: 12px;
 }
 
-#messages td{
+#messages td {
 	border-bottom: 1px solid #ddd;
   padding: 10px;
   white-space: nowrap;
 }
 
-#messages tr td a{
+#messages tr td a {
   font-weight: bold !important;
 }
 
-#messages .message_status p {position: relative;top: 5px;}
-#messages .message_status a {color: #000}
+#messages .message_status p {
+	position: relative;
+	top: 5px; 
+}
 
+#messages .message_status a { 
+	color: #000;
+}
 
 #messages .message_subject {
   color: #000;
@@ -32,14 +37,16 @@
   margin-bottom: 5px;
 }
 
-#messages .message_main {width: 60%;}
+#messages .message_main { 
+	width: 60%; 
+}
 
-#messages .message_comments p{
+#messages .message_comments p {
   position: relative;
   top: 8px;
 }
 
-#messages .message_latest{
+#messages .message_latest {
   text-align: right;
 }
 
@@ -62,21 +69,25 @@
   margin-bottom: 10px;
 }
 
-#message_category{
-  font-weight: bold;
+#message_category {
   float: right;
   position: relative;
   top: 15px;
   left: -10px;
-  padding: 4px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+	color: #FFF;
+	font-weight: bold;
+	text-align: right;
+	padding: 5px 10px 4px 10px;
+	display: block;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	font-size: 11px;
+	background: #999;
 }
 
 #message_body {
   padding: 20px 10px;
   line-height: 18px;
-  width: 700px;
 }
 
 #message_body p {
@@ -97,7 +108,7 @@ h2 {
   margin: 0 0 2px;
 }
 
-.comment_header p{
+.comment_header p {
   margin-bottom: 0;
 }
 
@@ -105,8 +116,28 @@ h2 {
   margin-bottom: 15px;
 }
 
-label{
+label {
   display: block;
   font-size: 13px;
   margin-bottom: 10px;
+}
+
+.cat_announcement {
+	background: #fd5f00 !important;
+}
+
+.message_subject .cat_announcement {
+	float: left;
+	position: relative;
+	top: 2px;
+	left: -10px;
+	color: #FFF !important;
+	font-weight: bold;
+	text-align: right;
+	padding: 8px 15px 6px 15px;
+	display: block;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	font-size: 11px;
+	background: #fd5f00 !important;
 }

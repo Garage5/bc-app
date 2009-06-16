@@ -1,9 +1,12 @@
+<% stylesheet :new_tournament %>
+<% stylesheet :tournament_rules %>
+
 <div id="content-wrapper">
 	<div id="user-nav" class="clear">
 		
 		<%= render :partial => "layouts/user_nav" %>
 		
-		<h1>Recent Tournament Activity</h1>
+		<h1>Valor Tournament</h1>
 		
 		<%= render :partial => "layouts/sub_nav" %>
 		
@@ -11,15 +14,16 @@
 <div id="content" class="clear">
 <div id="maincol">
 	<div class="pod">
-	<div class="hd">
-		<h2>This is a Tournament Title</h2>
-	</div><!-- / hd -->
-	<div class="bd">
-		This is a Tournament
+		<div class="hd">
+			<h2>Tournament Information</h2>
+		</div>
+	<div class="bd clear tournament-rules">
+		<h2>General Information</h2>
+		<p>Stuff</p>
 	</div><!-- / bd -->
 	</div><!-- / pod -->
-	
 </div><!-- / main-col -->
 
 <div id="sidecol">
+	<%= render :partial => "layouts/side_tinfo" %>
 </div><!-- / sidecol -->

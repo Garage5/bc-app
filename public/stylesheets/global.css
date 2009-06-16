@@ -63,10 +63,24 @@ Headings
 	font-weight: bold;
 }
 
+.pod .hd h2 a {
+	color: #333;
+	text-decoration: underline;
+}
+
+.pod .hd h2 a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
 /* 
 Global Buttons
 ------------------------------------------------------------------------------
 */
+
+a.txtlink-red {
+	color: #bb0000;
+}
 
 .smlink, .smlink:visited {
 	text-decoration: none;
@@ -217,6 +231,9 @@ button:hover.btn {
 Main Structure
 -------------------------------------------------------------------------------------
 */
+#wrapper {
+	min-width: 985px;
+}
 
 #content-wrapper {
 	margin: 30px auto;
@@ -235,9 +252,9 @@ Main Structure
 }
 
 #header h1 {
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: bold;
-	padding: 19px 0 0 20px;
+	padding: 22px 0 0 20px;
 	float: left;
 }
 
@@ -286,6 +303,7 @@ Main Structure
 	-webkit-border-top-left-radius: 3px;
 	-webkit-border-top-right-radius: 3px;
 	border-bottom: 1px #BBB solid;
+	position: relative;
 }
 
 .pod .bd {
@@ -324,6 +342,30 @@ Main Structure
   border: 1px solid #e2d484;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
+	position: relative;
+}
+
+p.note a.note-close {
+	float: right;
+	position: absolute;
+	bottom: -1px;
+	right: -1px;
+	display: block;
+	background: #9b7f3c;
+	color: #fff8cf;
+	padding: 1px 6px 0 7px;
+	line-height: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	-moz-border-radius-topleft: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+}
+
+p.note a:hover.note-close {
+	background: #665327;
+	color: #fff8cf;
 }
 
 #sidecol .pod {
@@ -337,6 +379,25 @@ Main Structure
 
 .group {
 	margin: 0 0 20px 0;
+}
+
+.game-icon {
+	display: inline-block;
+}
+
+.game-icon em {
+	color: #017ecc;
+	font-weight: bold;
+	display: block;
+	float: left;
+	position: relative;
+	top: 10px;
+	margin: 0 0 0 5px;
+	font-size: 12px;
+}
+
+.game-icon img {
+	float: left;
 }
 
 /* 
@@ -392,7 +453,7 @@ Navigation - Main
 */
 
 #nav {
-	padding: 0 0 0 250px;
+	padding: 0 0 0 200px;
 }
 
 #nav ul li {
@@ -481,6 +542,12 @@ Navigation - User Navigation (Avatar, profile, etc)
 
 #user-nav h1 {
 	font-size: 20px;
+	font-weight: bold;
+	padding: 0 0 20px 0;
+}
+
+#user-nav h5 {
+	font-size: 12px;
 	font-weight: bold;
 	padding: 0 0 20px 0;
 }
@@ -604,6 +671,14 @@ ul#subnav li.active a:hover {
 	padding: 6px 0;
 	display: block;
 	float: left;
+}
+
+span.swatch {
+	padding: 0px 4px 0 4px;
+	position: relative;
+	top: -2px;
+	font-size: 10px;
+	margin: 0 3px 0 0;
 }
 
 /* 
