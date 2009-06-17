@@ -2,9 +2,11 @@
 -------------------------------------------*/
 .full_width {
   width: 100% !important;
+  font-size: 13px;
 }
 
 #bracket_window {
+  margin: 10px;
   background: #101212;
   color: #fff;
   -webkit-border-radius: 4px;
@@ -19,6 +21,21 @@ ul.round {
 
 ul.round li.round_header {
   background-color: #1d2020;
+}
+
+ul.round li.round_date {
+  background-color: #0a0c0c;
+  border-bottom: 1px solid #151717;
+  padding: 0 8px;
+  height: 29px;
+  line-height: 29px;
+  font-size: 12px;
+  color: #5d656a;
+}
+
+ul.round li.round_date a {
+  float: right;
+  font-size: 11px;
 }
 
 ul.round:first-child li.round_header {
@@ -277,7 +294,7 @@ ul.round#r6 li.match.winner-p2 {
 /* misc
 --------------------------------------------*/
 ul.round li.match.winner-p2 .highlight {
-  background-position: top right;
+  background-position: bottom right;
 }
 
 ul.round.final li.match {
@@ -291,6 +308,6 @@ ul.round.final li.match {
 }
 
 
-ul.round#r1 .hightlight {
-  
+li.match.winner-p2 .hightlight {
+  background-position: top right;
 }
