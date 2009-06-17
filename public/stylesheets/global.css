@@ -536,14 +536,15 @@ Navigation - User Navigation (Avatar, profile, etc)
 */
 
 #user-nav {
-	margin: 0 20px 0 20px;
+	margin: 0 20px 8px 20px;
 	padding: 20px 20px 0 20px;
+	position: relative;
 }
 
 #user-nav h1 {
 	font-size: 20px;
 	font-weight: bold;
-	padding: 0 0 20px 0;
+	padding: 0 0 40px 0;
 }
 
 #user-nav h5 {
@@ -553,17 +554,65 @@ Navigation - User Navigation (Avatar, profile, etc)
 }
 
 #user-dash {
+	position: absolute;
+	right: 0;
+	top: 0px;
 	float: right;
-	width: 175px;
-	margin: 0 0 20px 0;
+	width: 240px;
 }
 
 #user-dash #user-avatar {
 	float: left;
+	position: relative;
+}
+
+#user-dash #user-avatar a {
+	padding: 5px 5px 5px 15px;
+	border: 2px #252525 solid;
+	border-top: 0;
+	border-bottom: 0;
+	display: block;
+}
+
+#user-dash #user-avatar:hover a {
+	background: #FFF;
+	border-left: 2px #BBB solid;
+	border-top: 0;
+	border-bottom: 0;
+}
+
+#user-dash #user-avatar ul#user_subnav {
+	display: none;
+}
+
+#user-dash #user-avatar:hover ul#user_subnav {
+	display: block;
+	position: absolute;
+	width: 150px;
+	z-index: 1000;
+	border: 2px #BBB solid;
+	border-top: 0;
+	border-right: 1px #BBB solid;
+}
+
+#user-dash #user-avatar:hover ul#user_subnav li {
+	padding: 1px 0 1px 0;
+	background: #FFF;
+}
+
+#user-dash #user-avatar:hover ul#user_subnav li a {
+	border: 0;
+	font-size: 12px;
+	padding: 7px 8px 5px 8px;
+	border-left: 5px #0197d6 solid;
+}
+
+#user-dash #user-avatar:hover ul#user_subnav li a:hover {
+	color: #FFF;
+	background: #0197d6;
 }
 
 #user-dash #user-avatar a img {
-	display: block;
 	width: 50px;
 	border: 1px #888 solid;
 	padding: 1px;
@@ -612,6 +661,7 @@ ul#subnav {
 	top: 8px;
 	left: 0;
 	display: block;
+	float: left;
 }
 
 ul#subnav li {
@@ -652,6 +702,61 @@ ul#subnav li.active a:hover {
 	text-decoration: underline;
 }
 
+/* 
+Navigation - Right Sub Navigation
+-------------------------------------------------------------------------------------
+*/
+
+ul#right_subnav {
+	position: relative;
+	top: 8px;
+	left: 0;
+	display: block;
+	float: right;
+}
+
+ul#right_subnav li {
+	float: left;
+	display: block;
+	margin: 0 5px 0 0;
+}
+
+ul#right_subnav li a {
+	font-size: 12px;
+	font-weight: bold;
+	color: #BBB;
+	background: #141616;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	display: block;
+	padding: 8px 16px 6px 16px;
+	text-decoration: none;
+}
+
+ul#right_subnav li a:hover {
+	color: #FFF;
+	background: #0197d6;
+	text-decoration: underline;
+}
+
+ul#right_subnav li.active a {
+	color: #333;
+	background: #ececec;
+	text-decoration: none;
+}
+
+ul#right_subnav li.active a:hover {
+	color: #000;
+	background: #ececec;
+	text-decoration: underline;
+}
+
+/* 
+
+-------------------------------------------------------------------------------------
+*/
 
 .step h4 {
 	background: #017ecc;
