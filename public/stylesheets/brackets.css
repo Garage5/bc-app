@@ -33,6 +33,10 @@ ul.round li.round_date {
   color: #5d656a;
 }
 
+ul.round li.round_date span {
+  float: left;
+}
+
 ul.round li.round_date a {
   float: right;
   font-size: 11px;
