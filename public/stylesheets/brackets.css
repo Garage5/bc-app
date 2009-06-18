@@ -295,6 +295,27 @@ ul.round#r6 li.match.winner-p2 {
   background-image: url(../images/bracket_r6_p2.gif);
 }
 
+/* host links
+--------------------------------------------*/
+.host_links {
+  background-color: #1c2021;
+  border: 1px solid #212424;
+  width: 120px;
+  height: 55px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  position: absolute;
+  z-index: 0;
+  display: none;
+}
+
+li.player a {
+  position: relative;
+  z-index: 1;
+}
+
+
+
 /* misc
 --------------------------------------------*/
 ul.round li.match.winner-p2 .highlight {

@@ -8,6 +8,14 @@
   $(document).ready(function(){
     $('.player').hover(
       function(){
+        $(this).append(
+          $("<div class='host_links'></div>").css({
+            left: $(this).offset().left - 2,
+            top: $(this).offset().top - 2
+          })
+        )
+        $(".host_links").show(400)
+        
         box = $("a:contains('" + $(this).text() + "')")        
         box.addClass('hover')
         
@@ -21,6 +29,7 @@
       function(){
         $("a:contains('" + $(this).text() + "')").removeClass('hover')
         $(".highlight").remove()
+        $(".host_links").remove()
       }
     )
     
