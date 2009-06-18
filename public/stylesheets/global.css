@@ -12,10 +12,11 @@ Global
 */
 
 body {
-	background: #191c1d;
+	background: #0f1011;
 	color: #FFF;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 62.5%;
+	margin: 0 0 40px 0;
 }
 
 .gray {
@@ -233,6 +234,9 @@ Main Structure
 */
 #wrapper {
 	min-width: 985px;
+	background: #242729;
+	border-bottom: 1px #303437 solid;
+	margin: 0 0 -1px 0;
 }
 
 #content-wrapper {
@@ -244,11 +248,11 @@ Main Structure
 #header {
 	background: #0197d6;
 	height: 60px;
-	-webkit-border-bottom-left-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
 	-moz-border-radius-bottomleft: 5px;
 	-moz-border-radius-bottomright: 5px;
-	margin: 0 20px 0 20px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	margin: 0 40px 0 40px;
 }
 
 #header h1 {
@@ -270,10 +274,15 @@ Main Structure
 }
 
 #content {
-	margin: 0 20px 0 20px;
-	background: #ececec;
+	margin: 0 40px 0 40px;
+	background: #DCDCDC;
+	border-bottom: 1px #FFF solid;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
+	-moz-border-radius-bottomleft:      0px;
+	-moz-border-radius-bottomright:     0px;
+	-webkit-border-bottom-left-radius:  0px;
+	-webkit-border-bottom-right-radius: 0px;
 }
 
 #maincol {
@@ -290,13 +299,13 @@ Main Structure
 .pod {
   margin: 10px;
 	background: #FFF;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	border: 1px #BBB solid;
 }
 
 .pod .hd {
-	background: #e3e3e3;
+	background: #e4e4e4;
 	padding: 10px 10px 8px 10px;
 	-moz-border-radius-topleft: 3px;
 	-moz-border-radius-topright: 3px;
@@ -691,7 +700,7 @@ Navigation - User Navigation (Avatar, profile, etc)
 */
 
 #user-nav {
-	margin: 0 20px 8px 20px;
+	margin: 0 40px 8px 40px;
 	padding: 20px 20px 0 20px;
 	position: relative;
 }
@@ -881,13 +890,13 @@ ul#subnav li a:hover {
 
 ul#subnav li.active a {
 	color: #333;
-	background: #ececec;
+	background: #DCDCDC;
 	text-decoration: none;
 }
 
 ul#subnav li.active a:hover {
 	color: #000;
-	background: #ececec;
+	background: #DCDCDC;
 	text-decoration: underline;
 }
 
@@ -981,13 +990,106 @@ Footer
 */
 
 #footer {
-	margin: 5px 0 0 25px;
-	color: #999;
+	margin: 0 40px 0 40px;
+	padding: 20px;
+	background: #FFF url(/images/footer_bg.gif) bottom repeat-x;
+	color: #666;
+	border-top: 1px #BBB solid;
+	-moz-border-radius-bottomleft:      5px;
+	-moz-border-radius-bottomright:     5px;
+	-webkit-border-bottom-left-radius:  5px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+
+#footer .footer_inner {
+	margin: 0 0 0 250px;
 }
 
 #footer a {
-	color: #FFF;
+	color: #555;
 }
+
+#footer #meta_copy {
+	float: right;
+}
+
+#footer #meta_copy a#managed_by {
+	padding: 8px 18px 8px 18px;
+	background: #DDD;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	display: block;
+	float: right;
+	margin: 0;
+	color: #DDD;
+	border: 2px #d5d5d5 solid;
+}
+
+#footer #meta_copy a#managed_by:hover {
+	background: #CCC;
+	border-color: #BBB;
+	color: #CCC;
+}
+
+#footer #meta_copy p {
+	display: block;
+	margin: 5px 0 0 2px;
+	font-size: 11px;
+	text-align: right;
+}
+
+#footer #meta_copy p a {
+	text-decoration: underline;
+}
+
+#footer #meta_copy p a:hover {
+	color: #017ecc;
+	text-decoration: none;
+}
+
+#footer #gen_info, #footer #support_info, #footer #feedback_form {
+	float: left;
+	margin: 0 15px 0 15px;
+}
+
+#footer h2 {
+	color: #333;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0 0 4px 0;
+}
+
+#footer ul {
+}
+
+#footer ul li {
+	margin: 4px 0 4px 0;
+	font-size: 12px;
+	border-top: 1px #DDD solid;
+}
+
+
+#footer ul li a {
+	display: block;
+	padding: 6px 6px 2px 6px;
+}
+
+#footer #feedback_form label {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	margin: 0 0 4px 0;
+	display: block;
+	padding: 0 0 6px 0;
+	border-bottom: 1px #FFF solid;
+}
+
+#footer #feedback_form span {
+	display: block;
+	margin: 4px 0 6px 0;
+	font-size: 12px;
+}
+
 
 /* 
 ---------------------------------------------------------------------------------------------
