@@ -1,20 +1,22 @@
 <div id="user-dash">
 	<div id="user-avatar">
-		<a href=""><img src="/images/avatar_big.jpg" /></a>
-		<ul id="user_subnav">
+		<a id="avatar" href=""><img src="/images/avatar_big.jpg" /></a>
+		<div id="user_subnav">
+		<ul>
 			<li><a href="">View your Profile</a></li>
 			<li><a href="">View your Stats</a></li>
 			<li><a href="">Your Tournaments</a></li>
 			<li><a href="">Invite a Friend</a></li>
 		</ul>
+		</div><!-- / user_subnav -->
 	</div>
 	
 	<div id="user-name">
 		<h2><%= current_user.try(:login) || 'nologin' %></h2>
 		<ul class="clear">
-			<li><a href="">Account</a></li>
+			<li id="user_account"><a href="">Account</a></li>
 			<li style="padding: 6px 5px 5px 0;">|</li>
-			<li><a href="">Logout</a></li>
+			<li id="user_logout"><a href="">Logout</a></li>
 		</ul>
 	</div>
 </div><!-- / user-dash -->
