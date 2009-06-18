@@ -492,7 +492,7 @@ ul#acct-nav {
 #nav ul li#btn_tmenu a {
 	font-size: 14px;
 	display: block;
-	padding: 23px 25px 28px 14px;
+	padding: 23px 30px 22px 14px;
 	color: #FFF;
 	font-weight: bold;
 	text-decoration: none;
@@ -511,6 +511,38 @@ ul#acct-nav {
 	color: #cee4ed;
 }
 
+#nav ul li#btn_tmenu a span#tmenu_txt {
+	display: block;
+	float: left;
+}
+
+#nav ul li#btn_tmenu a span#tmenu_unread {
+	font-size: 12px;
+	background: #FFF;
+	color: #0197d6;
+	font-weight: bold;
+	-moz-border-radius:    20px;
+	-webkit-border-radius: 20px;
+	display: block;
+	padding: 4px 7px 4px 7px;
+	float: left;
+	position: relative;
+	left: 6px;
+	top: -3px;
+}
+
+#nav ul li#btn_tmenu a:hover span#tmenu_unread {
+	text-decoration: none !important;
+	background: #0197d6;
+	color: #FFF;
+}
+
+#nav ul li#btn_tmenu:hover a span#tmenu_unread {
+	text-decoration: none !important;
+	background: #0197d6;
+	color: #FFF;
+}
+
 #nav ul li#btn_tmenu {
 	position: relative;
 }
@@ -527,6 +559,7 @@ ul#acct-nav {
 	-moz-border-radius-bottomright:     0px;
 	-webkit-border-bottom-left-radius:  0px;
 	-webkit-border-bottom-right-radius: 0px;
+	text-decoration: none;
 }
 
 #nav ul li#btn_tmenu:hover #tmenu {
@@ -543,14 +576,21 @@ ul#acct-nav {
 	-webkit-border-bottom-right-radius: 7px;
 }
 
-#nav ul li#btn_tmenu:hover #tmenu ul {
-	width: 250px;
+#nav ul li#btn_tmenu:hover #tmenu #tmenu_inner {
+	width: 350px;
 	background: #FFF;
 	padding: 6px 2px 6px 2px;
 	-moz-border-radius-bottomleft:      5px;
 	-moz-border-radius-bottomright:     5px;
 	-webkit-border-bottom-left-radius:  5px;
 	-webkit-border-bottom-right-radius: 5px;
+}
+
+#nav ul li#btn_tmenu:hover #tmenu #tmenu_inner h3 {
+	color: #333;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 7px 0 7px 12px;
 }
 
 #nav ul li#btn_tmenu:hover #tmenu ul li {
@@ -561,7 +601,7 @@ ul#acct-nav {
 #nav ul li#btn_tmenu:hover #tmenu ul li a {
 	color: #0197d6;
 	background: #FFF;
-	padding: 10px 8px 8px 8px;
+	padding: 9px 7px 8px 7px;
 	display: block;
 	border: 0;
 	-moz-border-radius:     2px;
@@ -573,6 +613,18 @@ ul#acct-nav {
 	color: #FFF;
 	background: #0197d6 url(/images/btn-grad.png) left bottom repeat-x;
 	text-decoration: none;
+}
+
+#nav ul li#btn_tmenu:hover #tmenu ul li a em {
+	display: block;
+	color: #333;
+	padding: 5px 0 0 5px;
+	font-weight: normal;
+}
+
+#nav ul li#btn_tmenu:hover #tmenu ul li a:hover em {
+	color: #FFF;
+	
 }
 
 /* 
