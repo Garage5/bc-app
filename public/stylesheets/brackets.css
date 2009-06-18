@@ -92,6 +92,7 @@ li.match li.player.disqualified a {
 li.match li.player img.disqualified {
   float: right;
   position: relative;
+  z-index: 10;
   top: -22px;
   right: -9px;
 }
@@ -298,11 +299,11 @@ ul.round#r6 li.match.winner-p2 {
 /* host links
 --------------------------------------------*/
 .host_links {
-  background-color: #202627;
-  border-color: #282f30;
-  border-width: 0 1px 1px 0;
+  background-color: #2a3639;
+  border-color: #334244;
+  border-width: 1px;
   border-style: solid;
-  width: 125px;
+  width: 124px;
   height: 58px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
