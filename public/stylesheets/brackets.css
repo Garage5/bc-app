@@ -298,12 +298,14 @@ ul.round#r6 li.match.winner-p2 {
 /* host links
 --------------------------------------------*/
 .host_links {
-  background-color: #1c2021;
-  border: 1px solid #212424;
-  width: 120px;
-  height: 55px;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
+  background-color: #1d2223;
+  border-color: #0b0c0c;
+  border-width: 0 1px 2px 0;
+  border-style: solid;
+  width: 125px;
+  height: 58px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   position: absolute;
   z-index: 0;
   display: none;
