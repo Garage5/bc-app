@@ -12,7 +12,7 @@ Global
 */
 
 body {
-	background: #0f1011;
+	background: #141516;
 	color: #FFF;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 62.5%;
@@ -252,7 +252,7 @@ Main Structure
 	-moz-border-radius-bottomright: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
-	margin: 0 40px 0 40px;
+	margin: 0 50px 0 50px;
 }
 
 #header h1 {
@@ -274,7 +274,7 @@ Main Structure
 }
 
 #content {
-	margin: 0 40px 0 40px;
+	margin: 0 50px 0 50px;
 	background: #DCDCDC;
 	border-bottom: 1px #FFF solid;
 	-moz-border-radius: 5px;
@@ -990,7 +990,7 @@ Footer
 */
 
 #footer {
-	margin: 0 40px 0 40px;
+	margin: 0 50px 0 50px;
 	padding: 20px;
 	background: #FFF url(/images/footer_bg.gif) bottom repeat-x;
 	color: #666;
