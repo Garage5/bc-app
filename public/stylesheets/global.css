@@ -587,8 +587,8 @@ ul#acct-nav {
 }
 
 #nav ul li#btn_tmenu:hover #tmenu #tmenu_inner h3 {
-	color: #333;
-	font-size: 11px;
+	color: #666;
+	font-size: 13px;
 	font-weight: bold;
 	padding: 7px 0 7px 12px;
 }
@@ -603,6 +603,7 @@ ul#acct-nav {
 	background: #FFF;
 	padding: 9px 7px 8px 7px;
 	display: block;
+	font-weight: bold;
 	border: 0;
 	-moz-border-radius:     2px;
 	-webkit-border-radius:  2px;
@@ -626,6 +627,22 @@ ul#acct-nav {
 	color: #FFF;
 	
 }
+
+#nav ul li#btn_tmenu:hover #tmenu #tmenu_inner #matches_today ul li a {
+	color: #00900a;
+	font-weight: bold;
+}
+
+#nav ul li#btn_tmenu:hover #tmenu #tmenu_inner #matches_today ul li a em {
+	color: #3fa046;
+}
+
+#nav ul li#btn_tmenu:hover #tmenu #tmenu_inner #matches_today ul li a:hover, 
+#nav ul li#btn_tmenu:hover #tmenu #tmenu_inner #matches_today ul li a:hover em {
+	color: #FFF;
+	background: #00900a;
+}
+
 
 /* 
 Navigation - Tournament - Sidecol
@@ -706,15 +723,12 @@ Navigation - User Navigation (Avatar, profile, etc)
 
 #user-dash #user-avatar a#avatar img {
 	padding: 5px 5px 5px 17px;
-	border: 1px #191c1d solid;
-	border-bottom: 0;
 	display: block;
 }
 
 #user-dash #user-avatar:hover a#avatar img {
 	background: #FFF url(/images/icon_usernav_menu_arrow.gif) center left no-repeat;
-	border: 1px #0197d6 solid;
-	border-bottom: 0;
+
 }
 
 #user-dash #user-avatar a#avatar {
@@ -750,7 +764,6 @@ Navigation - User Navigation (Avatar, profile, etc)
 #user-dash #user-avatar:hover #user_subnav ul {
 	background: #FFF;
 	padding: 5px;
-	border: 1px #0197d6 solid;
 	border-top: 0;
 	-moz-border-radius-bottomleft:      4px;
 	-moz-border-radius-bottomright:     4px;
@@ -776,6 +789,8 @@ Navigation - User Navigation (Avatar, profile, etc)
 #user-dash #user-avatar:hover #user_subnav ul li a:hover {
 	color: #FFF;
 	background: #0197d6;
+	-moz-border-radius:     2px;
+	-webkit-border-radius:  2px;
 }
 
 #user-dash #user-avatar a img {
@@ -784,7 +799,7 @@ Navigation - User Navigation (Avatar, profile, etc)
 
 #user-dash #user-name {
 	float: left;
-	margin: 15px 0 0 10px;
+	margin: 14px 0 0 8px;
 }
 
 #user-dash #user-name h2 {
