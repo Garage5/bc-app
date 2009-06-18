@@ -1047,7 +1047,7 @@ Footer
 	text-decoration: none;
 }
 
-#footer #gen_info, #footer #support_info, #footer #feedback_form {
+#footer #gen_info, #footer #support_info {
 	float: left;
 	margin: 0 15px 0 15px;
 }
@@ -1068,28 +1068,24 @@ Footer
 	border-top: 1px #DDD solid;
 }
 
-
 #footer ul li a {
 	display: block;
 	padding: 6px 6px 2px 6px;
 }
 
-#footer #feedback_form label {
-	font-size: 14px;
-	font-weight: bold;
-	color: #333;
-	margin: 0 0 4px 0;
-	display: block;
-	padding: 0 0 6px 0;
-	border-bottom: 1px #FFF solid;
+#footer #feedback_support {
+	float: left;
 }
 
-#footer #feedback_form span {
+#footer #feedback_support a {
+	width: 350px;
+	height: 140px;
 	display: block;
-	margin: 4px 0 6px 0;
-	font-size: 12px;
+	background: #017ecc;
+	text-indent: -9999px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
-
 
 /* 
 ---------------------------------------------------------------------------------------------
