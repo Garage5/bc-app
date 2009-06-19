@@ -530,8 +530,8 @@ ul#acct-nav {
 	background: #FFF;
 	color: #0197d6;
 	font-weight: bold;
-	-moz-border-radius:    20px;
-	-webkit-border-radius: 20px;
+	-moz-border-radius:    10px;
+	-webkit-border-radius: 10px;
 	display: block;
 	padding: 4px 7px 4px 7px;
 	float: left;
