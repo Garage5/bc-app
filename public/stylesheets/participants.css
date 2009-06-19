@@ -1,0 +1,101 @@
+body#participants #maincol {
+	width: 100%;
+}
+
+body#participants .player_list h3 {
+	margin: 0 0 5px 0;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	border-bottom: 1px #BBB solid;
+}
+
+body#participants .player_list ul {
+}
+
+body#participants .player_list ul.first {
+	margin: 0;
+}
+
+body#participants .player_list ul li {
+	float: left;
+	display: block;
+	margin: 0 25px 0 0;
+	padding: 10px;
+	border-top: 1px #FFF solid;
+	border-bottom: 2px #FFF solid;
+	border-left: 1px #FFF solid;
+	border-right: 2px #FFF solid;
+	position: relative;
+}
+
+body#participants .player_list ul li:hover {
+	background: #fff8cf;
+	border-top: 1px #e2d484 solid;
+	border-bottom: 2px #e2d484 solid;
+	border-left: 1px #e2d484 solid;
+	border-right: 2px #e2d484 solid;
+	cursor: pointer;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+body#participants .player_list ul li a.user_edit {
+	display: none;
+}
+
+body#participants .player_list ul li:hover a.user_edit {
+	width: 10px;
+	height: 10px;
+	text-indent: -9999px;
+	background: #fffadf url(/images/icon_user_edit.gif) center no-repeat;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 4px;
+	border-top: 1px #e2d484 solid;
+	border-left: 1px #e2d484 solid;
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+}
+
+body#participants .player_list ul li:hover a:hover.user_edit {
+	background: #e2d484 url(/images/icon_user_edit.gif) center no-repeat;
+}
+
+body#participants .player_list ul li .user_avatar {
+	float: left;
+}
+
+body#participants .player_list ul li .user_name {
+	float: left;
+	margin: 0 0 0 10px;
+}
+
+body#participants .player_list ul li .user_name h2 {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+body#participants .player_list ul li .user_name p.role {
+	font-size: 13px;
+	font-weight: bold;
+	color: #333;
+}
+
+body#participants .player_list ul li .user_name p.activity {
+	font-size: 12px;
+	font-weight: normal;
+	color: #666;
+}
+
+body#participants #part_nav ul {
+	float: right;
+	margin: 10px 10px -5px 0;
+}
+
+body#participants .tab-pod ul.tabbed li.create_team a {
+	background: #FFF url(/images/icon_add_bl.gif) 6px center no-repeat;
+	padding: 8px 15px 9px 18px;
+}
