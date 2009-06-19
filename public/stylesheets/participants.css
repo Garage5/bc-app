@@ -58,6 +58,8 @@ body#participants .player_list ul li:hover a.user_edit {
 	border-left: 1px #e2d484 solid;
 	-moz-border-radius-bottomright: 3px;
 	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
 }
 
 body#participants .player_list ul li:hover a:hover.user_edit {
