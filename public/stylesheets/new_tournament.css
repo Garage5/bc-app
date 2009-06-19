@@ -229,3 +229,7 @@ div.container ul#prizes li div {
 div.container ul#prizes li.last {
 	border: 0;
 }
+
+h1 a:hover {
+	color: #FFF;
+}
