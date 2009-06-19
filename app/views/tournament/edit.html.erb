@@ -6,7 +6,7 @@
 		
 		<%= render :partial => "layouts/user_nav" %>
 		
-		<h1>Create a new tournament</h1>
+		<h1>Val</h1>
 		
 	</div><!-- / user-nav -->
 <div id="content" class="clear">
@@ -27,10 +27,11 @@
 		<!-- Step 1 -->
 		<div id="tournament_game" class="group darkpod step clear">
 			<div class="clear">
-				<h4><span class="step-icon">1</span> <em>Select a Game</em></h4>
+				<h4><span class="step-icon">1</span> <em>Set a Game &amp; Name</em></h4>
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
 			<dl>
+				<dd><label>Tournament Name</label><input value="Val" type="text"/></dd>
 				<dd><input id="game" type="text"/></dd>
 				<dt><a class="rc biglink wh" href="">Set Game</a></dt>
 			</dl>
@@ -45,8 +46,7 @@
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
 			<dl>
-				<dd><label>Tournament Name</label><input type="text"/></dd>
-				<dd><textarea rows="15" cols="60" id="game"></textarea></dd>
+				<dd><textarea rows="15" cols="60" id="game">A big block of text will go here explaining what to do with this box. Make it disappear on focus.</textarea></dd>
 				<dt><a class="rc medlink wh" href="">Save</a></dt>
 			</dl>
 			
@@ -60,9 +60,9 @@
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			<ul>
-				<li><input id="teams" type="checkbox" value=""/><label class="checkbox" for="teams">Teams</label></li>
-				<li><select><option>2</option><option>4</option></select><label for="players_to_team">How many players per team?</label></li>
-				<li><select><option>2</option><option>4</option></select><label for="player_size">Maximum Slots</label></li>
+				<li><input type="text"/><label for="players_to_team">How many players per team?</label></li>
+				<li><select><option>2</option><option>4</option>
+						<option>8</option><option>16</option><option>32</option></select><label for="player_size">Maximum Slots</label></li>
 				<li class="dropdown">
 					<select id="tournament_type">
 						<option value="Single Elimination">Single Elimination</option>
@@ -83,8 +83,9 @@
 				<li><input id="prizes" type="text" value="$"/><label for="prizes">1st Place</label></li>
 				<li><input id="prizes" type="text" value="$"/><label for="prizes">2nd Place</label></li>
 				<li><input id="prizes" type="text" value="$"/><label for="prizes">3rd Place</label></li>
-				<li><input id="prizes" type="text" value="$"/><label for="prizes">Other</label></li>
 				<li><input id="prizes" type="text" value="$" /><label for="prizes">Entry Fees</label></li>
+				<li><label class="textrea_label" for="prizes">Other</label></li>
+				<li><textarea cols="88" rows="15"></textarea></li>
 				<li><a class="rc medlink wh" href="">Save</a></li>
 			</ul>
 		</div><!-- / darkpod -->
@@ -168,7 +169,7 @@
 <div id="sidecol">
 	<div class="save_wrapper clear">
 		<ul>
-			<li><a class="rc biglink wh" href="">Save as Template</a></li>
+			<li><a class="rc biglink wh" href="/preview/tournament/new/">Save as Template</a></li>
 			<li><a class="rc biglink bl" href="">Load from Template</a></li>
 		</ul>
 	</div><!-- / save_wrapper -->
