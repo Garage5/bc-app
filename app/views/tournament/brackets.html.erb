@@ -6,10 +6,10 @@
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    $('.player').hover(
+    $('.player:not(:contains("TBD")):not(:contains("Disputed"))').hover(
       function(){
         $(this).append(
-          $("<div class='host_links'></div>").css({
+          $('<div class="host_links"><a href="#" title="Disqualify Player"><img src="/images/disqualify_player.gif"></a><a href="#" title="Undeclare Winner of Previous Round"><img src="/images/arrow_left.gif"></a><a href="#" title="Declare Winner"><img src="/images/arrow_right.gif"></a></div>').css({
             left: $(this).offset().left - 4,
             top: $(this).offset().top - 4
           })
@@ -133,14 +133,14 @@
             </ul>
           </li>
           
-          <li class="match winner-p1">
+          <li class="match disputed">
             <ul>
               <li class="player" id="mattdetails-r2"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
               <li class="comments"><span><a href="#">
                 <img src="/images/bracket_comment.gif"/> 2</a> | 
                 <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
               </a></span></li>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Obi Kenobi</a></li>
+              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Anakin</a></li>
             </ul>
           </li>
         </ul>
@@ -154,14 +154,14 @@
             <a href="#">change</a>
           </li>
           
-          <li class="match winner-p2">
+          <li class="match">
             <ul>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
+              <li class="player" id="me"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
               <li class="comments"><span><a href="#">
                 <img src="/images/bracket_comment.gif"/> 2</a> | 
                 <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
               </a></span></li>
-              <li class="player"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
+              <li class="player disputed"><span>Disputed</span></li>
             </ul>
           </li>
         </ul>
@@ -175,7 +175,7 @@
           
           <li class="match">
             <ul>
-              <li class="player" id="me"><a href="#"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
+              <li class="player tbd"><span>TBD</span></li>
             </ul>
           </li>
         </ul>

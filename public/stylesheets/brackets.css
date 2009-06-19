@@ -65,17 +65,19 @@ li.match {
   margin-right: -24px;
 }
 
-li.match li.player {
-  height: 27px;
+li.player {
+  height: 29px;
   overflow: visible;
 }
 
-li.match li.player#me a {
+li.player#me a,
+li.player#me span {
   background-color: #ca5a00;
   border-color: #e39700;
 }
 
-li.match li.player a {
+li.player a, 
+li.player span {
   display: block;
   background-color: #425154;
   height: 27px;
@@ -86,10 +88,11 @@ li.match li.player a {
   line-height: 27px;
 }
 
-li.match li.player.disqualified a {
+li.player.disqualified a,
+li.player.disqualified span {
   opacity: 0.5;
 }
-li.match li.player img.disqualified {
+li.player img.disqualified {
   float: right;
   position: relative;
   z-index: 10;
@@ -97,8 +100,23 @@ li.match li.player img.disqualified {
   right: -9px;
 }
 
-li.match li.player a:hover, 
-li.match li.player a.hover {
+li.match.disputed li.player a,
+li.player.disputed span {
+  background-color: #b92300;
+  border-color: #cc4600;
+}
+
+li.player.disputed span { color: #de694d; }
+li.player.tbd span { color: #829092; }
+
+li.player.disputed span,
+li.player.tbd span {
+  text-align: center;
+  font-weight: bold;
+} 
+
+li.player a:hover, 
+li.player a.hover {
   color: #fff;
   background-color: #0082b9 !important;
   border-color: #0094c4 !important;
@@ -106,7 +124,7 @@ li.match li.player a.hover {
   opacity: 1;
 }
 
-li.match li.player img.bracket_avatar {
+li.player img.bracket_avatar {
   float: left;
   height: 21px;
   width: 21px;
@@ -146,26 +164,24 @@ ul.round#r1 li.match li.comments {
   line-height: 31px;
 }
 
-ul.round#r1 li.match.winner-p1 {
-  background-image: url(../images/bracket_r1_p1.gif);
-}
+ul.round#r1 li.match.winner-p1 { background-image: url(../images/bracket_r1_p1.gif); }
 
-ul.round#r1 li.match.winner-p2 {
-  background-image: url(../images/bracket_r1_p2.gif);
-}
+ul.round#r1 li.match.winner-p2 { background-image: url(../images/bracket_r1_p2.gif); }
+
+ul.round#r1 li.match.disputed  { background-image: url(../images/bracket_r1_disputed.gif); }
 
 ul.round#r1 li.match .highlight {
   background-image: url(../images/bracket_r1_highlight.gif);
   height: 89px;
 }
 
+ul.round#r1 {
+  z-index: 1;
+}
 
 /* Round 2 Styles
 -------------------------------------------*/
 
-ul.round#r1 {
-  z-index: 1;
-}
 
 ul.round#r2 li.match {
   padding-top: 55px;
@@ -178,13 +194,11 @@ ul.round#r2 li.match li.comments {
   line-height: 110px;
 }
 
-ul.round#r2 li.match.winner-p1 {
-  background-image: url(../images/bracket_r2_p1.gif);
-}
+ul.round#r2 li.match.winner-p1 { background-image: url(../images/bracket_r2_p1.gif); }
 
-ul.round#r2 li.match.winner-p2 {
-  background-image: url(../images/bracket_r2_p2.gif);
-}
+ul.round#r2 li.match.winner-p2 { background-image: url(../images/bracket_r2_p2.gif); }
+
+ul.round#r2 li.match.disputed  { background-image: url(../images/bracket_r2_disputed.gif); }
 
 ul.round#r2 li.match .highlight {
   background-image: url(../images/bracket_r2_highlight.gif);
@@ -206,13 +220,11 @@ ul.round#r3 li.match li.comments {
   line-height: 248px;
 }
 
-ul.round#r3 li.match.winner-p1 {
-  background-image: url(../images/bracket_r3_p1.gif);
-}
+ul.round#r3 li.match.winner-p1 { background-image: url(../images/bracket_r3_p1.gif); }
 
-ul.round#r3 li.match.winner-p2 {
-  background-image: url(../images/bracket_r3_p2.gif);
-}
+ul.round#r3 li.match.winner-p2 { background-image: url(../images/bracket_r3_p2.gif); }
+
+ul.round#r3 li.match.disputed { background-image: url(../images/bracket_r3_disputed.gif); }
 
 ul.round#r3 li.match .highlight {
   background-image: url(../images/bracket_r3_highlight.gif);
@@ -234,13 +246,11 @@ ul.round#r4 li.match li.comments {
   line-height: 527px;
 }
 
-ul.round#r4 li.match.winner-p1 {
-  background-image: url(../images/bracket_r4_p1.gif);
-}
+ul.round#r4 li.match.winner-p1 { background-image: url(../images/bracket_r4_p1.gif); }
 
-ul.round#r4 li.match.winner-p2 {
-  background-image: url(../images/bracket_r4_p2.gif);
-}
+ul.round#r4 li.match.winner-p2 { background-image: url(../images/bracket_r4_p2.gif); }
+
+ul.round#r4 li.match.disputed { background-image: url(../images/bracket_r4_disputed.gif); }
 
 ul.round#r4 li.match .highlight {
   background-image: url(../images/bracket_r2_highlight.gif);
@@ -261,13 +271,11 @@ ul.round#r5 li.match li.comments {
   line-height: 1077px;
 }
 
-ul.round#r5 li.match.winner-p1 {
-  background-image: url(../images/bracket_r5_p1.gif);
-}
+ul.round#r5 li.match.winner-p1 { background-image: url(../images/bracket_r5_p1.gif); }
 
-ul.round#r5 li.match.winner-p2 {
-  background-image: url(../images/bracket_r5_p2.gif);
-}
+ul.round#r5 li.match.winner-p2 { background-image: url(../images/bracket_r5_p2.gif); }
+
+ul.round#r5 li.match.disputed { background-image: url(../images/bracket_r5_disputed.gif); }
 
 ul.round#r5 li.match .highlight {
   background-image: url(../images/bracket_r5_highlight.gif);
@@ -310,6 +318,17 @@ ul.round#r6 li.match.winner-p2 {
   position: absolute;
   z-index: 0;
   display: none;
+  text-align: center;
+}
+
+.host_links a {
+  display: inline !important;
+  background: none !important;
+  padding: 0 !important;
+  border: 0 !important;
+  position: relative;
+  top: 40px;
+  margin: 0 3px;
 }
 
 li.player a {
