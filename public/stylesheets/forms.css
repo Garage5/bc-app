@@ -31,3 +31,13 @@ input:focus, textarea:focus {
 select {
 	font-size: 13px;
 }
+
+label.checkbox {
+	display: inline;
+	position: relative;
+	top: -3px;
+}
+
+label.dropdown_horz {
+	display: inline;
+}

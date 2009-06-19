@@ -12,10 +12,15 @@
   font-size: 12px;
 }
 
-#messages td {
+#messages tr td {
 	border-bottom: 1px solid #ddd;
   padding: 10px;
   white-space: nowrap;
+}
+
+#messages tr.last td {
+	border: 0;
+	padding: 10px 10px 0 10px;
 }
 
 #messages tr td a {
@@ -66,13 +71,13 @@
 #message_header h2 {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
+	padding: 8px 0 0 0;
 }
 
 #message_category {
   float: right;
   position: relative;
-  top: 15px;
+  top: 8px;
   left: -10px;
 	color: #FFF;
 	font-weight: bold;
@@ -86,7 +91,7 @@
 }
 
 #message_body {
-  padding: 20px 10px;
+  padding: 20px 10px 10px 10px;
   line-height: 18px;
 }
 
@@ -116,6 +121,13 @@ h2 {
   margin-bottom: 15px;
 }
 
+#comment_mod .comment_form h4 {
+	font-weight: bold;
+	font-size: 14px;
+	color: #333;
+	margin: 0 0 10px 0;
+}
+
 label {
   display: block;
   font-size: 13px;
@@ -129,15 +141,16 @@ label {
 .message_subject .cat_announcement {
 	float: left;
 	position: relative;
-	top: 2px;
-	left: -10px;
+	top: -2px;
 	color: #FFF !important;
 	font-weight: bold;
 	text-align: right;
-	padding: 8px 15px 6px 15px;
+	padding: 0 7px 0 7px;
+	margin: 0 5px 0 0;
 	display: block;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	font-size: 11px;
 	background: #fd5f00 !important;
 }
+
