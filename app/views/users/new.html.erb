@@ -13,7 +13,7 @@
 				<dt><%= f.label :password_confirmation, "Confirm Password" %></dt>
 				<dd><%= f.password_field :password_confirmation, :class => 'text' %></dd>
 				<dt class="btn-submit"><button type="submit">Signup</button></dt>
-				<dd class="agree"><%= f.check_box :terms_of_service %><label for="user[terms_of_service]">I Agree to the <a target="_blank" href="http://www.google.com">Terms of Service</a>.</label></dd>
+				<dd class="agree"><%= f.check_box :terms_of_service, :id => 'agree_terms' %><label for="agree_terms">I Agree to the <a target="_blank" href="http://www.google.com">Terms of Service</a>.</label></dd>
 			</dl>
 		<% end -%>
 	</div><!-- / content -->

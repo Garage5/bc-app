@@ -277,12 +277,69 @@ Main Structure
 	margin: 0 50px 0 50px;
 	background: #DCDCDC;
 	border-bottom: 1px #FFF solid;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius-bottomleft:      0px;
-	-moz-border-radius-bottomright:     0px;
-	-webkit-border-bottom-left-radius:  0px;
-	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topleft:      5px;
+	-moz-border-radius-topright:     5px;
+	-webkit-border-top-left-radius:  5px;
+	-webkit-border-top-right-radius: 5px;
+}
+
+.global_note {
+	-moz-border-radius:     5px;
+	-webkit-border-radius:  5px;
+  padding: 15px 15px 12px 15px;
+  border: 1px solid;
+	font-size: 14px;
+	margin: 0 10px 10px 10px;
+	position: relative;
+	top: 10px;
+}
+
+.global_note p a.note-close {
+	float: right;
+	position: absolute;
+	bottom: -1px;
+	right: -1px;
+	display: block;
+	padding: 1px 6px 0 7px;
+	line-height: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	-moz-border-radius-topleft: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+}
+
+.yellow_note {
+	background: #fff8cf;
+	color: #9b7f3c;
+	border-color: #e2d484;
+}
+
+.yellow_note p a.note-close {
+	background: #9b7f3c;
+	color: #fff8cf;
+}
+
+.yellow_note p a:hover.note-close {
+	background: #665327;
+	color: #fff8cf;
+}
+
+.red_note {
+	background: #ffcfcf;
+	color: #9b3c3c;
+	border-color: #e28484;
+}
+
+.red_note p a.note-close {
+	background: #9b3c3c;
+	color: #ffcfcf;
+}
+
+.red_note p a:hover.note-close {
+	background: #662727;
+	color: #ffcfcf;
 }
 
 #maincol {

@@ -1,10 +1,15 @@
 body#login #wrapper {
 	width: 450px;
+	min-width: 450px;
 	margin: 5% auto;
+	background: transparent;
+	border: 0;
 }
 
 body#login #wrapper #content {
 	padding: 10px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
 }
 
 body#login #wrapper #content form {
