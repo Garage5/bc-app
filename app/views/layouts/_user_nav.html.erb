@@ -14,7 +14,7 @@
 	<div id="user-name">
 		<h2><%= current_user.try(:login) || 'nologin' %></h2>
 		<ul class="clear">
-			<li id="user_account"><a href="">Account</a></li>
+			<li id="user_account"><a href="/account">Account</a></li>
 			<li style="padding: 6px 5px 5px 0;">|</li>
 			<li id="user_logout"><a href="">Logout</a></li>
 		</ul>

@@ -1,17 +1,9 @@
 <% content_for :head do -%>
 <%= stylesheet_link_tag 'overview' %>
 <% end -%>
-<div id="content-wrapper">
-	<div id="user-nav" class="clear">
-		
-		<%= render :partial => "layouts/user_nav" %>
-		
-		<h1>Valor Tournament</h1>
-		
-		<%= render :partial => "layouts/sub_nav" %>
-		
-	</div><!-- / user-nav -->
-<div id="content" class="clear">
+
+<% title "Recent Activity" %>
+
 <div id="maincol">
 	<div class="pod">
 	<div class="hd">

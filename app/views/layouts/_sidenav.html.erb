@@ -4,11 +4,12 @@
 	</div><!-- / hd -->
 	<div class="bd">
 		<ul>
-			<li><a href="/preview/tournament/overview/">Starcraft 2 Tournament</a></li>
-			<li><a href="/preview/tournament/overview/">Some Random Tournament Name</a></li>
-			<li><a href="/preview/tournament/overview/">nvidia CSS League</a></li>
-			<li><a href="/preview/tournament/overview/">Team Fortress 2 Tournament</a></li>
-			<li class="last"><a class="icon-add" href="/preview/tournament/new/">Create a new tournament</a></li>
+		  <% if !@instance.tournaments.blank? %>
+		    <% for tournament in @instance.tournaments %>
+		      <li><a href="/preview/tournament/overview/"><%= tournament.name %></a></li>
+		    <% end %>
+		  <% end %>
+			<li class="last"><%= link_to "Create a New Tournament", new_tournament_path, :class => 'icon-add' %></li>
 		</ul>
 	</div><!-- / bd -->
 </div><!-- / pod -->

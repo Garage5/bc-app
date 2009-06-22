@@ -1,0 +1,18 @@
+<% title "Instances" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Manager</th>
+  </tr>
+  <% for instance in @instances %>
+    <tr>
+      <td><%=h instance.name %></td>
+      <td><%=h instance.manager_id %></td>
+      <td><%= link_to "Edit", edit_instance_path(instance) %></td>
+      <td><%= link_to "Destroy", instance, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Instance", new_instance_path %></p>

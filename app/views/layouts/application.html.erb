@@ -9,13 +9,22 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 	<%= stylesheet_link_tag 'screen' %>
+	<%= stylesheet_link_tag 'modals' %>
+	<%= javascript_include_tag 'jquery' %>
+	<%= javascript_include_tag 'lowpro.jquery' %>
+	<%= javascript_include_tag 'modal' %>
 	<%= yield(:head) %>
 	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body id="<%= yield(:body) %>">
+
+<div id="some_modal" class="modal">
+  BLABLABALBALLBA
+</div>
+  
 <div id="wrapper">
 <div id="header">
-	<h1>Starfeeder</h1><!-- / logo -->
+	<h1><%= link_to @instance.try(:name) || "Host Name", root_path %></h1><!-- / logo -->
 	<div id="nav">
 		<ul style="float: left;">
 			<li><a title="" href="/preview/accounts/dashboard/">Dashboard</a></li>
@@ -49,9 +58,22 @@
 		
 	</div><!-- / nav -->
 </div><!-- / header -->
-<%= yield %>
-</div><!-- / content -->
+
+<div id="content-wrapper">
+	<div id="user-nav" class="clear">
+		
+		<%= render :partial => "layouts/user_nav" %>
+		
+		<h1><%= yield(:title) %></h1>
+		
+		<%= render :partial => "layouts/sub_nav" %>
+		
+	</div><!-- / user-nav -->
+  <div id="content" class="clear">
+    <%= yield %>
+  </div>
 </div><!-- / content-wrapper -->
+
 </div><!-- / wrapper -->
 <div id="footer">
 	<div class="clear">

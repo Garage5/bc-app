@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.root :controller => 'instances', :action => 'show'
+  
   map.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
   map.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
   
@@ -9,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :user_sessions
   map.resources :users
+  map.resources :instances
+  map.resources :tournaments
 
   # The priority is based upon order of creation: first created -> highest priority.
 
