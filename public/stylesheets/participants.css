@@ -98,6 +98,6 @@ body#participants #part_nav ul {
 }
 
 body#participants .tab-pod ul.tabbed li.create_team a {
-	background: #FFF url(/images/icon_add_bl.gif) 6px center no-repeat;
-	padding: 8px 15px 9px 18px;
+	background: #FFF url(/images/icon_add_bl.gif) 12px center no-repeat;
+	padding: 8px 15px 9px 28px;
 }

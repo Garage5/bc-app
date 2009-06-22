@@ -10,9 +10,21 @@
 }
 
 .modal {
-  display: none;
+	display: none;
   z-index: 3;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
+	background: #FFF;
+	border: 1px #555 solid;
+	color: #333;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+}
+
+.modal .modal_inner {
+	border: 4px #DDD solid;
+	padding: 15px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
 }

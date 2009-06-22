@@ -262,6 +262,15 @@ Main Structure
 	float: left;
 }
 
+#header h1 a {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+#header h1 a:hover {
+	text-decoration: none;
+}
+
 #logo a {
 	display: block;
 	text-indent: -9999px;

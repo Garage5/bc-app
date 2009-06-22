@@ -29,5 +29,5 @@ Modal = $.klass({
 $(document).ready(function(){
   // to add a modal trigger to a link:
   // $(link_selector).attach(Modal, {modalId: ID tag of modal element to trigger})
-  $("a[href='/account']").attach(Modal, {modalId: "#some_modal"})
+	$("a[href='#create_team']").attach(Modal, {modalId: "#team_invite"})
 })
