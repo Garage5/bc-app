@@ -10,7 +10,7 @@ Overlay = $.klass({
 Modal = $.klass({
   initialize: function(options){
     // set a global variable for the #id of the modal to trigger
-    $modalId = options.modal_id
+    $modalId = options.modalId
   },
   onclick: function(event){    
     event.preventDefault()
