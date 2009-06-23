@@ -3,44 +3,38 @@
 
 <div id="maincol">
 	<div class="pod">
-	<div class="bd">
+	<div class="bd clear">
 	  <h3>Post a Message</h3>
 	  
-	  <div id="message_main" class="darkpod clear">
-			<dl>
-			  <dt><label>Subject</label></dt>
-			  <dd><input type="text" size="40"/></dd>
-			  <dt><label>Message</label></dt>
-				<dd><textarea rows="15" cols="60" id="game"></textarea></dd>
-				<dt><label class="dropdown_horz">Category</label>
-				  <select name="some_name" id="some_name">
-				    <option value="option1">Announcments</option>
-				    <option value="option2">option2</option>
-				  </select>
-				</dt>
-			</dl>
+	  <div id="message_main" class="group darkpod clear">
+			<label>Subject</label>
+			<input type="text" size="40"/>
+			<label>Message</label>
+			<textarea rows="15" cols="60" id="game"></textarea>
+			<label class="dropdown_horz">Category</label>
+			<select name="some_name" id="some_name">
+				<option value="option1">Announcments</option>
+				<option value="option2">option2</option>
+			</select>
 		</div><!-- / darkpod -->
-		<br />
-		<div id="message_attach" class="darkpod clear">
-			<dl>
-			  <dt><label>Attach a File</label></dt>
-			  <p class="note">Files cannot be larger than 42 and must contain references to cats.</p>
-			  <dd><input type="file" size="40"/></dd>
-			</dl>
+		
+		<div id="message_attach" class="group darkpod clear">
+			<label>Attach a File</label>
+			<p class="note">Files cannot be larger than 42 and must contain references to cats.</p>
+			<input type="file" size="40"/>
 		</div><!-- / darkpod -->
-		<br />
-		<div id="message_subscribe" class="darkpod clear">
-			<dl>
-			  <dt><label>Subscribe the following users to receive email notifications:</label></dt>
-			  <dd><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></dd>
-			  <dd><input type="checkbox" size="40"/> <label class="checkbox">plankton</dd>
-			</dl>
+		
+		<div id="message_subscribe" class="group darkpod clear">
+			<label>Subscribe the following users to receive email notifications:</label>
+			<input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label>
+			<input type="checkbox" size="40"/> <label class="checkbox">plankton
 		</div><!-- / darkpod -->
-		<br />
-		<button class="rc biglink wh" href="">Post Message</button> or <a href="">Cancel</a>
+		
+			<a class="btn" href=""><span class="icon"></span><span>Post Message</span></a>
+			<div style="float: left; position: relative; top: 12px; left: 5px;">or <a href="">Cancel</a></div>
+			
 	</div><!-- / bd -->
 	</div><!-- / pod -->
-	
 </div><!-- / main-col -->
 
 <div id="sidecol">

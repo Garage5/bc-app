@@ -6,22 +6,22 @@
 
 <div id="maincol">
 	<div class="pod">
-  <div class="bd">
+  <div class="bd clear">
 	  <h3 class="first">Your Logo</h3>
     <div id="your_logo" class="darkpod clear">
 	    <p>Your logo appears on the Login, Dashboard, and Overview pages.</p>
-	    <p class="note"><strong>NOTE:</strong> The logo must not be lmore than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
+	    <p class="note"><strong>NOTE:</strong> The logo must not be more than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
 				<% form_for '@account' do |f| -%>
-					<dl>
-						<dt><img src="/images/missing_logo.gif" alt="logo" /></dt>
-	        	<dd><%= f.file_field :logo %></dd>
-	        	<dd><a class="rc smlink wh" href="">Upload Logo</a></dd>
-					</dl>
+					<div class="left_block"><img src="/images/missing_logo.gif" alt="logo" /></div>
+	        <div class="block">
+						<%= f.file_field :logo %>
+	        	<a href="" class="btn"><span class="icon"></span><span>Upload Logo</span></a>
+					</div>
 				<% end -%>
 	  </div>	 
 	
 	  <h3>Your Site Name</h3>
-    <div id="your_site_name" class="darkpod">
+    <div id="your_site_name" class="clear darkpod">
 	    <p>Your site name appears at the top of every page.</p>
 	    <% form_for '@account' do |f| -%>
 	      <%= f.text_field :name %>
@@ -29,7 +29,7 @@
 	  </div>
 	
 	  <h3>Message Categories</h3>
-	  <div id="message_categories" class="darkpod darkpod-last">
+	  <div id="message_categories" class="darkpod group clear">
 	    <table>
         <tr>
         	<td>Announcements</td>
@@ -45,11 +45,13 @@
         </tr>
 	    </table>
 	    <% form_for '@account' do |f| -%>
-	    	<%= f.text_field :title %>
-				<a class="rc smlink wh" href="">Add Category</a>
+	    	<div class="left_block"><%= f.text_field :title %></div>
+				<div class="left_block add_cat"><a class="btn" href=""><span class="icon"></span><span>Add Category</span></a></div>
 	    <% end -%>
 	  </div>
+	<a class="btn" href=""><span class="icon"></span><span>Save Changes</span></a>
 	</div><!-- / bd -->
+	
 </div><!-- / pod -->
 </div><!-- / main-col -->
 

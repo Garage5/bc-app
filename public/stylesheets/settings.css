@@ -1,8 +1,4 @@
-div#your_logo dl dt {
-	float: left;
-}
-
-div#your_logo dl dd {
+div#your_logo div.block {
 	display: block;
 	position: relative;
 	left: 15px;
@@ -27,4 +23,10 @@ div#settings ul li {
 
 #message_categories table td.remove {
   text-align: right;
+}
+
+#message_categories div.add_cat {
+	position: relative;
+	top: -2px;
+	left: 5px;
 }
