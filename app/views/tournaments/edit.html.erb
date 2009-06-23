@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag 'new_tournament' %>
 <% end -%>
 
-<% title "Val" %>
+<% title "New Tournament" %>
 
 <div id="maincol">
 	<div class="pod" id="new_tournament">
@@ -18,80 +18,75 @@
 	</div><!-- / -->
 	
 	<div class="bd">
-		<!-- Step 1 -->
+<!-- Step 1 -->
 		<div id="tournament_game" class="group darkpod step clear">
 			<div class="clear">
-				<h4><span class="step-icon">1</span> <em>Set a Game &amp; Name</em></h4>
+				<h4><span class="step-icon">1</span> <em>Set a Game</em></h4>
+				<a class="txtlink-red" href="/preview/tournament/edit/">Edit</a>
 			</div>
-			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
-			<dl>
-				<dd><label>Tournament Name</label><input value="Val" type="text"/></dd>
-				<dd><input id="game" type="text"/></dd>
-				<dt><a class="rc biglink wh" href="">Set Game</a></dt>
-			</dl>
+			
+			<div class="container">
+				<strong>Game:</strong> Starcraft
+			</div><!-- / container -->
 			
 		</div><!-- / darkpod -->
-		<!-- / Step 1 -->
-		
-		<!-- Step 2-->
+<!-- / Step 1 -->
+
+<!-- Step 2-->
 		<div id="tournament_rules" class="group darkpod step clear">
 			<div class="clear">
 				<h4><span class="step-icon">2</span> <em>Set the Rules</em></h4>
+				<a class="txtlink-red" href="">Edit</a>
 			</div>
-			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
-			<dl>
-				<dd><textarea cols="88" rows="15" id="game">A big block of text will go here explaining what to do with this box. Make it disappear on focus.</textarea></dd>
-				<dt><a class="rc medlink wh" href="">Save</a></dt>
-			</dl>
+			
+			<div class="container">
+				<p>Some mother fucking rules yo! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non <strong>lectus molestie</strong> at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue.</p>
+					
+					<p><strong>NO YOU!</strong><br />
+					Donec lacus libero, elementum in posuere ut, feugiat posuere erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.</p>
+					
+					<p><strong>SILENCE!!! I KILL YOU!!!</strong><br />
+					Donec lacus libero, elementum in posuere ut, feugiat posuere erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.</p>
+			</div><!-- / container -->
 			
 		</div><!-- / darkpod -->
-		<!-- / Step 2 -->
+<!-- / Step 2 -->
 		
-		<!-- Step 3 -->
+<!-- Step 3 -->
 		<div id="tournament_players" class="group darkpod step clear">
 			<div class="clear">
 				<h4><span class="step-icon">3</span> <em>Players &amp; Teams</em></h4>
+				<a class="txtlink-red" href="/preview/tournament/edit/">Edit</a>
 			</div>
-			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			<ul>
-				<li><input type="text"/><label for="players_to_team">How many players per team?</label></li>
-				<li><select><option>2</option><option>4</option>
-						<option>8</option><option>16</option><option>32</option></select><label for="player_size">Maximum Slots</label></li>
-				<li class="dropdown">
-					<select id="tournament_type">
-						<option value="Single Elimination">Single Elimination</option>
-					</select>
-				<label for="tournament_type">Tournament Type</label></li>
-				<li><a class="rc medlink wh" href="">Save</a></li>
-			</ul>
+			<div class="container">
+				This <strong>single elimination</strong> tournament will have <strong><span style="color: #0197d6;">4</span> players per team</strong> with <strong>maximum of <span style="color: #0197d6;">8</span> slots</strong>.
+				</div><!-- / container -->
 		</div><!-- / darkpod -->
-		<!-- / Step 3 -->
-		
-		<!-- Step 4 -->
+<!-- / Step 3 -->
+
+<!-- Step 4 -->
 		<div id="tournament_prize" class="group darkpod step clear">
 			<div class="clear">
 				<h4><span class="step-icon">4</span> <em>Prizes &amp; Fees</em></h4>
+				<a class="txtlink-red" href="/preview/tournament/edit/">Edit</a>
 			</div>
-			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.<a class="note-close" href="">X</a></p>
-			<ul>
-				<li><input id="prizes" type="text" value="$"/><label for="prizes">1st Place</label></li>
-				<li><input id="prizes" type="text" value="$"/><label for="prizes">2nd Place</label></li>
-				<li><input id="prizes" type="text" value="$"/><label for="prizes">3rd Place</label></li>
-				<li><input id="prizes" type="text" value="$" /><label for="prizes">Entry Fees</label></li>
-				<li><label class="textrea_label" for="prizes">Other</label></li>
-				<li><textarea cols="88" rows="15"></textarea></li>
-				<li><a class="rc medlink wh" href="">Save</a></li>
+			<div class="container">
+			<ul id="prizes">
+				<li class="clear"><div>$1,000,000.00</div> <strong>1st Place</strong></li>
+				<li class="clear"><div>$500,000.00</div> <strong>2nd Place</strong></li>
+				<li class="clear"><div>$250,000.00</div> <strong>3rd Place</strong></li>
+				<li class="clear"><div>T-Shirt</div> <strong>Everyone</strong></li>
+				<li class="clear last"><div>$5.00</div> <strong>Entry Fees</strong></li>
 			</ul>
+			</div><!-- / container -->
 		</div><!-- / darkpod -->
-		<!-- / Step 4 -->
-		
-		<!-- Step 5 -->
+<!-- / Step 4 -->
+
+<!-- Step 5 -->
 		<div id="tournament_dates" class="group darkpod step clear">
 			<div class="clear">
 				<h4><span class="step-icon">5</span> <em>Set the Dates</em></h4>
 			</div>
-			
-			<p class="note">Consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue.<a class="note-close" href="">X</a></p>
 			<div class="clear">
 			<div class="calendar_date_select">
 				
@@ -106,61 +101,57 @@
 					</div>
 				</div>
 			  <div class="body">
-					<table>
-						<tbody>
-							<tr class="weekdays">
-								<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
-							</tr>
-						<tr class="days">
-							<td class="weekend other" date="2009-05-31"><a href="#">31</a></td><td class="today" date="2009-06-01"><a href="#">1</a></td><td class="" date="2009-06-02"><a href="#">2</a></td><td class="" date="2009-06-03"><a href="#">3</a></td><td class="" date="2009-06-04"><a href="#">4</a></td><td class="" date="2009-06-05"><a href="#">5</a></td><td class="weekend" date="2009-06-06"><a href="#">6</a></td></tr><tr class="days"><td class="weekend" date="2009-06-07"><a href="#">7</a></td><td class="" date="2009-06-08"><a href="#">8</a></td><td class="" date="2009-06-09"><a href="#">9</a></td><td class="selected" date="2009-06-10"><a href="#">10</a></td><td class="" date="2009-06-11"><a style="background-color: #00c277; color: #FFF;" href="#">11</a></td><td class="" date="2009-06-12"><a href="#">12</a></td><td class="weekend" date="2009-06-13"><a href="#">13</a></td></tr><tr class="days"><td class="weekend" date="2009-06-14"><a href="#">14</a></td><td class="" date="2009-06-15"><a href="#">15</a></td><td class="" date="2009-06-16"><a href="#">16</a></td><td class="" date="2009-06-17"><a style="background-color: #00673f; color: #FFF;" href="#">17</a></td><td class="" date="2009-06-18"><a style="background-color: #9b00f4; color: #FFF;" href="#">18</a></td><td class="" date="2009-06-19"><a href="#">19</a></td><td class="weekend" date="2009-06-20"><a href="#">20</a></td></tr><tr class="days"><td class="weekend" date="2009-06-21"><a href="#">21</a></td><td class="" date="2009-06-22"><a href="#">22</a></td><td class="" date="2009-06-23"><a href="#">23</a></td><td class="" date="2009-06-24"><a href="#">24</a></td><td class="" date="2009-06-25"><a href="#">25</a></td><td class="" date="2009-06-26"><a href="#">26</a></td><td class="weekend" date="2009-06-27"><a href="#">27</a></td></tr><tr class="days"><td class="weekend" date="2009-06-28"><a href="#">28</a></td><td class="" date="2009-06-29"><a href="#">29</a></td><td class="" date="2009-06-30"><a style="background-color: #410067; color: #FFF;" href="#">30</a></td><td class="other" date="2009-07-01"><a href="#">1</a></td><td class="other" date="2009-07-02"><a href="#">2</a></td><td class="other" date="2009-07-03"><a href="#">3</a></td><td class="weekend other" date="2009-07-04"><a href="#">4</a></td></tr><tr class="days"><td class="weekend other" date="2009-07-05"><a href="#">5</a></td><td class="other" date="2009-07-06"><a href="#">6</a></td><td class="other" date="2009-07-07"><a href="#">7</a></td><td class="other" date="2009-07-08"><a href="#">8</a></td><td class="other" date="2009-07-09"><a href="#">9</a></td><td class="other" date="2009-07-10"><a href="#">10</a></td><td class="weekend other" date="2009-07-11"><a href="#">11</a></td></tr>
-							</tbody>
-						</table>
+				<table>
+					<tbody>
+						<tr class="weekdays">
+							<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+						</tr>
+					<tr class="days">
+						<td class="weekend other" date="2009-05-31"><a href="#">31</a></td><td class="today" date="2009-06-01"><a href="#">1</a></td><td class="" date="2009-06-02"><a href="#">2</a></td><td class="" date="2009-06-03"><a href="#">3</a></td><td class="" date="2009-06-04"><a href="#">4</a></td><td class="" date="2009-06-05"><a href="#">5</a></td><td class="weekend" date="2009-06-06"><a href="#">6</a></td></tr><tr class="days"><td class="weekend" date="2009-06-07"><a href="#">7</a></td><td class="" date="2009-06-08"><a href="#">8</a></td><td class="" date="2009-06-09"><a href="#">9</a></td><td class="selected" date="2009-06-10"><a href="#">10</a></td><td class="" date="2009-06-11"><a style="background-color: #00c277; color: #FFF;" href="#">11</a></td><td class="" date="2009-06-12"><a href="#">12</a></td><td class="weekend" date="2009-06-13"><a href="#">13</a></td></tr><tr class="days"><td class="weekend" date="2009-06-14"><a href="#">14</a></td><td class="" date="2009-06-15"><a href="#">15</a></td><td class="" date="2009-06-16"><a href="#">16</a></td><td class="" date="2009-06-17"><a style="background-color: #00673f; color: #FFF;" href="#">17</a></td><td class="" date="2009-06-18"><a style="background-color: #9b00f4; color: #FFF;" href="#">18</a></td><td class="" date="2009-06-19"><a href="#">19</a></td><td class="weekend" date="2009-06-20"><a href="#">20</a></td></tr><tr class="days"><td class="weekend" date="2009-06-21"><a href="#">21</a></td><td class="" date="2009-06-22"><a href="#">22</a></td><td class="" date="2009-06-23"><a href="#">23</a></td><td class="" date="2009-06-24"><a href="#">24</a></td><td class="" date="2009-06-25"><a href="#">25</a></td><td class="" date="2009-06-26"><a href="#">26</a></td><td class="weekend" date="2009-06-27"><a href="#">27</a></td></tr><tr class="days"><td class="weekend" date="2009-06-28"><a href="#">28</a></td><td class="" date="2009-06-29"><a href="#">29</a></td><td class="" date="2009-06-30"><a style="background-color: #410067; color: #FFF;" href="#">30</a></td><td class="other" date="2009-07-01"><a href="#">1</a></td><td class="other" date="2009-07-02"><a href="#">2</a></td><td class="other" date="2009-07-03"><a href="#">3</a></td><td class="weekend other" date="2009-07-04"><a href="#">4</a></td></tr><tr class="days"><td class="weekend other" date="2009-07-05"><a href="#">5</a></td><td class="other" date="2009-07-06"><a href="#">6</a></td><td class="other" date="2009-07-07"><a href="#">7</a></td><td class="other" date="2009-07-08"><a href="#">8</a></td><td class="other" date="2009-07-09"><a href="#">9</a></td><td class="other" date="2009-07-10"><a href="#">10</a></td><td class="weekend other" date="2009-07-11"><a href="#">11</a></td></tr>
 						</tbody>
 					</table>
-					</div>
-					<div class="footer"></div>
-				</div><!-- / calendar_date_select -->
-				  <div class="tournament_dates">
-					<table>
-						<tr>
-							<th>&nbsp;</th>
-							<td class="date">&nbsp;</td>
-							<td class="edit">&nbsp;</td>
-						</tr>
-						<tr>
-							<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
-							<td class="date">January 11th, 2137</td>
-							<td class="edit"><a href="">Edit</a></td>
-						</tr>
-						<tr>
-							<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
-							<td class="date">January 17th, 2137</td>
-							<td class="edit"><a href="">Edit</a></td>
-						</tr>
-						<tr>
-							<th><span class="swatch" style="background-color: #9b00f4;">&nbsp;</span> Tournament Start:</th>
-							<td class="date">January 18th, 2137</td>
-							<td class="edit"><a href="">Edit</a></td>
-						</tr>
-						<tr>
-							<th><span class="swatch" style="background-color: #410067;">&nbsp;</span> Tournament End:</th>
-							<td class="date">January 30th, 2137</td>
-							<td class="edit"><a href="">Edit</a></td>
-						</tr>
-						<tr>
-							<th>Tournament Start Time:</th>
-							<td class="time"><select><option>12</option></select>:<select><option>30</option></select><select><option>pm</option></select></td>
-							<td class="edit"><a href="">Edit</a></td>
-						</tr>
-					</table>
+					</tbody>
+				</table>
+				</div>
+				<div class="footer"></div>
+			</div><!-- / calendar_date_select -->
+			  <div class="tournament_dates">
+				<table>
+					<tr>
+						<th>&nbsp;</th>
+						<td class="date">&nbsp;</td>
+						<td class="edit">&nbsp;</td>
+					</tr>
+					<tr>
+						<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
+						<td class="date">January 11th, 2137</td>
+						<td class="edit"><a href="">Edit</a></td>
+					</tr>
+					<tr>
+						<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
+						<td class="date">January 17th, 2137</td>
+						<td class="edit"><a href="">Edit</a></td>
+					</tr>
+					<tr>
+						<th><span class="swatch" style="background-color: #9b00f4;">&nbsp;</span> Tournament Start:</th>
+						<td class="date">January 18th, 2137</td>
+						<td class="edit"><a href="">Edit</a></td>
+					</tr>
+					<tr>
+						<th><span class="swatch" style="background-color: #410067;">&nbsp;</span> Tournament End:</th>
+						<td class="date">January 30th, 2137</td>
+						<td class="edit"><a href="">Edit</a></td>
+					</tr>
+					<tr>
+						<th>Tournament Start Time:</th>
+						<td class="time">12:30pm</td>
+						<td class="edit"><a href="">Edit</a></td>
+					</tr>
+				</table>
 			</div><!-- / tournament_dates -->
 			</div><!-- / clear -->
-			<dl>
-				<dt><a class="rc medlink wh" href="">Save Dates</a></dt>
-			</dl>
 		</div><!-- / darkpod -->
-		<!-- / Step 5 -->
-		<a class="rc biglink wh" href="">Create Tournament</a> or <a class="rc biglink wh" href="">Save as Template</a>
+<!-- / Step 5 -->
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 </div><!-- / main-col -->
@@ -168,7 +159,6 @@
 <div id="sidecol">
 	<div class="save_wrapper clear">
 		<ul>
-			<li><a class="rc biglink wh" href="/preview/tournament/new/">Save as Template</a></li>
 			<li><a class="rc biglink bl" href="">Load from Template</a></li>
 		</ul>
 	</div><!-- / save_wrapper -->

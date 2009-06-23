@@ -5,8 +5,8 @@
 	<div class="bd">
 		<ul>
 		  <% if !@instance.tournaments.blank? %>
-		    <% for tournament in @instance.tournaments %>
-		      <li><a href="/preview/tournament/overview/"><%= tournament.name %></a></li>
+		    <% for t in @instance.tournaments %>
+		      <li><%= link_to t.name, tournament_path(t) %></li>
 		    <% end %>
 		  <% end %>
 			<li class="last"><%= link_to "Create a New Tournament", new_tournament_path, :class => 'icon-add' %></li>

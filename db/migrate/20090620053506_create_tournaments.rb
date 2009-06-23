@@ -1,7 +1,7 @@
 class CreateTournaments < ActiveRecord::Migration
   def self.up
     create_table :tournaments do |t|
-      t.string    :title
+      t.string    :name
       t.string    :game
       t.text      :rules
       t.integer   :slot_count

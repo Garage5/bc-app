@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20090622192441) do
   end
 
   create_table "tournaments", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
     t.string   "game"
     t.text     "rules"
     t.integer  "slot_count"

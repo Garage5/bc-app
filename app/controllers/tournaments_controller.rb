@@ -1,4 +1,6 @@
 class TournamentsController < ApplicationController
+  before_filter :find_instance
+  
   def index
     @tournaments = Tournament.all
   end
@@ -12,7 +14,7 @@ class TournamentsController < ApplicationController
   end
   
   def create
-    @tournament = Tournament.new(params[:tournament])
+    @tournament = @instance.tournaments.new(params[:tournament])
     if @tournament.save
       flash[:notice] = "Successfully created tournament."
       redirect_to @tournament
