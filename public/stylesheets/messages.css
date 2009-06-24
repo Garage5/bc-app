@@ -14,13 +14,13 @@
 
 #messages tr td {
 	border-bottom: 1px solid #ddd;
-  padding: 10px;
+  padding: 0 0 5px 0;
   white-space: nowrap;
 }
 
 #messages tr.last td {
 	border: 0;
-	padding: 10px 10px 0 10px;
+	padding: 5px 0 0 0;
 }
 
 #messages tr td a {
@@ -43,7 +43,7 @@
 }
 
 #messages .message_main { 
-	width: 60%; 
+	width: 60%;
 }
 
 #messages .message_comments p {
@@ -105,16 +105,18 @@ h2 {
 }
 
 .comment_header {
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
 }
 
 .comment_header h3 {
+	font-size: 13px;
+	font-weight: bold;
   color: #000;
   margin: 0 0 2px;
 }
 
 .comment_header p {
-  margin-bottom: 0;
+	margin: 0;
 }
 
 .comment_body p {
@@ -123,15 +125,8 @@ h2 {
 
 #comment_mod .comment_form h4 {
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 11px;
 	color: #333;
-	margin: 0 0 10px 0;
-}
-
-label {
-  display: block;
-  font-size: 13px;
-  margin-bottom: 10px;
 }
 
 .cat_announcement {
@@ -150,7 +145,27 @@ label {
 	display: block;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
-	font-size: 11px;
 	background: #fd5f00 !important;
 }
 
+ul.files_attach li {
+	display: block;
+	float: left;
+	margin: 0 5px 0 5px;
+}
+#sidecol .categories .bd {
+	padding: 0;
+}
+
+#sidecol .categories ul li {
+	border-bottom: 1px #BBB solid;
+}
+
+#sidecol .categories ul li a {
+	display: block;
+	padding: 10px;
+}
+
+#sidecol .categories ul li.last {
+	border: 0;
+}

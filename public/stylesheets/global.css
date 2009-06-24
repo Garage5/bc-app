@@ -484,7 +484,7 @@ p.note a:hover.note-close {
 }
 
 .group {
-	margin: 0 0 15px 0;
+	margin: 0 0 10px 0;
 }
 
 .game-icon {
@@ -1178,7 +1178,7 @@ Footer
 	width: 350px;
 	height: 140px;
 	display: block;
-	background: #017ecc;
+	background: transparent;
 	text-indent: -9999px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
