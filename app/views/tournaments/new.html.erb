@@ -2,12 +2,18 @@
 <%= stylesheet_link_tag 'new_tournament' %>
 <% end -%>
 
-<% title "Val" %>
+<% title "New Tournament" %>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
+    
     $('input#tournament_name').keyup(function(e){
       $('h1#page_title').text($(e.target).val())
+    })
+    
+    
+    $('input#tournament_teams').change(function(e){
+      $('#tournament_players_per_team').parent().toggle()
     })
   })
 </script>
@@ -63,7 +69,8 @@
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			<ul>
-				<li><%= f.text_field :players_per_team %><%= f.label :players_per_team, "How many players per team?" %></li>
+			  <li><%= f.check_box :teams %><%= f.label :teams, "Teams?" %></li>
+				<li style="display:none"><%= f.text_field :players_per_team %><%= f.label :players_per_team, "How many players per team?" %></li>
 				<li><%= f.select :slot_count, [4, 8, 16, 32] %> <%= f.label :slot_count, "Maximum Slots" %></li>
 				<li class="dropdown">
 					<select id="tournament_type">
@@ -137,22 +144,22 @@
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
-							<td class="date"><%= f.date_select :registration_start_date %></td>
+							<td class="date"><%= f.date_select :registration_start_date, :order => [:month, :day, :year] %></td>
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
-							<td class="date"><%= f.date_select :registration_end_date %></td>
+							<td class="date"><%= f.date_select :registration_end_date, :order => [:month, :day, :year] %></td>
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #9b00f4;">&nbsp;</span> Tournament Start:</th>
-							<td class="date"><%= f.date_select :tournament_start_date %></td>
+							<td class="date"><%= f.date_select :tournament_start_date, :order => [:month, :day, :year] %></td>
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #410067;">&nbsp;</span> Tournament End:</th>
-							<td class="date"><%= f.date_select :tournament_end_date %></td>
+							<td class="date"><%= f.date_select :tournament_end_date, :order => [:month, :day, :year] %></td>
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
 						<tr>

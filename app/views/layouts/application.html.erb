@@ -10,9 +10,7 @@
 	<meta name="author" content="" />
 	<%= stylesheet_link_tag 'screen' %>
 	<%= stylesheet_link_tag 'modals' %>
-	<%= javascript_include_tag 'jquery' %>
-	<%= javascript_include_tag 'lowpro.jquery' %>
-	<%= javascript_include_tag 'modal' %>
+	<%= javascript_include_tag 'jquery', 'lowpro.jquery', 'global', 'modal' %>
 	<%= yield(:head) %>
 	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
 </head>
@@ -76,7 +74,7 @@
 		
 		<h1 id="page_title"><%= yield(:title) %></h1>
 		
-		<%= render :partial => "layouts/sub_nav" %>
+		<%= yield(:tournament_nav) %>
 		
 	</div><!-- / user-nav -->
   <div id="content" class="clear">
