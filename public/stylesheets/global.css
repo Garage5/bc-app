@@ -624,11 +624,9 @@ ul#acct-nav {
 
 #nav ul li#btn_tmenu a span#tmenu_unread {
 	font-size: 12px;
-	background: #FFF;
+	background: transparent url(/images/tmenu_count_bg.png) 0 0 no-repeat;
 	color: #0197d6;
 	font-weight: bold;
-	-moz-border-radius:    10px;
-	-webkit-border-radius: 10px;
 	display: block;
 	padding: 4px 7px 4px 7px;
 	float: left;
@@ -639,13 +637,13 @@ ul#acct-nav {
 
 #nav ul li#btn_tmenu a:hover span#tmenu_unread {
 	text-decoration: none !important;
-	background: #0197d6;
+	background: transparent url(/images/tmenu_count_blk_bg.png) 0 0 no-repeat;
 	color: #FFF;
 }
 
 #nav ul li#btn_tmenu:hover a span#tmenu_unread {
 	text-decoration: none !important;
-	background: #0197d6;
+	background: transparent url(/images/tmenu_count_blk_bg.png) 0 0 no-repeat;
 	color: #FFF;
 }
 
@@ -658,9 +656,9 @@ ul#acct-nav {
 }
 
 #nav ul li#btn_tmenu:hover a {
-	background: #FFF url(/images/icon_mainnav_tmenu_arrow_bl.gif) center right no-repeat;
+	background: #FFF url(/images/icon_mainnav_tmenu_arrow_blk.gif) center right no-repeat;
 	border: 0;
-	color: #0197d6;
+	color: #000;
 	-moz-border-radius-bottomleft:      0px;
 	-moz-border-radius-bottomright:     0px;
 	-webkit-border-bottom-left-radius:  0px;
