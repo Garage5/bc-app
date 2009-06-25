@@ -1,5 +1,8 @@
 <% stylesheet :messages %>
 <% title "Recent Messages" %>
+<% content_for :tournament_nav do -%>
+  <%= render :partial => "layouts/sub_nav", :locals => {:active => 'messages'} %>
+<% end -%>
 
 <div id="maincol">
 	<div class="pod">

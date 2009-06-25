@@ -69,7 +69,7 @@
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			<ul>
-			  <li><%= f.check_box :teams %><%= f.label :teams, "Teams?" %></li>
+			  <li><%= f.check_box :teams %><%= f.label :teams, "Enable Teams" %></li>
 				<li style="display:none"><%= f.text_field :players_per_team %><%= f.label :players_per_team, "How many players per team?" %></li>
 				<li><%= f.select :slot_count, [4, 8, 16, 32] %> <%= f.label :slot_count, "Maximum Slots" %></li>
 				<li class="dropdown">
