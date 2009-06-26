@@ -335,18 +335,17 @@ Main Structure
 	-webkit-border-top-right-radius: 5px;
 }
 
-.global_note {
+.note {
 	-moz-border-radius:     5px;
 	-webkit-border-radius:  5px;
   padding: 15px 15px 12px 15px;
   border: 1px solid;
 	font-size: 14px;
-	margin: 0 10px 10px 10px;
 	position: relative;
 	top: 10px;
 }
 
-.global_note p a.note-close {
+.note p a.note-close {
 	float: right;
 	position: absolute;
 	bottom: -1px;
@@ -363,6 +362,7 @@ Main Structure
 }
 
 .yellow_note {
+	margin: 0 10px 10px 10px;
 	background: #fff8cf;
 	color: #9b7f3c;
 	border-color: #e2d484;
@@ -379,6 +379,7 @@ Main Structure
 }
 
 .red_note {
+	margin: 0 10px 10px 10px;
 	background: #ffcfcf;
 	color: #9b3c3c;
 	border-color: #e28484;
