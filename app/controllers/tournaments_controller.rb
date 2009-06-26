@@ -9,6 +9,14 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
   end
   
+  def brackets
+    @tournament = Tournament.find(params[:id])
+  end
+  
+  def participants
+    @tournament = Tournament.find(params[:id])
+  end
+  
   def new
     @tournament = Tournament.new
   end

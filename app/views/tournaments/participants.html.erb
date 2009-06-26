@@ -1,6 +1,11 @@
 <% stylesheet :participants %>
 <% body 'participants' %>
-<% title "Valor Tournament" %>
+<% title @tournament.name %>
+
+<% content_for :tournament_nav do -%>
+  <%= render :partial => "layouts/sub_nav", :locals => {:active => 'participants'} %>
+<% end -%>
+
 <div id="maincol">
 	<div class="pod">
 		<div class="hd">
@@ -59,7 +64,7 @@
 		<div class="hd">
 			<h2>Participants</h2>
 			<ul class="tabbed clear">
-				<li class="create_team active"><a class=" rc" href="#create_team">Create a Team</a></li>
+				<li class="create_team active"><a class="rc" href="#create_team" rel="modal">Create a Team</a></li>
 			</ul>
 		</div>
 	<div class="bd clear player_list">

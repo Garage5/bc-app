@@ -1,6 +1,10 @@
 <% stylesheet :messages %>
 <% title "Valor Tournament" %>
 
+<% content_for :tournament_nav do -%>
+  <%= render :partial => "layouts/sub_nav", :locals => {:active => 'messages'} %>
+<% end -%>
+
 <div id="maincol">
 	<div class="pod tab-pod">
   	<div class="hd">

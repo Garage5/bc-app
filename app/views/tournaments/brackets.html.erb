@@ -2,6 +2,10 @@
 <% javascript 'jquery.pulse' %>
 <% stylesheet :brackets %>
 
+<% content_for :tournament_nav do -%>
+  <%= render :partial => "layouts/sub_nav", :locals => {:active => 'brackets'} %>
+<% end -%>
+
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
     $('.player:not(:contains("TBD")):not(:contains("Disputed"))').hover(

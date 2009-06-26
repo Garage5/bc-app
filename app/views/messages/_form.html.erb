@@ -1,0 +1,12 @@
+<% form_for @message do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :tournament_id %><br />
+    <%= f.text_field :tournament_id %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

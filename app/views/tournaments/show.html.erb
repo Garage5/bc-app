@@ -1,6 +1,9 @@
-<% stylesheet :new_tournament %>
-<% stylesheet :tournament_rules %>
-<% title "Valor Tournament" %>
+<% stylesheet :new_tournament, :tournament_rules %>
+<% title @tournament.name %>
+
+<% content_for :tournament_nav do -%>
+  <%= render :partial => "layouts/sub_nav", :locals => {:active => 'overview'} %>
+<% end -%>
 
 <div id="maincol">
 	<div class="pod">

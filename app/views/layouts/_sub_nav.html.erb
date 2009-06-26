@@ -1,11 +1,25 @@
-
+<% active ||= '' %>
 <ul id="subnav" class="clear" style="display: block;">
-	<li><a href="/preview/tournaments/overview/">Overview</a></li>
-	<li><a href="/preview/messages/index">Messages</a></li>
+  
+  <% content_tag :li, active == 'overview' ? {:class => 'active'} : nil do -%>
+    <%= link_to "Overview", tournament_path(@tournament) %>
+  <% end -%>
+  
+	<% content_tag :li, active == 'messages' ? {:class => 'active'} : nil do -%>
+    <%= link_to "Messages", tournament_messages_path(@tournament) %>
+  <% end -%>
+	
 	<li><a href="/preview/tournaments/show/">Rules</a></li>
-	<li><a href="/preview/tournaments/brackets/">Brackets</a></li>
-	<li><a href="/preview/tournaments/participants/">Participants</a></li>
-	<li><a href="/preview/attachments/show/">Files</a></li>
+	
+	<% content_tag :li, active == 'brackets' ? {:class => 'active'} : nil do -%>
+    <%= link_to "Brackets", brackets_tournament_path(@tournament) %>
+  <% end -%>
+  
+  <% content_tag :li, active == 'participants' ? {:class => 'active'} : nil do -%>
+    <%= link_to "Participants", participants_tournament_path(@tournament) %>
+  <% end -%>
+  
+	<li><a href="/preview/attachments/index">Files</a></li>
 </ul><!-- / subnav -->
 <ul id="right_subnav" class="clear" style="display: none;">
 	<li id="tournament_settings"><a href="/preview/tournaments/settings/">Tournament Settings</a></li>
