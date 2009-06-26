@@ -1,5 +1,6 @@
 class TournamentsController < ApplicationController
   before_filter :find_instance
+  before_filter :login_required, :except => [:index, :show, :brackets, :participants]
   
   def index
     @tournaments = Tournament.all

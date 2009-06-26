@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_filter :find_tournament
+  before_filter :login_required, :except => [:index, :show]
   
   def index
     @messages = Message.all
@@ -15,9 +16,10 @@ class MessagesController < ApplicationController
   
   def create
     @message = Message.new(params[:message])
+    @message.author = current_user
     if @message.save
       flash[:notice] = "Successfully created message."
-      redirect_to @message
+      redirect_to [@tournament, @message]
     else
       render :action => 'new'
     end

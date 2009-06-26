@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def find_instance
     @instance = Instance.first
   end
-  
+
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
@@ -28,5 +28,15 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
       return false
     end
+  end
+  
+  def store_location
+    return if @prevent_store_location == true
+    session[:return_to] = request.request_uri
+  end
+  
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
   end
 end

@@ -1,14 +1,22 @@
 <% stylesheet :new_message %>
-<% title "New Message" %>
+<% title @tournament.name %>
+<% content_for :tournament_nav do -%>
+  <%= render :partial => 'layouts/sub_nav', :locals => {:active => 'messages'} %>
+<% end -%>
 
 <div id="maincol">
 	<div class="pod">
+	<div class="hd">
+ 	 <h2>New Message</h2>
+	</div>
 	<div class="bd clear">
+	  <% form_for @message, :url => tournament_messages_path(@tournament) do |f| -%>
+    <%= f.error_messages %>
 	  <div id="message_main" class="group darkpod clear">
-			<label>Subject</label>
-			<input type="text" size="40"/>
-			<label>Message</label>
-			<textarea rows="15" cols="60" id="game"></textarea>
+			<%= f.label :subject, "Subject" %>
+			<%= f.text_field :subject %>
+			
+			<%= f.text_area :body, :size => '60x15' %>
 			<label class="dropdown_horz">Category</label>
 			<select name="some_name" id="some_name">
 				<option value="option1">Announcments</option>
@@ -28,9 +36,10 @@
 			<input type="checkbox" size="40"/> <label class="checkbox">plankton
 		</div><!-- / darkpod -->
 		
-			<a class="btn" href=""><span class="icon"></span><span>Post Message</span></a>
-			<div class="btn_cancel">or <a href="">Cancel</a></div>
-			
+		<button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
+		<div class="btn_cancel">or <a href="">Cancel</a></div>
+
+    <% end -%>			
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 </div><!-- / main-col -->

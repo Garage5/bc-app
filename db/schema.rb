@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20090622192441) do
   end
 
   create_table "messages", :force => true do |t|
+    t.string   "subject"
     t.text     "body"
     t.integer  "author_id"
     t.integer  "tournament_id"
@@ -55,10 +56,10 @@ ActiveRecord::Schema.define(:version => 20090622192441) do
     t.date     "tournament_start_date"
     t.date     "tournament_end_date"
     t.datetime "tournament_start_time"
-    t.integer  "first_place_prize"
-    t.integer  "second_place_prize"
-    t.integer  "third_place_prize"
-    t.integer  "entry_fee"
+    t.integer  "first_place_prize",       :default => 0
+    t.integer  "second_place_prize",      :default => 0
+    t.integer  "third_place_prize",       :default => 0
+    t.integer  "entry_fee",               :default => 0
     t.text     "other_prizes"
     t.integer  "instance_id"
     t.datetime "created_at"

@@ -209,7 +209,8 @@ button {
 	font-size: 13px;
 }
 
-a.btn {
+a.btn, button.btn {
+  float: left;
 	display: block;
 	border: none;
 	padding: 0;
@@ -220,7 +221,7 @@ a.btn {
 	text-align: left;
 }
 
-a.btn span {
+a.btn span, button.btn span {
 	display: block;
 	background: url(/images/btn-sprite.gif) 100% 0 no-repeat;
 	float: left;
@@ -228,7 +229,7 @@ a.btn span {
 	line-height: 20px;
 }
 
-a.btn span.icon {
+a.btn span.icon, button.btn span.icon {
 	float: left;
 	right: 0;
 	padding: 0;
@@ -238,24 +239,24 @@ a.btn span.icon {
 	background: url(/images/btn-sprite.gif) 0 0 no-repeat;
 }
 
-a:hover.btn {
+a:hover.btn, button:hover.btn {
 	color: #FFF;
 	text-decoration: none;
 }
 
-a:hover.btn span {
+a:hover.btn span, button:hover.btn span {
 	background-position: 100% -36px;
 }
 
-a:hover.btn span.icon {
+a:hover.btn span.icon, button:hover.btn span.icon {
 	background-position: 0 -36px;
 }
 
-a:active.btn span {
+a:active.btn span, button:active.btn span {
 	background-position: 100% -72px;
 }
 
-a:active.btn span.icon {
+a:active.btn span.icon, button:active.btn span.icon {
 	background-position: 0 -72px;
 }
 
