@@ -578,17 +578,11 @@ Navigation - Main
 #nav ul li a {
 	font-size: 14px;
 	display: block;
-	padding: 23px 12px 28px 14px;
+	padding: 23px 12px 23px 14px;
 	color: #FFF;
 	font-weight: bold;
 	text-decoration: none;
-	border: 1px #0197d6 solid;
-	border-top: 0;
 	background: #0197d6;
-	-moz-border-radius-bottomleft: 7px;
-	-moz-border-radius-bottomright: 7px;
-	-webkit-border-bottom-left-radius: 7px;
-	-webkit-border-bottom-right-radius: 7px;
 }
 
 #nav ul li a:hover {
@@ -605,17 +599,11 @@ ul#acct-nav {
 #nav ul li#btn_tmenu a {
 	font-size: 14px;
 	display: block;
-	padding: 23px 30px 22px 14px;
+	padding: 23px 30px 17px 14px;
 	color: #FFF;
 	font-weight: bold;
 	text-decoration: none;
-	border: 1px #0197d6 solid;
-	border-top: 0;
 	background: #0197d6 url(/images/icon_mainnav_tmenu_arrow.gif) center right no-repeat;
-	-moz-border-radius-bottomleft: 7px;
-	-moz-border-radius-bottomright: 7px;
-	-webkit-border-bottom-left-radius: 7px;
-	-webkit-border-bottom-right-radius: 7px;
 }
 
 #nav ul li#btn_tmenu a:hover {
