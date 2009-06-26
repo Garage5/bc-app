@@ -1,0 +1,29 @@
+.attachment {
+	border-bottom: 1px #CCC solid;
+	padding: 0 0 10px 0;
+	margin: 0 0 10px 0;
+}
+
+.attachment img.attach_type {
+	float: left;
+	width: 50px;
+}
+
+.attachment a.attach_title {
+	font-size: 15px;
+}
+
+.attachment .attach_item {
+	float: left;
+	margin: 8px 0 0 6px;
+}
+
+.attachment .attach_item p {
+	margin: 3px 0 0 0;
+}
+
+.last {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
