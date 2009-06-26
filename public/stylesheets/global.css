@@ -259,6 +259,13 @@ a:active.btn span.icon {
 	background-position: 0 -72px;
 }
 
+div.btn_cancel {
+	float: left;
+	position: relative;
+	top: 12px;
+	left: 5px;
+}
+
 /* 
 Main Structure
 -------------------------------------------------------------------------------------

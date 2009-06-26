@@ -17,16 +17,33 @@
 <body id="<%= yield(:body) %>">
 
 <div id="create_team" class="modal">
+		<div class="modal_hd">
+			<a class="modal_close" href=""><img src="/images/icon_usernav_logout.gif" /></a>
+			<h1>Create Your Team</h1>
+		</div><!-- / modal_hd -->
 	<div class="modal_inner">
-  	<h2>Create Your Team</h2>
-		<p>Create a name for your team and select the following partiicpants to join your team.</p>
-	</div><!-- / modal_inner -->
-</div><!-- / modal -->
-
-<div id="some_modal" class="modal">
-	<div class="modal_inner">
-  	<h2>Quick Look at your Account</h2>
-		<p>This is a quick look at your account.</p>
+			<p>Create a name for your team and select the following participants to join your team.</p>
+			<form>
+				<div style="margin: 0 0 0 10px;"><label for="team_name">Team Name</label><input id="team_name" type="text" /></div>
+				<ul id="player_list" class="clear">
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
+				</ul>
+				<div class="clear">
+					<a class="btn" href=""><span class="icon"></span><span>Create Team</span></a>
+					<div class="btn_cancel">or <a href="">Cancel</a></div>
+				</div>
+			</form>
+			
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
   

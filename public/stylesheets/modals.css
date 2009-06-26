@@ -4,9 +4,9 @@
   height: 100%;
   z-index: 2;
   position: absolute;
-  opacity: 0.4;
-  -moz-opacity: 0.4;
-  filter:alpha(opacity=40);
+  opacity: 0.6;
+  -moz-opacity: 0.6;
+  filter:alpha(opacity=60);
 }
 
 .modal {
@@ -16,15 +16,64 @@
   top: 30%;
   left: 50%;
 	background: #FFF;
-	border: 1px #555 solid;
 	color: #333;
+	font-size: 12px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 }
 
+.modal .modal_hd {
+	background: #017ecc;
+	padding: 13px 0 10px 15px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+}
+
+.modal .modal_hd h1 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.modal .modal_hd a.modal_close {
+	float: right;
+	display: block;
+	padding: 3px 15px 10px 10px;
+}
+
+.modal .modal_hd a:hover.modal_close {
+	opacity: 0.8;
+	-moz-opacity: 0.8;
+	filter:alpha(opacity=80);
+}
+
 .modal .modal_inner {
-	border: 4px #DDD solid;
 	padding: 15px;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
+}
+
+.modal .modal_inner p {
+	font-size: 14px;
+	margin: 0 0 15px 0;
+	line-height: 20px;
+	color: #666;
+}
+
+#create_team {
+	width: 400px;
+}
+
+#create_team div#team_name {
+	margin: 0 0 0 10px;
+}
+
+#create_team ul#player_list {
+	margin: -5px 0 10px 0;
+}
+
+#create_team ul#player_list li {
+	float: left;
+	display: block;
+	margin: 5px;
 }
