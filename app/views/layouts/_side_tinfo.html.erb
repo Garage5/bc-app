@@ -4,17 +4,17 @@
 	</div><!-- / hd -->
 	<div class="bd">
 		<ul id="basic_info">
-			<li class="clear"><strong>Game:</strong> Starcraft</li>
+			<li class="clear"><strong>Game:</strong> <%= @tournament.game %></li>
 			<li><strong>Tournament Type:</strong> Single Elimination</li>
-			<li><strong>Total Slots:</strong> 8</li>
+			<li><strong>Total Slots:</strong> <%= @tournament.slot_count %></li>
 			<li><strong>Slots Open:</strong> 6</li>
-			<li class="last"><strong>Entry Fee:</strong> $5.00</li>
+			<li class="last"><strong>Entry Fee:</strong> <% @tournament.entry_fee.blank? ? 'N/A' : @tournament.entry_fee %></li>
 		</ul>
 		<h3>Prizes</h3>
 		<ul id="prizes">
-			<li>1st Place: $1,000,000.00</li>
-			<li>2nd Place: $500,000.00</li>
-			<li class="last">3rd Place: $250,000.00</li>
+			<li>1st Place: <%= @tournament.first_place_prize %></li>
+			<li>2nd Place: <%= @tournament.second_place_prize %></li>
+			<li class="last">3rd Place:  <%= @tournament.third_place_prize %></li>
 		</ul>
 		<h3>Dates/Times</h3>
 		<div class="calendar_date_select">

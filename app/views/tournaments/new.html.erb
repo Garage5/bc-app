@@ -18,6 +18,17 @@
   })
 </script>
 
+<div id="load_template" class="modal">
+  <select>
+    <option>Select a Template...</option>
+    <option>Awesomeness</option>
+    <option>Valor</option>
+    <option>Starcraft 2</option>
+  </select>
+  <button type="submit">Load</button>
+  or <a href="#">cancel</a>
+</div>
+
 <div id="maincol">
 	<div class="pod" id="new_tournament">
 		
@@ -42,7 +53,6 @@
 			<dl>
 				<dd><%= f.label :name, "Tournament Name" %><%= f.text_field :name %></dd>
 				<dd><%= f.text_field :game %></dd>
-				<dt><a class="rc biglink wh" href="">Set Game</a></dt>
 			</dl>
 			
 		</div><!-- / darkpod -->
@@ -55,8 +65,8 @@
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
 			<dl>
-				<dd><%= f.text_area :rules, :value => "A big block of text will go here explaining what to do with this box. Make it disappear on focus", :size => "88x15" %></dd>
-				<dt><a class="rc medlink wh" href="">Save</a></dt>
+			  <dt><%= f.label :rules, "Some line of text that explains what to do with this text area" %></dt>
+				<dd><%= f.text_area :rules, :size => "88x15" %></dd>
 			</dl>
 			
 		</div><!-- / darkpod -->
@@ -77,7 +87,6 @@
 						<option value="Single Elimination">Single Elimination</option>
 					</select>
 				<label for="tournament_type">Tournament Type</label></li>
-				<li><a class="rc medlink wh" href="">Save</a></li>
 			</ul>
 		</div><!-- / darkpod -->
 		<!-- / Step 3 -->
@@ -89,13 +98,12 @@
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.<a class="note-close" href="">X</a></p>
 			<ul>
-				<li><input id="prizes" type="text" value="$"/><label for="prizes">1st Place</label></li>
-				<li><input id="prizes" type="text" value="$"/><label for="prizes">2nd Place</label></li>
-				<li><input id="prizes" type="text" value="$"/><label for="prizes">3rd Place</label></li>
-				<li><input id="prizes" type="text" value="$" /><label for="prizes">Entry Fees</label></li>
-				<li><label class="textrea_label" for="prizes">Other</label></li>
-				<li><textarea cols="88" rows="15"></textarea></li>
-				<li><a class="rc medlink wh" href="">Save</a></li>
+				<li>$ <%= f.text_field :first_place_prize, :size => 11 %><%= f.label :first_place_prize, "1st Place" %></li>
+				<li>$ <%= f.text_field :first_place_prize, :size => 11 %><%= f.label :second_place_prize, "2nd Place" %></li>
+				<li>$ <%= f.text_field :first_place_prize, :size => 11 %><%= f.label :third_place_prize, "3rd Place" %></li>
+				<li>$ <%= f.text_field :entry_fee, :size => 11 %><%= f.label :entry_fee, "Entry Fees" %></li>
+				<li><%= f.label :other_prizes, "Other Prizes" %></li>
+				<li><%= f.text_area :other_prizes, :size => "88x15" %></li>
 			</ul>
 		</div><!-- / darkpod -->
 		<!-- / Step 4 -->
@@ -170,9 +178,6 @@
 					</table>
 			</div><!-- / tournament_dates -->
 			</div><!-- / clear -->
-			<dl>
-				<dt><a class="rc medlink wh" href="">Save Dates</a></dt>
-			</dl>
 		</div><!-- / darkpod -->
 		<!-- / Step 5 -->
   	<button type="submit" class="rc biglink wh">Create Tournament</button> or
@@ -186,7 +191,7 @@
 	<div class="save_wrapper clear">
 		<ul>
 			<li><a class="rc biglink wh" href="/preview/tournament/new/">Save as Template</a></li>
-			<li><a class="rc biglink bl" href="">Load from Template</a></li>
+			<li><a class="rc biglink bl" href="#load_template" rel="modal">Load from Template</a></li>
 		</ul>
 	</div><!-- / save_wrapper -->
 	

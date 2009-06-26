@@ -13,11 +13,10 @@ class CreateTournaments < ActiveRecord::Migration
       t.date      :tournament_start_date
       t.date      :tournament_end_date
       t.datetime  :tournament_start_time
-      t.decimal   :first_place,   :precision => 10, :scale => 2
-      t.decimal   :second_place,  :precision => 10, :scale => 2
-      t.decimal   :third_place,   :precision => 10, :scale => 2
-      t.decimal   :fourth_place,  :precision => 10, :scale => 2
-      t.decimal   :entry_fee,     :precision => 10, :scale => 2
+      t.integer   :first_place_prize,  :default => 0
+      t.integer   :second_place_prize, :default => 0
+      t.integer   :third_place_prize,  :default => 0
+      t.integer   :entry_fee,          :default => 0
       t.text      :other_prizes
       t.integer   :instance_id
       t.timestamps

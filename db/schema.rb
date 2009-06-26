@@ -55,11 +55,10 @@ ActiveRecord::Schema.define(:version => 20090622192441) do
     t.date     "tournament_start_date"
     t.date     "tournament_end_date"
     t.datetime "tournament_start_time"
-    t.decimal  "first_place",             :precision => 10, :scale => 2
-    t.decimal  "second_place",            :precision => 10, :scale => 2
-    t.decimal  "third_place",             :precision => 10, :scale => 2
-    t.decimal  "fourth_place",            :precision => 10, :scale => 2
-    t.decimal  "entry_fee",               :precision => 10, :scale => 2
+    t.integer  "first_place_prize"
+    t.integer  "second_place_prize"
+    t.integer  "third_place_prize"
+    t.integer  "entry_fee"
     t.text     "other_prizes"
     t.integer  "instance_id"
     t.datetime "created_at"
