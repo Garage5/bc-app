@@ -1171,9 +1171,10 @@ Footer
 
 #footer #feedback_support a {
 	width: 350px;
-	height: 140px;
+	height: 76px;
 	display: block;
-	background: transparent;
+	background: #DDD;
+	border: 2px #CCC solid;
 	text-indent: -9999px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
