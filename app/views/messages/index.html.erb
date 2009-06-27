@@ -1,5 +1,5 @@
 <% stylesheet :messages %>
-<% title "Valor Tournament" %>
+<% title @tournament.name %>
 
 <% content_for :tournament_nav do -%>
   <%= render :partial => "layouts/sub_nav", :locals => {:active => 'messages'} %>
@@ -14,32 +14,31 @@
 			</ul>
   	</div>
   	<div class="bd">
-		  <table id="messages">
-		    <% if !@messages.blank? %>
-		      <% for m in @messages %>
-		        <tr>
-              <td class="message_main">
-    		        <span class="message_subject">
-    							<!--><p class="cat_announcement">Announcment</p>-->
-    							<%= link_to m.subject, tournament_message_path(@tournament, m) %>
-    						</span>
-      		      <p>Posted by <%= link_to m.author.login, '', :class => 'message_user' %> on <%= m.created_at %></p>
-              </td>
-              <td class="message_status"><p>
-                <img src="/images/comment.gif" alt="comment" />
-                <span>23</span> | <a href="/preview/messages/show/">2 unread</a></p>
-              </td>		      
-              <td class="message_latest">
-    		        <p>Latest Comment by <a href="/preview/messages/show/" class="message_user">mattdetails</a><br /> Yesterday 3:53am</p>
-    		      </td>
-    		    </tr><!-- /comment -->
-		      <% end %>
-		    <% else %>
-		      <tr>
-		        <td>No Messages</td>
-		      </tr>
-		    <% end %>
-		  </table>
+	    <% if !@messages.blank? %>
+	    <table id="messages">
+      <% for m in @messages %>
+        <tr <%= m == @messages.last ? 'class="last"' : nil %>>
+          <td class="message_main">
+		        <span class="message_subject">
+							<!--><p class="cat_announcement">Announcment</p>-->
+							<%= link_to m.subject, tournament_message_path(@tournament, m) %>
+						</span>
+  		      <p>Posted by <%= link_to m.author.login, '', :class => 'message_user' %> on <span class="date" title="<%= m.created_at.iso8601 %>"><%= m.created_at %></span></p>
+          </td>
+          <td class="message_status"><p>
+            <img src="/images/comment.gif" alt="comment" />
+            <span><%= m.comments.count %></span> | <%= link_to m.comments.count.to_s + ' unread (todo)', message_path(m) %></p>
+          </td>		      
+          <td class="message_latest">
+		        <p>Latest Comment by <a href="/preview/messages/show/" class="message_user"><%= m.comments.last.author.login %></a><br /> 
+		        <span class="date" title="<%= m.comments.last.created_at.iso8601 %>"><%= m.comments.last.created_at %></span></p>
+		      </td>
+		    </tr><!-- /comment -->
+      <% end %>
+      </table>
+      <% else %>
+	      No Messages
+	    <% end %>
   	</div><!-- / bd -->
 	</div><!-- / pod -->
 	

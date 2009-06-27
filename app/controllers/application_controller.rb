@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   def find_instance
     @instance = Instance.first
   end
+  
+  def find_tournament
+    @tournament = Tournament.find(params[:tournament_id])
+  end
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

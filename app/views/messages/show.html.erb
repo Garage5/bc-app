@@ -1,5 +1,5 @@
 <% stylesheet :messages %>
-<% title "Recent Messages" %>
+<% title @tournament.name %>
 <% content_for :tournament_nav do -%>
   <%= render :partial => "layouts/sub_nav", :locals => {:active => 'messages'} %>
 <% end -%>
@@ -30,47 +30,38 @@
 	
 	<div id="comment_mod">
 	  <ul class="group">
-	    <li class="comment pod darkpod">
-	      <div class="comment_header">
-	       <img src="/images/avatar_big.jpg" height="40" />
-	       <h3>mattdetails says:</h3>
-	       <p>posted 3 hours ago</p>
-	      </div>
-	      <div class="comment_body">
-	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					<ul class="files_attach clear">
-						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-					</ul><!-- / files_attach -->
-	      </div>
-	    </li>
-	    <li class="comment pod darkpod">
-	      <div class="comment_header">
-	       <img src="/images/avatar_big.jpg" height="40" />
-	       <h3>mattdetails says:</h3>
-	       <p>posted 3 hours ago</p>
-	      </div>
-	      <div class="comment_body">
-	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-					<ul class="files_attach clear">
-						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-					</ul><!-- / files_attach -->
-	      </div>
-	    </li>
+	    <% if !@message.comments.blank? %>
+	      <% for c in @message.comments %>
+        <li class="comment pod darkpod">
+  	      <div class="comment_header">
+  	       <img src="/images/avatar_big.jpg" height="40" />
+  	       <h3><%= c.author.login %> says:</h3>
+  	       <p>posted <span class="date" title="<%= c.created_at.iso8601 %>"><%= c.created_at %></span></p>
+  	      </div>
+  	      <div class="comment_body">
+  	        <p><%=simple_format c.body %></p>
+  					<ul class="files_attach clear">
+  						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
+  						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
+  						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
+  					</ul><!-- / files_attach -->
+  	      </div>
+  	    </li>
+	      <% end %>
+	    <% end %>
 	  </ul><!-- /comments ul -->
 	
 	  <div class="comment_form darkpod clear">
 			<h4>Post a Comment</h4>
-				<div><textarea rows="10" style="width: 98%;" id="game"></textarea></div>
+			<% form_for [@tournament, @message, Comment.new] do |f| -%>
+			  <div><%= f.text_area :body, :rows => 10, :style => "width: 98%" %></div>
 				<div id="message_attach" class="group clear">
 					<label>Attach a File</label>
 					<p>Files cannot be larger than 42 and must contain references to cats.</p>
 					<input type="file" size="40"/>
 				</div><!-- / darkpod -->
-				<div><a class="btn" href=""><span class="icon"></span><span>Post Comment</span></a></div>
+				<div><button type="submit" class="btn"><span class="icon"></span><span>Post Comment</span></button></div>
+			<% end -%>
 		</div><!-- / darkpod -->
 	</div><!-- / comment_mod -->
 	  

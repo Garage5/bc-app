@@ -116,20 +116,20 @@
 			
 			<p class="note">Consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue.<a class="note-close" href="">X</a></p>
 			<div class="clear">
-			<div class="calendar_date_select">
+			  <div class="calendar_date_select">
+  				<div class="header">
+  					<div class="pager">
+  						<a method="previous" href="#">&laquo;</a>
+  						<select class="months">
+  							<option value="2008-01-01">Jan 2137</option><option value="2008-02-01">Feb 2137</option>
+  							<option value="2008-03-01">Mar 2137</option><option value="2008-04-01">Apr 2137</option>
+  						</select>
+  						<a method="next" href="#">&raquo;</a>
+  					</div>
+  				</div>
 				
-				<div class="header">
-					<div class="pager">
-						<a method="previous" href="#">&laquo;</a>
-						<select class="months">
-							<option value="2008-01-01">Jan 2137</option><option value="2008-02-01">Feb 2137</option>
-							<option value="2008-03-01">Mar 2137</option><option value="2008-04-01">Apr 2137</option>
-						</select>
-						<a method="next" href="#">&raquo;</a>
-					</div>
-				</div>
-			  <div class="body">
-					<table>
+			    <div class="body">
+					  <table>
 						<tbody>
 							<tr class="weekdays">
 								<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
@@ -143,8 +143,9 @@
 					</div>
 					<div class="footer"></div>
 				</div><!-- / calendar_date_select -->
-				  <div class="tournament_dates">
-					<table>
+				
+				<div class="tournament_dates">
+				  <table>
 						<tr>
 							<th>&nbsp;</th>
 							<td class="date">&nbsp;</td>
@@ -176,13 +177,12 @@
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
 					</table>
-			</div><!-- / tournament_dates -->
+			  </div><!-- / tournament_dates -->
 			</div><!-- / clear -->
 		</div><!-- / darkpod -->
 		<!-- / Step 5 -->
   	<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button> or
   	<button type="button" class="btn"><span class="icon"></span><span>Save as Template</span></button>
-  	<div class="clear"></div>
   	<% end -%>
 	</div><!-- / bd -->
 	</div><!-- / pod -->

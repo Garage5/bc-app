@@ -18,6 +18,7 @@ class CreateTournaments < ActiveRecord::Migration
       t.integer   :third_place_prize,  :default => 0
       t.integer   :entry_fee,          :default => 0
       t.text      :other_prizes
+      t.boolean   :is_template
       t.integer   :instance_id
       t.timestamps
     end

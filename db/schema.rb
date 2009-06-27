@@ -9,9 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090622192441) do
+ActiveRecord::Schema.define(:version => 20090627194904) do
 
   create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20090622192441) do
     t.integer  "third_place_prize",       :default => 0
     t.integer  "entry_fee",               :default => 0
     t.text     "other_prizes"
+    t.boolean  "is_template"
     t.integer  "instance_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -4,4 +4,7 @@ $(document).ready(function(){
     e.preventDefault()
     $(this).closest('.note').hide(400)
   })
+  
+  // convert dates to relative
+  $(".date").timeago()
 })

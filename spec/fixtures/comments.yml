@@ -1,7 +1,11 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  body: MyText
+  commentable_type: MyString
+  commentable_id: 1
+  author_id: 1
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+two:
+  body: MyText
+  commentable_type: MyString
+  commentable_id: 1
+  author_id: 1
