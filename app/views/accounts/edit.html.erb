@@ -14,8 +14,8 @@
 				<% form_for '@account' do |f| -%>
 					<div class="left_block"><img src="/images/missing_logo.gif" alt="logo" /></div>
 	        <div class="block">
-						<%= f.file_field :logo %>
-	        	<a href="" class="btn"><span class="icon"></span><span>Upload Logo</span></a>
+						<div class="group"><%= f.file_field :logo %></div>
+						<button class="btn"><span class="icon"></span><span>Upload Logo</span></button>
 					</div>
 				<% end -%>
 	  </div>	 
@@ -33,11 +33,11 @@
 	    <table>
         <tr>
         	<td>Announcements</td>
-        	<td class="remove"><a href="#">remove</a></td>
+        	<td>&nbsp;</td>
         </tr>
         <tr>
-        	<td>Comments</td>
-        	<td class="remove"><a href="#">remove</a></td>
+        	<td>Disputes</td>
+        	<td>&nbsp;</td>
         </tr>
         <tr>
         	<td>Stuff</td>
@@ -46,10 +46,10 @@
 	    </table>
 	    <% form_for '@account' do |f| -%>
 	    	<div class="left_block"><%= f.text_field :title %></div>
-				<div class="left_block add_cat"><a class="btn" href=""><span class="icon"></span><span>Add Category</span></a></div>
+				<div class="left_block add_cat"><button class="btn add"><span class="icon"></span><span>Add Category</span></button></div>
 	    <% end -%>
 	  </div>
-	<a class="btn" href=""><span class="icon"></span><span>Save Changes</span></a>
+	<button class="btn"><span class="icon"></span><span>Save Changes</span></button>
 	</div><!-- / bd -->
 	
 </div><!-- / pod -->

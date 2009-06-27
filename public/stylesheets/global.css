@@ -206,7 +206,6 @@ a.txtlink-red {
 
 button {
 	cursor: pointer;
-	font-size: 13px;
 }
 
 a.btn, button.btn {
@@ -216,6 +215,7 @@ a.btn, button.btn {
 	background: none;
 	color: #017ecc;
 	font-size: 11px;
+	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	text-align: left;
 }
@@ -262,6 +262,19 @@ a:active.btn span, button:active.btn span {
 
 a:active.btn span.icon, button:active.btn span.icon {
 	background-position: 0 -72px;
+}
+
+a.add, button.add span.icon {
+	width: 28px;
+	background-position: 0 -108px;
+}
+
+a:hover.add, button:hover.add span.icon {
+	background-position: 0 -144px;
+}
+
+a:active.add, button:active.add span.icon {
+	background-position: 0 -180px;
 }
 
 div.btn_cancel {
@@ -826,32 +839,32 @@ Navigation - User Navigation (Avatar, profile, etc)
 	position: relative;
 }
 
-#user-dash #user-avatar a#avatar img {
-	padding: 5px 5px 5px 17px;
-	display: block;
-}
-
-#user-dash #user-avatar:hover a#avatar img {
-	background: #FFF url(/images/icon_usernav_menu_arrow.gif) center left no-repeat;
-
-}
-
 #user-dash #user-avatar a#avatar {
 	display: block;
 	padding: 5px 5px 0 5px;
 }
 
-#user-dash #user-avatar a:hover#avatar {
-	background: url(/images/menu_shadow.png) 0 0 repeat;
-	
+#user-dash #user-avatar a#avatar img {
+	padding: 5px 5px 5px 17px;
+	display: block;
 }
 
+/* Putting the user-nav menu on hold until a later date. Adds functionality that we don't need right now. - Matt
+#user-dash #user-avatar:hover a#avatar img {
+	background: #FFF url(/images/icon_usernav_menu_arrow.gif) center left no-repeat;
+}
+
+#user-dash #user-avatar a:hover#avatar {
+	background: url(/images/menu_shadow.png) 0 0 repeat;
+}
+
+*/
 #user-dash #user-avatar #user_subnav {
 	display: none;
 }
 
 #user-dash #user-avatar:hover #user_subnav {
-	display: block;
+	display: none;
 	position: absolute;
 	left: 0px;
 	width: 240px;
@@ -897,6 +910,7 @@ Navigation - User Navigation (Avatar, profile, etc)
 	-moz-border-radius:     2px;
 	-webkit-border-radius:  2px;
 }
+
 
 #user-dash #user-avatar a img {
 	width: 50px;
@@ -1098,7 +1112,7 @@ Footer
 }
 
 #footer .footer_inner {
-	margin: 0 0 0 250px;
+	margin: 0 0 0 400px;
 }
 
 #footer a {
@@ -1175,9 +1189,10 @@ Footer
 
 #footer #feedback_support a {
 	width: 350px;
-	height: 140px;
+	height: 76px;
 	display: block;
-	background: transparent;
+	background: #DDD;
+	border: 2px #CCC solid;
 	text-indent: -9999px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;

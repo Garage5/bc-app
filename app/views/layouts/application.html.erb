@@ -26,6 +26,20 @@
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
 
+<div id="team_invite" class="modal">
+		<div class="modal_hd">
+			<a class="modal_close" href=""><img src="/images/icon_usernav_logout.gif" /></a>
+			<h1>Invite</h1>
+		</div><!-- / modal_hd -->
+	<div class="modal_inner">
+			<p>You've been invited to join team Valor by <a href="">Spawn</a></p>
+			<div class="clear">
+			<button class="btn"><span class="icon"></span><span>Accept</span></button>
+			<button class="btn"><span class="icon"></span><span>Decline</span></button>
+			</div>
+	</div><!-- / modal_inner -->
+</div><!-- / modal -->
+
 <div id="create_team" class="modal">
 		<div class="modal_hd">
 			<a class="modal_close" href=""><img src="/images/icon_usernav_logout.gif" /></a>
@@ -49,7 +63,7 @@
 					<li><input type="checkbox"/><label class="checkbox">Bryan</label></li>
 				</ul>
 				<div class="clear">
-					<a class="btn" href=""><span class="icon"></span><span>Create Team</span></a>
+					<button class="btn add"><span class="icon"></span><span>Create Team</span></button>
 					<div class="btn_cancel">or <a href="">Cancel</a></div>
 				</div>
 			</form>
@@ -61,7 +75,7 @@
 <div id="header">
 	<h1><%= link_to @instance.try(:name) || "Host Name", root_path %></h1><!-- / logo -->
 	<div id="nav">
-		<ul style="float: left;">
+		<ul>
 			<li><a title="" href="/">Dashboard</a></li>
 			<li id="btn_tmenu"><a title="" class="clear" href=""><span id="tmenu_txt">Tournaments</span> <span id="tmenu_unread">3</span></a>
 				<div id="tmenu">
@@ -119,7 +133,6 @@
 	</div>
 	
 	<div id="feedback_support">
-		<a>Need Feedback?</a>
 	</div>
 	
 	<div class="footer_inner">
@@ -127,10 +140,7 @@
 			<h2>Support</h2>
 			<ul>
 				<li><a href="">FAQ</a></li>
-				<li><a href="">Forums</a></li>
 				<li><a href="">Tour</a></li>
-				<li><a href="">Other Links</a></li>
-				<li><a href="">Other Links</a></li>
 			</ul>
 		</div><!-- / support_info -->
 		<div id="gen_info">
@@ -138,9 +148,6 @@
 			<ul>
 				<li><a href="">Blog</a></li>
 				<li><a href="">BattleID</a></li>
-				<li><a href="">The Battle Begins</a></li>
-				<li><a href="">Other Links</a></li>
-				<li><a href="">Other Links</a></li>
 			</ul>
 		</div><!-- / gen_info -->
 		<div id="gen_info">
@@ -148,9 +155,6 @@
 	 		<ul>
 	 			<li><a href="">Privacy Policy</a></li>
 	 			<li><a href="">Terms of Service</a></li>
-	 			<li><a href="">Other Links</a></li>
-	 			<li><a href="">Other Links</a></li>
-	 			<li><a href="">Other Links</a></li>
 	 		</ul>
 		</div><!-- / gen_info -->
 	</div><!-- / footer_inner -->
