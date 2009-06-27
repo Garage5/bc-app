@@ -206,7 +206,6 @@ a.txtlink-red {
 
 button {
 	cursor: pointer;
-	font-size: 13px;
 }
 
 a.btn, button.btn {
@@ -217,6 +216,7 @@ a.btn, button.btn {
 	background: none;
 	color: #017ecc;
 	font-size: 11px;
+	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	text-align: left;
 }
@@ -258,6 +258,19 @@ a:active.btn span, button:active.btn span {
 
 a:active.btn span.icon, button:active.btn span.icon {
 	background-position: 0 -72px;
+}
+
+a.add, button.add span.icon {
+	width: 28px;
+	background-position: 0 -108px;
+}
+
+a:hover.add, button:hover.add span.icon {
+	background-position: 0 -144px;
+}
+
+a:active.add, button:active.add span.icon {
+	background-position: 0 -180px;
 }
 
 div.btn_cancel {
