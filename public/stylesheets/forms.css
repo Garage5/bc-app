@@ -21,7 +21,6 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-	border-color: #0197d6;
 	color: #000;
 	font-weight: normal;
 	outline-color: -moz-use-text-color;

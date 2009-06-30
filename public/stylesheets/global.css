@@ -212,7 +212,7 @@ a.btn, button.btn {
 	border: none;
 	padding: 0;
 	background: none;
-	color: #017ecc;
+	color: #000;
 	font-size: 11px;
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
@@ -1146,7 +1146,6 @@ Footer
 }
 
 #footer #meta_copy p a:hover {
-	color: #017ecc;
 	text-decoration: none;
 }
 

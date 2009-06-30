@@ -1,41 +1,62 @@
 a, a:visited {
 	color: #017ecc; /* blue */
 	color: #ff5400; /* orange */
+	color: #b80052; /* magenta */
 }
 
 #header {
 	background: #0197d6; /* blue */
 	background: #ff5400; /* orange */
+	background: #b80052; /* magenta */
 }
 
 #nav ul li a {
 	background: #0197d6; /* blue */
 	background: #ff5400; /* orange */
+	background: #b80052; /* magenta */
 }
 
 #nav ul li a:hover {
-	background: #0071a0; /* blue */
-	background: #b83d00; /* orange */
+	background: #0071a0; /* dark blue */
+	background: #b83d00; /* dark orange */
+	background: #7a0037; /* dark magenta */
 }
 
 #nav ul li#btn_tmenu a {
 	background-color: #0197d6; /* blue */
 	background-color: #ff5400; /* orange */
+	background: #b80052; /* magenta */
 }
 
 #nav ul li#btn_tmenu a span#tmenu_unread {
 	color: #0197d6; /* blue */
 	color: #ff5400; /* orange */
+	color: #b80052; /* magenta */
 }
 
 .tnav a.icon-add {
 	background-color: #0197d6; /* blue */
 	background-color: #ff5400; /* orange */
-	border: 1px #007bae solid; /* blue */
-	border: 1px #b83d00 solid; /* orange */
+	background: #b80052; /* magenta */
+	border: 1px #007bae solid; /* dark blue */
+	border: 1px #b83d00 solid; /* dark orange */
+	border: 1px solid #b80052; /* dark magenta */
 }
 
 ul#subnav li a:hover {
 	background: #0197d6; /* blue */
-	background-color: #ff5400; /* orange */
+	background: #ff5400; /* orange */
+	background: #b80052; /* magenta */
+}
+
+input:focus, textarea:focus {
+	border-color: #0197d6; /* blue */
+	border-color: #ff5400; /* orange */
+	border-color: #b80052; /* magenta */
+}
+
+.modal .modal_hd {
+	background: #017ecc; /* blue */
+	background: #ff5400; /* orange */
+	background: #b80052; /* magenta */
 }
