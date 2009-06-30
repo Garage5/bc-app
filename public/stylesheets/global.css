@@ -28,7 +28,6 @@ strong {
 }
 
 a, a:visited {
-	color: #017ecc;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -302,7 +301,6 @@ Main Structure
 }
 
 #header {
-	background: #0197d6;
 	height: 60px;
 	-moz-border-radius-bottomleft: 5px;
 	-moz-border-radius-bottomright: 5px;
@@ -596,12 +594,10 @@ Navigation - Main
 	color: #FFF;
 	font-weight: bold;
 	text-decoration: none;
-	background: #0197d6;
 }
 
 #nav ul li a:hover {
 	text-decoration: underline;
-	background: #0071a0;
 	color: #cee4ed;
 }
 
@@ -617,12 +613,14 @@ ul#acct-nav {
 	color: #FFF;
 	font-weight: bold;
 	text-decoration: none;
-	background: #0197d6 url(/images/icon_mainnav_tmenu_arrow.gif) center right no-repeat;
+	background-image: url(/images/icon_mainnav_tmenu_arrow.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
 }
 
 #nav ul li#btn_tmenu a:hover {
 	text-decoration: underline;
-	background: #0071a0 url(/images/icon_mainnav_tmenu_arrow.gif) center right no-repeat;;
+	background: #FFF url(/images/icon_mainnav_tmenu_arrow.gif) center right no-repeat;
 	color: #cee4ed;
 }
 
@@ -634,7 +632,6 @@ ul#acct-nav {
 #nav ul li#btn_tmenu a span#tmenu_unread {
 	font-size: 12px;
 	background: transparent url(/images/tmenu_count_bg.png) 0 0 no-repeat;
-	color: #0197d6;
 	font-weight: bold;
 	display: block;
 	padding: 4px 7px 4px 7px;
@@ -767,9 +764,10 @@ Navigation - Tournament - Sidecol
 	-moz-border-radius-bottomright: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
-	background: #0197d6 url(../images/icon-add.gif) 11px 12px no-repeat;
+	background-image: url(../images/icon-add.gif);
+	background-position: 11px 12px;
+	background-repeat: no-repeat;
 	color: #FFF;
-	border: 1px #007bae solid;
 	margin: 2px;
 	padding-left: 25px;
 }
