@@ -30,88 +30,88 @@
 </div>
 
 <div id="maincol">
-	<div class="pod" id="new_tournament">
-		
-	<div id="process_steps" class="clear">
-		<ul>
-			<li class="active"><span><span class="step-icon">1</span> <em>Select a Game</em></span></li>
-			<li><span><span class="step-icon">2</span> <em>Rules</em></span></li>
-			<li><span><span class="step-icon">3</span> <em>Player Structure</em></span></li>
-			<li><span><span class="step-icon">4</span> <em>Prizes &amp; Fees</em></span></li>
-			<li><span><span class="step-icon">5</span> <em>Date</em></span></li>
-		</ul>
-	</div><!-- / -->
-	<div class="bd">
+	<div id="new_tournament">
 		<!-- Step 1 -->
 		<% form_for @tournament do |f| -%>
 		<%= f.error_messages %>
-		<div id="tournament_game" class="group darkpod step clear">
+		<div id="tournament_name" class="pod step clear">
+		<div class="bd">
 			<div class="clear">
-				<h4><span class="step-icon">1</span> <em>Set a Game &amp; Name</em></h4>
+				<h4><em>Name &amp; Game</em></h4>
 			</div>
-			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
-			<dl>
-				<dd><%= f.label :name, "Tournament Name" %><%= f.text_field :name %></dd>
-				<dd><%= f.text_field :game %></dd>
-			</dl>
 			
-		</div><!-- / darkpod -->
+			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
+			
+			<div><%= f.text_field :name %> <%= f.label :name, "Tournament Name" %></div>
+			<div><%= f.text_field :game %> <%= f.label :game, "Game" %></div>
+			
+		</div><!-- / bd -->
+		</div><!-- / pod -->
 		<!-- / Step 1 -->
 		
 		<!-- Step 2-->
-		<div id="tournament_rules" class="group darkpod step clear">
+		<div id="tournament_rules" class="pod step clear">
+		<div class="bd">
 			<div class="clear">
-				<h4><span class="step-icon">2</span> <em>Set the Rules</em></h4>
+				<h4><em>The Rules</em></h4>
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
-			<dl>
-			  <dt><%= f.label :rules, "Some line of text that explains what to do with this text area" %></dt>
-				<dd><%= f.text_area :rules, :size => "88x15" %></dd>
-			</dl>
+			<%= f.label :rules, "Rules", :class => 'textarea lg' %>
+			<%= f.text_area :rules%>
 			
-		</div><!-- / darkpod -->
+		</div><!-- / bd -->
+		</div><!-- / pod -->
 		<!-- / Step 2 -->
 		
 		<!-- Step 3 -->
-		<div id="tournament_players" class="group darkpod step clear">
+		<div id="tournament_players" class="pod step clear">
+		<div class="bd">
 			<div class="clear">
-				<h4><span class="step-icon">3</span> <em>Players &amp; Teams</em></h4>
+				<h4><em>Players &amp; Teams</em></h4>
 			</div>
-			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			<ul>
-			  <li><%= f.check_box :teams %><%= f.label :teams, "Enable Teams" %></li>
-				<li style="display:none"><%= f.text_field :players_per_team %><%= f.label :players_per_team, "How many players per team?" %></li>
-				<li><%= f.select :slot_count, [4, 8, 16, 32] %> <%= f.label :slot_count, "Maximum Slots" %></li>
-				<li class="dropdown">
+			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a class="note-close" href="">X</a></p>
+			
+			  <div><%= f.check_box :teams %> <%= f.label :teams, "Enable Teams", :class => 'checkbox' %></div>
+			
+				<div style="display:none">
+					<%= f.text_field :players_per_team %> <%= f.label :players_per_team, "How many players per team?" %>
+				</div>
+				
+				<div class="block"><%= f.select :slot_count, [4, 8, 16, 32] %> <%= f.label :slot_count, "Maximum Slots" %></div>
+				
+				<div >
 					<select id="tournament_type">
 						<option value="Single Elimination">Single Elimination</option>
 					</select>
-				<label for="tournament_type">Tournament Type</label></li>
-			</ul>
-		</div><!-- / darkpod -->
+					<label for="tournament_type">Tournament Type</label>
+				</div>
+			</div><!-- / bd -->
+			</div><!-- / pod -->
 		<!-- / Step 3 -->
 		
 		<!-- Step 4 -->
-		<div id="tournament_prize" class="group darkpod step clear">
+		<div id="tournament_prize" class="pod step clear">
+		<div class="bd">
 			<div class="clear">
-				<h4><span class="step-icon">4</span> <em>Prizes &amp; Fees</em></h4>
+				<h4><em>Prizes &amp; Fees</em></h4>
 			</div>
 			<p class="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.<a class="note-close" href="">X</a></p>
-			<ul>
-				<li>$ <%= f.text_field :first_place_prize, :size => 11 %><%= f.label :first_place_prize, "1st Place" %></li>
-				<li>$ <%= f.text_field :first_place_prize, :size => 11 %><%= f.label :second_place_prize, "2nd Place" %></li>
-				<li>$ <%= f.text_field :first_place_prize, :size => 11 %><%= f.label :third_place_prize, "3rd Place" %></li>
-				<li>$ <%= f.text_field :entry_fee, :size => 11 %><%= f.label :entry_fee, "Entry Fees" %></li>
-				<li><%= f.label :other_prizes, "Other Prizes" %></li>
-				<li><%= f.text_area :other_prizes, :size => "88x15" %></li>
-			</ul>
-		</div><!-- / darkpod -->
+			
+			<div>$ <%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :first_place_prize, "1st Place" %></div>
+			<div>$ <%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :second_place_prize, "2nd Place" %></div>
+			<div>$ <%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :third_place_prize, "3rd Place" %></div>
+			<div>$ <%= f.text_field :entry_fee, :size => 11 %> <%= f.label :entry_fee, "Entry Fees" %></div>
+			<div><%= f.label :other_prizes, "Other Prizes", :class => 'textarea' %></div>
+			<div><%= f.text_area :other_prizes, :size => "88x15" %></div>
+		</div><!-- / bd -->
+		</div><!-- / pod -->
 		<!-- / Step 4 -->
 		
 		<!-- Step 5 -->
-		<div id="tournament_dates" class="group darkpod step clear">
+		<div id="tournament_dates" class="pod step clear">
+		<div class="bd">
 			<div class="clear">
-				<h4><span class="step-icon">5</span> <em>Set the Dates</em></h4>
+				<h4><em>The Dates</em></h4>
 			</div>
 			
 			<p class="note">Consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue.<a class="note-close" href="">X</a></p>
@@ -127,7 +127,6 @@
   						<a method="next" href="#">&raquo;</a>
   					</div>
   				</div>
-				
 			    <div class="body">
 					  <table>
 						<tbody>
@@ -179,13 +178,13 @@
 					</table>
 			  </div><!-- / tournament_dates -->
 			</div><!-- / clear -->
-		</div><!-- / darkpod -->
+			<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button> or
+			<button type="button" class="btn"><span class="icon"></span><span>Save as Template</span></button>
+		</div><!-- / bd -->
+		</div><!-- / pod -->
 		<!-- / Step 5 -->
-  	<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button> or
-  	<button type="button" class="btn"><span class="icon"></span><span>Save as Template</span></button>
-  	<% end -%>
-	</div><!-- / bd -->
-	</div><!-- / pod -->
+	</div>
+	<% end -%>
 </div><!-- / main-col -->
 
 <div id="sidecol">

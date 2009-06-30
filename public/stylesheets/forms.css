@@ -6,26 +6,33 @@ label {
 	margin: 0 5px 10px 0;
 }
 
-input[type="text"], input[type="password"], textarea {
+input, textarea {
+	width: auto;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-x-system-font: none;
 	border: 1px solid #CCCCCC;
-	font-size: 14px;
+	font-size: 13px;
 	font-family: Arial, sans-serif;
 	padding: 7px 5px 7px 5px;
-	font-weight: bold;
-	color: #777;
+	font-weight: normal;
+	color: #555;
 	margin: 0 0 10px 0;
 }
 
 input:focus, textarea:focus {
-	background: #dbf4ff;
 	border-color: #0197d6;
-	color: #0197d6;
+	color: #000;
+	font-weight: normal;
 	outline-color: -moz-use-text-color;
 	outline-style: none;
 	outline-width: medium;
+}
+
+textarea {
+	line-height: 24px;
+	font-family: "Lucida Grande", sans-serif;
+	width: 98%;
 }
 
 select {
@@ -38,6 +45,16 @@ label.checkbox {
 	top: -3px;
 }
 
+
+label.textarea {
+	display: block;
+	margin: 0 0 5px 0;
+}
+
+label.lg {
+	font-size: 16px;
+}
+
 label.dropdown_horz {
 	display: inline;
 }
@@ -47,5 +64,5 @@ label.dropdown_horz {
 }
 
 .block {
-	
+	margin: 0 0 10px 0;
 }

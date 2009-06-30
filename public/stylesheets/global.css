@@ -461,20 +461,15 @@ Main Structure
   -moz-border-radius: 3px;
 }
 
-.darkpod p {
-  color: #666;
-  margin-bottom: 15px;
-  line-height: 18px;
-}
-
-.darkpod p.note {
+p.note {
   background: #fff8cf;
-  color: #9b7f3c;
+  color: #9b7f3c !important;
   padding: 10px;
   border: 1px solid #e2d484;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
 	position: relative;
+	margin: 0 0 30px 0;
 }
 
 p.note a.note-close {

@@ -1,94 +1,23 @@
-span.step-icon {
-	-moz-border-radius: 50px;
-	padding: 8px 11px 6px 11px;
-	font-size: 15px;
-	line-height: 15px;
-	font-weight: bold;
-	color: #FFF;
-	float: left;
-	display: block;
-	background: #004774;
-}
-
-#process_steps {
-	padding: 10px 0 0 20px;
-}
-
-#process_steps ul li {
-	margin: 0 10px 0 10px;
-	display: block;
-	float: left;
-}
-
-#process_steps ul li.active span span.step-icon {
-	background: #333;
-	color: #FFF;
-}
-
-#process_steps ul li.active span em {
-	color: #333;
-}
-
-#process_steps ul li span span.step-icon {
-	background: #BBB;
-	color: #FFF;
-	font-size: 13px;
-	padding: 4px 8px 4px 8px;
-}
-
-#process_steps ul li span em {
-	color: #999;
-	display: block;
-	padding: 6px 0 0 7px;
-	font-size: 14px;
-	float: left;
-}
-
 #new_tournament .step h4 {
 	background: #017ecc;
 	float: left;
-	padding: 6px 10px 6px 10px;
+	padding: 6px 15px 4px 10px;
 	-moz-border-radius-bottomleft: 0px;
 	-moz-border-radius-bottomright: 5px;
 	position: relative;
-	top: -11px;
 	left: -11px;
-}
-
-#new_tournament .step h4 em {
-	color: #FFF;
-	font-size: 16px;
-	font-weight: bold;
-	padding: 6px 0 0 7px;
-	display: block;
-	float: left;
-}
-
-#new_tournament dl {
-	float: left;
-	margin: 6px 0 0 6px;
-}
-
-#new_tournament #tournament_game dl dd, #new_tournament #tournament_game dl dt {
-	float: left;
-	display: block;
-}
-
-#new_tournament #tournament_game dl dd input {
-	font-size: 17px;
-	padding: 6px;
-	margin: 0 5px 0 0;
 }
 
 .calendar_date_select {
 	display: block;
-	float: left;
+	width: 242px;
+	
 	background: #FFF;
 	padding: 10px;
 	border: 1px #BBB solid;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
-	margin: 15px 15px 0 7px;
+	margin: 0 auto;
 }
 
 .calendar_date_select .header {
@@ -143,14 +72,10 @@ span.step-icon {
 	background: transparent;
 }
 
-div.tournament_dates {
-	float: left;
-	margin: -22px 0 0 0;
-}
-
 div.tournament_dates table {
-  width: 450px;
-  margin: 10px 0 10px 0;
+	width: 100%;
+  margin: 0 auto;
+	margin-bottom: 25px;
   border-collapse: collapse;
 }
 
@@ -161,20 +86,23 @@ div.tournament_dates table tr td select {
 div.tournament_dates table tr td {
   border-bottom: 1px solid #ccc;
   padding: 5px;
+	text-align: left;
 }
 
 div.tournament_dates table tr th {
   border-bottom: 1px solid #ccc;
   padding: 5px;
 	font-weight: bold;
-	width: 200px;
+	width: 20%;
+	text-align: right;
 }
 
 div.tournament_dates table tr td.date {
-	width: 250px;
+	width: 50%;
 }
 
 div.tournament_dates table tr td.edit {
+	width: 25%;
   text-align: right;
 }
 
