@@ -66,3 +66,31 @@ label.dropdown_horz {
 .block {
 	margin: 0 0 10px 0;
 }
+
+.errorExplanation {
+	background: #FFF;
+	border: 1px #BBB solid;
+	padding: 10px;
+	margin: 10px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.errorExplanation h2 {
+	font-size: 15px;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+	color: #cd0000;
+}
+
+.errorExplanation p {
+	color: #5d0000;
+	font-size: 14px;
+}
+
+.errorExplanation ul li {
+	list-style-type: disc;
+	margin: 10px 0 5px 25px;
+	font-size: 13px;
+}
+
