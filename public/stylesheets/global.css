@@ -203,10 +203,6 @@ a.txtlink-red {
 	border-color: #333;
 }
 
-button {
-	cursor: pointer;
-}
-
 a.btn, button.btn {
 	display: block;
 	border: none;
@@ -345,7 +341,6 @@ Main Structure
   padding: 15px 15px 12px 15px;
   border: 1px solid;
 	font-size: 14px;
-	margin: 10px;
 	position: relative;
 }
 
@@ -359,57 +354,61 @@ Main Structure
 	line-height: 16px;
 	font-weight: bold;
 	text-decoration: none;
-	-moz-border-radius-topleft: 3px;
-	-webkit-border-top-left-radius: 3px;
-	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-topleft:         3px;
+	-moz-border-radius-bottomright:     3px;
+	-webkit-border-top-left-radius:     3px;
 	-webkit-border-bottom-right-radius: 3px;
 }
 
-.note a:hover.note-close {
-	background: #665327;
-	color: #fff8cf;
+.global_note {
+	position: relative;
+	top: 10px;
+}
+
+p.yellow_note {
+	margin: 0 0 10px 0;
 }
 
 .yellow_note {
-	margin: 10px;
+	margin: 0 10px 10px 10px;
 	background: #fff8cf;
-	color: #9b7f3c;
+	color: #9b7f3c !important;
 	border-color: #e2d484;
 }
 
-.yellow_note p a.note-close {
+.yellow_note a.note-close {
 	background: #9b7f3c;
 	color: #fff8cf;
 }
 
-.yellow_note p a:hover.note-close {
+.yellow_note a:hover.note-close {
 	background: #665327;
 	color: #fff8cf;
 }
 
 .red_note {
-	margin: 10px;
+	margin: 0 10px 10px 10px;
 	background: #ffcfcf;
 	color: #9b3c3c;
 	border-color: #e28484;
 }
 
-.red_note p a.note-close {
+.red_note a.note-close {
 	background: #9b3c3c;
 	color: #ffcfcf;
 }
 
-.red_note p a:hover.note-close {
+.red_note a:hover.note-close {
 	background: #662727;
 	color: #ffcfcf;
 }
 
-.red_note p a.note-close {
+.red_note a.note-close {
 	background: #9b3c3c;
 	color: #ffcfcf;
 }
 
-.red_note p a:hover.note-close {
+.red_note a:hover.note-close {
 	background: #662727;
 	color: #ffcfcf;
 }

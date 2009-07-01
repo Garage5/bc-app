@@ -25,6 +25,9 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-size: 100%;
 	font-family: inherit;
 	vertical-align: baseline;
+	outline-color:-moz-use-text-color;
+	outline-style:none;
+	outline-width:0;
 }
 
 /* remember to define focus styles! */
@@ -76,3 +79,9 @@ and http://www.456bereastreet.com/archive/200603/new_clearing_method_needed_for_
 
 .clear {display:inline-block;}
 .clear {display:block;}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner{border:0;}
