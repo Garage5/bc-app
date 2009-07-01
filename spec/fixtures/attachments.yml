@@ -1,0 +1,15 @@
+one:
+  attachment_file_name: MyString
+  attachment_content_type: MyString
+  attachment_file_size: 1
+  attachment_updated_at: 2009-06-30 14:53:23
+  attachable_id: 1
+  attachable_type: MyString
+
+two:
+  attachment_file_name: MyString
+  attachment_content_type: MyString
+  attachment_file_size: 1
+  attachment_updated_at: 2009-06-30 14:53:23
+  attachable_id: 1
+  attachable_type: MyString

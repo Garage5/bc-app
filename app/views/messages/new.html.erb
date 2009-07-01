@@ -10,24 +10,22 @@
  	 <h2>New Message</h2>
 	</div>
 	<div class="bd clear">
-	  <% form_for @message, :url => tournament_messages_path(@tournament) do |f| -%>
+	  <% form_for @message, :url => tournament_messages_path(@tournament), :html => {:multipart => true} do |f| -%>
     <%= f.error_messages %>
 	  <div id="message_main" class="group darkpod clear">
 			<%= f.label :subject, "Subject" %>
 			<%= f.text_field :subject %>
 			
 			<%= f.text_area :body, :size => '60x15' %>
-			<label class="dropdown_horz">Category</label>
-			<select name="some_name" id="some_name">
-				<option value="option1">Announcments</option>
-				<option value="option2">option2</option>
-			</select>
+			<%= f.check_box :is_announcement %> <%= f.label :is_announcement, "This message is an annoucnement", :style => 'display:inline' %>
 		</div><!-- / darkpod -->
 		
 		<div id="message_attach" class="group darkpod clear">
 			<label>Attach a File</label>
 			<p class="note">Files cannot be larger than 42 and must contain references to cats.</p>
-			<input type="file" size="40"/>
+			<% f.fields_for :attachments, Attachment.new do |attachment| -%>
+        <%= attachment.file_field :attachment %>
+			<% end -%>
 		</div><!-- / darkpod -->
 		
 		<div id="message_subscribe" class="group darkpod clear">

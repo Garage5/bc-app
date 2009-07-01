@@ -9,59 +9,29 @@
 	<div class="bd clear">
 	  
 		<div id="message_header" class="clear">
-	    <!--><p id="message_category" class="cat_announcement">Announcement</p>-->
+		  <% if @message.is_announcement %>
+	      <p id="message_category" class="cat_announcement">Announcement</p>
+	    <% end %>
 	   	<img src="/images/avatar_big.jpg" height="50" class="left" />
    	  <h2><%= @message.subject %></h2>
    	  <p class="gray">Posted by <%= @message.author.login %> <%= @message.created_at %></p>
 	  </div>
 	
 	  <div id="message_body">
-	    <p>
-				<%= @message.body %>
-  	  </p>
-
-			<ul class="files_attach clear">
-				<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-				<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-				<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-			</ul><!-- / files_attach -->
-		
+	    <p><%= @message.body %></p>
+		  <%= render :partial => 'attachments/list', :locals => {:attachments => @message.attachments} %>
 	  </div>
 	
 	<div id="comment_mod">
 	  <ul class="group">
 	    <% if !@message.comments.blank? %>
-	      <% for c in @message.comments %>
-        <li class="comment pod darkpod">
-  	      <div class="comment_header">
-  	       <img src="/images/avatar_big.jpg" height="40" />
-  	       <h3><%= c.author.login %> says:</h3>
-  	       <p>posted <span class="date" title="<%= c.created_at.iso8601 %>"><%= c.created_at %></span></p>
-  	      </div>
-  	      <div class="comment_body">
-  	        <p><%=simple_format c.body %></p>
-  					<ul class="files_attach clear">
-  						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-  						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-  						<li><a href=""><img src="/images/avatar_big.jpg" /></a></li>
-  					</ul><!-- / files_attach -->
-  	      </div>
-  	    </li>
-	      <% end %>
+	      <%= render @message.comments %> <!-- renders partial in comments/_comment -->
 	    <% end %>
 	  </ul><!-- /comments ul -->
 	
 	  <div class="comment_form darkpod clear">
 			<h4>Post a Comment</h4>
-			<% form_for [@tournament, @message, Comment.new] do |f| -%>
-			  <div><%= f.text_area :body, :rows => 10, :style => "width: 98%" %></div>
-				<div id="message_attach" class="group clear">
-					<label>Attach a File</label>
-					<p>Files cannot be larger than 42 and must contain references to cats.</p>
-					<input type="file" size="40"/>
-				</div><!-- / darkpod -->
-				<div><button type="submit" class="btn"><span class="icon"></span><span>Post Comment</span></button></div>
-			<% end -%>
+			<%= render :partial => 'comments/form' %>
 		</div><!-- / darkpod -->
 	</div><!-- / comment_mod -->
 	  

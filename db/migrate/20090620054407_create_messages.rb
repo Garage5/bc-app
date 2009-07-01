@@ -5,6 +5,7 @@ class CreateMessages < ActiveRecord::Migration
       t.text    :body
       t.integer :author_id
       t.integer :tournament_id
+      t.boolean :is_announcement, :default => false
       t.timestamps
     end
   end

@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :find_tournament, :only => :create
+  before_filter :login_required
   
   def create
     @commentable = find_commentable

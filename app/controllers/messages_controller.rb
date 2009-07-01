@@ -3,11 +3,11 @@ class MessagesController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   
   def index
-    @messages = Message.all
+    @messages = @tournament.messages
   end
   
   def show
-    @message = Message.find(params[:id])
+    @message = Message.find(params[:id], :include => {:comments => [:attachments, :author]})
   end
   
   def new
@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   end
   
   def create
-    @message = Message.new(params[:message])
+    @message = @tournament.messages.build(params[:message])
     @message.author = current_user
     if @message.save
       flash[:notice] = "Successfully created message."
