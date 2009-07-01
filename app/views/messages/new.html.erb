@@ -18,6 +18,13 @@
 			
 			<%= f.text_area :body, :size => '60x15' %>
 			<%= f.check_box :is_announcement %> <%= f.label :is_announcement, "This message is an annoucnement", :style => 'display:inline' %>
+			<span style="float: right;"><input type="checkbox"> <label class="checkbox">Private to Hosts/Co-Hosts</label></span>
+			<label class="dropdown_horz">Category</label>
+			<select name="some_name" id="some_name">
+				<option value="option1">Announcments</option>
+				<option value="option2">option2</option>
+			</select>
+			
 		</div><!-- / darkpod -->
 		
 		<div id="message_attach" class="group darkpod clear">
@@ -35,8 +42,7 @@
 		</div><!-- / darkpod -->
 		
 		<button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
-		<div class="btn_cancel">or <a href="">Cancel</a></div>
-
+		or <a href="">Cancel</a>
     <% end -%>			
 	</div><!-- / bd -->
 	</div><!-- / pod -->

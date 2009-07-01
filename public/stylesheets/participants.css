@@ -101,3 +101,17 @@ body#participants .tab-pod ul.tabbed li.create_team a {
 	background: #FFF url(/images/icon_add_bl.gif) 12px center no-repeat;
 	padding: 8px 15px 9px 28px;
 }
+
+body#participants .pending_players .user_avatar .avatar img {
+	width: 60px;
+}
+
+body#participants .pending_players p.approve_checkbox {
+	float: left;
+	margin: 0 5px 0 0;
+}
+
+body#participants .pending_players .btn_wrapper {
+	float: right;
+	margin: 15px 0 0 0;
+}

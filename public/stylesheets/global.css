@@ -203,10 +203,6 @@ a.txtlink-red {
 	border-color: #333;
 }
 
-button {
-	cursor: pointer;
-}
-
 a.btn, button.btn {
 	display: block;
 	border: none;
@@ -226,7 +222,7 @@ button.btn {
 
 a.btn span, button.btn span {
 	display: block;
-	background: url(/images/btn-sprite.gif) 100% 0 no-repeat;
+	background: transparent url(/images/btn-sprite.png) 100% 0 no-repeat;
 	float: left;
 	padding: 9px 17px 7px 0;
 	line-height: 20px;
@@ -239,7 +235,7 @@ a.btn span.icon, button.btn span.icon {
 	display: block;
 	width: 17px;
 	height: 36px;
-	background: url(/images/btn-sprite.gif) 0 0 no-repeat;
+	background: transparent url(/images/btn-sprite.png) 0 0 no-repeat;
 }
 
 a:hover.btn, button:hover.btn {
@@ -274,13 +270,6 @@ a:hover.add, button:hover.add span.icon {
 
 a:active.add, button:active.add span.icon {
 	background-position: 0 -180px;
-}
-
-div.btn_cancel {
-	float: left;
-	position: relative;
-	top: 12px;
-	left: 5px;
 }
 
 /* 
@@ -353,10 +342,9 @@ Main Structure
   border: 1px solid;
 	font-size: 14px;
 	position: relative;
-	top: 10px;
 }
 
-.note p a.note-close {
+.note a.note-close {
 	float: right;
 	position: absolute;
 	bottom: -1px;
@@ -366,25 +354,34 @@ Main Structure
 	line-height: 16px;
 	font-weight: bold;
 	text-decoration: none;
-	-moz-border-radius-topleft: 3px;
-	-webkit-border-top-left-radius: 3px;
-	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-topleft:         3px;
+	-moz-border-radius-bottomright:     3px;
+	-webkit-border-top-left-radius:     3px;
 	-webkit-border-bottom-right-radius: 3px;
+}
+
+.global_note {
+	position: relative;
+	top: 10px;
+}
+
+p.yellow_note {
+	margin: 0 0 10px 0;
 }
 
 .yellow_note {
 	margin: 0 10px 10px 10px;
 	background: #fff8cf;
-	color: #9b7f3c;
+	color: #9b7f3c !important;
 	border-color: #e2d484;
 }
 
-.yellow_note p a.note-close {
+.yellow_note a.note-close {
 	background: #9b7f3c;
 	color: #fff8cf;
 }
 
-.yellow_note p a:hover.note-close {
+.yellow_note a:hover.note-close {
 	background: #665327;
 	color: #fff8cf;
 }
@@ -396,14 +393,52 @@ Main Structure
 	border-color: #e28484;
 }
 
-.red_note p a.note-close {
+.red_note a.note-close {
 	background: #9b3c3c;
 	color: #ffcfcf;
 }
 
-.red_note p a:hover.note-close {
+.red_note a:hover.note-close {
 	background: #662727;
 	color: #ffcfcf;
+}
+
+.red_note a.note-close {
+	background: #9b3c3c;
+	color: #ffcfcf;
+}
+
+.red_note a:hover.note-close {
+	background: #662727;
+	color: #ffcfcf;
+}
+
+.blue_filled {
+	padding: 5px;
+	margin: 10px;
+	background: #017ecc;
+	color: #FFF;
+	border-color: #017ecc;
+}
+
+.blue_filled p {
+	padding: 9px 0 0 10px;
+}
+
+.blue_filled a.btn_join {
+	display: block;
+	color: #017ecc;
+	background: #FFF;
+	padding: 9px 15px 9px 15px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-size: 12px;
+	float: right;
+}
+
+.blue_filled a:hover.btn_join {
+	background: #00619d;
+	color: #FFF;
 }
 
 #maincol {
@@ -457,40 +492,6 @@ Main Structure
   padding: 10px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-}
-
-p.note {
-  background: #fff8cf;
-  color: #9b7f3c !important;
-  padding: 10px;
-  border: 1px solid #e2d484;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-	position: relative;
-	margin: 0 0 30px 0;
-}
-
-p.note a.note-close {
-	float: right;
-	position: absolute;
-	bottom: -1px;
-	right: -1px;
-	display: block;
-	background: #9b7f3c;
-	color: #fff8cf;
-	padding: 1px 6px 0 7px;
-	line-height: 16px;
-	font-weight: bold;
-	text-decoration: none;
-	-moz-border-radius-topleft: 3px;
-	-webkit-border-top-left-radius: 3px;
-	-moz-border-radius-bottomright: 3px;
-	-webkit-border-bottom-right-radius: 3px;
-}
-
-p.note a:hover.note-close {
-	background: #665327;
-	color: #fff8cf;
 }
 
 #sidecol .pod {
