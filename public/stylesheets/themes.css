@@ -28,8 +28,14 @@ a, a:visited {
 	border: 1px #007bae solid; /* dark blue */
 }
 
-ul#subnav li a:hover {
+#subnav ul li a:hover {
 	background: #0197d6; /* blue */
+	background: #003951; /* dark blue */
+}
+
+ul#right_subnav li a:hover {
+	background: #0197d6; /* blue */
+	background: #003951; /* dark blue */
 }
 
 input:focus, textarea:focus {

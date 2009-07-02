@@ -1,5 +1,6 @@
 <% active ||= '' %>
-<ul id="subnav" class="clear" style="display: block;">
+<div id="subnav">
+<ul style="display: block;">
   
   <% content_tag :li, active == 'overview' ? {:class => 'active'} : nil do -%>
     <%= link_to "Overview", tournament_path(@tournament) %>
@@ -21,6 +22,8 @@
   
 	<li><a href="/preview/attachments/show">Files</a></li>
 </ul><!-- / subnav -->
+
 <ul id="right_subnav" class="clear" style="display: none;">
-	<li id="tournament_settings"><a href="/preview/tournaments/settings/">Tournament Settings</a></li>
-</ul><!-- / right-subnav -->
+	<li><a href="">Settings</a></li>
+</ul><!-- / right_subnav -->
+</div><!-- / subnav -->

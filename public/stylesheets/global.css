@@ -281,38 +281,173 @@ Main Structure
 	background: #242729;
 	border-bottom: 1px #303437 solid;
 	margin: 0 0 -1px 0;
+	padding: 5px 0 0 0;
 }
 
 #content-wrapper {
-	margin: 30px auto;
+	margin: 0 auto;
 	margin-bottom: 0;
 	width: 100%;
 }
 
 #header {
-	height: 60px;
-	-moz-border-radius-bottomleft: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	margin: 0 50px 0 50px;
+	height: 100%;
+	position: relative;
+	margin: 0 30px 0 30px;
+	-moz-border-radius-topleft:      5px;
+	-moz-border-radius-topright:     5px;
+	-webkit-border-top-left-radius:  5px;
+	-webkit-border-top-right-radius: 5px;
 }
 
 #header h1 {
-	font-size: 16px;
-	font-weight: bold;
-	padding: 22px 0 0 20px;
+	font-size: 24px;
+	padding: 26px 0 26px 20px;
 	float: left;
 }
 
 #header h1 a {
 	color: #FFF;
-	text-decoration: underline;
+	border-bottom: 1px #FFF solid;
+	line-height: 0;
+	padding: 8px 0 9px 0;
+	display: block;
 }
 
 #header h1 a:hover {
 	text-decoration: none;
+	color: #EEE;
+	border-bottom: 1px #7ad8ff solid;
 }
+
+#header h2 {
+	font-weight: bold;
+	font-size: 17px;
+	padding: 28px 0 11px 20px;
+	color: #caefff;
+	float: left;
+}
+
+#acct_nav ul {
+	float: right;
+	margin: 0 30px 5px 30px;
+}
+
+#acct_nav ul li {
+	float: left;
+	display: block;
+	margin: 0 3px 0 3px;
+}
+
+#acct_nav ul li a {
+	color: #BBB;
+	font-size: 12px;
+	display: block;
+	padding: 6px 12px 6px 12px;
+}
+
+#acct_nav ul li a:hover {
+	background: #1a1d1e;
+	color: #FFF;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
+	text-decoration: none;
+}
+
+/* 
+Navigation - Sub Navigation
+-------------------------------------------------------------------------------------
+*/
+
+#subnav {
+	margin: 0 20px 0 20px;
+}
+
+#subnav ul li {
+	float: left;
+	display: block;
+	margin: 0 3px 0 0;
+}
+
+#subnav ul li a {
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	background: #0071a0;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	display: block;
+	padding: 8px 16px 6px 16px;
+	text-decoration: none;
+}
+
+#subnav ul li a:hover {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+#subnav ul li.active a {
+	color: #333;
+	background: #DCDCDC;
+	text-decoration: none;
+}
+
+#subnav ul li.active a:hover {
+	color: #000;
+	background: #DCDCDC;
+	text-decoration: underline;
+}
+
+/* 
+Navigation - Right Sub Navigation
+-------------------------------------------------------------------------------------
+*/
+
+ul#right_subnav {
+	float: right;
+}
+
+ul#right_subnav li {
+	float: left;
+	display: block;
+	margin: 0 0 0 5px;
+}
+
+ul#right_subnav li a {
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	background: #0071a0;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	display: block;
+	padding: 8px 16px 6px 16px;
+	text-decoration: none;
+}
+
+ul#right_subnav li a:hover {
+	color: #FFF;
+	text-decoration: underline;
+}
+
+ul#right_subnav li.active a {
+	color: #333;
+	background: #ececec;
+	text-decoration: none;
+}
+
+ul#right_subnav li.active a:hover {
+	color: #000;
+	background: #ececec;
+	text-decoration: underline;
+}
+
+
+
 
 #logo a {
 	display: block;
@@ -326,13 +461,10 @@ Main Structure
 }
 
 #content {
-	margin: 0 50px 0 50px;
+	margin: 0 30px 0 30px;
+	padding: 10px 20px 10px 20px;
 	background: #DCDCDC;
 	border-bottom: 1px #FFF solid;
-	-moz-border-radius-topleft:      5px;
-	-moz-border-radius-topright:     5px;
-	-webkit-border-top-left-radius:  5px;
-	-webkit-border-top-right-radius: 5px;
 }
 
 .note {
@@ -415,7 +547,7 @@ p.yellow_note {
 
 .blue_filled {
 	padding: 5px;
-	margin: 10px;
+	margin: 10px 0 10px 0;
 	background: #017ecc;
 	color: #FFF;
 	border-color: #017ecc;
@@ -444,16 +576,17 @@ p.yellow_note {
 #maincol {
   color: #000;
 	float: left;
-	width: 75%;
+	width: 74%;
 }
 
 #sidecol {
 	float: left;
-	width: 25%;
+	width: 24%;
+	margin: 0 0 0 20px;
 }
 
 .pod {
-  margin: 10px;
+  margin: 10px 0 10px 0;
 	background: #FFF;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -600,11 +733,6 @@ Navigation - Main
 #nav ul li a:hover {
 	text-decoration: underline;
 	color: #cee4ed;
-}
-
-ul#acct-nav {
-	float: right;
-	margin: 0 20px 0 0;
 }
 
 #nav ul li#btn_tmenu a {
@@ -797,265 +925,9 @@ Navigation - Tournament - Sidecol
 	border: 0;
 }
 
-/* 
-Navigation - User Navigation (Avatar, profile, etc)
--------------------------------------------------------------------------------------
-*/
-
-#user-nav {
-	margin: 0 40px 8px 40px;
-	padding: 20px 20px 0 20px;
-	position: relative;
-}
-
-#user-nav h1 {
-	font-size: 20px;
-	font-weight: bold;
-	padding: 0 0 40px 0;
-}
-
-#user-nav h5 {
-	font-size: 12px;
-	font-weight: bold;
-	padding: 0 0 20px 0;
-}
-
-#user-dash {
-	position: absolute;
-	right: 0;
-	top: 0px;
-	float: right;
-	width: 260px;
-}
-
-#user-dash #user-avatar {
-	float: left;
-	position: relative;
-}
-
-#user-dash #user-avatar a#avatar {
-	display: block;
-	padding: 5px 5px 0 5px;
-}
-
-#user-dash #user-avatar a#avatar img {
-	padding: 5px 5px 5px 17px;
-	display: block;
-}
-
-/* Putting the user-nav menu on hold until a later date. Adds functionality that we don't need right now. - Matt
-#user-dash #user-avatar:hover a#avatar img {
-	background: #FFF url(/images/icon_usernav_menu_arrow.gif) center left no-repeat;
-}
-
-#user-dash #user-avatar a:hover#avatar {
-	background: url(/images/menu_shadow.png) 0 0 repeat;
-}
-
-*/
-#user-dash #user-avatar #user_subnav {
-	display: none;
-}
-
-#user-dash #user-avatar:hover #user_subnav {
-	display: none;
-	position: absolute;
-	left: 0px;
-	width: 240px;
-	z-index: 1000;
-	background: url(/images/menu_shadow.png) 0 0 repeat;
-	padding: 0 5px 5px 5px;
-	-moz-border-radius-bottomleft:      6px;
-	-moz-border-radius-bottomright:     6px;
-	-moz-border-radius-topright:        6px;
-	-webkit-border-bottom-left-radius:  6px;
-	-webkit-border-bottom-right-radius: 6px;
-	-webkit-border-top-right-radius:    6px;
-}
-
-#user-dash #user-avatar:hover #user_subnav ul {
-	background: #FFF;
-	padding: 5px;
-	border-top: 0;
-	-moz-border-radius-bottomleft:      4px;
-	-moz-border-radius-bottomright:     4px;
-	-moz-border-radius-topright:        4px;
-	-webkit-border-bottom-left-radius:  4px;
-	-webkit-border-bottom-right-radius: 4px;
-	-webkit-border-top-right-radius:    4px;
-}
-
-#user-dash #user-avatar:hover #user_subnav ul li {
-	padding: 1px 0 1px 0;
-}
 
 
-#user-dash #user-avatar:hover #user_subnav ul li a {
-	border: 0;
-	font-size: 12px;
-	padding: 7px 8px 5px 8px;
-	border-left: 5px #0197d6 solid;
-	display: block;
-}
-
-#user-dash #user-avatar:hover #user_subnav ul li a:hover {
-	color: #FFF;
-	background: #0197d6;
-	-moz-border-radius:     2px;
-	-webkit-border-radius:  2px;
-}
-
-
-#user-dash #user-avatar a img {
-	width: 50px;
-}
-
-#user-dash #user-name {
-	float: left;
-	margin: 14px 0 0 8px;
-}
-
-#user-dash #user-name h2 {
-	font-size: 20px;
-	font-weight: bold;
-	color: #FFF;
-}
-
-#user-dash #user-name ul li {
-	display: block;
-	float: left;
-	color: #999;
-	padding: 5px 5px 5px 0;
-}
-
-#user-dash #user-name ul li a {
-	color: #FFF;
-	display: block;
-	font-size: 12px;
-}
-
-#user-dash #user-name ul li a:hover {
-	text-decoration: underline;
-}
-
-#user-dash #user-name ul li#user_account a {
-	padding: 0 0 0 13px;
-	background: transparent url(/images/icon_usernav_account.gif) 0 2px no-repeat;
-}
-
-#user-dash #user-name ul li#user_logout a {
-	padding: 0 0 0 13px;
-	background: transparent url(/images/icon_usernav_logout.gif) 0 2px no-repeat;
-}
-
-#user-dash a:hover span, #user-dash a:hover {
-	color: #999;
-	text-decoration: none;
-}
-
-/* 
-Navigation - Sub Navigation
--------------------------------------------------------------------------------------
-*/
-
-ul#subnav {
-	position: relative;
-	top: 8px;
-	left: 0;
-	display: block;
-	float: left;
-}
-
-ul#subnav li {
-	float: left;
-	display: block;
-	margin: 0 5px 0 0;
-}
-
-ul#subnav li a {
-	font-size: 12px;
-	font-weight: bold;
-	color: #BBB;
-	background: #000;
-	-moz-border-radius-topleft: 4px;
-	-moz-border-radius-topright: 4px;
-	-webkit-border-top-left-radius: 4px;
-	-webkit-border-top-right-radius: 4px;
-	display: block;
-	padding: 8px 16px 6px 16px;
-	text-decoration: none;
-}
-
-ul#subnav li a:hover {
-	color: #FFF;
-	text-decoration: underline;
-}
-
-ul#subnav li.active a {
-	color: #333;
-	background: #DCDCDC;
-	text-decoration: none;
-}
-
-ul#subnav li.active a:hover {
-	color: #000;
-	background: #DCDCDC;
-	text-decoration: underline;
-}
-
-/* 
-Navigation - Right Sub Navigation
--------------------------------------------------------------------------------------
-*/
-
-ul#right_subnav {
-	position: relative;
-	top: 8px;
-	left: 0;
-	display: block;
-	float: right;
-}
-
-ul#right_subnav li {
-	float: left;
-	display: block;
-	margin: 0 5px 0 0;
-}
-
-ul#right_subnav li a {
-	font-size: 12px;
-	font-weight: bold;
-	color: #BBB;
-	background: #000;
-	-moz-border-radius-topleft: 4px;
-	-moz-border-radius-topright: 4px;
-	-webkit-border-top-left-radius: 4px;
-	-webkit-border-top-right-radius: 4px;
-	display: block;
-	padding: 8px 16px 6px 16px;
-	text-decoration: none;
-}
-
-ul#right_subnav li a:hover {
-	color: #FFF;
-	background: #0197d6;
-	text-decoration: underline;
-}
-
-ul#right_subnav li.active a {
-	color: #333;
-	background: #ececec;
-	text-decoration: none;
-}
-
-ul#right_subnav li.active a:hover {
-	color: #000;
-	background: #ececec;
-	text-decoration: underline;
-}
-
-/* 
-
+/*
 -------------------------------------------------------------------------------------
 */
 
@@ -1093,7 +965,7 @@ Footer
 */
 
 #footer {
-	margin: 0 50px 0 50px;
+	margin: 0 30px 0 30px;
 	padding: 20px;
 	background: #FFF url(/images/footer_bg.gif) bottom repeat-x;
 	color: #666;

@@ -86,12 +86,22 @@
 </div><!-- / modal -->
   
 <div id="wrapper">
+	
+	<div id="acct_nav" class="clear">
+		<ul class="clear">
+			<li><a title="" href="/preview/accounts/settings/">Billing</a></li>
+			<li><a title="" href="/preview/accounts/edit/">Settings</a></li>
+			<li><a title="" href="">Help</a></li>
+		</ul>
+	</div><!-- / acct_nav -->
+
 <div id="header">
 	<h1><%= link_to @instance.try(:name) || "Host Name", root_path %></h1><!-- / logo -->
-	<div id="nav">
+	<h2 id="page_title"><%= yield(:title) %></h2>
+	<div id="nav" class="clear">
 		<ul>
-			<li><a title="" href="/">Dashboard</a></li>
-			<li id="btn_tmenu"><a title="" class="clear" href=""><span id="tmenu_txt">Tournaments</span> <span id="tmenu_unread">3</span></a>
+			<li style="display: none;"><a title="" href="/">Dashboard</a></li>
+			<li style="display: none;" id="btn_tmenu"><a title="" class="clear" href=""><span id="tmenu_txt">Tournaments</span> <span id="tmenu_unread">3</span></a>
 				<div id="tmenu">
 					<div id="tmenu_inner">
 					<div id="matches_today">
@@ -113,25 +123,12 @@
 				</div><!-- / tmenu -->
 				</li>
 		</ul>
-		
-		<ul id="acct-nav">
-			<li><a title="" href="/preview/accounts/settings/">Account/Billing</a></li>
-			<li><a title="" href="/preview/accounts/edit/">Settings</a></li>
-		</ul>
-		
 	</div><!-- / nav -->
+	<%= yield(:tournament_nav) %>
+	<div class="clear"></div>
 </div><!-- / header -->
 
 <div id="content-wrapper">
-	<div id="user-nav" class="clear">
-		
-		<%= render :partial => "layouts/user_nav" %>
-		
-		<h1 id="page_title"><%= yield(:title) %></h1>
-		
-		<%= yield(:tournament_nav) %>
-		
-	</div><!-- / user-nav -->
   <div id="content" class="clear">
     <%= yield %>
   </div>
