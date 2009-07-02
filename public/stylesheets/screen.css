@@ -13,6 +13,7 @@ SCREEN Stylesheet --------------------------------------------------------------
 @import url(signup.css);
 @import url(new_tournament.css);
 @import url(tournament_rules.css);
+@import url(battle_Bar.css);
 
 
 /* 

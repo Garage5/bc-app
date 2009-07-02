@@ -1,0 +1,183 @@
+#battle_bar {
+	background: #1c1e20 url(/static/images/ubar-bg.gif) 0 0 repeat-x;
+	border-bottom: 1px #2f3336 solid;
+	padding: 0 30px 0 30px;
+	text-align: left;
+}
+
+#battle_bar a:hover {
+	color: #FFF;
+}
+
+#battle_bar #user_avatar {
+}
+
+#battle_bar #user_avatar img {
+	float: left;
+	width: 30px;
+	display: block;
+}
+
+#battle_bar #user_avatar a#avatar span {
+	font-size: 14px;
+	font-weight: normal;
+	display: block;
+	float: left;
+	padding: 10px 0 0 10px;
+}
+
+#battle_bar #user_avatar a#avatar {
+	padding: 5px 10px 5px 10px;
+	color: #8a95a0;
+	display: block;
+	float: left;
+	background: #161719;
+	border-left: 1px #242629 solid;
+	border-right: 1px #242629 solid;
+}
+
+#battle_bar #user_avatar a#avatar:hover {
+	text-decoration: none;
+	background: #121314;
+	color: #FFF;
+}
+
+#battle_bar #your_tournaments {
+	float: left;
+	position: relative;
+}
+
+#battle_bar #your_tournaments a {
+	padding: 13px 15px 7px 15px;
+	display: block;
+}
+
+#battle_bar #your_tournaments a:hover {
+	background: #FFF;
+	text-decoration: none !important;
+}
+
+#battle_bar #your_tournaments a span#tmenu_txt {
+	font-size: 13px;
+	color: #FFF;
+	display: block;
+	float: left;
+}
+
+#battle_bar #your_tournaments a:hover span#tmenu_txt {
+	color: #000;
+}
+
+#battle_bar #your_tournaments a span#tmenu_unread {
+	font-size: 12px;
+	background: transparent url(/images/tmenu_count_bg.png) 0 0 no-repeat;
+	font-weight: bold;
+	color: #FFF;
+	display: block;
+	padding: 4px 7px 4px 7px;
+	float: left;
+	position: relative;
+	left: 8px;
+	top: -3px;
+}
+
+#battle_bar #your_tournaments a:hover span#tmenu_unread {
+	text-decoration: none !important;
+	background: transparent url(/images/tmenu_count_blk_bg.png) 0 0 no-repeat;
+	color: #FFF;
+}
+
+#battle_bar #your_tournaments #tmenu {
+	display: none;
+}
+
+#battle_bar #your_tournaments:hover a {
+	background: #FFF;
+}
+
+#battle_bar #your_tournaments:hover a span#tmenu_txt {
+	color: #000;
+}
+
+#battle_bar #your_tournaments:hover a span#tmenu_unread {
+	text-decoration: none !important;
+	background: transparent url(/images/tmenu_count_blk_bg.png) 0 0 no-repeat;
+	color: #FFF;
+}
+
+#battle_bar #your_tournaments:hover #tmenu {
+	display: block;
+	position: absolute;
+	top: 40px;
+	left: -6px;
+	z-index: 1000;
+	padding: 0 6px 6px 6px;
+	background: transparent url(/images/menu_shadow.png) 0 0 repeat;
+	-moz-border-radius-bottomleft:      7px;
+	-moz-border-radius-bottomright:     7px;
+	-webkit-border-bottom-left-radius:  7px;
+	-webkit-border-bottom-right-radius: 7px;
+}
+
+#battle_bar #your_tournaments:hover #tmenu #tmenu_inner {
+	width: 350px;
+	background: #FFF;
+	padding: 4px;
+	-moz-border-radius-bottomleft:      5px;
+	-moz-border-radius-bottomright:     5px;
+	-webkit-border-bottom-left-radius:  5px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+
+#battle_bar #your_tournaments:hover #tmenu #tmenu_inner h3 {
+	color: #666;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 7px 0 7px 12px;
+}
+
+#battle_bar #your_tournaments:hover #tmenu ul li {
+	display: block;
+	float: none !important;
+}
+
+#battle_bar #your_tournaments:hover #tmenu ul li a {
+	color: #0197d6;
+	background: #FFF;
+	padding: 9px 7px 8px 7px;
+	display: block;
+	font-weight: bold;
+	border: 0;
+	-moz-border-radius:     2px;
+	-webkit-border-radius:  2px;
+	font-size: 12px !important;
+}
+
+#battle_bar #your_tournaments:hover #tmenu ul li a:hover {
+	color: #FFF;
+	background: #0197d6 url(/images/btn-grad.png) left bottom repeat-x;
+	text-decoration: none;
+}
+
+#battle_bar #your_tournaments:hover #tmenu ul li a em {
+	display: block;
+	color: #333;
+	padding: 5px 0 0 5px;
+	font-weight: normal;
+}
+
+#battle_bar #your_tournaments:hover #tmenu ul li a:hover em {
+	color: #FFF;
+}
+
+#battle_bar #your_matches {
+	border-left: 1px #242629 solid;
+	border-right: 1px #242629 solid;
+	float: left;
+	padding: 14px 15px 13px 15px;
+}
+
+#battle_bar #your_matches p {
+	font-size: 13px;
+	color: #8a95a0;
+}
