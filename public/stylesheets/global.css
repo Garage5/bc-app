@@ -328,6 +328,26 @@ Main Structure
 	float: left;
 }
 
+#back_dashboard {
+	float: left;
+	margin: 0 30px 5px 30px;
+}
+
+#back_dashboard a {
+	color: #BBB;
+	font-size: 12px;
+	display: block;
+	padding: 6px 12px 6px 12px;
+}
+
+#back_dashboard a:hover {
+	background: #1a1d1e;
+	color: #FFF;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
+	text-decoration: none;
+}
+
 #acct_nav ul {
 	float: right;
 	margin: 0 30px 5px 30px;

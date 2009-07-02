@@ -1,6 +1,7 @@
 <div id="battle_bar" class="clear">
+	<div id="bar_content">
 		<div id="user_avatar">
-			<a id="avatar" href=""><img src="/images/avatar_big.jpg"/> <span>Matt Johnson</span></a>
+			<a id="avatar" href=""><img src="/images/avatar_big.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
 		</div><!-- / user_avatar -->
 		
 		<div id="your_tournaments">
@@ -20,4 +21,5 @@
 		<div id="your_matches">
 			<p>All our dreams can come true, if we have the courage to pursue them. — Walt Disney</p>
 		</div><!-- / your_matches -->
+	</div><!-- / bar_content -->
 </div><!-- / battle_bar -->

@@ -1,7 +1,6 @@
 #battle_bar {
-	background: #1c1e20 url(/static/images/ubar-bg.gif) 0 0 repeat-x;
+	background: #1c1e20 url(/images/bbar_bg.gif) 0 0 repeat-x;
 	border-bottom: 1px #2f3336 solid;
-	padding: 0 30px 0 30px;
 	text-align: left;
 	top: 0;
 	left: 0;
@@ -10,6 +9,10 @@
 	position: fixed;
 	width: 100%;
 	z-index: 9999;
+}
+
+#battle_bar #bar_content {
+	padding: 0 30px 0 30px;
 }
 
 #battle_bar a:hover {
@@ -38,9 +41,8 @@
 	color: #8a95a0;
 	display: block;
 	float: left;
-	background: #161719;
-	border-left: 1px #242629 solid;
-	border-right: 1px #242629 solid;
+	border-left: 1px #2a2c30 solid;
+	border-right: 1px #2a2c30 solid;
 }
 
 #battle_bar #user_avatar a#avatar:hover {
@@ -178,8 +180,8 @@
 }
 
 #battle_bar #your_matches {
-	border-left: 1px #242629 solid;
-	border-right: 1px #242629 solid;
+	border-left: 1px #2a2c30 solid;
+	border-right: 1px #2a2c30 solid;
 	float: left;
 	padding: 14px 15px 13px 15px;
 }
