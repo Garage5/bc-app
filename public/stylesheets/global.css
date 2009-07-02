@@ -372,8 +372,6 @@ Navigation - Sub Navigation
 #subnav ul li a {
 	font-size: 12px;
 	font-weight: bold;
-	color: #FFF;
-	background: #0071a0;
 	-moz-border-radius-topleft: 4px;
 	-moz-border-radius-topright: 4px;
 	-webkit-border-top-left-radius: 4px;
@@ -864,7 +862,6 @@ Navigation - Main
 
 #nav ul li#btn_tmenu:hover #tmenu ul li a:hover em {
 	color: #FFF;
-	
 }
 
 #nav ul li#btn_tmenu:hover #tmenu #tmenu_inner #matches_today ul li a {

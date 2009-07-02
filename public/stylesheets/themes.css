@@ -3,7 +3,7 @@ a, a:visited {
 }
 
 #header {
-	background: #0197d6; /* blue */
+	background: #017ecc; /* blue */
 }
 
 #nav ul li a {
@@ -14,23 +14,19 @@ a, a:visited {
 	background: #0071a0; /* dark blue */
 }
 
-#nav ul li#btn_tmenu a {
-	background-color: #0197d6; /* blue */
-}
-
-#nav ul li#btn_tmenu a span#tmenu_unread {
-	color: #0197d6; /* blue */
-}
-
 .tnav a.icon-add {
-	background-color: #0197d6; /* blue */
-	
-	border: 1px #007bae solid; /* dark blue */
+	background-color: #017ecc; /* blue */
+
+	border: 1px #003951 solid; /* dark blue */
+}
+
+#subnav ul li a {
+	color: #FFF;
+	background: #005e98;
 }
 
 #subnav ul li a:hover {
-	background: #0197d6; /* blue */
-	background: #003951; /* dark blue */
+	background: #003951;
 }
 
 ul#right_subnav li a:hover {
