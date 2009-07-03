@@ -1,9 +1,5 @@
 <ul class="files_attach clear">
   <% for a in attachments %>
-    <% if a.image? %>
-    <li><a href="<%= a.attachment.url %>"><%= image_tag a.attachment.url(:thumb) %></a></li>
-    <% else %>
-    <li><a href="#"><%= image_tag icon_url_for_filetype(a.attachment_file_name), :height => 50  %></a></li>
-    <% end %>
+    <li><a href="<%= a.attachment.url %>"><%= icon_or_thumbnail a %></a></li>
 	<% end %>
 </ul><!-- / files_attach -->

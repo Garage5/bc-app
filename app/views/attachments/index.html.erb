@@ -1,0 +1,40 @@
+<% stylesheet :attachments %>
+<% title "Valor Tournament" %>
+
+<% content_for :tournament_nav do -%>
+  <%= render :partial => "layouts/sub_nav", :locals => {:active => 'files'} %>
+<% end -%>
+
+<div id="maincol">
+	<div class="pod">
+		<div class="hd">
+			<h2>Files</h2>
+		</div>
+	<div class="bd clear">
+	  
+	  <% if !@files.blank? %>
+	    <% for f in @files %>
+	      <div class="attachment clear">
+	        <a href="<%= f.attachment.url %>"><%= icon_or_thumbnail f, :class => 'attach_type' %></a>
+    			<div class="attach_item">
+    				<a class="attach_title" href=""><%= f.attachment_file_name %></a>
+    				<p>
+    				  <%= f.attachment_file_size %>KB |
+    				  Uploaded by <%= f.uploader %> |
+    				  <span class="date" title="<%= f.created_at.iso8601 %>"><%= f.created_at.iso8601 %></span> |
+    				  <a href="">Edit</a> |
+    				  <a href=""><img src="/images/trash.gif"/></a></p>
+    			</div><!-- / attach_title -->
+    		</div><!-- / attachments -->
+	    <% end %>
+	  <% else %>
+	    No Files
+	  <% end %>
+	  
+	</div><!-- / bd -->
+	</div><!-- / pod -->
+</div><!-- / main-col -->
+
+<div id="sidecol">
+
+</div><!-- / sidecol -->

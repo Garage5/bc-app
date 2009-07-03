@@ -1,4 +1,10 @@
 class AttachmentsController < ApplicationController
+  before_filter :find_tournament
+  
+  def index
+    @files = @tournament.attachments
+  end
+
   def create
     @attachment = Attachment.new(params[:attachment])
     if @attachment.save

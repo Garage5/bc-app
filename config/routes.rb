@@ -21,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :tournaments, :member => {:brackets => :get, :participants => :get} do |tournament|
     tournament.resources :messages, :has_many => [:comments]
+    tournament.resources :files, :controller => :attachments
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

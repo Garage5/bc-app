@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20090630185323) do
     t.datetime "attachment_updated_at"
     t.integer  "attachable_id"
     t.string   "attachable_type"
+    t.integer  "tournament_id"
+    t.integer  "uploader_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

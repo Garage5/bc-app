@@ -16,6 +16,10 @@ class MessagesController < ApplicationController
   
   def create
     @message = @tournament.messages.build(params[:message])
+    @message.attachments.each do |a| 
+      a.tournament_id = @tournament.id
+      a.uploader = current_user
+    end
     @message.author = current_user
     if @message.save
       flash[:notice] = "Successfully created message."

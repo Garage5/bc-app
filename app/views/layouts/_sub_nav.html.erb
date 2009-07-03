@@ -20,7 +20,10 @@
     <%= link_to "Participants", participants_tournament_path(@tournament) %>
   <% end -%>
   
-	<li><a href="/preview/attachments/show">Files</a></li>
+  <% content_tag :li, active == 'files' ? {:class => 'active'} : nil do -%>
+    <%= link_to "Files", tournament_files_path(@tournament) %>
+  <% end -%>
+  
 </ul><!-- / subnav -->
 
 <ul id="right_subnav" class="clear" style="display: none;">
