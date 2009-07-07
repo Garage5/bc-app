@@ -2,7 +2,7 @@ class CreateInstances < ActiveRecord::Migration
   def self.up
     create_table :instances do |t|
       t.string  :name
-      t.integer :manager_id
+      t.integer :host_id
       t.timestamps
     end
     

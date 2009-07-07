@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :participations
+
   map.resources :attachments
 
   map.resources :comments
@@ -20,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :instances
   
   map.resources :tournaments, :member => {:brackets => :get, :participants => :get} do |tournament|
+    tournament.resources :participations
     tournament.resources :messages, :has_many => [:comments]
     tournament.resources :files, :controller => :attachments
   end

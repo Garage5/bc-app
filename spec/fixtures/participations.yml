@@ -1,0 +1,9 @@
+one:
+  user_id: 1
+  tournament_id: 1
+  state: MyString
+
+two:
+  user_id: 1
+  tournament_id: 1
+  state: MyString

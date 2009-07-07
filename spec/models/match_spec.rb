@@ -6,7 +6,4 @@ describe Match do
     }
   end
 
-  it "should create a new instance given valid attributes" do
-    Match.create!(@valid_attributes)
-  end
 end

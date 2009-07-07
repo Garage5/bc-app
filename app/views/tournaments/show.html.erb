@@ -6,10 +6,15 @@
 <% end -%>
 
 <div id="maincol">
-	<div class="note blue_filled clear">
-		<p style="float:left;">You are not currently a participant in this tournament. </p>
-		<a rel="modal" class="btn_join" href="#join_confirm">Join this tournament</a>
-	</div><!-- / global_note -->
+  <% if current_user %>
+    <% unless current_user.is_participant_of? @tournament %>
+  	<div class="note blue_filled clear">
+  		<p style="float:left;">You are not currently a participant in this tournament. </p>
+  		<a rel="modal" class="btn_join" href="#join_confirm">Join this tournament</a>
+  	</div><!-- / global_note -->
+  	<% end %>
+	<% end %>
+	
 	<div class="pod">
 		<div class="hd">
 			<h2>Tournament Information</h2>

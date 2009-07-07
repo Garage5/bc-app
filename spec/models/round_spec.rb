@@ -6,7 +6,4 @@ describe Round do
     }
   end
 
-  it "should create a new instance given valid attributes" do
-    Round.create!(@valid_attributes)
-  end
 end
