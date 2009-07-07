@@ -13,6 +13,7 @@
 </div><!-- REMOVE THIS DIV AFTER WE ACTUALLY IMPLEMENT ALERTS -->
 
 <div id="maincol">
+<div class="col">
 <% if !@instance.tournaments.blank? %>
   <% for tournament in @instance.tournaments %>
 	<div class="pod">
@@ -85,9 +86,12 @@
 <% else %>
   No Tournaments
 <% end %>
+</div><!-- / col -->
 </div><!-- / main-col -->
 
 <div id="sidecol">
+<div class="col">
 <img style="width: 250px; margin: 20px 0 0 0;" src="/images/logo.gif"/>
 <%= render :partial => "layouts/sidenav" %>
+</div><!-- / col -->
 </div><!-- / sidecol -->
