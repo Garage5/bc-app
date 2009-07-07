@@ -6,6 +6,7 @@
 <% end -%>
 
 <div id="maincol">
+	<div class="col">
 	<div class="note blue_filled clear">
 		<p style="float:left;">You are not currently a participant in this tournament. </p>
 		<a rel="modal" class="btn_join" href="#join_confirm">Join this tournament</a>
@@ -19,8 +20,11 @@
     <%=simple_format @tournament.rules %>
 	</div><!-- / bd -->
 	</div><!-- / pod -->
+	</div><!-- / col -->
 </div><!-- / main-col -->
 
 <div id="sidecol">
+	<div class="col">
 	<%= render :partial => "layouts/side_tinfo" %>
+	</div><!-- / col -->
 </div><!-- / sidecol -->
