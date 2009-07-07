@@ -78,16 +78,18 @@
 }
 
 #battle_bar #your_tournaments a span#tmenu_unread {
-	font-size: 12px;
+	font-size: 11px;
 	background: transparent url(/images/tmenu_count_bg.png) 0 0 no-repeat;
 	font-weight: bold;
 	color: #FFF;
+	width: 20px;
 	display: block;
-	padding: 4px 7px 4px 7px;
+	padding: 5px 0 4px 0;
 	float: left;
 	position: relative;
+	text-align: center;
 	left: 8px;
-	top: -3px;
+	top: -4px;
 }
 
 #battle_bar #your_tournaments a:hover span#tmenu_unread {
