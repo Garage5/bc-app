@@ -1,2 +1,6 @@
+rspec
+rspec-rails
+remarkable_rails
 authlogic
 thoughtbot-paperclip --source gems.github.com
+thoughtbot-factory_girl --source gems.github.com

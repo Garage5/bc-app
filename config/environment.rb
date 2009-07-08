@@ -20,8 +20,8 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'authlogic'
-  config.gem 'rspec', :lib => false, :version => '>=1.2.6'
-  config.gem 'rspec-rails', :lib => false, :version => '>=1.2.6'
+  config.gem 'rspec', :lib => false
+  config.gem 'rspec-rails', :lib => false
   config.gem 'remarkable_rails', :lib => false
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
   config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => "http://gems.github.com"
