@@ -12,6 +12,15 @@ class User < ActiveRecord::Base
   end
   
   def is_participant_of?(tournament)
-    Participation.find_by_participant_id_and_tournament_id(self.id, tournament.id)
+    Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id)
   end
+  
+  def is_eligible_to_join?(tournament)
+    if self.id == tournament.instance.host_id || self.is_participant_of?(tournament)
+      false
+    else
+      true
+    end
+  end
+  
 end

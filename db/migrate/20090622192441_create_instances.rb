@@ -6,7 +6,7 @@ class CreateInstances < ActiveRecord::Migration
       t.timestamps
     end
     
-    Instance.create(:name => "Starfeeder")
+    Instance.create(:name => "Starfeeder", :host_id => 1)
   end
   
   def self.down

@@ -18,6 +18,6 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = "Successfully destroyed user session."
-    redirect_to login_url
+    redirect_back_or_default root_url
   end
 end

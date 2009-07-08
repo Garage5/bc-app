@@ -9,7 +9,11 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps
     end
     
+    # create some users to test with
     User.create(:login => 'dev', :email => 'dev@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
+    User.create(:login => 'bryan', :email => 'bryan@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
+    User.create(:login => 'matt', :email => 'matt@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
+    User.create(:login => 'james', :email => 'james@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
   end
   
   def self.down
