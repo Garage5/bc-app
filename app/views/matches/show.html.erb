@@ -1,3 +1,4 @@
+<% stylesheet :messages %>
 <% stylesheet :match %>
 <% title "Valor Tournament" %>
 
@@ -5,15 +6,39 @@
 	<div class="col">
 	<div class="pod">
 	<div class="bd clear">
-		<div class="clear" style="width: 600px; margin: 0 auto;">
-			<div style="float: left;">Matt Johnson<img src="/images/avatar_big.jpg"/></div>
-				
-			<div style="float: right;"><img src="/images/avatar_big.jpg"/>Matt Johnson</div>
-			<div style="font-size: 25px; font-weight: bold; text-align: center;">vs</div>
-		</div>
-		s
+		<div class="clear" id="match_wrapper">
+			
+			<div id="home_player">
+				<img src="/images/avatar_big.jpg"/>
+				<strong>Matt Johnson</strong>
+			</div>
+
+			<div id="match_details">
+				<h2>VS</h2>
+				<h3>Round 1</h3>
+				<h4>6/14/09 12:23PM</h4>
+				<p>Best of 3 on map: ctf_2fort</p>
+			</div>
+
+			<div id="away_player">
+				<img src="/images/avatar_big.jpg"/>
+				<strong>Matt Johnson</strong>
+			</div>
+						
+		</div><!-- / match_wrapper -->
 	</div><!-- / bd -->
 	</div><!-- / pod -->
+	
+	<div id="comment_mod">
+	  <ul class="group">
+	  </ul><!-- /comments ul -->
+	
+	  <div class="comment_form darkpod clear">
+			<h4>Post a Comment</h4>
+			<%= render :partial => 'comments/form' %>
+		</div><!-- / darkpod -->
+	</div><!-- / comment_mod -->
+	
 	</div><!-- / col -->
 </div><!-- / main-col -->
 
