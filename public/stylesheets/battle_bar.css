@@ -1,5 +1,5 @@
 #battle_bar {
-	background: #1c1e20 url(/images/bbar_bg.gif) 0 0 repeat-x;
+	background: #1c1e20 url(/images/bbar_bg.gif) left bottom repeat-x;
 	border-bottom: 1px #2f3336 solid;
 	text-align: left;
 	top: 0;
@@ -189,14 +189,14 @@
 	border-left: 1px #2a2c30 solid;
 	border-right: 1px #2a2c30 solid;
 	float: left;
-	padding: 14px 15px 13px 15px;
+	padding: 14px 15px 14px 15px;
 }
 
 #battle_bar #your_matches p {
-	font-size: 12px;
+	font-size: 11px;
 	color: #8a95a0;
-	margin: 12px 0 0 0;
-	line-height: 0;
+	position: relative;
+	top: 5px;
 }
 
 #battle_bar #your_matches p a {
@@ -206,7 +206,7 @@
 #battle_bar #your_matches h5 {
 	float: left;
 	position: relative;
-	top: -4px;
+	top: -3px;
 	line-height: 0;
 }
 

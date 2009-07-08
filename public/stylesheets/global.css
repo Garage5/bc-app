@@ -309,8 +309,8 @@ Main Structure
 #header h1 a {
 	color: #FFF;
 	border-bottom: 1px #FFF solid;
-	line-height: 0;
-	padding: 8px 0 9px 0;
+	line-height: 18px;
+	padding: 0;
 	display: block;
 }
 
@@ -372,6 +372,15 @@ Main Structure
 	-moz-border-radius:     4px;
 	-webkit-border-radius:  4px;
 	text-decoration: none;
+}
+
+#acct_nav ul li#user_logout a {
+	padding: 6px 22px 6px 12px;
+	background: transparent url(/images/icon_usernav_logout.gif) 90% 8px no-repeat;
+}
+
+#acct_nav ul li#user_logout a:hover {
+	background: #1a1d1e url(/images/icon_usernav_logout.gif) 90% 8px no-repeat;
 }
 
 /* 
