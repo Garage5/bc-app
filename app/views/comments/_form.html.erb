@@ -2,7 +2,7 @@
   <div><%= f.text_area :body, :rows => 5, :style => "width: 98%" %></div>
 	<div id="message_attach" class="group clear">
 		<label>Attach a File</label>
-		<p>Files cannot be larger than 42 and must contain references to cats.</p>
+		<p class="note yellow_note">Files cannot be larger than 42 and must contain references to cats.</p>
 		<% f.fields_for :attachments, Attachment.new do |attachment| -%>
       <%= attachment.file_field :attachment %>
 		<% end -%>

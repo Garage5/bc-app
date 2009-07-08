@@ -102,32 +102,7 @@
 <div id="header">
 	<h1><%= link_to @instance.try(:name) || "Host Name", root_path %></h1><!-- / logo -->
 	<h2 id="page_title"><%= yield(:title) %></h2>
-	<div id="nav" class="clear">
-		<ul>
-			<li style="display: none;"><a title="" href="/">Dashboard</a></li>
-			<li style="display: none;" id="btn_tmenu"><a title="" class="clear" href=""><span id="tmenu_txt">Tournaments</span> <span id="tmenu_unread">6</span></a>
-				<div id="tmenu">
-					<div id="tmenu_inner">
-					<div id="matches_today">
-					<h3>Matches Today</h3>
-					<ul>
-						<li><a href="/preview/tournaments/overview/">Valor Tournament <em>You vs James <strong>@ 4:15PM CST</strong></em></a></li>
-						<li><a href="/preview/tournaments/overview/">Valor Tournament <em>You vs James <strong>@ 4:15PM CST</strong></em></a></li>
-						<li><a href="/preview/tournamenst/overview/">Valor Tournament <em>You vs James <strong>@ 4:15PM CST</strong></em></a></li>
-					</ul>
-					</div><!-- / matches_today -->
-					<h3>Your Tournaments</h3>
-					<ul>
-						<li><a href="/preview/tournaments/overview/">Starcraft 2 Tournament</a></li>
-						<li><a href="/preview/tournaments/overview/">Some Random Tournament Name</a></li>
-						<li><a href="/preview/tournaments/overview/">nvidia CSS League</a></li>
-						<li><a href="/preview/tournaments/overview/">Team Fortress 2 Tournament</a></li>
-					</ul>
-					</div><!-- /tmenu_inner -->
-				</div><!-- / tmenu -->
-				</li>
-		</ul>
-	</div><!-- / nav -->
+	<div class="clear"></div>
 	<%= yield(:tournament_nav) %>
 	<div class="clear"></div>
 </div><!-- / header -->
