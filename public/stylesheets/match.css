@@ -52,3 +52,9 @@
 	line-height: 0;
 	padding: 5px 0 15px 0;
 }
+
+#match_submit_results textarea {
+	margin: 10px 0 10px 0;
+	width: 300px;
+	height: 100px;
+}
