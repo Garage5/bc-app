@@ -959,6 +959,53 @@ Navigation - Tournament - Sidecol
 	border: 0;
 }
 
+/* 
+Navigation - Completed Tournaments - Sidecol
+-------------------------------------------------------------------------------------
+*/
+
+.tcompleted {
+	background: transparent;
+	border: 0;
+}
+
+.tcompleted .hd {
+	background: transparent;
+	border: 0;
+	padding: 0 10px 0 10px;
+}
+
+.tcompleted .hd h2 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+}
+
+.tcompleted .bd {
+	padding: 0 10px 0 10px;
+}
+
+.tcompleted ul {
+	margin: 5px 0 0 0;
+}
+
+.tcompleted ul li {
+	border: 0;
+	margin: 5px 0 5px 0;
+}
+
+.tcompleted  ul li a {
+	display: block;
+	color: #777;
+}
+
+.tcompleted  ul li a:hover {
+	color: #333;
+}
+
+.tcompleted  ul li.last {
+}
+
 
 
 /*

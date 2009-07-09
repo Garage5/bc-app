@@ -49,6 +49,10 @@ ul.round:first-child li.round_header {
   -moz-border-radius-topright: 4px;
 }
 
+ul.round li.round_header {
+	position: relative;
+}
+
 ul.round li.round_header h3 {
   font-size: 13px;
   font-weight: bold;
@@ -58,6 +62,21 @@ ul.round li.round_header h3 {
   margin: 0;
   border-right: 1px solid #272b2b;
   margin-right: -1px;
+}
+
+ul.round li.round_header a.round_info {
+	width: 16px;
+	height: 16px;
+	background: transparent url(/images/icon_round_info.gif) 0 0 no-repeat;
+	text-indent: -9999px;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+ul.round li.round_header a.round_info:hover {
+	background-position: bottom;
 }
 
 li.match {

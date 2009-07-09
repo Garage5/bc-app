@@ -58,7 +58,7 @@
 			</div>
 			<p class="note yellow_note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
 			<%= f.label :rules, "Rules", :class => 'textarea lg' %>
-			<%= f.text_area :rules%>
+			<%= f.text_area :rules %>
 			
 		</div><!-- / bd -->
 		</div><!-- / pod -->
@@ -98,10 +98,10 @@
 			</div>
 			<p class="note yellow_note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.<a class="note-close" href="">X</a></p>
 			
-			<div>$ <%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :first_place_prize, "1st Place" %></div>
-			<div>$ <%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :second_place_prize, "2nd Place" %></div>
-			<div>$ <%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :third_place_prize, "3rd Place" %></div>
-			<div>$ <%= f.text_field :entry_fee, :size => 11 %> <%= f.label :entry_fee, "Entry Fees" %></div>
+			<div><%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :first_place_prize, "1st Place" %></div>
+			<div><%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :second_place_prize, "2nd Place" %></div>
+			<div><%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :third_place_prize, "3rd Place" %></div>
+			<div><%= f.text_field :entry_fee, :size => 11 %> <%= f.label :entry_fee, "Entry Fees" %></div>
 			<div><%= f.label :other_prizes, "Other Prizes", :class => 'textarea' %></div>
 			<div><%= f.text_area :other_prizes, :size => "88x15" %></div>
 		</div><!-- / bd -->
