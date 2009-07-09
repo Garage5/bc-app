@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
     tournament.participants << self
   end
   
+  def is_hosting?(tournament)
+    tournament.instance.host_id == self.id
+  end
+  
   def is_participant_of?(tournament)
     Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id)
   end

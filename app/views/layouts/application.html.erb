@@ -51,8 +51,7 @@
 	<div class="modal_inner">
 			<p>Are you sure you want to join this tournament?</p>
 			<div class="clear">
-			<%= link_to "Yes", tournament_participants_path(@tournament), :method => :create %>
-			<button class="btn"><span class="icon"></span><span>Yes</span></button>
+			<%= link_to '<span class="icon"></span><span>Yes</span>', tournament_participants_path(@tournament), :method => :post, :class => 'btn' %>
 			<a href="">No</a>
 			</div>
 	</div><!-- / modal_inner -->

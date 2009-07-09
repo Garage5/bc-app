@@ -1,6 +1,7 @@
 class ParticipationsController < ApplicationController
-  before_filter :login_required, :except => [:index]
   before_filter :find_tournament
+  before_filter :login_required, :except => [:index]
+  before_filter :must_be_host, :except => [:index, :create]
   
   def index
     @pending_participants = @tournament.pending_participants
@@ -13,8 +14,32 @@ class ParticipationsController < ApplicationController
   end
   
   def accept
-    redirect_to tournament_participants_path(@tournament) if Participation.update_all("state = 'active'", 
-      "participant_id IN(#{params[:participants].keys.join(',')}) AND tournament_id = #{@tournament.id}")
+    ids = params[:participants].keys || []
+    if !ids.blank?
+      @participants = User.find(ids)
+      if !@participants.blank?
+        Participation.update_all("state = 'active'", 
+        "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to tournament_participants_path(@tournament) }
+      format.js
+    end
+  end
+  
+  def deny
+    ids = params[:participants].keys || []
+    if !ids.blank?
+      @participants = User.find(ids)
+      if !@participants.blank?
+        Participation.delete_all("participant_id IN(#{params[:participants].keys.join(',')}) AND tournament_id = #{@tournament.id}")
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to tournament_participants_path(@tournament) }
+      format.js
+    end
   end
 
   def update
@@ -25,12 +50,5 @@ class ParticipationsController < ApplicationController
     else
       render :action => 'edit'
     end
-  end
-  
-  def destroy
-    @participation = Participation.find(params[:id])
-    @participation.destroy
-    flash[:notice] = "Successfully destroyed participation."
-    redirect_to root_url
   end
 end

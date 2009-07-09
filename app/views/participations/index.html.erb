@@ -39,27 +39,42 @@
 			</ul>
 		</div>
 	<div class="bd clear player_list">
-		  <% if !@active_participants.blank? %>
-		  	<ul class="clear">
-		    <% for p in @tournament.active_participants %>
-	      <li class="clear">
-  				<div class="user_avatar">
-  					<a class="avatar" href=""><img src="/images/avatar_big.jpg" /></a>
-  				</div>
-  				<div class="user_name">
-  					<h2><%= p.login %></h2>
-  					<p class="activity">Last activity 1 day ago</p>
-  				</div><!-- / user_name -->
-  				<a class="user_edit" href="">Edit</a>
-  			</li>
-		    <% end %>
-		    </ul>
-		  <% else %>
-		    No Participants
-		  <% end %>
+	  <ul class="clear" id="active_participants">
+	    <% for participant in @tournament.active_participants %>
+        <%= render :partial => 'participant', :locals => {:participant => participant} %>
+	    <% end %>
 		</ul>
 	</div><!-- / bd -->
 	</div><!-- / pod -->
+	
+	<% if current_user %>
+	<% if current_user.is_hosting?(@tournament) %>
+	
+	<script type="text/javascript" charset="utf-8">
+	  $(document).ready(function(){
+	    // Approve Participants
+	    $("button#approve").click(function() {
+        $("form#pending_participants").attr('action', '<%= accept_tournament_participants_path(@tournament) %>');
+        $("form#pending_participants").submit(function(){
+          serialized = $(this).serializeArray();
+          serialized.push({name: "_method", value: "put"})
+          $.post(this.action, serialized, null, "script");
+          return false;
+        });
+      })
+      
+      // Deny Participants
+      $("button#deny").click(function() {
+        $("form#pending_participants").attr('action', '<%= deny_tournament_participants_path(@tournament) %>');
+        $("form#pending_participants").submit(function(){
+          serialized = $(this).serializeArray();
+          serialized.push({name: "_method", value: "delete"})
+          $.post(this.action, serialized, null, "script");
+          return false;
+        });
+      })
+	  })
+	</script>
 	
 	<div class="pod">
 		<div class="hd">
@@ -68,10 +83,10 @@
 	<div class="bd clear player_list pending_players">
     
     <% if !@pending_participants.blank? %>
-      <% form_tag accept_tournament_participants_path(@tournament), :method => :put do %>
+      <% form_tag '', :id => 'pending_participants' do %>
         <ul class="clear">
         <% for p in @tournament.pending_participants %>
-          <li class="clear">
+          <li class="clear" id="user-<%= p.id %>">
     				<p class="approve_checkbox"><%= check_box_tag "participants[#{p.id}]" %></p>
     				<div class="user_avatar">
     					<a class="avatar" href=""><img src="/images/avatar_big.jpg" /></a>
@@ -85,8 +100,8 @@
         <% end %>
         </ul>
       <div class="btn_wrapper">
-        <button type="submit" class="btn"><span class="icon"></span><span>Decline Selected</span></button>
-        <button type="submit" class="btn"><span class="icon"></span><span>Approve Selected</span></button>
+        <button type="submit" class="btn" id="approve"><span class="icon"></span><span>Approve Selected</span></button>
+        <button type="submit" class="btn" id="deny"><span class="icon"></span><span>Decline Selected</span></button>
       </div>
       <% end %>
     <% else %>
@@ -95,5 +110,7 @@
     
 	</div><!-- / bd -->
 	</div><!-- / pod -->
+  <% end %>
+  <% end %>
 	</div><!-- / col -->
 </div><!-- / main-col -->
