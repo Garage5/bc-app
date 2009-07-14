@@ -131,7 +131,7 @@
 			<% if current_user %>
 			<li id="user_logout"><%= link_to "Logout", logout_path %></li>
 			<% else %>
-			<li><%= link_to "Login", login_path %></li>
+			<li id="user_login"><%= link_to "Login", login_path %></li>
 			<% end %>
 		</ul>
 	</div><!-- / acct_nav -->

@@ -364,23 +364,36 @@ Main Structure
 	font-size: 12px;
 	display: block;
 	padding: 6px 12px 6px 12px;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
 }
 
 #acct_nav ul li a:hover {
 	background: #1a1d1e;
 	color: #FFF;
-	-moz-border-radius:     4px;
-	-webkit-border-radius:  4px;
 	text-decoration: none;
 }
 
+#acct_nav ul li#user_login a {
+	padding: 6px 12px 6px 27px;
+	background: #017ecc url(/images/icon_usernav_logout.gif) 10px 6px no-repeat;
+	color: #FFF;
+}
+
+#acct_nav ul li#user_login a:hover {
+	background: #017ecc url(/images/icon_usernav_logout.gif) 10px 6px no-repeat;
+	text-decoration: underline;
+}
+
 #acct_nav ul li#user_logout a {
-	padding: 6px 22px 6px 12px;
-	background: transparent url(/images/icon_usernav_logout.gif) 90% 8px no-repeat;
+	padding: 6px 12px 6px 27px;
+	background: transparent url(/images/icon_usernav_logout.gif) 10px 6px no-repeat;
+	color: #FFF;
 }
 
 #acct_nav ul li#user_logout a:hover {
-	background: #1a1d1e url(/images/icon_usernav_logout.gif) 90% 8px no-repeat;
+	background: #1a1d1e url(/images/icon_usernav_logout.gif) 10px 6px no-repeat;
+	text-decoration: underline;
 }
 
 /* 
