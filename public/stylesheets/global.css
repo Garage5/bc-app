@@ -272,6 +272,12 @@ a:active.add, button:active.add span.icon {
 	background-position: 0 -180px;
 }
 
+a#btn_start_tournament {
+	top: 30px;
+	right: 30px;
+	position: absolute;
+}
+
 /* 
 Main Structure
 -------------------------------------------------------------------------------------
