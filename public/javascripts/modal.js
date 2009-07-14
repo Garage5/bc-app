@@ -27,4 +27,7 @@ Modal = $.klass({
 
 $(document).ready(function(){
 	$("a[rel='modal']").attach(Modal)
+	$("a[rel='modal'] span").click(function(){
+		$(this).parent('a[rel="modal"]').click()
+	})
 })
