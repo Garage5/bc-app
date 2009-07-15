@@ -369,7 +369,7 @@ Main Structure
 	color: #BBB;
 	font-size: 12px;
 	display: block;
-	padding: 6px 12px 6px 12px;
+	padding: 8px 12px 8px 12px;
 	-moz-border-radius:     4px;
 	-webkit-border-radius:  4px;
 }
@@ -381,24 +381,24 @@ Main Structure
 }
 
 #acct_nav ul li#user_login a {
-	padding: 6px 12px 6px 27px;
-	background: #017ecc url(/images/icon_usernav_logout.gif) 10px 6px no-repeat;
+	padding: 8px 12px 8px 27px;
+	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
 	color: #FFF;
 }
 
 #acct_nav ul li#user_login a:hover {
-	background: #017ecc url(/images/icon_usernav_logout.gif) 10px 6px no-repeat;
+	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
 	text-decoration: underline;
 }
 
 #acct_nav ul li#user_logout a {
-	padding: 6px 12px 6px 27px;
-	background: transparent url(/images/icon_usernav_logout.gif) 10px 6px no-repeat;
+	padding: 8px 12px 8px 27px;
+	background: transparent url(/images/icon_logout.png) 6px 6px no-repeat;
 	color: #FFF;
 }
 
 #acct_nav ul li#user_logout a:hover {
-	background: #1a1d1e url(/images/icon_usernav_logout.gif) 10px 6px no-repeat;
+	background: #1a1d1e url(/images/icon_logout.png) 6px 6px no-repeat;
 	text-decoration: underline;
 }
 
@@ -946,16 +946,16 @@ Navigation - Tournament - Sidecol
 	-moz-border-radius-bottomright: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
-	background-image: url(../images/icon-add.gif);
-	background-position: 11px 12px;
+	background-image: url(/images/icon_add.png);
+	background-position: 8px 8px;
 	background-repeat: no-repeat;
 	color: #FFF;
 	margin: 2px;
-	padding-left: 25px;
+	padding-left: 30px;
 }
 
 .tnav a:hover.icon-add {
-	background: #666 url(../images/icon-add.gif) 11px 12px no-repeat;
+	background: #666 url(/images/icon_add.png) 8px 8px no-repeat;
 	color: #FFF;
 	text-decoration: underline;
 	border-color: #333;

@@ -24,7 +24,6 @@
 
 #battle_bar #user_avatar img {
 	float: left;
-	width: 30px;
 	display: block;
 }
 
@@ -33,12 +32,12 @@
 	font-weight: normal;
 	display: block;
 	float: left;
-	padding: 10px 0 0 10px;
+	padding: 9px 0 0 10px;
 }
 
 #battle_bar #user_avatar a#avatar {
 	padding: 5px 10px 5px 10px;
-	color: #8a95a0;
+	color: #77828f;
 	display: block;
 	float: left;
 	border-left: 1px #2a2c30 solid;
@@ -48,7 +47,7 @@
 #battle_bar #user_avatar a#avatar:hover {
 	text-decoration: none;
 	background: #121314;
-	color: #FFF;
+	color: #95a0ac;
 }
 
 #battle_bar #your_tournaments {
@@ -57,7 +56,7 @@
 }
 
 #battle_bar #your_tournaments a {
-	padding: 13px 15px 7px 15px;
+	padding: 14px 15px 7px 15px;
 	display: block;
 }
 
@@ -68,7 +67,8 @@
 
 #battle_bar #your_tournaments a span#tmenu_txt {
 	font-size: 13px;
-	color: #FFF;
+	color: #77828f;
+	font-weight: normal;
 	display: block;
 	float: left;
 }
@@ -185,29 +185,29 @@
 	color: #FFF;
 }
 
-#battle_bar #your_matches {
+#battle_bar #your_matches p a {
+	background: transparent url(/images/icon_time32.png) 7px 2px no-repeat;
 	border-left: 1px #2a2c30 solid;
 	border-right: 1px #2a2c30 solid;
 	float: left;
-	padding: 14px 15px 14px 15px;
-}
-
-#battle_bar #your_matches p {
-	font-size: 11px;
-	color: #8a95a0;
-	position: relative;
-	top: 5px;
+	padding: 12px 15px 15px 47px;
 }
 
 #battle_bar #your_matches p a {
-	color: #4acaff;
+	color: #77828f;
+	font-weight: normal;
 }
 
-#battle_bar #your_matches h5 {
-	float: left;
+#battle_bar #your_matches p a:hover {
+	background: #121314 url(/images/icon_time32.png) 7px -50px no-repeat;
+	color: #95a0ac;
+	text-decoration: none;
+}
+
+#battle_bar #your_matches p {
+	font-size: 13px;
 	position: relative;
-	top: -3px;
-	line-height: 0;
+	top: 2px;
 }
 
 #battle_bar #your_tournaments:hover #tmenu #tmenu_inner #matches_today ul li a {

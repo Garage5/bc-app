@@ -1,7 +1,7 @@
 <div id="battle_bar" class="clear">
 	<div id="bar_content">
 		<div id="user_avatar">
-			<a id="avatar" href=""><img src="/images/avatar_big.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
+			<a id="avatar" href=""><img src="/images/avatar_32x32.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
 		</div><!-- / user_avatar -->
 		
 		<div id="your_tournaments">
@@ -29,9 +29,6 @@
 		</div><!-- / your_tournaments -->
 		
 		<div id="your_matches">
-			<div class="clear">
-			<h5>Your Next Match</h5>
-			</div>
 			<p><a href="/preview/matches/show/">You vs James at 4:53PM</a></p>
 		</div><!-- / your_matches -->
 		
