@@ -224,3 +224,51 @@
 	color: #FFF;
 	background: #00900a;
 }
+
+#user_nav ul {
+	float: right;
+	margin: 7px 0 0 0;
+}
+
+#user_nav ul li {
+	float: left;
+	display: block;
+	margin: 0 3px 0 3px;
+}
+
+#user_nav ul li a {
+	color: #BBB;
+	font-size: 12px;
+	display: block;
+	padding: 8px 12px 8px 12px;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
+}
+
+#user_nav ul li a:hover {
+	background: #1a1d1e;
+	color: #FFF;
+	text-decoration: none;
+}
+
+#user_nav ul li#user_login a {
+	padding: 8px 12px 8px 27px;
+	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
+	color: #FFF;
+}
+
+#user_nav ul li#user_login a:hover {
+	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
+	text-decoration: underline;
+}
+
+#user_nav ul li#user_logout a {
+	padding: 8px 12px 8px 27px;
+	background: transparent url(/images/icon_logout.png) 6px 6px no-repeat;
+	color: #FFF;
+}
+
+#user_nav ul li#user_logout a:hover {
+	background: #000 url(/images/icon_logout.png) 6px 6px no-repeat;
+	text-decoration: underline;
+}
