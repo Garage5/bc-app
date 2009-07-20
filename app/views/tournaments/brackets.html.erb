@@ -44,7 +44,9 @@
 <div id="maincol" class="full_width clear">
 	<div class="col">
   <div id="brackets" class="bd clear">
+    
   	  <div id="bracket_window" class="clear">
+  	  <% if @tournament.started? %>
   	    <!-- ROUND 1 -->
         <ul class="round" id="r1">
           <li class="round_header"><a class="round_info" href="">Round Info</a> <h3>Round 1</h3></li>
@@ -53,129 +55,17 @@
             <a href="#">change</a>
           </li>
           
-          <li class="match winner-p1">
-            <ul>
-              <li class="player"><a href="/preview/matches/show/" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Luke</a></li>
-              <li class="comments"><span><a href="#">
-                <img src="/images/bracket_comment.gif"/> 2</a> | 
-                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
-              </a></span></li>
-              <li class="player disqualified"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Darth Vader</a>
-                <img class="disqualified" src="/images/bracket_x.gif">
-              </li>
-            </ul>
-          </li>
-        
-          <li class="match winner-p1">
-            <ul>
-              <li class="player" id="mattdetails-r1"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
-              <li class="comments"><span><a href="#">
-                <img src="/images/bracket_comment.gif"/> 2</a> | 
-                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
-              </a></span></li>
-              <li class="player disqualified"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Boba Fett</a>
-                <img class="disqualified" src="/images/bracket_x.gif">
-              </li>
-            </ul>
-          </li>
-          
-          <li class="match winner-p1">
-            <ul>
-              <li class="player" id="mattdetails-r1"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
-              <li class="comments"><span><a href="#">
-                <img src="/images/bracket_comment.gif"/> 2</a> | 
-                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
-              </a></span></li>
-              <li class="player disqualified"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> CThreepio</a>
-                <img class="disqualified" src="/images/bracket_x.gif">
-              </li>
-            </ul>
-          </li>
-          
-          <li class="match winner-p1">
-            <ul>
-              <li class="player" id="mattdetails-r1"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Anakin</a></li>
-              <li class="comments"><span><a href="#">
-                <img src="/images/bracket_comment.gif"/> 2</a> | 
-                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
-              </a></span></li>
-              <li class="player disqualified"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Obi Kenobi</a>
-                <img class="disqualified" src="/images/bracket_x.gif">
-              </li>
-            </ul>
-          </li>
+          <% for match in @tournament.matches(:round => 1) %>
+            <%= render :partial => 'match', :locals => {:match => match} %>
+          <% end %>
         </ul>
   	    <!-- END ROUND 1 -->
-
-  	    <!-- ROUND 2 -->
-        <ul class="round" id="r2">
-          <li class="round_header"><a class="round_info" href="">Round Info</a><h3>Round 2</h3></li>
-          <li class="round_date">
-            <span class="date">6/14/09 12:23PM</span>
-            <a href="#">change</a>
-          </li>
-          
-          <li class="match winner-p2">
-            <ul>
-              <li class="player"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Luke</a></li>
-              <li class="comments"><span><a href="#">
-                <img src="/images/bracket_comment.gif"/> 2</a> | 
-                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
-              </a></span></li>
-              <li class="player"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
-            </ul>
-          </li>
-          
-          <li class="match disputed">
-            <ul>
-              <li class="player" id="mattdetails-r2"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Lando C</a></li>
-              <li class="comments"><span><a href="#">
-                <img src="/images/bracket_comment.gif"/> 2</a> | 
-                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
-              </a></span></li>
-              <li class="player"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Anakin</a></li>
-            </ul>
-          </li>
-        </ul>
-        <!-- END ROUND 2 -->
-        
-  	    <!-- ROUND 3 -->
-        <ul class="round" id="r3">
-          <li class="round_header"><a class="round_info" href="">Round Info</a><h3>Round 3</h3></li>
-          <li class="round_date">
-            <span class="date">6/14/09 12:23PM</span>
-            <a href="#">change</a>
-          </li>
-          
-          <li class="match">
-            <ul>
-              <li class="player" id="me"><a href="#" class="player_link"><img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> Han Solo</a></li>
-              <li class="comments"><span><a href="#">
-                <img src="/images/bracket_comment.gif"/> 2</a> | 
-                <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
-              </a></span></li>
-              <li class="player disputed"><span>Disputed</span></li>
-            </ul>
-          </li>
-        </ul>
-  	    <!-- END ROUND 3 -->
-        
-        <!-- ROUND 4 -->
-        <ul class="round final" id="r4">
-          <li class="round_header"><a class="round_info" href="">Round Info</a><h3>Round 4</h3></li>
-          <li class="round_date">
-          </li>
-          
-          <li class="match">
-            <ul>
-              <li class="player tbd"><span>TBD</span></li>
-            </ul>
-          </li>
-        </ul>
-  	    <!-- END ROUND 4 -->
-
+      <% else %>
+        <p id="not_started_message">This tournament hasn't started yet.</p>
+      <% end %>
    	  </div>
-  	</div><!-- / bd -->
+  
+  </div><!-- / bd -->
 </div><!-- / col -->
 </div><!-- / main-col -->
 <!-- / sidecol -->

@@ -7,10 +7,19 @@
 
 #bracket_window {
   margin: 10px;
-  background: #101212;
+  min-height: 66px;
+  background: #101212 url(../images/bracket_header.gif) repeat-x;
   color: #fff;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
+}
+
+#not_started_message {
+  text-align: center;
+  padding: 86px 0 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #425154;
 }
 
 ul.round {

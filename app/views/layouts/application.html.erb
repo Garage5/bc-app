@@ -16,11 +16,11 @@
 	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body id="<%= yield(:body) %>">
+
+<%= yield(:modals) %>	
 	
-	<%= render :partial => "layouts/battle_bar" %>
-	
-	<%= render :partial => "layouts/modals" %>
-  
+<%= render :partial => "layouts/battle_bar" %>
+	  
 <div id="wrapper">
 	
 	<div id="acct_nav" class="clear">

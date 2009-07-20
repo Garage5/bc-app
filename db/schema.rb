@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090706202318) do
+ActiveRecord::Schema.define(:version => 20090715163759) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"
@@ -41,9 +41,13 @@ ActiveRecord::Schema.define(:version => 20090706202318) do
   end
 
   create_table "matches", :force => true do |t|
-    t.integer "top_user_id"
-    t.integer "bottom_user_id"
-    t.integer "round_id"
+    t.integer  "player_one_id"
+    t.integer  "player_two_id"
+    t.integer  "round"
+    t.integer  "winner_id"
+    t.integer  "tournament_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "messages", :force => true do |t|
@@ -65,6 +69,9 @@ ActiveRecord::Schema.define(:version => 20090706202318) do
   end
 
   create_table "rounds", :force => true do |t|
+    t.integer  "tournament_id"
+    t.date     "start_date"
+    t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,14 +81,11 @@ ActiveRecord::Schema.define(:version => 20090706202318) do
     t.string   "game"
     t.text     "rules"
     t.integer  "slot_count"
-    t.boolean  "teams"
+    t.boolean  "teams",                   :default => false
     t.integer  "players_per_team"
     t.string   "prizes"
     t.date     "registration_start_date"
     t.date     "registration_end_date"
-    t.date     "tournament_start_date"
-    t.date     "tournament_end_date"
-    t.datetime "tournament_start_time"
     t.integer  "first_place_prize",       :default => 0
     t.integer  "second_place_prize",      :default => 0
     t.integer  "third_place_prize",       :default => 0
@@ -89,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20090706202318) do
     t.text     "other_prizes"
     t.boolean  "is_template"
     t.integer  "instance_id"
+    t.boolean  "started",                 :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

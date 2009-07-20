@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_length_of :login, :within => 3..13
   
   def join_tournament(tournament)
-    tournament.participants << self
+    Participation.create(:participant => self, :tournament => tournament)
   end
   
   def is_hosting?(tournament)
@@ -20,11 +20,7 @@ class User < ActiveRecord::Base
   end
   
   def is_eligible_to_join?(tournament)
-    if self.id == tournament.instance.host_id || self.is_participant_of?(tournament)
-      false
-    else
-      true
-    end
+    !self.is_hosting?(tournament) && !self.is_participant_of?(tournament)
   end
   
 end

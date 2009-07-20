@@ -1,5 +1,15 @@
+<% content_for :modals do -%>
+  <%= render :partial => "layouts/modals" %>  
+<% end -%>
+
 <% active ||= '' %>
-<a id="btn_start_tournament" class="btn" href="#confirm_start_tournament" rel="modal"><span class="icon"></span><span>Start Tournament</span></a>
+
+<% if current_user %>
+  <% if current_user.is_hosting?(@tournament) %>
+    <a id="btn_start_tournament" class="btn" href="#confirm_start_tournament" rel="modal"><span class="icon"></span><span>Start Tournament</span></a>
+  <% end %>
+<% end %>
+
 <div id="subnav">
 <ul style="display: block;">
   

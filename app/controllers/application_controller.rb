@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
   end
   
   def find_tournament
-    @tournament = Tournament.find(params[:tournament_id])
+    tournament_id = params[:tournament_id] || params[:id]
+    @tournament = Tournament.find(tournament_id)
   end
   
   def must_be_host

@@ -1,9 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Round do
-  before(:each) do
-    @valid_attributes = {
-    }
+  it "should be valid" do
+    Round.new.should be_valid
   end
-
 end

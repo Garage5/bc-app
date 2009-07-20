@@ -1,5 +1,6 @@
 class TournamentsController < ApplicationController
   before_filter :find_instance
+  before_filter :find_tournament, :except => [:new, :create]
   before_filter :login_required, :except => [:index, :show, :brackets, :participants]
   
   def index
@@ -51,5 +52,9 @@ class TournamentsController < ApplicationController
     @tournament.destroy
     flash[:notice] = "Successfully destroyed tournament."
     redirect_to tournaments_url
+  end
+
+  def start
+    redirect_to brackets_tournament_path(@tournament) if @tournament.start
   end
 end

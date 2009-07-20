@@ -17,7 +17,10 @@ Factory.define :tournament do |t|
   t.slot_count              8
   t.registration_start_date Date.today
   t.registration_end_date   Date.today + 1
-  t.tournament_start_date   Date.today + 2
-  t.tournament_end_date     Date.today + 3
   t.association             :instance_id, :factory => :instance
+end
+
+Factory.define :participations do |p|
+  p.association :user_id, :factory => :user
+  p.association :tournament_id, :factory => :tournament
 end
