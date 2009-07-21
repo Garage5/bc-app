@@ -1078,7 +1078,7 @@ Footer
 }
 
 #footer .footer_inner {
-	margin: 0 0 0 400px;
+	margin: 0 0 0 200px;
 }
 
 #footer a {
@@ -1153,11 +1153,10 @@ Footer
 }
 
 #footer #feedback_support a {
-	width: 350px;
-	height: 76px;
+	width: 184px;
+	height: 52px;
 	display: block;
-	background: #DDD;
-	border: 2px #CCC solid;
+	background: transparent url(/images/gs_logo.png) 0 0 no-repeat;
 	text-indent: -9999px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;

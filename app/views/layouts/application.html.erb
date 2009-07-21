@@ -14,9 +14,9 @@
 	<%= javascript_include_tag 'jquery', 'lowpro.jquery', 'jquery.timeago', 'global', 'modal' %>
 	<%= yield(:head) %>
 	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
+	
 </head>
 <body id="<%= yield(:body) %>">
-
 <%= yield(:modals) %>	
 	
 <%= render :partial => "layouts/battle_bar" %>
@@ -55,6 +55,7 @@
 	</div>
 	
 	<div id="feedback_support">
+		<a href="/preview/accounts/help/">Hello</a>
 	</div>
 	
 	<div class="footer_inner">
