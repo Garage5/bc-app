@@ -1,0 +1,65 @@
+body#profile .user_avatar {
+	background: #fff8cf;
+	border-top: 1px #e2d484 solid;
+	border-bottom: 2px #e2d484 solid;
+	border-left: 1px #e2d484 solid;
+	border-right: 2px #e2d484 solid;
+	padding: 5px;
+	cursor: pointer;
+	display: block;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	float: left;
+	position: relative;
+	margin: 0 15px 0 0;
+}
+
+body#profile .user_avatar a.user_edit {
+	display: none;
+}
+
+body#profile .user_avatar:hover a.user_edit {
+	width: 10px;
+	height: 10px;
+	text-indent: -9999px;
+	background: #fffadf url(/images/icon_user_edit.gif) center no-repeat;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 4px;
+	border-top: 1px #e2d484 solid;
+	border-left: 1px #e2d484 solid;
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+}
+
+body#profile .user_avatar img:hover a:hover.user_edit {
+	background: #e2d484 url(/images/icon_user_edit.gif) center no-repeat;
+}
+
+body#profile label {
+	font-weight: bold;
+	font-size: 15px;
+	display: block;
+	padding: 0;
+	margin: 0 0 15px 0;
+}
+
+body#profile .user_profile {
+	width: 85%;
+	float: left;
+}
+
+body#profile .user_profile p {
+	font-size: 14px;
+	margin: 0 0 15px 0;
+	padding: 0 0 15px 0;
+	border-bottom: 1px #CCC solid;
+}
+
+body#profile .user_profile p.last {
+	border: 0;
+}
