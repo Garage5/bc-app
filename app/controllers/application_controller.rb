@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   helper_method :current_user_session, :current_user
+  
+  before_filter :http_authentication
+  
+  def http_authentication
+    user = {'dev' => 'plankton'}
+    authenticate_or_request_with_http_digest("Application") do |name|
+      user[name]
+    end
+  end
 
   private
   def find_instance
