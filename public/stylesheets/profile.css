@@ -19,10 +19,10 @@ body#profile .user_avatar a.user_edit {
 }
 
 body#profile .user_avatar:hover a.user_edit {
-	width: 10px;
-	height: 10px;
+	width: 16px;
+	height: 16px;
 	text-indent: -9999px;
-	background: #fffadf url(/images/icon_user_edit.gif) center no-repeat;
+	background: #fffadf url(/images/icon_user_edit.png) center no-repeat;
 	display: block;
 	position: absolute;
 	bottom: 0;
@@ -37,7 +37,7 @@ body#profile .user_avatar:hover a.user_edit {
 }
 
 body#profile .user_avatar img:hover a:hover.user_edit {
-	background: #e2d484 url(/images/icon_user_edit.gif) center no-repeat;
+	background: #e2d484 url(/images/icon_user_edit.png) center no-repeat;
 }
 
 body#profile label {
