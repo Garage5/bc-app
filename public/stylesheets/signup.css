@@ -1,105 +1,82 @@
-body#login #wrapper {
-	width: 450px;
-	min-width: 450px;
-	margin: 5% auto;
-	background: transparent;
+body#login #logo {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 15%;
+}
+
+body#login #login_wrapper {
+	width: 500px;
+	background: #FFF;
+	color: #000;
+	margin: 0 auto;
+	padding: 15px;
+	-moz-border-radius: 8px;
+}
+
+body#login ul {
+	padding: 10px 10px 0 10px;
+	background: #dbeaf1;
+	-moz-border-radius: 5px;
+}
+
+body#login ul.section {
+	margin: 0 0 15px 0;
+}
+
+body#login ul li {
+	padding: 8px;
+	border-bottom: 1px #b4c0c5 solid;
+}
+
+body#login ul li.last {
 	border: 0;
 }
 
-body#login #wrapper #content {
-	padding: 10px;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-}
-
-body#login #wrapper #content form {
-	background: #0197d6;
-	padding: 15px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-}
-
-body#login #wrapper #content dl dt label {
-	font-size: 1.4em;
-	font-weight: bold;
-	color: #FFF;
+body#login ul li label {
+	color: #2a566d;
 	display: block;
-	margin: 0 0 3px 0;
+	margin: 12px 10px 0 0;
+	font-weight: bold;
+	float: left;
+	width: 75px;
+	text-align: right;
 }
 
-body#login #wrapper #content dl dt {
-	margin: 15px 0 0 0;
+body#login ul li label.drop_label {
+	margin: 3px 10px 0 0;
 }
 
-body#login #wrapper #content dl dt.username {
+body#login ul li input {
+	width: 363px;
+	font-size: 16px;
+	padding: 7px;
+	height: 20px;
+	-moz-border-radius: 4px;
+	background: #FFF url(/images/input_bg.gif) 0 0 repeat-x;
+	border: 1px #8ba6b1 solid;
+}
+
+body#login ul li input:focus {
+	border-color: #39acdb;
+}
+
+body#login label.remember_label {
+	margin: 0 0 0 5px;
+}
+
+body#login li.error_wrapper {
+	border: 0;
+	padding: 0;
 	margin: 0;
 }
 
-body#login #wrapper #content dl dt.btn-submit {
-	margin: 15px 0 0 0;
-	float: right;
+body#login li.error_wrapper ul {
+	background: transparent;
+	padding: 0;
+	margin: 0;
 }
 
-body#login #wrapper #content dl dt.btn-submit button {
-	display: block;
-	width: 70px;
+body#login li.error_wrapper ul li {
+	border: 0;
+	padding: 0;
 }
-
-body#login #wrapper #content dl dd.agree label a {
-	color: #FFF;
-	text-decoration: underline;
-}
-
-body#login #wrapper #content dl dd.agree label a:hover {
-	text-decoration: none;
-}
-
-body#login #wrapper #content dl dd.agree {
-	margin: 13px 0 0 0;
-}
-
-body#login #wrapper #content dl dd.agree label {
-	color: #FFF;
-	font-weight: normal;
-	position: relative;
-	top: -3px;
-	font-size: 1.3em;
-	left: 2px;
-}
-
-body#login #wrapper #content dl dd.remember {
-	margin: 13px 0 0 0;
-}
-
-body#login #wrapper #content dl dd.remember label {
-	color: #FFF;
-	font-weight: normal;
-	position: relative;
-	top: -3px;
-	font-size: 1.3em;
-	left: 2px;
-}
-
-body#login input.text, input.password {
-	width: 94%;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-	-x-system-font: none;
-	border: 3px solid #007db1;
-	font-size: 1.5em;
-	font-family: Arial, sans-serif;
-	padding: 8px;
-	font-weight: bold;
-	color: #777;
-	background: #dbf4ff;
-}
-
-body#login input:focus {
-	border: 3px solid #005c82;
-	outline-color: -moz-use-text-color;
-	outline-style: none;
-	outline-width: medium;
-	background: #FFF;
-	color: #0197d6;
-}
-

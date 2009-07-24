@@ -1,20 +1,30 @@
-<body id="login">
+<body id="signup">
 <div id="wrapper">
-	<div id="content">
-		<% form_for @user, :url => '/signup' do |f| -%>
-		  <%= f.error_messages %>
-		  <dl>
-				<dt class="username"><%= f.label :login, "Username" %></dt>
-				<dd><%= f.text_field :login, :class => 'text' %></dd>
-				<dt><%= f.label :email, "Email" %></dt>
-				<dd><%= f.text_field :email, :class => 'text' %></dd>
-				<dt><%= f.label :password, "Password" %></dt>
-				<dd><%= f.password_field :password, :class => 'text' %></dd>
-				<dt><%= f.label :password_confirmation, "Confirm Password" %></dt>
-				<dd><%= f.password_field :password_confirmation, :class => 'text' %></dd>
-				<dt class="btn-submit"><button type="submit">Signup</button></dt>
-				<dd class="agree"><%= f.check_box :terms_of_service, :id => 'agree_terms' %><label for="agree_terms">I Agree to the <a target="_blank" href="http://www.google.com">Terms of Service</a>.</label></dd>
-			</dl>
+	<% form_for @user, :url => '/signup' do |f| -%>
+		<ul class="section">
+			<li class="error_wrapper"><%= f.error_messages %></li>
+			<li>
+				<%= f.label :login, "Username" %>
+				<%= f.text_field :login, :class => 'text' %>
+			</li>
+			<li>	
+				<%= f.label :email, "Email" %>
+				<%= f.text_field :email, :class => 'text' %>
+			</li>
+			<li>	
+				<%= f.label :password, "Password" %>
+				<%= f.password_field :password, :class => 'text' %>
+			</li>
+			<li>	
+				<%= f.label :password_confirmation, "Confirm Password" %>
+				<%= f.password_field :password_confirmation, :class => 'text' %>
+			</li>
+			<li>
+		</ul>
+	
+				<button class="btn" type="submit"><span class="icon"></span><span>Signup</span></button>
+				
+				<%= f.check_box :terms_of_service, :id => 'agree_terms' %>
+				<label for="agree_terms">I Agree to the <a target="_blank" href="http://www.google.com">Terms of Service</a>.</label>
 		<% end -%>
-	</div><!-- / content -->
 </div><!-- / wrapper -->
