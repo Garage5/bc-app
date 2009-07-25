@@ -2,6 +2,10 @@
 <% stylesheet :match %>
 <% title "Valor Tournament" %>
 
+<% content_for :tournament_nav do -%>
+  <%= render :partial => "layouts/sub_nav", :locals => {:active => 'brackets'} %>
+<% end -%>
+
 <div id="maincol">
 	<div class="col">
 	<div class="pod">
@@ -10,7 +14,7 @@
 			
 			<div id="home_player">
 				<img src="/images/avatar_big.jpg"/>
-				<strong>Matt Johnson</strong>
+				<strong><%= @match.player_one.login %></strong>
 			</div>
 
 			<div id="match_details">
@@ -22,7 +26,7 @@
 
 			<div id="away_player">
 				<img src="/images/avatar_big.jpg"/>
-				<strong>Matt Johnson</strong>
+				<strong><%= @match.player_two.login %></strong>
 			</div>
 						
 		</div><!-- / match_wrapper -->
@@ -31,11 +35,14 @@
 	
 	<div id="comment_mod">
 	  <ul class="group">
+			<% if !@match.comments.blank? %>
+	      <%= render @match.comments %> <!-- renders partial in comments/_comment -->
+	    <% end %>
 	  </ul><!-- /comments ul -->
 	
 	  <div class="comment_form darkpod clear">
 			<h4>Post a Comment</h4>
-			<%= render :partial => 'comments/form' %>
+			<%= render :partial => 'comments/form', :locals => {:post_url => [@tournament, @match, Comment.new]} %>
 		</div><!-- / darkpod -->
 	</div><!-- / comment_mod -->
 	

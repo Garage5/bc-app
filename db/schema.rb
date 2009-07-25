@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20090715163759) do
   create_table "matches", :force => true do |t|
     t.integer  "player_one_id"
     t.integer  "player_two_id"
-    t.integer  "round"
+    t.integer  "round_id"
     t.integer  "winner_id"
     t.integer  "tournament_id"
     t.datetime "created_at"

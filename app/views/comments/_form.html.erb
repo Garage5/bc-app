@@ -1,4 +1,4 @@
-<% form_for [@tournament, @message, Comment.new], :html => {:multipart => true} do |f| -%>
+<% form_for post_url, :html => {:multipart => true} do |f| -%>
   <div><%= f.text_area :body, :rows => 5, :style => "width: 98%" %></div>
 	<div id="message_attach" class="group clear">
 		<label>Attach a File</label>

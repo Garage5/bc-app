@@ -1,6 +1,8 @@
 class MatchesController < ApplicationController
+  before_filter :find_tournament
+  
   def show
-    @match = Match.find(params[:id])
+    @match = Match.find(params[:id], :include => {:comments => [:author, :attachments]})
   end
   
   def update

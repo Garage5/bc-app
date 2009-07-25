@@ -1,25 +1,15 @@
 <li class="match <% if !match.winner.nil? %>winner-p<%= match.winner %><% end %>">
   <ul>
     
-    <li class="player <% if match.winner_is?(match.player_two) %>disqualified<% end %>">
-      <a href="#" class="player_link">
-        <img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> 
-        <%= match.player_one.login %>
-      </a>
-      <% if match.winner_is?(match.player_two) %><img class="disqualified" src="/images/bracket_x.gif"><% end %>
-    </li>
+    <%= render :partial => 'player', :locals => {:player => match.player_one, :match => match} %>
+
     
-    <li class="comments"><span><a href="#">
-      <img src="/images/bracket_comment.gif"/> 2</a> | 
-      <a href="#"><a href="#"><img src="/images/bracket_attachment.gif"/> 0
+    <li class="comments"><span><a href="<%= tournament_match_path(@tournament, match) %>">
+      <img src="/images/bracket_comment.gif"/> 2 | 
+			<img src="/images/bracket_attachment.gif"/> 0
     </a></span></li>
     
-    <li class="player <% if match.winner_is?(match.player_one) %>disqualified<% end %>">
-      <a href="#" class="player_link">
-        <img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> 
-        <%= match.player_two.login %>
-      </a>
-      <% if match.winner_is?(match.player_two) %><img class="disqualified" src="/images/bracket_x.gif"><% end %>
-    </li>
+    <%= render :partial => 'player', :locals => {:player => match.player_two, :match => match} %>
+    
   </ul>
 </li>

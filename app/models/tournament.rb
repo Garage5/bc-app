@@ -6,6 +6,7 @@ class Tournament < ActiveRecord::Base
   has_many    :messages
   has_many    :attachments, :class_name => '::Attachment'
   
+  has_many :rounds
   has_many :matches
   
   has_many :participations, :dependent => :destroy
@@ -29,15 +30,50 @@ class Tournament < ActiveRecord::Base
     else
       participants = self.active_participants
       if participants.size > 2
-        couples = participants / 2
-        couples.each do |users|
-          self.matches.create(:player_one_id => users[0].id, :player_two_id => users[1].id, :round => 1)
-        end
+        # create rounds
+        self.slot_count = calculate_slot_count(participants.size)
+        
+        calculate_round_count(self.slot_count).times do |r|
+          round_number = r + 1
+          round = self.rounds.create(:number => round_number)
+          
+          if round_number == 1
+            couples = participants / 2
+            couples.each do |users|
+              round.matches.create(:player_one_id => users[0].id, :player_two_id => users[1].id)
+            end
+          elsif round_number > 1
+            (self.slot_count / (2 ** round_number)).times do
+              round.matches.create
+            end
+          end
+        end  
+      
         self.started = true
         save
       else
         self.errors.add_to_base("Alteast 2 players are required to start a tournament")
       end
     end
+  end
+  
+  def calculate_slot_count(n)
+    case n
+    when 2..4
+      4
+    when 5..8
+      8
+    when 9..16
+      16
+    when 17..32
+      32
+    when 33..64
+      64
+    end
+  end
+  
+  def calculate_round_count(n)
+    r = { 4 => 2, 8 => 3, 16 => 4, 32 => 5, 64 => 6 }
+    r[n]
   end
 end

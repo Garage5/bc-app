@@ -3,13 +3,13 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Tournament do
   before(:each) do
     @tournament = Factory(:tournament)
-  end
-  
-  it "should not be able to be started once already started" do
-    4.times do
+    8.times do
       u = Factory(:user)
       u.join_tournament(@tournament).accept!
     end
+  end
+  
+  it "should not be able to be started once already started" do
     @tournament.start
     @tournament.start
     @tournament.errors.size.should == 1
@@ -23,56 +23,46 @@ describe Tournament do
   
   it "should convert 8 man to 4 man if less then 4 participants" do
     pending
-    4.times do
-      u = Factory(:user)
-      u.join_tournament(@tournament).accept!
-    end
     @tournament.start
     @tournament.reload
     @tournament.slot_count.should == 4
     @tournament.matches(:round => 1).count.should == 2
   end
   
-  it "should create matches based on number of participants" do
-    4.times do
-      u = Factory(:user)
-      u.join_tournament(@tournament).accept!
-    end
-    
-    lambda do
-      @tournament.start
-    end.should change{@tournament.matches(:round => 1).count}.from(0).to(2)
+  it "should create matches based on number of participants" do    
+    @tournament.start
+    @tournament.rounds.first.matches.count.should == 2
   end
   
-  it "should create matches when started" do
-    8.times do
-      u = Factory(:user)
-      u.join_tournament(@tournament).accept!
-    end
-    
+  it "should create rounds when started" do
     lambda do
       @tournament.start
-    end.should change{@tournament.matches.for_round(1).count}.from(0).to(4)
+    end.should change{@tournament.rounds.count}.from(0).to(3)
+  end
+  
+  it "should create round matches when started" do
+    @tournament.start
+    @tournament.rounds.by_number(1).first.matches.count.should == 4
+    @tournament.rounds.by_number(2).first.matches.count.should == 2
+    @tournament.rounds.by_number(3).first.matches.count.should == 1
   end
   
   it "should have participants in a match" do
-    8.times do
-      u = Factory(:user)
-      u.join_tournament(@tournament).accept!
-    end
     @tournament.start
-    match = @tournament.matches.for_round(1).first
+    match = @tournament.rounds.first.matches.first
     match.player_one.should_not be_nil
     match.player_one.should_not be_nil
   end
   
   it "should have different participants in a match" do
-    8.times do
-      u = Factory(:user)
-      u.join_tournament(@tournament).accept!
-    end
     @tournament.start
-    match = @tournament.matches.for_round(1).first
+    match = @tournament.rounds.first.matches.first
     match.player_one.should_not == match.player_two
+  end
+  
+  it "should advance winner to next round when both players are in agreement" do
+    @tournament.start
+    match = @tournament.rounds.first.matches.first
+    match.submit_results()
   end
 end

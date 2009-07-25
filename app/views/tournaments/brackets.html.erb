@@ -46,20 +46,36 @@
   <div id="brackets" class="bd clear">
     
   	  <div id="bracket_window" class="clear">
+	
   	  <% if @tournament.started? %>
-  	    <!-- ROUND 1 -->
-        <ul class="round" id="r1">
-          <li class="round_header"><a class="round_info" href="">Round Info</a> <h3>Round 1</h3></li>
+		  	<% for round in @rounds %>
+	  	    <!-- ROUND 1 -->
+	        <ul class="round" id="r<%= round.number %>">
+	          <li class="round_header"><a class="round_info" href="">Round Info</a> <h3>Round <%= round.number %></h3></li>
+	          <li class="round_date">
+	            <span class="date">6/14/09 12:23PM</span>
+	            <a href="#">change</a>
+	          </li>
+          
+	          <% for match in round.matches %>
+	            <%= render :partial => 'match', :locals => {:match => match} %>
+	          <% end %>
+	        </ul>
+		  	<% end %>
+		
+				<ul class="round final" id="r<%= @rounds.count + 1 %>">
+					<li class="round_header"><a class="round_info" href="">Round Info</a> <h3>Winner</h3></li>
           <li class="round_date">
             <span class="date">6/14/09 12:23PM</span>
             <a href="#">change</a>
           </li>
-          
-          <% for match in @tournament.matches(:round => 1) %>
-            <%= render :partial => 'match', :locals => {:match => match} %>
-          <% end %>
-        </ul>
-  	    <!-- END ROUND 1 -->
+
+					<li class="match">
+						<ul>
+							<%= render :partial => 'player', :locals => {:player => nil} %>
+						</ul>
+					</li>
+				</ul>
       <% else %>
         <p id="not_started_message">This tournament hasn't started yet.</p>
       <% end %>

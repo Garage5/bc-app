@@ -32,7 +32,7 @@
 	
 	  <div class="comment_form darkpod clear">
 			<h4>Post a Comment</h4>
-			<%= render :partial => 'comments/form' %>
+			<%= render :partial => 'comments/form', :locals => {:post_url => [@tournament, @message, Comment.new]} %>
 		</div><!-- / darkpod -->
 	</div><!-- / comment_mod -->
 	  
