@@ -9,9 +9,8 @@ class ApplicationController < ActionController::Base
   before_filter :http_authentication
   
   def http_authentication
-    user = {'dev' => 'plankton'}
-    authenticate_or_request_with_http_digest("Application") do |name|
-      user[name]
+    authenticate_or_request_with_http_basic do |user, pass|
+      user == 'dev' && pass == 'plankton'
     end
   end
 
