@@ -7,7 +7,6 @@
 		body {
 			background-color: #002dd6;
 			color: #FFF;
-			text-align: center;
 			font-family: "Courier New", sans-serif;
 		}
 		a {
@@ -18,13 +17,42 @@
 		a:hover {
 			text-decoration: none;
 		}
+		
+		.dialog {
+			width: 706px;
+			margin: 35% auto;
+		}
+		
+		p { 
+			margin: 0;
+			padding: 0; 
+			font-size: 14px;
+		}
+		
+		h1 {
+			background: #FFF;
+			color: #002dd6;
+			padding: 2px 0 2px 0;
+			text-align: center;
+			font-size: 13px;
+			font-weight: bold;
+			width: 70px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
 	</style>
 </head>
 <body>
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <p>The server has not found anything matching the Request-URI. No indication is given of whether the condition is temporary or permanent.</p>
-		<p><a href="">Go back to previous page</a></p>
+		<h1>Error</h1>
+    <p>A fatal error has occured. Someone at our company accidently pushed the fail button.</p>
+		<p>We are looking into this matter and should have it resolved shortly.</p>
+		<ul>
+			<li>Please note: this is not a real blue screen of death.</li>
+			<li>You do not need to press CTRL+ALT+DEL to restart your computer.</li>
+		</ul>
+		<p style="text-align: center;">Press any key for fun.</p>
   </div>
 </body>
 </html>

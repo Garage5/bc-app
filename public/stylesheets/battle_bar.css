@@ -272,3 +272,40 @@
 	background: #000 url(/images/icon_logout.png) 6px 6px no-repeat;
 	text-decoration: underline;
 }
+
+#logged_out #user_nav ul {
+	margin: 7px 0 7px 0;
+}
+
+#logged_out #user_nav ul li#user_signup a {
+	padding: 8px 12px 8px 27px;
+	background: #017ecc url(/images/icon_signup.png) 6px 6px no-repeat;
+	color: #FFF;
+}
+
+#logged_out #user_nav ul li#user_signup a:hover {
+	background: #017ecc url(/images/icon_signup.png) 6px 6px no-repeat;
+	text-decoration: underline;
+}
+
+#logged_out #user_nav ul li#user_login a {
+	padding: 8px 12px 8px 27px;
+	background: #000 url(/images/icon_login.png) 6px 6px no-repeat;
+	color: #FFF;
+}
+
+#logged_out #user_nav ul li#user_login a:hover {
+	background: #000 url(/images/icon_login.png) 6px 6px no-repeat;
+	text-decoration: underline;
+}
+
+#logged_out p {
+	float: right;
+	padding: 15px 20px 0 0;
+	font-size: 14px;
+	color: #77828f;
+}
+
+#logged_out ul li p {
+	padding: 8px 10px 0 15px;
+}

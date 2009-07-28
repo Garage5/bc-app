@@ -43,7 +43,16 @@
 			</ul>
 		</div>
 		<% else %> <%# if not %>
-			notloggedinstuff
+		<div id="logged_out">
+		<div id="user_nav">
+			<ul>
+				<li id="user_login"><%= link_to "Login", login_path %></li>
+				<li><p>Don't have a BattleID?</p></li>
+				<li id="user_signup"><%= link_to "Signup", login_path %></li>
+			</ul>
+		</div><!-- / user_nav -->
+		<p>You are not currently logged in!</p>
+		</div><!-- / logged_out -->
 		<% end %>
 	</div><!-- / bar_content -->
 </div><!-- / battle_bar -->
