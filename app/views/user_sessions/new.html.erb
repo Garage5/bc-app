@@ -3,6 +3,11 @@
 <div id="login_wrapper">
 		<% form_for @user_session, :url => '/login' do |f| -%>
 		<ul class="section">
+			<li class="header">
+				<img src="/images/signup_icon_battleid.png" />
+				<h1>Login with your BattleID</h1>
+				<p>&nbsp;</p>
+			</li>
 			<li class="error_wrapper"><%= f.error_messages %></li>
 			<li>
 				<%= f.label :login, "Username" %>
@@ -13,6 +18,7 @@
 				<%= f.password_field :password, :class => 'text' %>
 			</li>
 		</ul>
+			<div id="forgot_pass"><a href="">Forgot Password</a></div>
 			<button class="btn" type="submit"><span class="icon"></span><span>Login</span></button>
 			<input type="checkbox" id="rememberme" /><label class="remember_label" for="rememberme">Remember Me</label>
 		<% end -%>
