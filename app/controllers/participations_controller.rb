@@ -8,6 +8,12 @@ class ParticipationsController < ApplicationController
     @active_participants = @tournament.active_participants
   end
   
+  def add_cohost
+    user = User.find(:first, :conditions => ['login = ? OR email = ?', params[:user], params[:user]])
+    user.cohost_tournament @tournament
+    redirect_to tournament_participants_path(@tournament)
+  end
+  
   def create
     current_user.join_tournament @tournament
     redirect_to @tournament

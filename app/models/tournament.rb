@@ -10,7 +10,11 @@ class Tournament < ActiveRecord::Base
   has_many :matches
   
   has_many :participations, :dependent => :destroy
-  has_many :participants , :through => :participations
+  has_many :participants , :through => :participations,
+           :conditions => "state IN ('pending', 'active')"
+
+  has_many :cohosts , :through => :participations,
+           :conditions => ['state = ?', 'cohost'], :source => :participant
   
   has_many :pending_participants, :through => :participations, 
            :conditions => ['state = ?', 'pending'], :source => :participant

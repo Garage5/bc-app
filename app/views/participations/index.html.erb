@@ -29,6 +29,20 @@
 				</div><!-- / user_name -->
 				<a class="user_edit" rel="modal" href="#team_invite">Edit</a>
 			</li>
+			<!-- cohosts -->
+			<% @tournament.cohosts.each do |cohost| %>
+			  <li class="clear">
+				  <div class="user_avatar">
+					  <a class="avatar" href=""><img src="/images/avatar_big.jpg" /></a>
+				  </div>
+				  <div class="user_name">
+					  <h2><%= cohost.login %></h2>
+					  <p class="role">Co-Host</p>
+					  <p class="activity">Last activity 1 day ago</p>
+				  </div><!-- / user_name -->
+				  <a class="user_edit" rel="modal" href="#team_invite">Edit</a>
+			  </li>
+			<% end %>
 		</ul>
 		
 	</div><!-- / bd -->
