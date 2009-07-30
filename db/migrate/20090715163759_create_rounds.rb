@@ -4,6 +4,7 @@ class CreateRounds < ActiveRecord::Migration
       t.integer :tournament_id
       t.date    :start_date
       t.integer :number
+      t.integer :position
       t.timestamps
     end
   end

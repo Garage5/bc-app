@@ -6,6 +6,7 @@ class CreateMatches < ActiveRecord::Migration
       t.integer :round_id
       t.integer :winner_id
       t.integer :tournament_id
+      t.integer :position
       t.timestamps
     end
   end

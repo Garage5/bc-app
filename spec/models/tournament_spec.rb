@@ -16,6 +16,7 @@ describe Tournament do
   end
   
   it "should not be able to be started if there are no participants" do
+    @tournament.participations.delete_all
     @tournament.start
     @tournament.errors.size.should == 1
     @tournament.started?.should be_false
@@ -31,7 +32,7 @@ describe Tournament do
   
   it "should create matches based on number of participants" do    
     @tournament.start
-    @tournament.rounds.first.matches.count.should == 2
+    @tournament.rounds.first.matches.count.should == 4
   end
   
   it "should create rounds when started" do
@@ -58,11 +59,5 @@ describe Tournament do
     @tournament.start
     match = @tournament.rounds.first.matches.first
     match.player_one.should_not == match.player_two
-  end
-  
-  it "should advance winner to next round when both players are in agreement" do
-    @tournament.start
-    match = @tournament.rounds.first.matches.first
-    match.submit_results()
   end
 end

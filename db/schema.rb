@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20090715163759) do
     t.integer  "round_id"
     t.integer  "winner_id"
     t.integer  "tournament_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20090715163759) do
     t.integer  "tournament_id"
     t.date     "start_date"
     t.integer  "number"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
