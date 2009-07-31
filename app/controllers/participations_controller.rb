@@ -12,7 +12,9 @@ class ParticipationsController < ApplicationController
     user = User.find(:first, :conditions => ['login = ? OR email = ?', params[:user], params[:user]])
     if user
       participation = user.cohost_tournament @tournament
-      if participation.errors.on(:participant_id)
+      if user.is_hosting?(@tournament)
+        flash[:error] = "This user is already hosting or co-hosting this tournament."
+      elsif user.is_participant_of?(@tournament)
         flash[:error] = "You can not add a participant as a co-host. Please remove the user from participants first."
       end
     else
