@@ -84,16 +84,23 @@ body#signup ul li input:focus {
 }
 
 body#signup ul li#account_url input {
-	width: 293px;
+	width: 253px;
 	background: #FFF url(/images/signup_account_url_input_bg.png) top left no-repeat;
 	padding: 7px 7px 7px 56px;
 	font-weight: bold;
 	font-size: 15px;
 	color: #2a566d;
+	margin-right: 10px;
 }
 
 body#signup ul li#account_url select {
-	margin: 0 0 0 10px;
+	margin: 0 0 0 5px;
+}
+
+body#signup ul li#account_url em {
+	font-size: 18px;
+	font-weight: bold;
+	color: #22445a;
 }
 
 /* 

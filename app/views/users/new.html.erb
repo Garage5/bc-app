@@ -14,8 +14,9 @@
 		</li>
 		<li id="account_url" class="last">
 			<label>Account URL:</label>
-			<input type="text">
-			<select><option>.tbbonline.com</option></select>
+			<input type="text"><em>.</em>
+			<select><option>tbbonline</option></select>
+			<em>.com</em>
 		</li>
 	</ul>
 	<ul class="section">
@@ -94,6 +95,16 @@
 			<label>Phone:</label>
 			<input type="text">
 		</li>
+	</ul>
+	
+	<ul class="section">
+		<li class="header">
+			<img src="/images/signup_icon_confirm.png" />
+			<h1>Confirm</h1>
+			<p>Make sure your shit is correct yo. Don't want any fuck ups around here.</p>
+		</li>
+		<li class="error_wrapper"><%= f.error_messages %></li>
+		s
 	</ul>
 	
 	<button class="btn" type="submit"><span class="icon"></span><span>Signup</span></button>

@@ -31,12 +31,7 @@ body#login ul li.header h1 {
 	color: #008ad1;
 	font-size: 25px;
 	font-weight: bold;
-}
-
-body#login ul li.header p {
-	color: #426a7f;
-	margin: 5px 0 0 0;
-	font-size: 15px;
+	margin: 13px 0 10px 0;
 }
 
 body#login ul li.header img {
@@ -73,7 +68,7 @@ body#login ul li input {
 	padding: 7px;
 	height: 20px;
 	-moz-border-radius: 4px;
-	background: #FFF url(/images/input_bg.gif) 0 0 repeat-x;
+	background: #FFF url(/images/signup_input_bg.gif) 0 0 repeat-x;
 	border: 1px #8ba6b1 solid;
 }
 
@@ -83,6 +78,7 @@ body#login ul li input:focus {
 
 body#login label.remember_label {
 	margin: 0 0 0 5px;
+	top: 1px;
 }
 
 body#login li.error_wrapper ul {
@@ -99,6 +95,17 @@ body#login li.error_wrapper ul li {
 body#login #forgot_pass {
 	float: right;
 	position: relative;
-	top: 10px;
+	top: 7px;
 	font-size: 12px;
+}
+
+body#login #forgot_pass a {
+	background: transparent url(/images/icon_question16.png) 100% 3px no-repeat;
+	display: block;
+	padding: 5px 20px 5px 0;
+}
+
+body#login #forgot_pass a:hover {
+	color: #017ecc;
+	text-decoration: underline;
 }
