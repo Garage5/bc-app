@@ -73,17 +73,9 @@
 			<form>
 				<div style="margin: 0 0 0 10px;"><label for="team_name">Team Name</label><input id="team_name" type="text" /></div>
 				<ul id="player_list" class="clear">
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
+				  <% @tournament.participants.each do |user| %>
+  					<li><input type="checkbox" name="members[]" value="<%= user.id %>" id="members_<%= user.id %>" /> <label class="checkbox" for="members_<%= user.id %>"><%= user.login %></label></li>
+  				<% end %>
 				</ul>
 				<div class="clear">
 					<button class="btn add"><span class="icon"></span><span>Create Team</span></button>
