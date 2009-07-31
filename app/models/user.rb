@@ -11,12 +11,16 @@ class User < ActiveRecord::Base
     Participation.create(:participant => self, :tournament => tournament)
   end
   
+  def cohost_tournament(tournament)
+    Participation.create(:participant => self, :tournament => tournament, :state => 'cohost')
+  end
+  
   def is_hosting?(tournament)
-    tournament.instance.host_id == self.id
+    tournament.instance.host_id == self.id || Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => 'cohost')
   end
   
   def is_participant_of?(tournament)
-    Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id)
+    Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => ['pending', 'active'])
   end
   
   def is_eligible_to_join?(tournament)

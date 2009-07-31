@@ -8,6 +8,21 @@ class ParticipationsController < ApplicationController
     @active_participants = @tournament.active_participants
   end
   
+  def add_cohost
+    user = User.find(:first, :conditions => ['login = ? OR email = ?', params[:user], params[:user]])
+    if user
+      participation = user.cohost_tournament @tournament
+      if user.is_hosting?(@tournament)
+        flash[:error] = "This user is already hosting or co-hosting this tournament."
+      elsif user.is_participant_of?(@tournament)
+        flash[:error] = "You can not add a participant as a co-host. Please remove the user from participants first."
+      end
+    else
+      flash[:error] = "No user with this BattleID or e-mail was found."
+    end
+    redirect_to tournament_participants_path(@tournament)
+  end
+  
   def create
     current_user.join_tournament @tournament
     redirect_to @tournament

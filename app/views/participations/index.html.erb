@@ -15,6 +15,11 @@
 				<li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
 			</ul>
 		</div>
+	<% if flash[:error] %>
+    <div class="note red_note global_note">
+	    <p><%= flash[:error] %><a class="note-close" href="">X</a></p>
+    </div>
+  <% end %>
 	<div class="bd clear player_list">
 		<ul class="clear">
 		  <!-- host -->
@@ -29,6 +34,20 @@
 				</div><!-- / user_name -->
 				<a class="user_edit" rel="modal" href="#team_invite">Edit</a>
 			</li>
+			<!-- cohosts -->
+			<% @tournament.cohosts.each do |cohost| %>
+			  <li class="clear">
+				  <div class="user_avatar">
+					  <a class="avatar" href=""><img src="/images/avatar_big.jpg" /></a>
+				  </div>
+				  <div class="user_name">
+					  <h2><%= cohost.login %></h2>
+					  <p class="role">Co-Host</p>
+					  <p class="activity">Last activity 1 day ago</p>
+				  </div><!-- / user_name -->
+				  <a class="user_edit" rel="modal" href="#team_invite">Edit</a>
+			  </li>
+			<% end %>
 		</ul>
 		
 	</div><!-- / bd -->

@@ -73,17 +73,9 @@
 			<form>
 				<div style="margin: 0 0 0 10px;"><label for="team_name">Team Name</label><input id="team_name" type="text" /></div>
 				<ul id="player_list" class="clear">
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
-					<li><input type="checkbox"/> <label class="checkbox">Bryan</label></li>
+				  <% @tournament.participants.each do |user| %>
+  					<li><input type="checkbox" name="members[]" value="<%= user.id %>" id="members_<%= user.id %>" /> <label class="checkbox" for="members_<%= user.id %>"><%= user.login %></label></li>
+  				<% end %>
 				</ul>
 				<div class="clear">
 					<button class="btn add"><span class="icon"></span><span>Create Team</span></button>
@@ -104,14 +96,14 @@
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
 			<p>Enter an email or BattleID to add a Co-Host to this tournament.</p>
-			<form>
-				<div style="margin: 0 0 0 10px;"><label for="team_name">Enter E-Mail or BattleID</label><input size="30" type="text" /></div>
+			<% form_tag add_cohost_tournament_participants_path(@tournament) , :method => :post do %>
+				<div style="margin: 0 0 0 10px;"><label for="team_name">Enter E-Mail or BattleID</label><input size="30" type="text" name="user" /></div>
 				
 				<div class="clear">
 					<button class="btn add"><span class="icon"></span><span>Add Co-Host</span></button>
-					or <a href="">Cancel</a>
+					or <a class="modal_close" href="">Cancel</a>
 				</div>
-			</form>
+			<% end %>
 			
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
