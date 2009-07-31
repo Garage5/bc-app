@@ -103,7 +103,6 @@ body#participants .tab-pod ul.tabbed li.create_team a {
 }
 
 body#participants .pending_players .user_avatar .avatar img {
-	width: 60px;
 }
 
 body#participants .pending_players p.approve_checkbox {
