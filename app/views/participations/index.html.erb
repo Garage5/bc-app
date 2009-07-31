@@ -15,6 +15,11 @@
 				<li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
 			</ul>
 		</div>
+	<% if flash[:error] %>
+    <div class="note red_note global_note">
+	    <p><%= flash[:error] %><a class="note-close" href="">X</a></p>
+    </div>
+  <% end %>
 	<div class="bd clear player_list">
 		<ul class="clear">
 		  <!-- host -->
