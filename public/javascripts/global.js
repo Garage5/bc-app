@@ -8,3 +8,6 @@ $(document).ready(function(){
   // convert dates to relative
   $(".date").timeago()
 })
+
+$.metadata.setType('attr', 'rel');
+

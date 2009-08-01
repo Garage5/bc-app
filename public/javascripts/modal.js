@@ -10,7 +10,16 @@ Overlay = $.klass({
 Modal = $.klass({
   onclick: function(e){    
     e.preventDefault()
-    modal = $($(e.target).attr('href'))
+    data = $(e.target).metadata()
+    if (data) {
+      modal = "#generic_modal"
+      $('#generic_modal_title').html(data.title);
+      $('#generic_modal_text').html(data.text);
+      $('#generic_modal_form').attr("action", $(e.target).attr("href"));
+    } else {
+      modal = $(e.target).attr('href')
+    }
+    modal = $(modal)
     $(modal)
       .css({
         marginTop: modal.height()/2 - modal.height()/2 * 2,
@@ -26,8 +35,8 @@ Modal = $.klass({
 })
 
 $(document).ready(function(){
-	$("a[rel='modal']").attach(Modal)
-	$("a[rel='modal'] span").click(function(){
-		$(this).parent('a[rel="modal"]').click()
+	$("a[rel^='modal']").attach(Modal)
+	$("a[rel^='modal'] span").click(function(){
+		$(this).parent('a[rel^="modal"]').click()
 	})
 })

@@ -6,5 +6,5 @@
 		<h2><%= participant.login %></h2>
 		<p class="activity">Last activity 1 day ago</p>
 	</div><!-- / user_name -->
-	<a class="user_edit" href="">Edit</a>
+	<a rel="modal {title: 'Are You Sure?', text: 'Do you really want to <%= participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" %> this tournament?'}" class="user_edit" href="">Edit</a>
 </li>
