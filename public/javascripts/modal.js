@@ -15,6 +15,7 @@ Modal = $.klass({
       modal = "#generic_modal"
       $('#generic_modal_title').html(data.title);
       $('#generic_modal_text').html(data.text);
+      $('#generic_modal_method').attr("value", data.method?data.method:'get' );
       $('#generic_modal_form').attr("action", $(e.target).attr("href"));
     } else {
       modal = $(e.target).attr('href')
@@ -40,3 +41,9 @@ $(document).ready(function(){
 		$(this).parent('a[rel^="modal"]').click()
 	})
 })
+
+function closeModal() {
+  $('div.overlay').remove()
+  $('#generic_modal').hide()
+  return false
+}

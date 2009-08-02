@@ -44,11 +44,12 @@ class ParticipationsController < ApplicationController
   end
   
   def deny
-    ids = params[:participants].keys || []
+    ids = params[:participants] ? params[:participants].keys : []
+    ids = [params[:participant]] if params[:participant]
     if !ids.blank?
       @participants = User.find(ids)
       if !@participants.blank?
-        Participation.delete_all("participant_id IN(#{params[:participants].keys.join(',')}) AND tournament_id = #{@tournament.id}")
+        Participation.delete_all("participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
       end
     end
     respond_to do |format|

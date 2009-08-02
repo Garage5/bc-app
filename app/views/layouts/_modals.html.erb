@@ -151,7 +151,7 @@
 
 <div id="generic_modal" class="modal">
 		<div class="modal_hd">
-			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+			<a class="modal_close" href="" onclick="return closeModal()"><img src="/images/icon_close.gif" /></a>
 			<h1 id="generic_modal_title">Confirm</h1>
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
@@ -159,9 +159,9 @@
 			<div class="clear">
 			  <form method="post" style="display: none;" id="generic_modal_form">
 			    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-			    <input type="hidden" name="_method" value="put" />
+			    <input id="generic_modal_method" type="hidden" name="_method" value="put" />
 			  </form><a href="#" class="btn" onclick="document.getElementById('generic_modal_form').submit(); return false;"><span class="icon"></span><span>Yes</span></a>
-			<button class="btn"><span class="icon"></span><span>No</span></button>
+			<button class="btn" onclick="return closeModal()"><span class="icon"></span><span>No</span></button>
 			</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
