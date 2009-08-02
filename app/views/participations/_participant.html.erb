@@ -6,5 +6,7 @@
 		<h2><%= participant.login %></h2>
 		<p class="activity">Last activity 1 day ago</p>
 	</div><!-- / user_name -->
-	<%= link_to('Edit', deny_tournament_participants_path(:participant => participant.id), :class => 'user_edit', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" } this tournament?'}") %>
+	<% if participant == current_user || current_user.is_hosting?(@tournament) %>
+  	<%= link_to('Edit', deny_tournament_participants_path(:participant => participant.id), :class => 'user_edit', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" } this tournament?'}") %>
+  <% end %>
 </li>

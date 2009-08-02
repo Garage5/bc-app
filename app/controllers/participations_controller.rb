@@ -1,7 +1,7 @@
 class ParticipationsController < ApplicationController
   before_filter :find_tournament
   before_filter :login_required, :except => [:index]
-  before_filter :must_be_host, :except => [:index, :create]
+  before_filter :must_be_host, :except => [:index, :create, :deny]
   
   def index
     @pending_participants = @tournament.pending_participants
@@ -47,6 +47,9 @@ class ParticipationsController < ApplicationController
     ids = params[:participants] ? params[:participants].keys : []
     ids = [params[:participant]] if params[:participant]
     if !ids.blank?
+      ids.delete_if do |id|
+        !current_user.is_hosting?(@tournament) && id.to_i != current_user.id
+      end
       @participants = User.find(ids)
       if !@participants.blank?
         Participation.delete_all("participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
