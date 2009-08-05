@@ -2,10 +2,10 @@
 	<div id="bar_content">
 		<% if current_user %> <%# if logged in %>
 		<div id="user_avatar">
-			<a id="avatar" href=""><img src="/images/avatar_32x32.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
+			<a id="avatar" href="/preview/users/show"><img src="/images/avatar_32x32.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
 		</div><!-- / user_avatar -->
 		
-		<div id="your_tournaments">
+		<div class="beta" id="your_tournaments">
 			<a class="clear" href=""><span id="tmenu_txt">Your Tournaments</span> <span id="tmenu_unread">16</span></a>
 			<div id="tmenu">
 				<div id="tmenu_inner">
@@ -19,17 +19,17 @@
 					</div><!-- / matches_today -->
 					<h3>Your Tournaments</h3>
 					<ul>
-						<li><a href="/preview/tournaments/overview/">Valor <em>Hosted by Starfeeder</em></a></li>
-						<li><a href="/preview/tournaments/overview/">Random SC2 <em>Hosted by Starfeeder</em></a></li>
-						<li><a href="/preview/tournaments/overview/">nvidia CSS League <em>Hosted by CSSCommunity.com</em></a></li>
-						<li><a href="/preview/tournaments/overview/">Team Fortress 2 Tournament <em>Hosted by myTF2.com</em></a></li>
+						<li><a href="/tournaments/1/">Valor <em>Hosted by Starfeeder</em></a></li>
+						<li><a href="/tournaments/1/">Random SC2 <em>Hosted by Starfeeder</em></a></li>
+						<li><a href="/tournaments/1/">nvidia CSS League <em>Hosted by CSSCommunity.com</em></a></li>
+						<li><a href="/tournaments/1/">Team Fortress 2 Tournament <em>Hosted by myTF2.com</em></a></li>
 					</ul>
 					
 				</div>
 			</div>
 		</div><!-- / your_tournaments -->
 		
-		<div id="your_matches">
+		<div class="beta" id="your_matches">
 			<p><a href="/preview/matches/show/">You vs James at 4:53PM</a></p>
 		</div><!-- / your_matches -->
 		
@@ -48,7 +48,7 @@
 			<ul>
 				<li id="user_login"><%= link_to "Login", login_path %></li>
 				<li><p>Don't have a BattleID?</p></li>
-				<li id="user_signup"><%= link_to "Signup", login_path %></li>
+				<li id="user_signup"><%= link_to "Signup", signup_path %></li>
 			</ul>
 		</div><!-- / user_nav -->
 		<p>You are not currently logged in!</p>

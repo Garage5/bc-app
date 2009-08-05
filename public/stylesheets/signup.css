@@ -56,7 +56,7 @@ body#signup ul li label {
 	margin: 12px 10px 0 0;
 	font-weight: bold;
 	float: left;
-	width: 165px;
+	width: 125px;
 	text-align: right;
 }
 
@@ -69,7 +69,7 @@ body#signup ul li.dropdown {
 }
 
 body#signup ul li input {
-	width: 473px;
+	width: 562px;
 	font-size: 16px;
 	padding: 7px;
 	height: 20px;
@@ -101,6 +101,83 @@ body#signup ul li#account_url em {
 	font-size: 18px;
 	font-weight: bold;
 	color: #22445a;
+}
+
+body#signup ul li.expiration_input {
+	width: 300px;
+	float: left;
+	border: 0;
+	
+}
+
+body#signup ul li#expiration_input label {
+	width: 50px;
+}
+
+body#signup ul li#cvv_input {
+	border: 0;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+body#signup ul li#cvv_input label {
+	width: 50px;
+}
+
+body#signup ul li#cvv_input input {
+	width: 50px;
+}
+
+body#signup ul li#cvv_input span {
+	padding: 0 0 0 5px;
+	font-size: 12px;
+}
+
+body#signup ul li.checkbox {
+	padding: 12px 8px 12px 8px;
+}
+
+body#signup ul li.checkbox label {
+	float: none;
+	margin: 0 0 0 5px;
+	padding: 0;
+	display: inline;
+	text-align: left;
+}
+
+body#signup ul li.checkbox input {
+	width: auto;
+	padding: 0;
+	margin: 0;
+	height: auto;
+}
+
+body#signup ul li.confirm_plan, body#signup ul li.confirm_terms {
+	padding: 14px;
+}
+
+body#signup ul li.confirm_plan h3, body#signup ul li.confirm_terms h3 {
+	color: #426a7f;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+}
+
+body#signup ul li.confirm_plan h4 {
+	color: #00945b;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+}
+
+body#signup ul li.confirm_plan p, body#signup ul li.confirm_terms p {
+	color: #426a7f;
+	font-size: 14px;
+}
+
+body#signup ul li.confirm_terms p {
+	margin: 0 0 15px 0;
 }
 
 /* 

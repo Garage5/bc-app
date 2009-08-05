@@ -15,6 +15,10 @@ SCREEN Stylesheet --------------------------------------------------------------
 @import url(new_tournament.css);
 @import url(tournament_rules.css);
 
+.beta {
+	display: none !important;
+}
+
 
 /* 
 ---------------------------------------------------------------------------------------------

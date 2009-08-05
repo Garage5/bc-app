@@ -1012,12 +1012,13 @@ Navigation - Completed Tournaments - Sidecol
 
 .tcompleted ul li {
 	border: 0;
-	margin: 5px 0 5px 0;
+	margin: 8px 0 8px 0;
 }
 
 .tcompleted  ul li a {
 	display: block;
 	color: #777;
+	padding: 5px 0 5px 0;
 }
 
 .tcompleted  ul li a:hover {
@@ -1025,6 +1026,25 @@ Navigation - Completed Tournaments - Sidecol
 }
 
 .tcompleted  ul li.last {
+}
+
+ul li a span.tedit {
+	display: none;
+}
+
+ul li a:hover span.tedit {
+	display: block;
+	float: right;
+	width: 24px;
+	height: 24px;
+	background: transparent url(/images/icon_edit_tournament.png) 0 0 no-repeat;
+	text-indent: -9999px;
+	position: relative;
+	top: -5px;
+}
+
+ul li a:hover span:hover.tedit {
+	background-position: bottom;
 }
 
 

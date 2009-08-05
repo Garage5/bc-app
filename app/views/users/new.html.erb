@@ -15,7 +15,7 @@
 		<li id="account_url" class="last">
 			<label>Account URL:</label>
 			<input type="text"><em>.</em>
-			<select><option>tbbonline</option></select>
+			<select><option>tbbonline</option><option>tbbhere</option><option>tbblive</option><option>tbbnow</option></select>
 			<em>.com</em>
 		</li>
 	</ul>
@@ -63,9 +63,18 @@
 			<label>Card Number</label>
 			<input type="text">
 		</li>
-		<li class="dropdown">
-			<label>Expiration</label>
-			<select><option>1</option></select> <select><option>2009</option></select>
+		<li class="clear">
+			<div class="clear">
+			<li class="dropdown expiration_input">
+				<label>Expiration</label>
+				<select><option>1</option></select> <select><option>2009</option></select>
+			</li>
+			<li id="cvv_input">
+				<label>CVV</label>
+				<input type="text">
+				<span><a href="">What is this?</a></span>
+			</li>
+			</div>
 		</li>
 		<li>
 			<label>Address 1:</label>
@@ -97,19 +106,27 @@
 		</li>
 	</ul>
 	
-	<ul class="section">
+	<ul class="section confirm">
 		<li class="header">
 			<img src="/images/signup_icon_confirm.png" />
 			<h1>Confirm</h1>
 			<p>Make sure your shit is correct yo. Don't want any fuck ups around here.</p>
 		</li>
 		<li class="error_wrapper"><%= f.error_messages %></li>
-		s
+		<li class="confirm_plan">
+			<h3>You are getting the:</h3>
+			<h4>$99/mo MEGA COOL SHIT PLAN</h4>
+			<p>Your free trial ends at <strong>midnight September 3th, 2009</strong>.</p>
+		</li>
+		<li class="confirm_terms last checkbox">
+			<h3>No Contracts or Cancelation Fees</h3>
+			<p>Cancel any time. But if you do cancel, we'll kill you. And stuff.</p>
+			<%= f.check_box :terms_of_service, :id => 'agree_terms' %>
+			<label for="agree_terms">I Agree to the <a target="_blank" href="">Terms of Service</a>.</label>
+			<% end -%>
+		</li>
+		<div class="clear"></div>
 	</ul>
 	
 	<button class="btn" type="submit"><span class="icon"></span><span>Signup</span></button>
-				
-	<%= f.check_box :terms_of_service, :id => 'agree_terms' %>
-	<label for="agree_terms">I Agree to the <a target="_blank" href="http://www.google.com">Terms of Service</a>.</label>
-	<% end -%>
 </div><!-- / wrapper -->
