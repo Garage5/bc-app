@@ -21,7 +21,9 @@
     <%= link_to "Messages", tournament_messages_path(@tournament) %>
   <% end -%>
 	
-	<li><a href="/preview/tournaments/show/">Rules</a></li>
+	<% content_tag :li, active == 'rules' ? {:class => 'active'} : nil do -%>
+    <%= link_to "Rules", rules_tournament_path(@tournament) %>
+  <% end -%>
 	
 	<% content_tag :li, active == 'brackets' ? {:class => 'active'} : nil do -%>
     <%= link_to "Brackets", brackets_tournament_path(@tournament) %>
