@@ -611,6 +611,7 @@ p.yellow_note {
 }
 
 .blue_filled p {
+	float: left;
 	padding: 9px 0 0 10px;
 }
 

@@ -22,7 +22,7 @@ input, textarea {
 input:focus, textarea:focus {
 	color: #000;
 	font-weight: normal;
-	outline-color: -moz-use-text-color;
+	outline-color: #017ecc;
 	outline-style: none;
 	outline-width: medium;
 }
@@ -31,6 +31,12 @@ textarea {
 	line-height: 24px;
 	font-family: "Lucida Grande", sans-serif;
 	width: 98%;
+}
+
+input[type="checkbox"] {
+	padding: 0;
+	margin: 0;
+	border: 0;
 }
 
 select {
