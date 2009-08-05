@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_authentic
   
-  has_many :participations, :dependent => :destroy
+  has_many :participations, :foreign_key => :participant_id, :dependent => :destroy
   has_many :tournaments, :through => :participations
   
   validates_acceptance_of :terms_of_service, :on => :create
@@ -25,6 +25,43 @@ class User < ActiveRecord::Base
   
   def is_eligible_to_join?(tournament)
     !self.is_hosting?(tournament) && !self.is_participant_of?(tournament)
+  end
+  
+  def team_memberships_in(tournament, include_pending = false)
+    states = ['active', 'captain']
+    states << 'pending' if include_pending
+    parts = Participation.find(:all, :conditions => {:participant_id => self.id, :tournament_id => tournament.id, :state => 'active'}, :include => [:team_memberships])
+    r = []
+    parts.each do |part|
+      # uses reject instead of find with conditions to benefit from query cache
+      r += part.team_memberships.find(:all).reject { |m| !states.include?(m.state) }
+    end
+    r.uniq
+  end
+  
+  def teams_in(tournament, include_pending = false)
+    r = []
+    team_memberships_in(tournament, include_pending).each do |memb|
+      r << memb.team
+    end
+    r
+  end
+  
+  def member_of?(team, include_pending = false)
+    teams_in(team.tournament, include_pending).include?(team)
+  end
+  
+  def role_in(tournament, team)
+    return "Host" if tournament.instance.host == self
+    return "Co-Host" if is_hosting?(tournament)
+    return nil unless team
+    part = participations.find(:first, :conditions => {:tournament_id => team.tournament_id})
+    return nil unless part
+    membs = part.team_memberships.find(:first, :conditions => {:team_id => team.id})
+    return nil unless membs
+    return "Captain" if membs.state == 'captain'
+    return "Member" if membs.state == 'active'
+    return "Invited" if membs.state == 'pending'
   end
   
 end

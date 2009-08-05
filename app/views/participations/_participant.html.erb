@@ -1,9 +1,11 @@
+<% team ||= nil %>
 <li class="clear">
 	<div class="user_avatar">
 		<a class="avatar" href=""><img src="/images/avatar_32x32.jpg" /></a>
 	</div>
 	<div class="user_name">
 		<h2><%= participant.login %></h2>
+	  <p class="role"><%= participant.role_in(@tournament, team) %></p>
 		<p class="activity">Last activity 1 day ago</p>
 	</div><!-- / user_name -->
 	<% if current_user && (participant == current_user || current_user.is_hosting?(@tournament)) %>

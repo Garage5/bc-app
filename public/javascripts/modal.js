@@ -40,10 +40,15 @@ $(document).ready(function(){
 	$("a[rel^='modal'] span").click(function(){
 		$(this).parent('a[rel^="modal"]').click()
 	})
+	$("a.modal_close").click(function(event) {
+	  event.preventDefault();
+	  closeModal($(this).parents('.modal'));
+	})
 })
 
-function closeModal() {
+function closeModal(modal) {
+  if (!modal) modal = '#generic_modal';
   $('div.overlay').remove()
-  $('#generic_modal').hide()
+  $(modal).hide()
   return false
 }
