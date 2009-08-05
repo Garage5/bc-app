@@ -1,4 +1,5 @@
 <% content_for :head do -%>
+<% body 'settings' %>
 <%= stylesheet_link_tag 'settings' %>
 <% end -%>
 
@@ -8,10 +9,19 @@
 <div class="col">
 	<div class="pod" id="settings">
   <div class="bd clear">
-		<ul style="margin: 0 0 20px 0;">
-  	  <li><strong>Your URL:</strong>
-  	  http://starfeeder.thebattlecenter.com <span class="gray">(<a href="#">change URL</a>)</span></li>
+		<div id="account_url" class="clear group darkpod">
+		<ul>
+  	  <li>
+				<h2>Your URL</h2>
+				http://starfeeder.tbbhere.com
+				<span class="gray">(<a href="#">change URL</a>)</span>
+			</li>
+			<li id="account_url_input">
+				http:// <input type="text" value="starfeeder"/> . <select><option>tbbonline</option><option>tbbhere</option><option>tbbnow</option><option>tbblive</option></select> .com
+				<button class="btn"><span class="icon"></span><span>Save</span></button>
+			</li>
   	</ul>
+		</div><!-- // darkpod -->
 	  <h3 class="first">Your Logo</h3>
     <div id="your_logo" class="darkpod clear">
 	    <p>Your logo appears on the Login, Dashboard, and Overview pages.</p>
@@ -63,5 +73,10 @@
 
 <div id="sidecol">
 <div class="col">
+	<div class="pod">
+		<div class="bd">
+			Stuff
+		</div><!-- // bd -->
+	</div><!-- // pod -->
 </div><!-- / col -->
 </div><!-- / sidecol -->

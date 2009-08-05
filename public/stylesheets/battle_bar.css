@@ -79,10 +79,10 @@
 
 #battle_bar #your_tournaments a span#tmenu_unread {
 	font-size: 11px;
-	background: transparent url(/images/tmenu_count_bg.png) 0 0 no-repeat;
+	background: transparent url(/images/tmenu_count_bg.png) 1px 0 no-repeat;
 	font-weight: bold;
 	color: #FFF;
-	width: 20px;
+	width: 21px;
 	display: block;
 	padding: 5px 0 4px 0;
 	float: left;
@@ -112,7 +112,7 @@
 
 #battle_bar #your_tournaments:hover a span#tmenu_unread {
 	text-decoration: none !important;
-	background: transparent url(/images/tmenu_count_blk_bg.png) 0 0 no-repeat;
+	background: transparent url(/images/tmenu_count_blk_bg.png) 1px 0 no-repeat;
 	color: #FFF;
 }
 

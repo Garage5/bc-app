@@ -5,11 +5,11 @@
 			<a id="avatar" href="/preview/users/show"><img src="/images/avatar_32x32.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
 		</div><!-- / user_avatar -->
 		
-		<div class="beta" id="your_tournaments">
+		<div id="your_tournaments">
 			<a class="clear" href=""><span id="tmenu_txt">Your Tournaments</span> <span id="tmenu_unread">16</span></a>
 			<div id="tmenu">
 				<div id="tmenu_inner">
-					<div id="matches_today">
+					<div class="beta" id="matches_today">
 					<h3>Upcoming Matches</h3>
 					<ul>
 						<li><a href="/preview/tournaments/overview/">Valor Tournament <em>You vs James <strong>@ 4:15PM CST</strong></em></a></li>
@@ -19,10 +19,10 @@
 					</div><!-- / matches_today -->
 					<h3>Your Tournaments</h3>
 					<ul>
-						<li><a href="/tournaments/1/">Valor <em>Hosted by Starfeeder</em></a></li>
-						<li><a href="/tournaments/1/">Random SC2 <em>Hosted by Starfeeder</em></a></li>
-						<li><a href="/tournaments/1/">nvidia CSS League <em>Hosted by CSSCommunity.com</em></a></li>
-						<li><a href="/tournaments/1/">Team Fortress 2 Tournament <em>Hosted by myTF2.com</em></a></li>
+						<li><a href="" class="beta tedit">Edit</a><a href="/tournaments/1/">Valor <em>Hosted by Starfeeder</em></a></li>
+						<li><a href="" class="beta tedit">Edit</a><a href="/tournaments/1/">Random SC2 <em>Hosted by Starfeeder</em></a></li>
+						<li><a href="" class="beta tedit">Edit</a><a href="/tournaments/1/">nvidia CSS League <em>Hosted by CSSCommunity.com</em></a></li>
+						<li><a href="" class="beta tedit">Edit</a><a href="/tournaments/1/">Team Fortress 2 Tournament <em>Hosted by myTF2.com</em></a></li>
 					</ul>
 					
 				</div>
