@@ -2,10 +2,10 @@
 	<div id="bar_content">
 		<% if current_user %> <%# if logged in %>
 		<div id="user_avatar">
-			<a id="avatar" href=""><img src="/images/avatar_32x32.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
+			<a id="avatar" href="/preview/users/show"><img src="/images/avatar_32x32.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
 		</div><!-- / user_avatar -->
 		
-		<div id="your_tournaments">
+		<div class="beta" id="your_tournaments">
 			<a class="clear" href=""><span id="tmenu_txt">Your Tournaments</span> <span id="tmenu_unread">16</span></a>
 			<div id="tmenu">
 				<div id="tmenu_inner">
@@ -29,7 +29,7 @@
 			</div>
 		</div><!-- / your_tournaments -->
 		
-		<div id="your_matches">
+		<div class="beta" id="your_matches">
 			<p><a href="/preview/matches/show/">You vs James at 4:53PM</a></p>
 		</div><!-- / your_matches -->
 		
