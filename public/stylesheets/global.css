@@ -402,6 +402,17 @@ Main Structure
 	text-decoration: underline;
 }
 
+#acct_nav ul li#feedback a {
+	padding: 8px 12px 8px 27px;
+	background: transparent url(/images/icon_help.png) 6px 6px no-repeat;
+}
+
+#acct_nav ul li#feedback a:hover {
+	background: #1a1d1e url(/images/icon_help.png) 6px 6px no-repeat;
+	text-decoration: underline;
+	color: #FFF;
+}
+
 /* 
 Navigation - Sub Navigation
 -------------------------------------------------------------------------------------
