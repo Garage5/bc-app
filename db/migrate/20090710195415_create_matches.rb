@@ -7,6 +7,9 @@ class CreateMatches < ActiveRecord::Migration
       t.integer :winner_id
       t.integer :tournament_id
       t.integer :position
+      t.string  :player_one_result
+      t.string  :player_two_result
+      t.string  :status, :default => 'TBD'
       t.timestamps
     end
   end

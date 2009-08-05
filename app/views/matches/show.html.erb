@@ -6,6 +6,19 @@
   <%= render :partial => "layouts/sub_nav", :locals => {:active => 'brackets'} %>
 <% end -%>
 
+<% content_for :modals do %>
+	<div id="match_submit_results" class="modal">
+			<div class="modal_hd">
+				<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+				<h1>Match Results</h1>
+			</div><!-- / modal_hd -->
+		<div class="modal_inner">
+			<%= link_to '<span class="icon"></span><span>I Won</span>', submit_result_tournament_match_path(@tournament, @match, :result => 'won'), :class => 'btn', :method => :put %>
+			<%= link_to '<span class="icon"></span><span>I Lost</span>', submit_result_tournament_match_path(@tournament, @match, :result => 'lost'), :class => 'btn', :method => :put %>
+		</div><!-- / modal_inner -->
+	</div><!-- / modal -->
+<% end %>
+
 <div id="maincol">
 	<div class="col">
 	<div class="pod">
@@ -21,9 +34,11 @@
 				<h2>VS</h2>
 				<h3>Round 1</h3>
 				<h4>6/14/09 12:23PM</h4>
+				<% if @match.is_match_player(current_user) %>
 				<a href="#match_submit_results" class="btn" rel="modal"><span class="icon"></span><span>Submit Results</span></a>
+				<% end %>
 			</div>
-
+			
 			<div id="away_player">
 				<img src="/images/avatar_big.jpg"/>
 				<strong><%= @match.player_two.login %></strong>
