@@ -9,6 +9,8 @@ class Tournament < ActiveRecord::Base
   has_many :rounds
   has_many :matches
   
+  has_many :teams, :dependent => :destroy
+  
   has_many :participations, :dependent => :destroy
   has_many :participants , :through => :participations,
            :conditions => "state IN ('pending', 'active')"

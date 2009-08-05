@@ -404,6 +404,17 @@ Main Structure
 	text-decoration: underline;
 }
 
+#acct_nav ul li#feedback a {
+	padding: 8px 12px 8px 27px;
+	background: transparent url(/images/icon_help.png) 6px 6px no-repeat;
+}
+
+#acct_nav ul li#feedback a:hover {
+	background: #1a1d1e url(/images/icon_help.png) 6px 6px no-repeat;
+	text-decoration: underline;
+	color: #FFF;
+}
+
 /* 
 Navigation - Sub Navigation
 -------------------------------------------------------------------------------------
@@ -602,6 +613,7 @@ p.yellow_note {
 }
 
 .blue_filled p {
+	float: left;
 	padding: 9px 0 0 10px;
 }
 
@@ -980,6 +992,28 @@ Navigation - Tournament - Sidecol
 	border: 0;
 }
 
+.tnav ul li a.tedit {
+	display: none;
+}
+
+.tnav ul li:hover a.tedit {
+	display: block;
+	float: right;
+	width: 24px;
+	height: 24px;
+	background: transparent url(/images/icon_edit_tournament.png) 0 0 no-repeat;
+	text-indent: -9999px;
+	position: relative;
+	top: 5px;
+	left: -6px;
+	padding: 0;
+	margin: 0;
+}
+
+.tnav ul li:hover a:hover.tedit {
+	background-position: bottom;
+}
+
 /* 
 Navigation - Completed Tournaments - Sidecol
 -------------------------------------------------------------------------------------
@@ -1026,25 +1060,6 @@ Navigation - Completed Tournaments - Sidecol
 }
 
 .tcompleted  ul li.last {
-}
-
-ul li a span.tedit {
-	display: none;
-}
-
-ul li a:hover span.tedit {
-	display: block;
-	float: right;
-	width: 24px;
-	height: 24px;
-	background: transparent url(/images/icon_edit_tournament.png) 0 0 no-repeat;
-	text-indent: -9999px;
-	position: relative;
-	top: -5px;
-}
-
-ul li a:hover span:hover.tedit {
-	background-position: bottom;
 }
 
 

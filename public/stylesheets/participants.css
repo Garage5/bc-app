@@ -20,7 +20,7 @@ body#participants .player_list ul.first {
 body#participants .player_list ul li {
 	float: left;
 	display: block;
-	margin: 0 25px 0 0;
+	margin: 0 15px 0 0;
 	padding: 10px;
 	border-top: 1px #FFF solid;
 	border-bottom: 2px #FFF solid;
@@ -64,6 +64,32 @@ body#participants .player_list ul li:hover a.user_edit {
 
 body#participants .player_list ul li:hover a:hover.user_edit {
 	background: #e2d484 url(/images/icon_user_edit.png) center no-repeat;
+}
+
+body#participants .player_list ul li a.user_delete {
+	display: none;
+}
+
+body#participants .player_list ul li:hover a.user_delete {
+	width: 16px;
+	height: 16px;
+	text-indent: -9999px;
+	background: #fffadf url(/images/icon_user_delete.png) center no-repeat;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 3px;
+	border-bottom: 1px #e2d484 solid;
+	border-left: 1px #e2d484 solid;
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+
+body#participants .player_list ul li:hover a:hover.user_delete {
+	background: #e2d484 url(/images/icon_user_delete.png) center no-repeat;
 }
 
 body#participants .player_list ul li .user_avatar {

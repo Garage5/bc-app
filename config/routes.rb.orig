@@ -27,9 +27,12 @@ ActionController::Routing::Routes.draw do |map|
     tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
     tournament.resources :messages, :has_many => [:comments]
     tournament.resources :files, :controller => :attachments
+<<<<<<< HEAD:config/routes.rb
+    tournament.resources :matches, :has_many => [:comments], :member => {:submit_result => :put}
+=======
     tournament.resources :matches, :has_many => [:comments]
     tournament.resources :teams
-    tournament.resources :matches, :has_many => [:comments], :member => {:submit_result => :put}
+>>>>>>> 5fe1589c52d96874e3d7bbfbebd7f0268dbd8c54:config/routes.rb
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

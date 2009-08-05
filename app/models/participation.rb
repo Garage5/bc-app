@@ -2,6 +2,7 @@ class Participation < ActiveRecord::Base
   belongs_to :participant, :class_name => 'User'
   belongs_to :tournament
   belongs_to :instance
+  has_many :team_memberships, :class_name => 'TeamMember', :dependent => :destroy
   
   validates_uniqueness_of :participant_id, :scope => :tournament_id
   validate :participant_cannot_be_host

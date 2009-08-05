@@ -23,51 +23,42 @@
 	<div class="bd clear player_list">
 		<ul class="clear">
 		  <!-- host -->
-			<li class="clear">
-				<div class="user_avatar">
-					<a class="avatar" href=""><img src="/images/avatar_32x32.jpg" /></a>
-				</div>
-				<div class="user_name">
-					<h2><%= @tournament.instance.host.login %></h2>
-					<p class="role">Host</p>
-					<p class="activity">Last activity 1 day ago</p>
-				</div><!-- / user_name -->
-				<a class="user_edit" rel="modal" href="#team_invite">Edit</a>
-			</li>
+      <%= render(:partial => 'participant', :locals => {:participant => @tournament.instance.host}) %>
 			<!-- cohosts -->
 			<% @tournament.cohosts.each do |cohost| %>
-			  <li class="clear">
-				  <div class="user_avatar">
-					  <a class="avatar" href=""><img src="/images/avatar_32x32.jpg" /></a>
-				  </div>
-				  <div class="user_name">
-					  <h2><%= cohost.login %></h2>
-					  <p class="role">Co-Host</p>
-					  <p class="activity">Last activity 1 day ago</p>
-				  </div><!-- / user_name -->
-				  <a class="user_edit" rel="modal" href="#team_invite">Edit</a>
-			  </li>
+        <%= render(:partial => 'participant', :locals => {:participant => cohost}) %>
 			<% end %>
 		</ul>
 		
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	
-	<div class="pod tab-pod">
-		<div class="hd">
-			<h2>Participants</h2>
-			<ul class="tabbed clear">
-				<li class="create_team active"><a class="rc" href="#create_team" rel="modal">Create a Team</a></li>
-			</ul>
-		</div>
-	<div class="bd clear player_list">
-	  <ul class="clear" id="active_participants">
-	    <% for participant in @tournament.active_participants %>
-        <%= render :partial => 'participant', :locals => {:participant => participant} %>
-	    <% end %>
-		</ul>
-	</div><!-- / bd -->
-	</div><!-- / pod -->
+	<% ([nil] + @tournament.teams).each do |team| %>
+	  <div class="pod tab-pod">
+		  <div class="hd">
+			  <h2><%= team ? h(team.name) : 'Participants' %></h2>
+			  <% if current_user && current_user.is_participant_of?(@tournament) %>
+			    <% if current_user.teams_in(@tournament).empty? && team.nil? %>
+			      <ul class="tabbed clear">
+				      <li class="create_team active"><a class="rc" href="#create_team" rel="modal">Create a Team</a></li>
+			      </ul>
+			    <% elsif team && current_user == team.captain %>
+			      <ul class="tabbed clear">
+				      <li class="edit_team active"><a class="rc" href="#create_team" rel="modal">Edit Team</a></li>
+				      <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, team) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
+			      </ul>
+			    <% end %>
+			  <% end %>
+		  </div>
+	    <div class="bd clear player_list">
+	      <ul class="clear" id="active_participants">
+	        <% for participant in @tournament.active_participants %>
+            <%= render(:partial => 'participant', :locals => {:participant => participant, :team => team}) if (!team && participant.teams_in(@tournament).empty?) || (team && participant.member_of?(team)) %>
+	        <% end %>
+		    </ul>
+	    </div><!-- / bd -->
+	  </div><!-- / pod -->
+	<% end %>
 	
 	<% if current_user %>
 	<% if current_user.is_hosting?(@tournament) %>
@@ -117,7 +108,7 @@
     					<h2><%= p.login %></h2>
     					<p class="activity">Last activity 1 day ago</p>		
     				</div><!-- / user_name -->
-    				<a class="user_edit" href="">Edit</a>
+    				<a class="user_delete" href="">Delete</a>
     			</li>
         <% end %>
         </ul>

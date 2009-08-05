@@ -48,7 +48,7 @@
 		</li>
 	</ul>
 	
-	<ul class="section">
+	<ul class="section beta">
 		<li class="header">
 			<img src="/images/signup_icon_billing.png" />
 			<h1>Billing Information</h1>
@@ -106,7 +106,7 @@
 		</li>
 	</ul>
 	
-	<ul class="section confirm">
+	<ul class="section confirm beta">
 		<li class="header">
 			<img src="/images/signup_icon_confirm.png" />
 			<h1>Confirm</h1>
@@ -121,12 +121,13 @@
 		<li class="confirm_terms last checkbox">
 			<h3>No Contracts or Cancelation Fees</h3>
 			<p>Cancel any time. But if you do cancel, we'll kill you. And stuff.</p>
-			<%= f.check_box :terms_of_service, :id => 'agree_terms' %>
-			<label for="agree_terms">I Agree to the <a target="_blank" href="">Terms of Service</a>.</label>
-			<% end -%>
 		</li>
 		<div class="clear"></div>
 	</ul>
-	
+	<div id="beta_terms">
+		<%= f.check_box :terms_of_service, :id => 'agree_terms' %>
+		<label for="agree_terms">I Agree to the <a target="_blank" href="">Terms of Service</a>.</label>
+		<% end -%>
+	</div><!-- // beta_terms -->
 	<button class="btn" type="submit"><span class="icon"></span><span>Signup</span></button>
 </div><!-- / wrapper -->

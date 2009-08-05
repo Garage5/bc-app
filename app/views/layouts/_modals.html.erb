@@ -46,29 +46,38 @@
 
 <!-- / join_confirm -->
 
-
-<div id="create_team" class="modal">
-		<div class="modal_hd">
-			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
-			<h1>Create Your Team</h1>
-		</div><!-- / modal_hd -->
-	<div class="modal_inner">
-			<p>Create a name for your team and select the following participants to join your team.</p>
-			<form>
-				<div style="margin: 0 0 0 10px;"><label for="team_name">Team Name</label><input id="team_name" type="text" /></div>
-				<ul id="player_list" class="clear">
-				  <% @tournament.participants.each do |user| %>
-  					<li><input type="checkbox" name="members[]" value="<%= user.id %>" id="members_<%= user.id %>" /> <label class="checkbox" for="members_<%= user.id %>"><%= user.login %></label></li>
-  				<% end %>
-				</ul>
-				<div class="clear">
-					<button class="btn add"><span class="icon"></span><span>Create Team</span></button>
-					or <a href="">Cancel</a>
-				</div>
-			</form>
+<% if current_user && @tournament && current_user.is_participant_of?(@tournament) %>
+  <%
+    membs = current_user.team_memberships_in(@tournament)
+    captain = (membs.size > 0 && membs[0].state == 'captain') ? true : false
+    team = captain ? membs[0].team : nil
+  %>
+  <div id="create_team" class="modal">
+		  <div class="modal_hd">
+			  <a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+			  <h1><%= captain ? "Edit" : "Create" %> Your Team</h1>
+		  </div><!-- / modal_hd -->
+	  <div class="modal_inner">
+			  <p>Enter the name of your team and select the participants you'd like to invite to join your team.</p>
+			  <form method="post" action="<%= captain ? tournament_team_path(@tournament, team) : tournament_teams_path(@tournament) %>">
+			    <input type="hidden" name="_method" value="<%= captain ? 'put' : 'post' %>" />
+			    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+				  <div style="margin: 0 0 0 10px;"><label for="team_name">Team Name</label><input id="team_name" type="text" name="team[name]" value="<%= h(team.name) if team %>" /></div>
+				  <ul id="player_list" class="clear">
+				    <% @tournament.participants.each do |user| %>
+				      <% next if user == current_user || (user.teams_in(@tournament).size > 0 && !user.teams_in(@tournament).include?(team)) %>
+    					<li><input type="checkbox" name="user_ids[]" value="<%= user.id %>" id="members_<%= user.id %>" <%= 'checked="checked"' if team && user.member_of?(team, true) %> /> <label class="checkbox" for="members_<%= user.id %>"><%= user.login %></label></li>
+    				<% end %>
+				  </ul>
+				  <div class="clear">
+					  <button class="btn add"><span class="icon"></span><span><%= captain ? "Save" : "Create" %> Team</span></button>
+					  or <a href="" onclick="closeModal('#create_team'); return false;">Cancel</a>
+				  </div>
+			  </form>
 			
-	</div><!-- / modal_inner -->
-</div><!-- / modal -->
+	  </div><!-- / modal_inner -->
+  </div><!-- / modal -->
+<% end %>
 
 <!-- / create_team -->
 
