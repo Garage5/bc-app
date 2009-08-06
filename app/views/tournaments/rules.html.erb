@@ -1,0 +1,35 @@
+<% stylesheet :new_tournament, :tournament_rules %>
+<% title @tournament.name %>
+
+<% content_for :tournament_nav do -%>
+  <%= render :partial => "layouts/sub_nav", :locals => {:active => 'overview'} %>
+<% end -%>
+
+<div id="maincol">
+	<div class="col">
+	<% if current_user %>
+  	<% if current_user.is_eligible_to_join?(@tournament) %>
+  	<div class="note blue_filled clear">
+  		<p>You are not currently a participant in this tournament.</p>
+  		<a rel="modal" class="btn_join" href="#join_confirm">Join this tournament</a>
+  	</div><!-- / global_note -->
+  	<% end %>
+	<% end %>
+	
+	<div class="pod">
+		<div class="hd">
+			<h2>Tournament Information</h2>
+		</div>
+	<div class="bd clear tournament-rules">
+		<h2>General Information</h2>
+    <%=simple_format @tournament.rules %>
+	</div><!-- / bd -->
+	</div><!-- / pod -->
+	</div><!-- / col -->
+</div><!-- / main-col -->
+
+<div id="sidecol">
+	<div class="col">
+	<%= render :partial => "layouts/side_tinfo" %>
+	</div><!-- / col -->
+</div><!-- / sidecol -->

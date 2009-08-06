@@ -213,6 +213,7 @@ a.btn, button.btn {
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	text-align: left;
+
 }
 
 button.btn {
@@ -225,7 +226,8 @@ a.btn span, button.btn span {
 	background: transparent url(/images/btn-sprite.png) 100% 0 no-repeat;
 	float: left;
 	padding: 9px 17px 7px 0;
-	line-height: 20px;
+	line-height: 20px;	
+	white-space: nowrap;
 }
 
 a.btn span.icon, button.btn span.icon {

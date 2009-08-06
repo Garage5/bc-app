@@ -1,5 +1,7 @@
 class MatchesController < ApplicationController
   before_filter :find_tournament
+  before_filter :login_required, :only => :submit_result
+  before_filter :must_be_participant, :only => :submit_result
   
   def show
     @match = Match.find(params[:id], :include => {:comments => [:author, :attachments]})
@@ -12,6 +14,20 @@ class MatchesController < ApplicationController
       redirect_to @match
     else
       render :action => 'edit'
+    end
+  end
+  
+  def submit_result
+    @match.submit_results(@player, params[:result])
+    redirect_to [@tournament, @match]
+  end
+  
+  protected
+  def must_be_participant
+    @match = Match.find(params[:id])
+    unless @player = @match.is_match_player(current_user)
+      flash[:error] = 'You are not a participant of this match.'
+      redirect_to [@tournament, @match]
     end
   end
 end

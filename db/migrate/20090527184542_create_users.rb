@@ -15,6 +15,7 @@ class CreateUsers < ActiveRecord::Migration
     User.create(:login => 'matt', :email => 'matt@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
     User.create(:login => 'james', :email => 'james@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
     User.create(:login => 'victor', :email => 'victor@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
+    User.create(:login => 'davi', :email => 'davi@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
   end
   
   def self.down

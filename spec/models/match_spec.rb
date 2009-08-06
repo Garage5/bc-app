@@ -31,6 +31,7 @@ describe Match do
     match = @tournament.rounds.first.matches.first
     match.submit_results(:player_one, :won)
     match.submit_results(:player_two, :lost)
+    match.winner.should == match.player_one
     match.child_match_in_next_round.player_one.should == match.player_one
   end
 

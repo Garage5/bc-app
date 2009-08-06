@@ -20,6 +20,11 @@ describe Participation do
       @tournament.active_participants.should == [@user]
       @tournament.pending_participants.should == []
     end
+
+    it "should add a co-host" do
+      @user.cohost_tournament(@tournament)
+      @tournament.cohosts.should == [@user]
+    end
     
     it "should not be able to participate in a tournament he/she is hosting"
   end

@@ -1,4 +1,4 @@
-<% stylesheet :new_tournament, :tournament_rules %>
+<% stylesheet :overview, :new_tournament %>
 <% title @tournament.name %>
 
 <% content_for :tournament_nav do -%>
@@ -7,22 +7,56 @@
 
 <div id="maincol">
 	<div class="col">
-	<% if current_user %>
-  	<% if current_user.is_eligible_to_join?(@tournament) %>
-  	<div class="note blue_filled clear">
-  		<p>You are not currently a participant in this tournament.</p>
-  		<a rel="modal" class="btn_join" href="#join_confirm">Join this tournament</a>
-  	</div><!-- / global_note -->
-  	<% end %>
-	<% end %>
-	
 	<div class="pod">
-		<div class="hd">
-			<h2>Tournament Information</h2>
-		</div>
-	<div class="bd clear tournament-rules">
-		<h2>General Information</h2>
-    <%=simple_format @tournament.rules %>
+	<div class="hd">
+		<h2>Recent Tournament Activity</h2>
+	</div><!-- / hd -->
+	<div class="bd">
+		<table id="overview">
+			<tr class="announcement">
+				<td class="item-icon"><span>Announcement</span></td>
+				<td class="item-title"><a href="">Tournament Delayed!</a></td>
+				<td class="item-action">Posted by</td>
+				<td class="item-posted">Matt J.</td>
+				<td class="item-date">Feb 15</td>
+			</tr>
+			<tr class="dispute">
+				<td class="item-icon"><span>Dispute</span></td>
+				<td class="item-title"><a href="">Match Dispute: Matt hates car salesman.</a></td>
+				<td class="item-action">Updated by</td>
+				<td class="item-posted">Matt J.</td>
+				<td class="item-date">Feb 15</td>
+			</tr>
+			<tr class="message">
+				<td class="item-icon"><span>Message</span></td>
+				<td class="item-title"><a href="">How does this work?</a></td>
+				<td class="item-action">Posted by</td>
+				<td class="item-posted">Bruce F.</td>
+				<td class="item-date">Feb 15</td>
+			</tr>
+			<tr class="comment">
+				<td class="item-icon"><span>Comment</span></td>
+				<td class="item-title"><a href="">RE: How does this work?</a></td>
+				<td class="item-action">Posted by</td>
+				<td class="item-posted">James A.</td>
+				<td class="item-date">Feb 15</td>
+			</tr>
+			<tr class="schedule">
+				<td class="item-icon"><span>Schedule Change</span></td>
+				<td class="item-title"><a href="">Your match was moved!</a></td>
+				<td class="item-action">Updated by</td>
+				<td class="item-posted">Matt J.</td>
+				<td class="item-date">Feb 15</td>
+			</tr>
+			
+			<tr class="brackets last">
+				<td class="item-icon"><span>Bracket Update</span></td>
+				<td class="item-title"><a href="">Matt Johnson takes round 2 away from James Au!</a></td>
+				<td class="item-action">Updated by</td>
+				<td class="item-posted">Matt J.</td>
+				<td class="item-date">Feb 15</td>
+			</tr>
+		</table>
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	</div><!-- / col -->
@@ -30,6 +64,6 @@
 
 <div id="sidecol">
 	<div class="col">
-	<%= render :partial => "layouts/side_tinfo" %>
+	<img style="width: 250px; margin: 20px 0 0 0;" src="/images/logo.gif"/>
 	</div><!-- / col -->
 </div><!-- / sidecol -->
