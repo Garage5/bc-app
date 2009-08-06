@@ -1185,6 +1185,8 @@ Footer
 
 #footer #feedback_support {
 	float: left;
+	position: relative;
+	top: 10px;
 }
 
 #footer #feedback_support a {
@@ -1193,8 +1195,6 @@ Footer
 	display: block;
 	background: transparent url(/images/gs_logo.png) 0 0 no-repeat;
 	text-indent: -9999px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
 }
 
 /* 
