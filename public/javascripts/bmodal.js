@@ -70,11 +70,12 @@ jQuery.fn.modal = function(options){
     wrapper = $('<div class="modal-wrap"></div>').css({
       'width': '100%',
       'height': '100%',
-      'position': 'fixed'
+      'position': 'fixed',
+      'z-index': 100
     })
         
     overlay = $('<div class="overlay"></div>').css({
-      'background-color': opts.overlayOpacity,
+      'background-color': opts.overlayColor,
       'width': '100%',
       'height': '100%',
       'position': 'absolute',
