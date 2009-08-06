@@ -20,6 +20,8 @@
 	font-size: 12px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.30) 0 0 50px;
+	-webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.30);
 }
 
 .modal .modal_hd {
