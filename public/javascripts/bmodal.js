@@ -83,21 +83,25 @@ jQuery.fn.modal = function(options){
     
     wrapper.append(overlay)
     
+    data = $(event.target).metadata()
+    
     overlay.click(function(){
       if ($(event.target).attr('href')[0] == '#'){
-        $($(event.target).attr('href')).prependTo($('body')).hide()
-      }
+        $($(event.target).attr('href')).prependTo('body').hide() }
+      
+      if (data){
+        $('#generic_modal').prependTo('body').hide() }
       
       $(wrapper).remove() 
     })
     
-    data = $(event.target).metadata()
     if(data){
       modal = $("#generic_modal")
       $('#generic_modal_title').html(data.title);
       $('#generic_modal_text').html(data.text);
       $('#generic_modal_method').attr("value", data.method?data.method:'get' );
-      $('#generic_modal_form').attr("action", $(e.target).attr("href"));
+      $('#generic_modal_form').attr("action", $(event.target).attr("href"));
+      wrapper.append(modal.fadeIn())
       
     } else if ($(event.target).attr('href')[0] == '#') {
       modal = $($(event.target).attr('href'))
