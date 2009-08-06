@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090804134246) do
+ActiveRecord::Schema.define(:version => 20090806062649) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"
@@ -47,9 +47,6 @@ ActiveRecord::Schema.define(:version => 20090804134246) do
     t.integer  "winner_id"
     t.integer  "tournament_id"
     t.integer  "position"
-    t.string   "player_one_result"
-    t.string   "player_two_result"
-    t.string   "status",            :default => "TBD"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,7 +98,7 @@ ActiveRecord::Schema.define(:version => 20090804134246) do
     t.string   "game"
     t.text     "rules"
     t.integer  "slot_count"
-    t.boolean  "teams",                   :default => false
+    t.boolean  "use_teams",               :default => false
     t.integer  "players_per_team"
     t.string   "prizes"
     t.date     "registration_start_date"
