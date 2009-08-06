@@ -30,13 +30,9 @@ class User < ActiveRecord::Base
   def team_memberships_in(tournament, include_pending = false)
     states = ['active', 'captain']
     states << 'pending' if include_pending
-    parts = Participation.find(:all, :conditions => {:participant_id => self.id, :tournament_id => tournament.id, :state => 'active'}, :include => [:team_memberships])
-    r = []
-    parts.each do |part|
-      # uses reject instead of find with conditions to benefit from query cache
-      r += part.team_memberships.find(:all).reject { |m| !states.include?(m.state) }
-    end
-    r.uniq
+    part = Participation.find(:first, :conditions => {:participant_id => self.id, :tournament_id => tournament.id, :state => 'active'}, :include => [:team_memberships])
+    # uses reject instead of find with conditions to benefit from query cache
+    part.team_memberships.find(:all).reject { |m| !states.include?(m.state)}
   end
   
   def teams_in(tournament, include_pending = false)
@@ -62,6 +58,21 @@ class User < ActiveRecord::Base
     return "Captain" if membs.state == 'captain'
     return "Member" if membs.state == 'active'
     return "Invited" if membs.state == 'pending'
+  end
+  
+  # accept invitation that already exists
+  def join_team(team)
+    part = Participation.find(:first, :conditions => {:participant_id => self.id, :tournament_id => team.tournament.id, :state => 'active'}, :include => [:team_memberships])
+    # uses reject instead of find with conditions to benefit from query cache
+    part.team_memberships.each do |memb|
+      memb.team == team ? memb.update_attribute(:state, 'active') : memb.destroy
+    end
+  end
+  
+  def decline_team(team)
+    part = Participation.find(:first, :conditions => {:participant_id => self.id, :tournament_id => team.tournament.id, :state => 'active'}, :include => [:team_memberships])
+    memb = part.team_memberships.find(:first, :conditions => {:team_id => team.id})
+    memb.destroy
   end
   
 end

@@ -26,6 +26,7 @@ Rails::Initializer.run do |config|
   config.gem 'remarkable_rails', :lib => false
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
   config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => "http://gems.github.com"
+  config.gem 'tlsmail'
   
   require 'array'
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -46,6 +47,20 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  require 'tlsmail'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => 'smtp.gmail.com', 
+    :port => 587, 
+    :tls => true, 
+    :domain => 'thebattlebegins.com', 
+    :authentication => :plain, 
+    :user_name => 'no-reply@thebattlebegins.com', 
+    :password => 'tbbdev'
+  }
 end
 ActionView::Helpers::InstanceTag::DEFAULT_FIELD_OPTIONS = {}
 ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|"<span class=\"fieldWithErrors\">#{html_tag}</span>" }

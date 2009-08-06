@@ -1,0 +1,8 @@
+Hi, <%= h @team_membership.participation.participant.login %>.
+
+You were invited to join the team <%= h @team_membership.team.name %>,
+created by <%= h @team_membership.team.captain.login %>.
+
+Access the link below to accept or decline this invitation:
+<%= tournament_participants_url(@team_membership.participation.tournament, :host => 'tbc.com') %>
+

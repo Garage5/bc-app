@@ -8,12 +8,26 @@
 
 <div id="maincol">
 	<div class="col">
+
+  <% if current_user %>
+    <% current_user.team_memberships_in(@tournament, true).each do |memb| %>
+      <% next if memb.state != 'pending' %>
+   	  <div class="note blue_filled clear">
+		    <p>You were invited to join the team <b><%= h memb.team.name %></b>, created by <b><%= h memb.team.captain.login %></b>.</p>
+		    <a rel="modal {text: 'Do you really want to join the team?', method: 'put'}" class="btn_join" href="<%= join_tournament_team_path(@tournament, memb.team) %>">Accept</a>
+		    <a rel="modal {text: 'Do you really want to decline the invitation?', method: 'delete'}" class="btn_join" href="<%= decline_tournament_team_path(@tournament, memb.team) %>">Decline</a>
+	    </div><!-- / global_note -->
+	  <% end %>
+	<% end %>
+
 	<div class="pod tab-pod">
 		<div class="hd">
 			<h2>Officials</h2>
-			<ul class="tabbed clear">
-				<li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
-			</ul>
+			<% if current_user && @tournament.instance.host == current_user %>
+			  <ul class="tabbed clear">
+				  <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
+			  </ul>
+			<% end %>
 		</div>
 	<% if flash[:error] %>
     <div class="note red_note global_note">

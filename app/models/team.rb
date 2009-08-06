@@ -6,6 +6,6 @@ class Team < ActiveRecord::Base
   validates_uniqueness_of :name
   
   def captain
-    team_members.find(:first, :conditions => {:team_id => self.id, :state => 'captain'}).participation.participant
+    team_members.find(:first, :conditions => {:state => 'captain'}).participation.participant
   end
 end

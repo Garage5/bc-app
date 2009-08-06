@@ -5,3 +5,4 @@ authlogic
 thoughtbot-paperclip --source gems.github.com
 thoughtbot-factory_girl --source gems.github.com
 ryanb-acts-as-list --source gems.github.com
+tlsmail
