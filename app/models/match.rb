@@ -37,7 +37,7 @@ class Match < ActiveRecord::Base
     elsif opponent_result == 'won' && won_or_lost == 'lost' # if both agree that opponent is winner
       self.winner = self.send(opponent)
       self.advance(opponent)
-    elsif opponent_result == won_or_lost # if both have the same result
+    elsif opponent_result == won_or_lost # if both have the same result then the match should be disputed
       self.status = 'disputed'
     end
     save

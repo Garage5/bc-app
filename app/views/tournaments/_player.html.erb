@@ -4,7 +4,7 @@
     <img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> 
     <%= player.login %>
   </a>
-  <% if match.winner_is?(match.player_two) %><img class="disqualified" src="/images/bracket_x.gif"><% end %>
+  <% if match.winner.nil? && match.winner == player %><img class="disqualified" src="/images/bracket_x.gif"><% end %>
 </li>
 <% else %>
 <li class="player tbd">

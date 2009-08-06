@@ -1,4 +1,4 @@
-<li class="match <% if !match.winner.nil? %>winner-p<%= match.winner %><% end %>">
+<li class="match <% if match.disputed? %>disputed<% end %> <% if !match.winner.nil? %>winner-p<%= match.winner %><% end %>">
   <ul>
     
     <%= render :partial => 'player', :locals => {:player => match.player_one, :match => match} %>
