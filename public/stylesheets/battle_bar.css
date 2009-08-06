@@ -56,8 +56,9 @@
 }
 
 #battle_bar #your_tournaments a {
-	padding: 14px 15px 7px 15px;
+	padding: 14px 15px 8px 15px;
 	display: block;
+	border-right: 1px #2a2c30 solid;
 }
 
 #battle_bar #your_tournaments a:hover {
@@ -148,7 +149,7 @@
 }
 
 #battle_bar #your_tournaments:hover #tmenu ul {
-	margin: 0 0 0 5px;
+	margin: 0 0 0 0;
 }
 
 #battle_bar #your_tournaments:hover #tmenu ul li {
@@ -168,9 +169,13 @@
 	font-size: 12px !important;
 }
 
-#battle_bar #your_tournaments:hover #tmenu ul li a:hover {
+#battle_bar #your_tournaments:hover #tmenu ul li:hover a:hover.tedit {
+	background-position: bottom;
+}
+
+#battle_bar #your_tournaments:hover #tmenu ul li:hover a {
 	color: #FFF;
-	background: #0197d6 url(/images/btn-grad.png) left bottom repeat-x;
+	background: #999;
 	text-decoration: none;
 }
 
@@ -181,13 +186,30 @@
 	font-weight: normal;
 }
 
-#battle_bar #your_tournaments:hover #tmenu ul li a:hover em {
+#battle_bar #your_tournaments:hover #tmenu ul li:hover a em {
 	color: #FFF;
+}
+
+#battle_bar #your_tournaments:hover #tmenu ul li a.tedit {
+	display: none;
+}
+
+#battle_bar #your_tournaments:hover #tmenu ul li:hover a.tedit {
+	display: block;
+	float: right;
+	width: 24px;
+	height: 24px;
+	background: transparent url(/images/icon_edit_tournament.png) 0 0 no-repeat;
+	text-indent: -9999px;
+	position: relative;
+	top: 12px;
+	left: -11px;
+	padding: 0;
+	margin: 0;
 }
 
 #battle_bar #your_matches p a {
 	background: transparent url(/images/icon_time32.png) 7px 2px no-repeat;
-	border-left: 1px #2a2c30 solid;
 	border-right: 1px #2a2c30 solid;
 	float: left;
 	padding: 12px 15px 15px 47px;
