@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
     else
       @team = Team.new({:tournament_id => @tournament.id}.merge(params[:team]))
       # find the participants the user requested
-      parts = @tournament.participations.find(:all, :conditions => {:participant_id => [current_user.id] + params[:user_ids], :state => 'active'}, :order => "(participant_id = #{current_user.id}) DESC")
+      parts = @tournament.participations.find(:all, :conditions => {:participant_id => [current_user.id] + (params[:user_ids] || []), :state => 'active'}, :order => "(participant_id = #{current_user.id}) DESC")
       parts.each do |part|
         # can't add a participant that accepted to join other team
         unless part.team_memberships.exists?(:state => ['active', 'captain'])

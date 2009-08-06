@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
     states = ['active', 'captain']
     states << 'pending' if include_pending
     part = Participation.find(:first, :conditions => {:participant_id => self.id, :tournament_id => tournament.id, :state => 'active'}, :include => [:team_memberships])
+    return [] unless part
     # uses reject instead of find with conditions to benefit from query cache
     part.team_memberships.find(:all).reject { |m| !states.include?(m.state)}
   end

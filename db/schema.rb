@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(:version => 20090806062649) do
     t.integer  "winner_id"
     t.integer  "tournament_id"
     t.integer  "position"
+    t.string   "player_one_result"
+    t.string   "player_two_result"
+    t.string   "status",            :default => "TBD"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

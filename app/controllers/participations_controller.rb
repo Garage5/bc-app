@@ -52,7 +52,8 @@ class ParticipationsController < ApplicationController
       end
       @participants = User.find(ids)
       if !@participants.blank?
-        Participation.delete_all("participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
+        parts = Participation.find(:all, :conditions => {:participant_id => ids, :tournament_id => @tournament.id})
+        parts.each { |p| p.destroy }
       end
     end
     respond_to do |format|
