@@ -29,36 +29,34 @@ class ParticipationsController < ApplicationController
   end
   
   def accept
-    ids = params[:participants].keys || []
-    if !ids.blank?
-      @participants = User.find(ids)
-      if !@participants.blank?
-        Participation.update_all("state = 'active'", 
-        "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
-      end
+    ids = params[:participant_ids] || []
+    @participants = User.find(ids)
+    if !@participants.empty?
+      Participation.update_all("state = 'active'", 
+      "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
     end
     respond_to do |format|
       format.html { redirect_to tournament_participants_path(@tournament) }
-      format.js
+      format.js { render :text => ("location.href = '#{tournament_participants_path(@tournament)}'") }
     end
   end
   
   def deny
-    ids = params[:participants] ? params[:participants].keys : []
+    ids = params[:participant_ids] || []
     ids = [params[:participant]] if params[:participant]
+    @participants = User.find(ids)
     if !ids.blank?
-      ids.delete_if do |id|
-        !current_user.is_hosting?(@tournament) && id.to_i != current_user.id
+      @participants.delete_if do |user|
+        !current_user.is_hosting?(@tournament) && user != current_user
       end
-      @participants = User.find(ids)
       if !@participants.blank?
-        parts = Participation.find(:all, :conditions => {:participant_id => ids, :tournament_id => @tournament.id})
+        parts = Participation.find(:all, :conditions => {:participant_id => @participants.collect{|p| p.id}, :tournament_id => @tournament.id})
         parts.each { |p| p.destroy }
       end
     end
     respond_to do |format|
       format.html { redirect_to tournament_participants_path(@tournament) }
-      format.js
+      format.js { render :text => ("location.href = '#{tournament_participants_path(@tournament)}'") }
     end
   end
 

@@ -1,6 +1,7 @@
 class TeamMember < ActiveRecord::Base
   belongs_to :team
   belongs_to :participation
+  has_one :user, :through => :participation
   
   def after_create
     if self.state == 'pending'

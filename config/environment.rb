@@ -64,3 +64,8 @@ Rails::Initializer.run do |config|
 end
 ActionView::Helpers::InstanceTag::DEFAULT_FIELD_OPTIONS = {}
 ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|"<span class=\"fieldWithErrors\">#{html_tag}</span>" }
+
+# jQuery Post bug fix
+class Mime::Type
+  delegate :split, :to => :to_s
+end

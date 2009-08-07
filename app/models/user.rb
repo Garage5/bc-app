@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   
   has_many :participations, :foreign_key => :participant_id, :dependent => :destroy
   has_many :tournaments, :through => :participations
+  has_many :team_memberships, :through => :participations, :class_name => 'TeamMember'
   
   validates_acceptance_of :terms_of_service, :on => :create
   validates_length_of :login, :within => 3..13
@@ -49,7 +50,7 @@ class User < ActiveRecord::Base
   end
   
   def role_in(tournament, team)
-    return "Host" if tournament.instance.host == self
+    return "Host" if tournament.instance.host_id == self.id
     return "Co-Host" if is_hosting?(tournament)
     return nil unless team
     part = participations.find(:first, :conditions => {:tournament_id => team.tournament_id})

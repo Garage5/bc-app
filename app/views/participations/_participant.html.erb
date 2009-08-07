@@ -1,5 +1,8 @@
 <% team ||= nil %>
-<li class="clear">
+<li class="clear" id="user-<%= participant.id %>">
+  <% if current_user && current_user.is_hosting?(@tournament) && participant.participations.exists?(:tournament_id => @tournament, :state => 'pending') %>
+    <p class="approve_checkbox"><input type="checkbox" value="<%= participant.id %>" class="approve_checkbox_box" /></p>
+  <% end %>
 	<div class="user_avatar">
 		<a class="avatar" href=""><img src="/images/avatar_32x32.jpg" /></a>
 	</div>
@@ -12,3 +15,4 @@
   	<%= link_to('Delete', deny_tournament_participants_path(:participant => participant.id), :class => 'user_delete', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" } this tournament?'}") %>
   <% end %>
 </li>
+
