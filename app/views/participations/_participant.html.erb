@@ -7,7 +7,8 @@
 		<a class="avatar" href=""><img src="/images/avatar_32x32.jpg" /></a>
 	</div>
 	<div class="user_name">
-		<h2><%= participant.login %></h2>
+		<h2><%= participant.name %></h2>
+	  <p class="battle_id"><%= participant.login %></p>
 	  <p class="role"><%= participant.role_in(@tournament, team) %></p>
 		<p class="activity">Last activity 1 day ago</p>
 	</div><!-- / user_name -->

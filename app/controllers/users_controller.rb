@@ -13,4 +13,8 @@ class UsersController < ApplicationController
       render :action => 'new', :layout => 'lite'
     end
   end
+  
+  def profile
+    @user = User.find_by_login(params[:id])
+  end
 end

@@ -1,7 +1,7 @@
-<p>Hi, <b><%= h @team_membership.participation.participant.login %></b>.</p>
+<p>Hi, <b><%= h @team_membership.participation.participant.first_name %></b>.</p>
 <p>
   You were invited to join the team <b><%= h @team_membership.team.name %></b>,
-  created by <b><%= h @team_membership.team.captain.login %></b>.
+  created by <b><%= h @team_membership.team.captain.name %></b>.
 <p>
 <p>
   <%= link_to('Click here to accept or decline this invitation', tournament_participants_url(@team_membership.participation.tournament, :host => 'tbc.com'), :target => '_blank') %>

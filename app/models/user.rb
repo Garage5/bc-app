@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   validates_acceptance_of :terms_of_service, :on => :create
   validates_length_of :login, :within => 3..13
   
+  def first_name
+    name.split(' ')[0] rescue login
+  end
+  
   def join_tournament(tournament)
     Participation.create(:participant => self, :tournament => tournament)
   end

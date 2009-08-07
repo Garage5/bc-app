@@ -20,7 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
   
   map.resources :user_sessions
-  map.resources :users
+  map.resources :users, :member => {:profile => :get}
   map.resources :instances
   
   map.resources :tournaments, :member => {:rules => :get, :start => :put, :brackets => :get} do |tournament|

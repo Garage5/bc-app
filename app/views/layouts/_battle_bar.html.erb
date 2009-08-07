@@ -2,7 +2,7 @@
 	<div id="bar_content">
 		<% if current_user %> <%# if logged in %>
 		<div id="user_avatar">
-			<a id="avatar" href="/preview/users/show"><img src="/images/avatar_32x32.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
+			<a id="avatar" href="<%= profile_user_path(current_user.login) %>"><img src="/images/avatar_32x32.jpg"/> <span><%= current_user.try(:login) || 'nologin' %></span></a>
 		</div><!-- / user_avatar -->
 		
 		<div id="your_tournaments">
