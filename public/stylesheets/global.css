@@ -979,8 +979,12 @@ Navigation - Tournament - Sidecol
 	padding: 0;
 }
 
+.tnav .hd {
+	border-bottom: 0;
+}
+
 .tnav ul li {
-	border-bottom: 1px #BBB solid;
+	border-top: 1px #BBB solid;
 }
 
 .tnav ul li a {
