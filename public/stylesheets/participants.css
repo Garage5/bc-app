@@ -131,9 +131,9 @@ body#participants .tab-pod ul.tabbed li.create_team a {
 body#participants .pending_players .user_avatar .avatar img {
 }
 
-body#participants .pending_players p.approve_checkbox {
+body#participants  p.approve_checkbox {
 	float: left;
-	margin: 0 5px 0 0;
+	margin: 0 15px 0 0;
 }
 
 body#participants .pending_players .btn_wrapper {

@@ -39,7 +39,7 @@
 			<p>Are you sure you want to join this tournament?</p>
 			<div class="clear">
 			<%= link_to '<span class="icon"></span><span>Yes</span>', tournament_participants_path(@tournament), :method => :post, :class => 'btn' %>
-			<a href="">No</a>
+			 <button class="btn"><span class="icon"></span><span>No</span></button>
 			</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
@@ -147,15 +147,16 @@
 			<a class="modal_close" href="" onclick="return closeModal()"><img src="/images/icon_close.gif" /></a>
 			<h1 id="generic_modal_title">Confirm</h1>
 		</div><!-- / modal_hd -->
-	<div class="modal_inner">
+	<div class="modal_inner clear">
 			<p id="generic_modal_text"></p>
-			<div class="clear">
 			  <form method="post" style="display: none;" id="generic_modal_form">
 			    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 			    <input id="generic_modal_method" type="hidden" name="_method" value="put" />
-			  </form><a href="#" class="btn" onclick="document.getElementById('generic_modal_form').submit(); return false;"><span class="icon"></span><span>Yes</span></a>
-			<button class="btn modal_close"><span class="icon"></span><span>No</span></button>
-			</div>
+			  </form>
+				<a href="#" class="btn" onclick="document.getElementById('generic_modal_form').submit(); return false;">
+					<span class="icon"></span><span>Yes</span>
+				</a>
+				<button class="btn modal_close"><span class="icon"></span><span>No</span></button>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
 
