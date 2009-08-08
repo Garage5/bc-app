@@ -13,18 +13,13 @@
 	<div class="bd clear">
 	  <% form_for @message, :url => tournament_messages_path(@tournament), :html => {:multipart => true} do |f| -%>
     <%= f.error_messages %>
-	  <div id="message_main" class="group darkpod clear">
-			<%= f.label :subject, "Subject" %>
+	  <div id="message_main" class="group clear">
+			<%= f.label :subject, "Title" %>
 			<%= f.text_field :subject %>
 			
+			<%= f.label :post, "Post Body" %>
 			<%= f.text_area :body, :size => '60x15' %>
 			<%= f.check_box :is_announcement %> <%= f.label :is_announcement, "This message is an annoucnement", :style => 'display:inline' %>
-			<span style="float: right;"><input type="checkbox"> <label class="checkbox">Private to Hosts/Co-Hosts</label></span>
-			<label class="dropdown_horz">Category</label>
-			<select name="some_name" id="some_name">
-				<option value="option1">Announcments</option>
-				<option value="option2">option2</option>
-			</select>
 			
 		</div><!-- / darkpod -->
 		
@@ -37,9 +32,11 @@
 		</div><!-- / darkpod -->
 		
 		<div id="message_subscribe" class="group darkpod clear">
-			<label>Subscribe the following users to receive email notifications:</label>
-			<input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label>
-			<input type="checkbox" size="40"/> <label class="checkbox">plankton
+			<p>Subscribe the following users to receive email notifications:</p>
+			<ul>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
+			</ul>
 		</div><!-- / darkpod -->
 		
 		<button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
@@ -52,5 +49,25 @@
 
 <div id="sidecol">
 	<div class="col">
+		<div class="pod">
+		<div class="hd">
+	 	 <h2>Options</h2>
+		</div>
+		<div class="bd clear">
+			
+			<div class="group">
+			<h3>Categories</h3>
+			<ul>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">Announcments</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">Disputes</label></li>
+			</ul>
+			</div>
+			
+			<div class="group">
+			<h3>Private</h3>
+			<span><input type="checkbox"> <label class="checkbox">Private to Hosts/Co-Hosts</label></span>
+			</div>
+		</div><!-- / bd -->
+		</div><!-- / pod -->	
 	</div><!-- / col -->
 </div><!-- / sidecol -->

@@ -45,6 +45,8 @@ select {
 
 label.checkbox {
 	display: inline;
+	position: relative;
+	top: 2px;
 }
 
 
