@@ -10,6 +10,12 @@
   <% end %>
 <% end %>
 
+<% if current_user %>
+	<% if current_user.is_eligible_to_join?(@tournament) %>
+		<a id="join_tournament" class="btn" href="#join_confirm" rel="modal"><span class="icon"></span><span>Join Tournament</span></a>
+	<% end %>
+<% end %>
+
 <div id="subnav">
 <ul style="display: block;">
   

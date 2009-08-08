@@ -130,4 +130,7 @@ jQuery.fn.modal = function(options){
 
 $(document).ready(function(){
   $('a[rel^="modal"]').modal()
+	$("a[rel^='modal'] span").click(function(){
+		$(this).parent('a[rel^="modal"]').click()
+	})
 })
