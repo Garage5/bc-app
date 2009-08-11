@@ -1,0 +1,6 @@
+<% params[:user].each do |field, value| %>
+  $('#<%= field.to_s %>_static').html('<%= escape_javascript(h(@user.send(field))) %>');
+  $("#<%= field.to_s %>_show").show();
+  $("#<%= field.to_s %>_edit").hide();
+  $('#user_<%= field.to_s %>').attr('value', '<%= escape_javascript(h(@user.send(field))) %>');
+<% end %>
