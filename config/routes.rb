@@ -18,6 +18,8 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'create', :conditions => {:method => :post}
   
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+  map.settings '/settings', :controller => 'instances', :action => 'settings', :conditions => {:method => :get}
+  map.settings '/settings', :controller => 'instances', :action => 'settings', :conditions => {:method => :put}
   
   map.resources :user_sessions
   map.resources :users, :member => {:profile => :get}

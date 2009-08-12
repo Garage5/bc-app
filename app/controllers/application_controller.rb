@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :allowed_domains
   
   # before_filter :http_authentication
   
@@ -16,7 +16,11 @@ class ApplicationController < ActionController::Base
 
   private
   def find_instance
-    @instance = Instance.first
+    sd = request.host.split('.')[0]
+    @instance = nil
+    if sd != 'www'
+      @instance = Instance.find(:first, :conditions => {:subdomain => sd})
+    end
   end
   
   def find_tournament
@@ -38,6 +42,10 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.user
     @current_user.update_attribute(:last_activity, Time.now) if @current_user
     @current_user
+  end
+  
+  def allowed_domains
+    Instance::ALLOWED_DOMAINS
   end
   
   def login_required

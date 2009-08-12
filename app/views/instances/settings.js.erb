@@ -1,0 +1,11 @@
+<% if @success %>
+  <% params[:instance].each do |field, value| %>
+    $('#<%= field.to_s %>_static').html('<%= escape_javascript(h(@instance.send(field))) %>');
+    $("#<%= field.to_s %>_show").show();
+    $("#<%= field.to_s %>_edit").hide();
+    $('#instance_<%= field.to_s %>').attr('value', '<%= escape_javascript(h(@instance.send(field))) %>');
+  <% end %>
+<% else %>
+  alert("<%= escape_javascript(@instance.errors.full_messages.join(',')) %>");
+<% end %>
+
