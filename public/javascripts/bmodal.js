@@ -119,7 +119,6 @@ jQuery.fn.modal = function(options){
       wrapper.append(indicator)
       $.get($(this).attr('href'), {}, function(html){
         modal = $(html)
-        console.log(html)
         indicator.remove()
         
         wrapper.append(modal)

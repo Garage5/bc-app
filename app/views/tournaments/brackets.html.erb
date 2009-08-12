@@ -10,7 +10,7 @@
   $(document).ready(function(){
       $('.player:not(:contains("TBD")):not(:contains("Disputed"))').hover(
         function(){
-          box = $("a:contains('" + $(this).text() + "')")        
+          box = $("a:contains('" + $(this).text() + "')")
           box.addClass('hover')
           
           cog = $(this).find('.manage_player_link')
@@ -31,7 +31,7 @@
         function(){
           $("a:contains('" + $(this).text() + "')").removeClass('hover')
           $(".highlight").remove()
-          $('.manage_player_link').fadeOut()
+          $('.manage_player_link').hide()
         } //end hover out
       )
     
