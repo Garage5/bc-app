@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(:version => 20090812150744) do
     t.integer  "host_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "subdomain",  :null => false
-    t.string   "domain",     :null => false
   end
 
   create_table "matches", :force => true do |t|

@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
     sd = request.host.split('.')[0]
     @instance = nil
     if sd != 'www'
-      @instance = Instance.find(:first, :conditions => {:subdomain => sd})
+      # @instance = Instance.find(:first, :conditions => {:subdomain => sd})
+      @instance = Instance.first
     end
   end
   
