@@ -102,30 +102,41 @@ jQuery.fn.modal = function(options){
       $('#generic_modal_text').html(data.text);
       $('#generic_modal_method').attr("value", data.method?data.method:'get' );
       $('#generic_modal_form').attr("action", $(event.target).attr("href"));
+
       wrapper.append(modal.fadeIn())
+      $('body').prepend(wrapper.show())
+      modal.center()
       
     } else if ($(event.target).attr('href')[0] == '#') {
       modal = $($(event.target).attr('href'))
+      
       wrapper.append(modal.fadeIn())
+      $('body').prepend(wrapper.show())
+      modal.center()
       
     } else {
       indicator = $('<div><img src="/images/ajax-loader.gif" id="ajax-indicator" /></div>').center()
       wrapper.append(indicator)
-      $.get($(this).attr('href'), {}, function(data){
-        modal = $(data)
+      $.get($(this).attr('href'), {}, function(html){
+        modal = $(html)
+        console.log(html)
         indicator.remove()
-        wrapper.append(modal.fadeIn())
-        modal.center()
+        
+        wrapper.append(modal)
+        $('body').prepend(wrapper.show())
+        modal.fadeIn()
+        $(modal).click(function(event){
+          event.preventDefault()
+          overlay.trigger('click')
+        })
       }) 
     }
-    $('body').prepend(wrapper.show())
-    modal.center()
     
     $(wrapper).find('.modal_close').click(function(event){
       event.preventDefault()
       overlay.trigger('click')
     })
-  })
+  }) // end click
 }
 
 $(document).ready(function(){

@@ -334,6 +334,17 @@ ul.round#r6 li.match.winner-p2 {
 
 /* host links
 --------------------------------------------*/
+.manage_player_link {
+  background-image: url(../images/manage_player.png);
+  display: none;
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  text-indent: -9000px;
+  overflow: hidden;
+}
+
+
 .host_links {
   background-color: #2a3639;
   border-color: #334244;
