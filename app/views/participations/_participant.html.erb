@@ -6,12 +6,13 @@
 	<div class="user_avatar">
 		<a class="avatar" href=""><img src="/images/avatar_48x48.jpg" /></a>
 	</div>
-	<div class="user_name">
+	<div class="user_name clear">
 		<h2><%= participant.login %></h2>
 	  <p class="nick_name"><%= participant.name %></p>
 	  <p class="role"><%= participant.role_in(@tournament, team) %></p>
-		<p class="activity">Last activity: <span class='date' title="<%= participant.last_activity.iso8601 if participant.last_activity %>"><%= participant.last_activity ? participant.last_activity.to_s : 'never' %></span></p>
 	</div><!-- / user_name -->
+	<div class="clear"></div>
+	<div class="activity">Last activity: <span class='date' title="<%= participant.last_activity.iso8601 if participant.last_activity %>"><%= participant.last_activity ? participant.last_activity.to_s : 'never' %></span></div>
 	<% if current_user && (participant == current_user || current_user.is_hosting?(@tournament)) %>
   	<%= link_to('Delete', deny_tournament_participants_path(:participant => participant.id), :title => 'Delete User', :class => 'user_delete', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" } this tournament?'}") %>
   <% end %>

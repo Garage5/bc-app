@@ -52,11 +52,12 @@
 }
 
 .modal .modal_inner p {
-	font-size: 14px;
-	margin: 0 0 15px 0;
-	line-height: 20px;
+	font-size: 13px;
 	color: #666;
-	white-space: nowrap;
+}
+
+.modal .modal_inner .btn_wrapper {
+	margin: 10px 0 10px 0;
 }
 
 #create_team {

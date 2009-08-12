@@ -20,7 +20,7 @@ body#participants .player_list ul.first {
 body#participants .player_list ul li {
 	float: left;
 	display: block;
-	margin: 0 15px 0 0;
+	margin: 0 25px 0 0;
 	padding: 10px;
 	border-top: 1px #FFF solid;
 	border-bottom: 2px #FFF solid;
@@ -74,18 +74,19 @@ body#participants .player_list ul li:hover a.user_delete {
 	width: 16px;
 	height: 16px;
 	text-indent: -9999px;
-	background: #fffadf url(/images/icon_user_delete.png) center no-repeat;
+	background: #fff8cf url(/images/icon_user_delete.png) center no-repeat;
 	display: block;
 	position: absolute;
-	bottom: 0;
-	left: 0;
+	top: 2px;
+	right: -24px;
 	padding: 3px;
 	border-top: 1px #e2d484 solid;
+	border-bottom: 1px #e2d484 solid;
 	border-right: 1px #e2d484 solid;
-	-moz-border-radius-bottomleft: 3px;
-	-webkit-border-bottom-left-radius: 3px;
 	-moz-border-radius-topright: 5px;
 	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
 }
 
 body#participants .player_list ul li:hover a:hover.user_delete {
@@ -104,18 +105,22 @@ body#participants .player_list ul li .user_name {
 body#participants .player_list ul li .user_name h2 {
 	font-weight: bold;
 	font-size: 15px;
+	line-height: 15px;
 }
 
 body#participants .player_list ul li .user_name p.role {
 	font-size: 13px;
 	font-weight: bold;
 	color: #333;
+	line-height: 15px;
 }
 
-body#participants .player_list ul li .user_name p.activity {
+body#participants .player_list ul li div.activity {
 	font-size: 12px;
 	font-weight: normal;
 	color: #666;
+	margin: 5px 0 0 0;
+	display: block;
 }
 
 body#participants #part_nav ul {

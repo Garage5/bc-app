@@ -20,7 +20,7 @@
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
 			<p>You've been invited to join team Valor by <a href="">Spawn</a></p>
-			<div class="clear">
+			<div class="btn_wrapper clear">
 			<button class="btn"><span class="icon"></span><span>Accept</span></button>
 			<button class="btn"><span class="icon"></span><span>Decline</span></button>
 			</div>
@@ -37,7 +37,7 @@
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
 			<p>Are you sure you want to join this tournament?</p>
-			<div class="clear">
+			<div class="btn_wrapper clear">
 		<%= link_to '<span class="icon"></span><span>Yes</span>', tournament_participants_path(@tournament), :method => :post, :class => 'btn' %> 
 		<a onclick="closeModal('#join_confirm'); return false;" href="" class="btn"><span class="icon"></span><span>No</span></a>
 			</div>
@@ -69,7 +69,7 @@
     					<li><input type="checkbox" name="user_ids[]" value="<%= user.id %>" id="members_<%= user.id %>" <%= 'checked="checked"' if team && user.member_of?(team, true) %> /> <label class="checkbox" for="members_<%= user.id %>"><%= user.name %></label></li>
     				<% end %>
 				  </ul>
-				  <div class="clear">
+				  <div class="btn_wrapper clear">
 					  <button class="btn add"><span class="icon"></span><span><%= captain ? "Save" : "Create" %> Team</span></button>
 					  or <a href="" onclick="closeModal('#create_team'); return false;">Cancel</a>
 				  </div>
@@ -92,7 +92,7 @@
 			<% form_tag add_cohost_tournament_participants_path(@tournament) , :method => :post do %>
 				<div style="margin: 0 0 0 10px;"><label for="team_name">Enter E-Mail or BattleID</label><input size="30" type="text" name="user" /></div>
 				
-				<div class="clear">
+				<div class="btn_wrapper clear">
 					<button class="btn add"><span class="icon"></span><span>Add Co-Host</span></button>
 					or <a class="modal_close" href="">Cancel</a>
 				</div>
@@ -114,7 +114,7 @@
 			<form>
 				<div><label class="textarea" for="deny_reason">Reason for Decline</label><textarea></textarea></div>
 				
-				<div class="clear">
+				<div class="btn_wrapper clear">
 					<button class="btn"><span class="icon"></span><span>Yes, decline</span></button>
 					or <a href="">Cancel</a>
 				</div>
@@ -133,7 +133,7 @@
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
 			<p>Are you sure you want to start this tournament?</p>
-			<div class="clear">
+			<div class="btn_wrapper clear">
 			<%= link_to '<span class="icon"></span><span>Yes</span>', start_tournament_path(@tournament), :method => :put, :class => 'btn' %>
 			<button class="btn"><span class="icon"></span><span>No</span></button>
 			</div>
@@ -153,10 +153,12 @@
 			    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 			    <input id="generic_modal_method" type="hidden" name="_method" value="put" />
 			  </form>
+				<div class="btn_wrapper clear">
 				<a href="#" class="btn" onclick="document.getElementById('generic_modal_form').submit(); return false;">
 					<span class="icon"></span><span>Yes</span>
 				</a>
 				<button class="btn modal_close"><span class="icon"></span><span>No</span></button>
+				</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
 
