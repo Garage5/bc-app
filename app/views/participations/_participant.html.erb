@@ -1,14 +1,17 @@
 <% team ||= nil %>
+<% profile_title = "View #{participant.login}'#{'s' unless participant.login[-1..-1] == 's'} profile" %>
 <li class="clear" id="user-<%= participant.id %>">
   <% if current_user && current_user.is_hosting?(@tournament) && participant.participations.exists?(:tournament_id => @tournament, :state => 'pending') %>
     <p class="approve_checkbox"><input type="checkbox" value="<%= participant.id %>" class="approve_checkbox_box" /></p>
   <% end %>
 	<div class="user_avatar">
-		<a class="avatar" href=""><img src="/images/avatar_48x48.jpg" /></a>
+		<%= link_to(image_tag("avatar_48x48.jpg", :alt=>"Avatar of #{participant.login}"), profile_user_path(participant.login), :title => profile_title) %>
 	</div>
 	<div class="user_name clear">
-		<h2><%= participant.login %></h2>
-	  <p class="nick_name"><%= participant.name %></p>
+		<% link_to(profile_user_path(participant.login), :title => profile_title) do %>
+		  <h2><%= participant.login %></h2>
+	  <% end %>
+    <p class="nick_name"><%= participant.name %></p>
 	  <p class="role"><%= participant.role_in(@tournament, team) %></p>
 	</div><!-- / user_name -->
 	<div class="clear"></div>

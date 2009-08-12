@@ -1,0 +1,137 @@
+<% title 'Settings' %>
+<% body 'settings' %>
+<% stylesheet :settings %>
+<script>
+  function editField(field) {
+    $("#"+field+"_show").hide();
+    $("#"+field+"_edit").show();
+    if (field == 'url')
+      field = 'subdomain';
+    $("#instance_"+field).focus();
+  }
+  function showField(field) {
+    $("#"+field+"_show").show();
+    $("#"+field+"_edit").hide();
+  }
+  function saveField(field) {
+    data = [
+      {name: 'authenticity_token', value:'<%= form_authenticity_token %>'},
+      {name: '_method', value:'put'}
+    ];
+    if (field == 'url' || field == 'domain' || field == 'subdomain') {
+      field = $('#instance_subdomain');
+      data.push({name: field.attr('name'), value: field.attr('value')});
+      field = $('#instance_domain');
+      data.push({name: field.attr('name'), value: field.attr('value')});
+    } else {
+      var jfield = $('#instance_'+field);
+      data.push({name: jfield.attr('name'), value: jfield.attr('value')});
+    }
+    $.post('<%= settings_path %>', data, null, 'script');
+  }
+  $(function() {
+    $("a.edit_field").click(function(e) {
+      e.preventDefault();
+      editField($(this).metadata()['field']);
+    });
+    $("a.show_field").click(function(e) {
+      e.preventDefault();
+      showField($(this).metadata()['field']);
+    });
+    $("[id^=instance_]").keyup( function(e) {
+      if (e.keyCode == 13) {
+        saveField($(e.target).attr('id').replace(/^instance_/, ''));
+      }
+    });
+    $("a.save_field").click(function(e) {
+      e.preventDefault();
+      saveField($(this).metadata()['field']);
+    });
+    $("a.edit_field").show();
+  });
+</script>
+<div id="maincol">
+<div class="col">
+	<div class="pod" id="settings">
+  <div class="bd clear">
+    <% form_for @instance, :html => {:onsubmit => 'return false;'} do |f| %>
+		  <div id="account_url" class="clear group darkpod">
+		    <ul>
+      	  <li>
+				    <h2>Your URL</h2>
+				    <p id="url_show">
+				      <span id="url_static">http://<%= @instance.subdomain %>.<%= @instance.domain %></span>
+				      <a href="#" class="edit_field" rel="{field: 'url'}">Edit</a>
+				    </p>
+				    <p id="url_edit" style="display: none;">
+				      http://<%= f.text_field :subdomain %>.<%= f.select :domain, allowed_domains %>
+				      <a href="#" class="save_field" rel="{field: 'url'}">Save</a> |
+				      <a href="#" class="show_field" rel="{field: 'url'}">Cancel</a>
+				    </p>
+			    </li>
+      	</ul>
+		  </div><!-- // darkpod -->
+	    <h3 class="first">Your Logo</h3>
+      <div id="your_logo" class="darkpod clear">
+	      <p>Your logo appears on the Login, Dashboard, and Overview pages.</p>
+	      <p class="note yellow_note"><strong>NOTE:</strong> The logo must not be more than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
+        <div class="left_block">
+          <img src="/images/missing_logo.gif" alt="logo" />
+        </div>
+        <div class="block">
+			    <div><input id="_account_logo" name="@account[logo]" type="file" /></div>
+			    <button class="btn"><span class="icon"></span><span>Upload Logo</span></button>
+		    </div>
+	    </div>
+	
+	    <h3>Your Site Name</h3>
+      <div id="your_site_name" class="clear darkpod">
+	      <p>Your site name appears at the top of every page.</p>
+		    <p id="name_show">
+		      <span id="name_static"><%= h @instance.name %></span>
+		      <a href="#" class="edit_field" rel="{field: 'name'}">Edit</a>
+		    </p>
+		    <p id="name_edit" style="display: none;">
+		      <%= f.text_field :name %>
+		      <a href="#" class="save_field" rel="{field: 'name'}">Save</a> |
+		      <a href="#" class="show_field" rel="{field: 'name'}">Cancel</a>
+		    </p>
+	    </div>
+	  <% end %>
+	
+	  <h3>Message Categories</h3>
+	  <div id="message_categories" class="darkpod group clear">
+	    <table>
+        <tr>
+        	<td>Announcements</td>
+        	<td>&nbsp;</td>
+        </tr>
+        <tr>
+        	<td>Disputes</td>
+        	<td>&nbsp;</td>
+        </tr>
+        <tr>
+        	<td>Stuff</td>
+        	<td class="remove"><a href="#">remove</a></td>
+        </tr>
+	    </table>
+	    <form action="/preview/accounts/edit" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="gOL6GtpFhnxdp5b5xCW3dEe/lUFD1leoJ0xSid0B5eY=" /></div>	    	<div class="left_block"><input id="_account_title" name="@account[title]" type="text" /></div>
+				<div class="left_block add_cat"><button class="btn add"><span class="icon"></span><span>Add Category</span></button></div>
+	    </form>	  </div>
+	<button class="btn"><span class="icon"></span><span>Save Changes</span></button>
+	</div><!-- / bd -->
+	
+</div><!-- / pod -->
+</div><!-- / col -->
+</div><!-- / main-col -->
+
+<div id="sidecol">
+<div class="col">
+	<div class="pod">
+		<div class="bd">
+			Stuff
+		</div><!-- // bd -->
+	</div><!-- // pod -->
+</div><!-- / col -->
+</div><!-- / sidecol -->
+  </div>

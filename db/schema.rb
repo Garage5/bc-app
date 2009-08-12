@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090812004627) do
+ActiveRecord::Schema.define(:version => 20090812150744) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20090812004627) do
     t.integer  "host_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "subdomain",  :null => false
+    t.string   "domain",     :null => false
   end
 
   create_table "matches", :force => true do |t|

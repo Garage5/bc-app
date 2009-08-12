@@ -43,8 +43,10 @@
     end
   end
   # with a team
+  teams = {}
   @tournament.teams.each do |team|
     p = grouped[team.name] = []
+    teams[team.name] = team
     for participation in @tournament.participations.all(:include => [:participant, :team_memberships])
       p << participation.participant if participation.state == 'active' && !(participation.team_memberships.reject{|m| m.team_id != team.id || m.state == 'pending'}).empty?
     end
@@ -54,6 +56,7 @@
   keys.each do |group_name|
     group_members = grouped[group_name]
 	  next if group_members.empty?
+	  team = teams[group_name]
 	%>
 	  <div class="pod tab-pod">
 		  <div class="hd">
@@ -65,17 +68,17 @@
 		        </ul>
 		      <% end %>
 			  <% elsif group_name == 'Participants' %>
-		      <% if current_user && current_user.is_participant_of?(@tournament) && current_user.teams_in(@tournament).empty? %>
+		      <% if current_user && current_user.is_participant_of?(@tournament) && current_user.teams_in(@tournament).empty? && @tournament.use_teams? %>
             <ul class="tabbed clear">
 	            <li class="create_team active"><a class="rc" href="#create_team" rel="modal">Create a Team</a></li>
             </ul>
           <% end %>
         <% elsif group_name == 'Pending Approval' %>
 			  <% else # all the teams %>
-		      <% if current_user && current_user.is_participant_of?(@tournament) && !current_user.teams_in(@tournament).empty? && current_user == current_user.teams_in(@tournament)[0].captain %>
+		      <% if current_user && current_user.is_participant_of?(@tournament) && !current_user.teams_in(@tournament).empty? && current_user == team.captain %>
 	          <ul class="tabbed clear">
 		          <li class="edit_team active"><a class="rc" href="#create_team" rel="modal">Edit Team</a></li>
-		          <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, current_user.teams_in(@tournament)[0]) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
+		          <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, team) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
 	          </ul>
 		      <% end %>
 			  <% end %>

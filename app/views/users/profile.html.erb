@@ -1,40 +1,6 @@
 <% stylesheet :profile %>
 <% body 'profile' %>
 <% @title = @user.name %>
-<script>
-  function editField(field) {
-    $("#"+field+"_show").hide();
-    $("#"+field+"_edit").show();
-    $("#user_"+field).focus();
-  }
-  function showField(field) {
-    $("#"+field+"_show").show();
-    $("#"+field+"_edit").hide();
-  }
-  $(function() {
-    $("a.edit_field").click(function(e) {
-      e.preventDefault();
-      editField($(this).metadata()['field']);
-    });
-    $("a.show_field").click(function(e) {
-      e.preventDefault();
-      showField($(this).metadata()['field']);
-    });
-    $("a.save_field").click(function(e) {
-      e.preventDefault();
-      var field = $('#user_'+$(this).metadata().field);
-      data = [
-        {name: 'authenticity_token', value:'<%= form_authenticity_token %>'},
-        {name: '_method', value:'put'},
-        {name: field.attr('name'), value: field.attr('value')}
-      ];
-      $.post('<%= user_path(@user) %>', data, null, 'script');
-    });
-    <% if current_user && @user == current_user %>
-      $("a.edit_field").show();
-    <% end %>
-  });
-</script>
 <div id="maincol">
 	<div class="col">
 		<div class="pod">

@@ -1,10 +1,23 @@
 class InstancesController < ApplicationController
+  before_filter :find_instance, :only => [:show, :settings]
   def index
     @instances = Instance.all
   end
   
   def show
-    @instance = Instance.first
+  end
+  
+  def settings
+    if request.put?
+      @instance.attributes = params[:instance]
+      @success = @instance.save
+      if params[:instance][:subdomain] && @success
+        sd = request.host.split('.')
+        sd[0] = @instance.subdomain
+        render :text => "location.href = '#{url_for(:host => sd.join('.'))}';"
+        return
+      end
+    end
   end
   
   def new
@@ -22,7 +35,7 @@ class InstancesController < ApplicationController
   end
   
   def edit
-    @instance = Instance.find(params[:id])
+    @instance = Instance.find(params[:id]) unless @instance
   end
   
   def update
