@@ -38,8 +38,8 @@ class Tournament < ActiveRecord::Base
     
     participants = self.active_participants
     
-    if participants.size < 2
-      self.errors.add_to_base("Alteast 2 players are required to start a tournament")
+    if participants.size < 4
+      self.errors.add_to_base("Alteast 4 players are required to start a tournament")
       return self
     end
     
