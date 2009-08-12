@@ -90,12 +90,9 @@
 	<div class="modal_inner">
 			<p>Enter an email or BattleID to add a Co-Host to this tournament.</p>
 			<% form_tag add_cohost_tournament_participants_path(@tournament) , :method => :post do %>
-				<div style="margin: 0 0 0 10px;"><label for="team_name">Enter E-Mail or BattleID</label><input size="30" type="text" name="user" /></div>
-				
-				<div class="btn_wrapper clear">
+				<div style="margin: 0 0 0 0;"><label for="team_name">Enter E-Mail or BattleID</label><input size="30" type="text" name="user" /></div>
 					<button class="btn add"><span class="icon"></span><span>Add Co-Host</span></button>
 					or <a class="modal_close" href="">Cancel</a>
-				</div>
 			<% end %>
 			
 	</div><!-- / modal_inner -->
