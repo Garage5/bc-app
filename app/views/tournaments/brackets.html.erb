@@ -63,6 +63,7 @@
 	          </li>
           
 	          <% for match in round.matches %>
+	            <%= match.position %>
 	            <%= render :partial => 'match', :locals => {:match => match} %>
 	          <% end %>
 	        </ul>
