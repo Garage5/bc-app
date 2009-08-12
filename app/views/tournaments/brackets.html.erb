@@ -8,6 +8,38 @@
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
+      $('.player:not(:contains("TBD")):not(:contains("Disputed"))').hover(
+        function(){
+          box = $("a:contains('" + $(this).text() + "')")        
+          box.addClass('hover')
+          
+          cog = $(this).find('.manage_player_link')
+          cog.css({
+            position: 'absolute',
+            top: $(this).offset().top + 7,
+            left: $(this).offset().left + $(this).width() - 7
+          })
+          cog.fadeIn()
+          
+          match = box.parent().parent().parent()
+          match.each(function(i){
+            if (++i != match.size()){
+              $(this).prepend($('<div class="highlight"></div>').css({left: $(this).offset().left + 141 + 'px'}))
+            }
+          })    
+        }, //end hover in
+        function(){
+          $("a:contains('" + $(this).text() + "')").removeClass('hover')
+          $(".highlight").remove()
+          $('.manage_player_link').fadeOut()
+        } //end hover out
+      )
+    
+      $('.player#me').pulse({opacityRange: [0.5, 1.0]})
+    })
+
+
+  $(document).ready(function(){
     $('.player#me').pulse({opacityRange: [0.5, 1.0]})
   })
 </script>

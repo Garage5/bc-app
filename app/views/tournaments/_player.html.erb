@@ -1,10 +1,14 @@
 <% unless player.nil? %>
-<li class="player <% if match.winner_is?(player) %>disqualified<% end %>">
+<li class="player <% if !match.winner.nil? and !match.winner_is?(player) %>disqualified<% end %>">
   <a href="#" class="player_link">
     <img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> 
     <%= player.login %>
   </a>
-  <% if match.winner.nil? && match.winner == player %><img class="disqualified" src="/images/bracket_x.gif"><% end %>
+  <% if !match.winner.nil? && match.winner != player %><img class="disqualified" src="/images/bracket_x.gif"><% end %>
+  <%= link_to_if current_user.is_hosting?(@tournament), "Manage", 
+    manage_player_tournament_match_path(@tournament, match, :pid => player.id), 
+    :rel => 'modal', 
+    :class => 'manage_player_link' %>
 </li>
 <% else %>
 <li class="player tbd">

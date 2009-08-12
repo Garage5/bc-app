@@ -53,13 +53,16 @@ class Match < ActiveRecord::Base
       else
         next_match.player_two = self.player_one
       end
+      self.winner = self.player_one
     when :player_two
       if self.position.odd?
         next_match.player_one = self.player_two
       else
         next_match.player_two = self.player_two
       end
+      self.winner = self.player_two
     end
+    self.save
     next_match.save
   end
   
