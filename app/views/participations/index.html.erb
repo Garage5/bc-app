@@ -11,6 +11,7 @@
 
   <% if current_user %>
     <% current_user.team_memberships.all(:conditions => {:state => 'pending'}).each do |memb| %>
+      <% next unless memb.team.tournament_id == @tournament.id %>
    	  <div class="note blue_filled clear">
 		    <p>You were invited to join the team <b><%= h memb.team.name %></b>, created by <b><%= h memb.team.captain.login %></b>.</p>
 		    <a rel="modal {text: 'Do you really want to join the team?', method: 'put'}" class="btn_join" href="<%= join_tournament_team_path(@tournament, memb.team) %>">Accept</a>

@@ -29,6 +29,7 @@ class TeamsController < ApplicationController
   end
   
   def update
+    params[:user_ids] ||= []
     if current_user.is_hosting?(@tournament) || current_user == @team.captain
       # change the name, if we can
       if @team.update_attributes(params[:team])
