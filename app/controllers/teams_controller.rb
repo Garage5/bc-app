@@ -7,6 +7,8 @@ class TeamsController < ApplicationController
   def create
     if current_user.is_hosting?(@tournament)
       flash[:error] = 'Officials can\'t create teams.'
+    elsif !@tournament.use_teams?
+      flash[:error] = 'This tournament is not based on teams.'
     else
       @team = Team.new({:tournament_id => @tournament.id}.merge(params[:team]))
       # find the participants the user requested
