@@ -136,7 +136,6 @@ body#participants  p.approve_checkbox {
 	margin: 0 15px 0 0;
 }
 
-body#participants .pending_players .btn_wrapper {
-	float: right;
+body#participants .pending_approval_btns {
 	margin: 15px 0 0 0;
 }

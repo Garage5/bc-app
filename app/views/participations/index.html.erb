@@ -88,7 +88,7 @@
 		    </ul>
 		    <% if group_name == 'Pending Approval' %>
 					<% if current_user && current_user == @tournament.instance.host %>
-          	<div class="btn_wrapper">
+          	<div class="pending_approval_btns btn_wrapper">
           	  <button class="btn" id="approve"><span class="icon"></span><span>Approve Selected</span></button>
           	  <button class="btn" id="decline"><span class="icon"></span><span>Decline Selected</span></button>
           	  <% # <a href="#deny_participation" class="btn" id="deny" rel="modal">Decline Selected</a> %>
