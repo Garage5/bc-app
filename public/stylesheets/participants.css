@@ -77,15 +77,15 @@ body#participants .player_list ul li:hover a.user_delete {
 	background: #fffadf url(/images/icon_user_delete.png) center no-repeat;
 	display: block;
 	position: absolute;
-	top: 0;
-	right: 0;
+	bottom: 0;
+	left: 0;
 	padding: 3px;
-	border-bottom: 1px #e2d484 solid;
-	border-left: 1px #e2d484 solid;
-	-moz-border-radius-topright: 3px;
-	-webkit-border-top-right-radius: 3px;
-	-moz-border-radius-bottomleft: 5px;
-	-webkit-border-bottom-left-radius: 5px;
+	border-top: 1px #e2d484 solid;
+	border-right: 1px #e2d484 solid;
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-right-radius: 5px;
 }
 
 body#participants .player_list ul li:hover a:hover.user_delete {
