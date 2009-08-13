@@ -27,8 +27,7 @@
 			</div>
 		</div><!-- / darkpod -->
 		
-		<div class="clear group">
-		<div id="message_attach" class="group darkpod clear" style="float: left; width: 52%; margin: 0 15px 0 0;">
+		<div id="message_attach" class="group darkpod clear">
 			<label><strong>Attach a File</strong></label>
 			<p class="note yellow_note">Files cannot be larger than 42 and must contain references to cats.</p>
 			<% f.fields_for :attachments, Attachment.new do |attachment| -%>
@@ -36,7 +35,7 @@
 			<% end -%>
 		</div><!-- / darkpod -->
 
-		<div id="message_subscribe" class="group darkpod clear" style="float: left; width: 42%;">
+		<div id="message_subscribe" class="group darkpod clear">
 			
 			<label><strong>Subscribe the following users to receive email notifications:</strong></label>
 			<ul>
@@ -54,7 +53,6 @@
 				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
 			</ul>
 		</div><!-- / darkpod -->
-		</div><!-- / clear -->
 		
 		<button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
 		or <a href="">Cancel</a>
