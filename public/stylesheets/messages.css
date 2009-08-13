@@ -1,3 +1,7 @@
+body#index_messages #maincol, body#show_messages #maincol {
+	width: 101%;
+}
+
 #messages {
   color: #9f9f9f;
   font-size: 12px;
