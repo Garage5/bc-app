@@ -1,4 +1,5 @@
 <% stylesheet :new_message %>
+<% body 'new_message' %>
 <% title @tournament.name %>
 <% content_for :tournament_nav do -%>
   <%= render :partial => 'layouts/sub_nav', :locals => {:active => 'messages'} %>
@@ -19,25 +20,41 @@
 			
 			<%= f.label :post, "Post Body" %>
 			<%= f.text_area :body, :size => '60x15' %>
-			<%= f.check_box :is_announcement %> <%= f.label :is_announcement, "This message is an annoucnement", :style => 'display:inline' %>
 			
+			<div>
+				<%= f.check_box :is_announcement %> <%= f.label :is_announcement, "This message is an annoucnement", :style => 'display:inline' %>
+				<span><input type="checkbox"> <label class="checkbox">Private to Hosts/Co-Hosts</label></span>
+			</div>
 		</div><!-- / darkpod -->
 		
-		<div id="message_attach" class="group darkpod clear">
-			<label>Attach a File</label>
+		<div class="clear group">
+		<div id="message_attach" class="group darkpod clear" style="float: left; width: 52%; margin: 0 15px 0 0;">
+			<label><strong>Attach a File</strong></label>
 			<p class="note yellow_note">Files cannot be larger than 42 and must contain references to cats.</p>
 			<% f.fields_for :attachments, Attachment.new do |attachment| -%>
         <%= attachment.file_field :attachment %>
 			<% end -%>
 		</div><!-- / darkpod -->
-		
-		<div id="message_subscribe" class="group darkpod clear">
-			<p>Subscribe the following users to receive email notifications:</p>
+
+		<div id="message_subscribe" class="group darkpod clear" style="float: left; width: 42%;">
+			
+			<label><strong>Subscribe the following users to receive email notifications:</strong></label>
 			<ul>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
+				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
 				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
 				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
 			</ul>
 		</div><!-- / darkpod -->
+		</div><!-- / clear -->
 		
 		<button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
 		or <a href="">Cancel</a>
@@ -47,7 +64,7 @@
 	</div><!-- / col -->
 </div><!-- / main-col -->
 
-<div id="sidecol">
+<div class="beta" id="sidecol">
 	<div class="col">
 		<div class="pod">
 		<div class="hd">
@@ -65,7 +82,7 @@
 			
 			<div class="group">
 			<h3>Private</h3>
-			<span><input type="checkbox"> <label class="checkbox">Private to Hosts/Co-Hosts</label></span>
+			
 			</div>
 		</div><!-- / bd -->
 		</div><!-- / pod -->	

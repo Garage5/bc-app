@@ -1,21 +1,30 @@
+body#new_message #maincol {
+	width: 101%;
+}
+
 .pod h3 {
   margin-top: 5px;
 }
 
 label {
   display: block;
-  font-size: 15px;
   margin-bottom: 3px;
 	color: #666;
 }
 
 textarea,
 input[type='text'] {
-  width: 98%;
+  width: 98.8%;
 }
 
 #message_subscribe ul li {
 	display: block;
 	float: left;
-	margin: 0 5px 0 0;
+	padding: 5px;
 }
+
+body#new_message label.checkbox {
+	position: relative;
+	top: 0px;
+}
+
