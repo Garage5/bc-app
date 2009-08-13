@@ -36,13 +36,14 @@
 	  </div>	 
 	
 	  <h3>Your Site Name</h3>
-    <div id="your_site_name" class="clear darkpod">
+    <div id="your_site_name" class="clear group darkpod">
 	    <p>Your site name appears at the top of every page.</p>
 	    <% form_for '@account' do |f| -%>
 	      <%= f.text_field :name %>
 	    <% end -%>
 	  </div>
-	
+		
+		<div class="beta">
 	  <h3>Message Categories</h3>
 	  <div id="message_categories" class="darkpod group clear">
 	    <table>
@@ -64,6 +65,7 @@
 				<div class="left_block add_cat"><button class="btn add"><span class="icon"></span><span>Add Category</span></button></div>
 	    <% end -%>
 	  </div>
+	</div><!-- // BETA -->
 	<button class="btn"><span class="icon"></span><span>Save Changes</span></button>
 	</div><!-- / bd -->
 	
@@ -71,11 +73,10 @@
 </div><!-- / col -->
 </div><!-- / main-col -->
 
-<div id="sidecol">
+<div class="beta" id="sidecol">
 <div class="col">
 	<div class="pod">
 		<div class="bd">
-			Stuff
 		</div><!-- // bd -->
 	</div><!-- // pod -->
 </div><!-- / col -->
