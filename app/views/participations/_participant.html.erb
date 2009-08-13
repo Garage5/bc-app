@@ -16,7 +16,7 @@
 	</div><!-- / user_name -->
 	<div class="clear"></div>
 	<div class="activity">Last activity: <span class='date' title="<%= participant.last_activity.iso8601 if participant.last_activity %>"><%= participant.last_activity ? participant.last_activity.to_s : 'never' %></span></div>
-	<% if current_user && (participant == current_user || current_user.is_hosting?(@tournament)) %>
+	<% if current_user && @tournament.instance.host != participant && ((current_user == @tournament.instance.host && participant.is_hosting?(@tournament)) || (current_user.is_hosting?(@tournament) && !participant.is_hosting?(@tournament)) || (current_user == participant)) %>
   	<%= link_to('Delete', deny_tournament_participants_path(:participant => participant.id), :title => 'Delete User', :class => 'user_delete', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" } this tournament?'}") %>
   <% end %>
 </li>
