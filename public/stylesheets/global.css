@@ -1129,24 +1129,21 @@ Footer
 
 #footer #meta_copy {
 	float: right;
+	margin: 15px 0 0 0;
 }
 
 #footer #meta_copy a#managed_by {
-	padding: 15px 25px 15px 25px;
-	background: #DDD;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
+	margin: 0 0 5px 0;
 	display: block;
 	float: right;
-	margin: 0;
-	color: #DDD;
-	border: 2px #d5d5d5 solid;
+	width: 118px;
+	height: 24px;
+	background: transparent url(/images/poweredbybc.png) 0 0 no-repeat;
+	text-indent: -9999px;
 }
 
 #footer #meta_copy a#managed_by:hover {
-	background: #CCC;
-	border-color: #BBB;
-	color: #CCC;
+	background-position: bottom;
 }
 
 #footer #meta_copy p {
