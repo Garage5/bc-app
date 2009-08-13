@@ -10,11 +10,6 @@
     $('input#tournament_name').keyup(function(e){
       $('h2#page_title').text($(e.target).val())
     })
-    
-    
-    $('input#tournament_teams').change(function(e){
-      $('#tournament_players_per_team').parent().toggle()
-    })
   })
 </script>
 
@@ -77,7 +72,7 @@
 			    <%= f.label :use_teams, "Enable Teams", :class => 'checkbox' %>
 			  </div>
 			
-				<div style="display:none" id="players_per_team_canvas">
+				<div style="<%= 'display: none;' unless @tournament.use_teams? %>" id="players_per_team_canvas">
 					<%= f.text_field :players_per_team %> <%= f.label :players_per_team, "How many players per team?" %>
 				</div>
 				
@@ -102,8 +97,8 @@
 			<p class="note yellow_note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.<a class="note-close" href="">X</a></p>
 			
 			<div><%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :first_place_prize, "1st Place" %></div>
-			<div><%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :second_place_prize, "2nd Place" %></div>
-			<div><%= f.text_field :first_place_prize, :size => 11 %> <%= f.label :third_place_prize, "3rd Place" %></div>
+			<div><%= f.text_field :second_place_prize, :size => 11 %> <%= f.label :second_place_prize, "2nd Place" %></div>
+			<div><%= f.text_field :third_place_prize, :size => 11 %> <%= f.label :third_place_prize, "3rd Place" %></div>
 			<div><%= f.text_field :entry_fee, :size => 11 %> <%= f.label :entry_fee, "Entry Fees" %></div>
 			<div><%= f.label :other_prizes, "Other Prizes", :class => 'textarea' %></div>
 			<div><%= f.text_area :other_prizes, :size => "88x15" %></div>

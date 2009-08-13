@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090812150744) do
+ActiveRecord::Schema.define(:version => 20090813051045) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20090812150744) do
     t.integer  "host_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "subdomain",  :null => false
+    t.string   "domain",     :null => false
   end
 
   create_table "matches", :force => true do |t|
@@ -106,9 +108,9 @@ ActiveRecord::Schema.define(:version => 20090812150744) do
     t.string   "prizes"
     t.date     "registration_start_date"
     t.date     "registration_end_date"
-    t.integer  "first_place_prize",       :default => 0
-    t.integer  "second_place_prize",      :default => 0
-    t.integer  "third_place_prize",       :default => 0
+    t.string   "first_place_prize",       :default => "",    :null => false
+    t.string   "second_place_prize",      :default => "",    :null => false
+    t.string   "third_place_prize",       :default => "",    :null => false
     t.integer  "entry_fee",               :default => 0
     t.text     "other_prizes"
     t.boolean  "is_template"
