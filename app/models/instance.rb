@@ -1,5 +1,6 @@
 class Instance < ActiveRecord::Base
   has_many :tournaments
+  has_many :templates, :class_name => "Tournament", :foreign_key => "instance_id", :conditions => {:is_template => true}
   belongs_to :host, :class_name => 'User'
   
   ALLOWED_DOMAINS = [

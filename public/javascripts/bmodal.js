@@ -67,6 +67,7 @@ jQuery.fn.modal = function(options){
   
   this.click(function(event){
     event.preventDefault();
+    var trigger = $(event.target).closest('a')
     wrapper = $('<div class="modal-wrap"></div>').css({
       'width': '100%',
       'height': '100%',
@@ -84,11 +85,11 @@ jQuery.fn.modal = function(options){
     
     wrapper.append(overlay)
     
-    data = $(event.target).metadata()
+    data = $(trigger).metadata()
     
     overlay.click(function(){
-      if ($(event.target).attr('href')[0] == '#'){
-        $($(event.target).attr('href')).prependTo('body').hide() }
+      if ($(trigger).attr('href')[0] == '#'){
+        $($(trigger).attr('href')).prependTo('body').hide() }
       
       if (data){
         $('#generic_modal').prependTo('body').hide() }
@@ -101,14 +102,14 @@ jQuery.fn.modal = function(options){
       $('#generic_modal_title').html(data.title);
       $('#generic_modal_text').html(data.text);
       $('#generic_modal_method').attr("value", data.method?data.method:'get' );
-      $('#generic_modal_form').attr("action", $(event.target).attr("href"));
+      $('#generic_modal_form').attr("action", $(trigger).attr("href"));
 
       wrapper.append(modal.fadeIn())
       $('body').prepend(wrapper.show())
       modal.center()
       
-    } else if ($(event.target).attr('href')[0] == '#') {
-      modal = $($(event.target).attr('href'))
+    } else if ($(trigger).attr('href')[0] == '#') {
+      modal = $($(trigger).attr('href'))
       
       wrapper.append(modal.fadeIn())
       $('body').prepend(wrapper.show())
@@ -123,11 +124,8 @@ jQuery.fn.modal = function(options){
         
         wrapper.append(modal)
         $('body').prepend(wrapper.show())
+        modal.center()
         modal.fadeIn()
-        $(modal).click(function(event){
-          event.preventDefault()
-          overlay.trigger('click')
-        })
       }) 
     }
     
@@ -139,7 +137,7 @@ jQuery.fn.modal = function(options){
 }
 
 $(document).ready(function(){
-  $('a[rel^="modal"]').modal()
+  $('a[rel^="modal"]').modal({overlayOpacity: 0.3})
 	$("a[rel^='modal'] span").click(function(){
 		$(this).parent('a[rel^="modal"]').click()
 	})

@@ -161,3 +161,7 @@ div.container ul#prizes li.last {
 h1 a:hover {
 	color: #FFF;
 }
+
+
+#load_template {
+  width: 300px;}

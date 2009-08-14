@@ -1,0 +1,2 @@
+module TournamentTemplatesHelper
+end

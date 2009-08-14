@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20090814031704) do
     t.string   "third_place_prize",       :default => "",    :null => false
     t.integer  "entry_fee",               :default => 0
     t.text     "other_prizes"
-    t.boolean  "is_template"
+    t.boolean  "is_template",             :default => false
     t.integer  "instance_id"
     t.boolean  "started",                 :default => false
     t.datetime "created_at"
