@@ -29,7 +29,13 @@ class MatchesController < ApplicationController
   end
   
   def disqualify_player
-    
+    if ![:player_one, :player_two].include?(params[:p].to_sym)
+      redirect_to [:brackets, @tournament] 
+    else
+      @match = Match.find(params[:id])
+      @match.disqualify(params[:p].to_sym)
+      redirect_to [:brackets, @tournament]
+    end
   end
   
   def declare_winner

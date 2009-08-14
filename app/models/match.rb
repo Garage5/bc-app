@@ -42,7 +42,14 @@ class Match < ActiveRecord::Base
     end
     save
   end
-
+  
+  def disqualify(player)
+    opponent = player == :player_one ? :player_two : :player_one
+    self.winner = self.send(opponent)
+    self.advance(opponent)
+    save
+  end
+  
   def advance(player)
     next_match = child_match_in_next_round
     # add player to correct slot in next match
