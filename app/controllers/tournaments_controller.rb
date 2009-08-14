@@ -20,7 +20,16 @@ class TournamentsController < ApplicationController
   end
   
   def new
-    @tournament = Tournament.new
+    if params[:t]
+      if @temp = Tournament.find(params[:t])
+        flash[:notice] = "Loaded template based on '#{@temp.name}'"
+        @tournament = Tournament.new(@temp.attributes)
+      else
+        flash[:error] = 'Tournament for template not found.'
+      end
+    else
+      @tournament = Tournament.new
+    end
   end
   
   def create
@@ -55,6 +64,11 @@ class TournamentsController < ApplicationController
   end
   
   def rules
+  end
+  
+  def load_template
+    @tournament = Template.find(params[:template_id])
+    render :action => 'new'
   end
 
   def start

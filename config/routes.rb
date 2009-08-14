@@ -1,12 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :rounds
-
+  map.resources :rounds  
   map.resources :participations
-
   map.resources :attachments
-
   map.resources :comments
-
   map.resources :messages
 
   map.root :controller => 'instances', :action => 'show'

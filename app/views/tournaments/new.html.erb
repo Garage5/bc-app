@@ -10,19 +10,28 @@
     $('input#tournament_name').keyup(function(e){
       $('h2#page_title').text($(e.target).val())
     })
+    
+    $('#load_template_btn').click(function(event){
+      event.preventDefault()
+      window.location.search = 't=' + $('#template_id').val()
+    })
   })
 </script>
 
-<div id="load_template" class="modal">
-  <select>
-    <option>Select a Template...</option>
-    <option>Awesomeness</option>
-    <option>Valor</option>
-    <option>Starcraft 2</option>
-  </select>
-  <button type="submit">Load</button>
-  or <a href="#">cancel</a>
-</div>
+<% content_for :modals do %>
+  <div id="load_template" class="modal">
+  		<div class="modal_hd">
+  			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+  			<h1>Load Template</h1>
+  		</div><!-- / modal_hd -->
+  	<div class="modal_inner">
+  			<div class="clear">
+  			  <%= select_tag :template_id, options_for_select( @instance.templates.map {|t| [t.name, t.id]}) %>
+  			  <%= button_link_to 'Load', '#', '', :id => 'load_template_btn' %>
+  			</div>
+  	</div><!-- / modal_inner -->
+  </div><!-- / modal -->
+<% end %>
 
 <div id="maincol">
 	<div class="col">
@@ -175,8 +184,8 @@
 					</table>
 			  </div><!-- / tournament_dates -->
 			</div><!-- / clear -->
-			<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button> or
-			<button type="button" class="btn"><span class="icon"></span><span>Save as Template</span></button>
+			<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button>
+			<%= f.check_box :is_template %> <%= f.label :is_template, 'Save this tournament as a Template.' %>
 		</div><!-- / bd -->
 		</div><!-- / pod -->
 		<!-- / Step 5 -->
