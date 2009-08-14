@@ -16,7 +16,7 @@
 	    <% end %>
 	   	<img src="/images/avatar_big.jpg" height="50" class="left" />
    	  <h2><%= @message.subject %></h2>
-   	  <p class="gray">Posted by <%= @message.author.login %> <%= @message.created_at %></p>
+   	  <p class="gray">Posted by <%= @message.author.login %> <span class="date" title="<%= @message.created_at.iso8601 %>"><%= @message.created_at.iso8601 %></span></p>
 	  </div>
 	
 	  <div id="message_body">

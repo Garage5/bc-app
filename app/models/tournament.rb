@@ -3,7 +3,7 @@ class Tournament < ActiveRecord::Base
   
   belongs_to :host, :class_name => "User", :foreign_key => "host_id"
   
-  has_many    :messages
+  has_many    :messages, :order => 'created_at DESC'
   has_many    :attachments, :class_name => '::Attachment'
   
   has_many :rounds
