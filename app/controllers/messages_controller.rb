@@ -8,6 +8,10 @@ class MessagesController < ApplicationController
   
   def show
     @message = Message.find(params[:id], :include => {:comments => [:attachments, :author]})
+    if @message.hosts_only? && (!current_user || !current_user.is_hosting(@tournament))
+      flash[:error] = 'You are not authorized to view this message.'
+      redirect_to tournament_messages_path(@tournament)
+    end
   end
   
   def new
@@ -15,17 +19,25 @@ class MessagesController < ApplicationController
   end
   
   def create
-    @message = @tournament.messages.build(params[:message])
-    @message.attachments.each do |a| 
-      a.tournament_id = @tournament.id
-      a.uploader = current_user
-    end
-    @message.author = current_user
-    if @message.save
-      flash[:notice] = "Successfully created message."
-      redirect_to [@tournament, @message]
+    if current_user.is_hosting?(@tournament) || current_user.is_participant_of?(@tournament)
+      unless current_user.is_hosting?(@tournament)
+        params[:message].delete(:is_announcement)
+        params[:message].delete(:hosts_only)
+      end
+      @message = @tournament.messages.build(params[:message])
+      @message.attachments.each do |a| 
+        a.tournament_id = @tournament.id
+        a.uploader = current_user
+      end
+      @message.author = current_user
+      if @message.save
+        flash[:notice] = "Successfully created message."
+        redirect_to [@tournament, @message]
+      else
+        render :action => 'new'
+      end
     else
-      render :action => 'new'
+      flash[:error] = "You can't post a message to this tournament."
     end
   end
   

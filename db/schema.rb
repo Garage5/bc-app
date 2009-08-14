@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090813051045) do
+ActiveRecord::Schema.define(:version => 20090814031704) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20090813051045) do
     t.boolean  "is_announcement", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "hosts_only",      :default => false, :null => false
   end
 
   create_table "participations", :force => true do |t|
