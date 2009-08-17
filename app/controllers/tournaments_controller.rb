@@ -1,7 +1,11 @@
 class TournamentsController < ApplicationController
   before_filter :find_instance
-  before_filter :find_tournament, :except => [:new, :create]
-  before_filter :login_required, :except => [:index, :show, :brackets, :participants, :rules]
+  before_filter :find_tournament, :except => [:new, :create, :calendar]
+  before_filter :login_required, :except => [:index, :show, :brackets, :participants, :rules, :calendar]
+  
+  def calendar
+    render(:partial => 'layouts/calendar', :locals => {:show_date => Date.new(params[:year].to_i, params[:month].to_i, 1)})
+  end
   
   def index
     @tournaments = Tournament.all

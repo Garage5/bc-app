@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090814130946) do
+ActiveRecord::Schema.define(:version => 20090817201726) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(:version => 20090814130946) do
     t.integer  "host_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "matches", :force => true do |t|
@@ -63,11 +67,6 @@ ActiveRecord::Schema.define(:version => 20090814130946) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "hosts_only",      :default => false, :null => false
-  end
-
-  create_table "messages_subscribers", :id => false, :force => true do |t|
-    t.integer "message_id",    :null => false
-    t.integer "subscriber_id", :null => false
   end
 
   create_table "participations", :force => true do |t|
@@ -125,15 +124,19 @@ ActiveRecord::Schema.define(:version => 20090814130946) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",             :null => false
-    t.string   "name",              :null => false
-    t.string   "email",             :null => false
-    t.string   "crypted_password",  :null => false
-    t.string   "password_salt",     :null => false
-    t.string   "persistence_token", :null => false
+    t.string   "login",               :null => false
+    t.string   "name",                :null => false
+    t.string   "email",               :null => false
+    t.string   "crypted_password",    :null => false
+    t.string   "password_salt",       :null => false
+    t.string   "persistence_token",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_activity"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end

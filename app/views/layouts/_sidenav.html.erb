@@ -10,7 +10,9 @@
 		    <% end %>
 		  <% end %>
 			<li class="beta"><a href="" class="beta tedit">Edit</a><a href="">Valor Tournament</a></li>
-			<li><%= link_to "Create a New Tournament", new_tournament_path, :class => 'icon-add' %></li>
+			<% if @instance.host == current_user %>
+			  <li><%= link_to "Create a New Tournament", new_tournament_path, :class => 'icon-add' %></li>
+			<% end %>
 		</ul>
 	</div><!-- / bd -->
 </div><!-- / pod -->

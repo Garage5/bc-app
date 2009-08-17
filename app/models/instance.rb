@@ -3,6 +3,8 @@ class Instance < ActiveRecord::Base
   has_many :templates, :class_name => "Tournament", :foreign_key => "instance_id", :conditions => {:is_template => true}
   belongs_to :host, :class_name => 'User'
   
+  has_attached_file :logo
+  
   ALLOWED_DOMAINS = [
     'tbbhere.com',
     'tbblive.com',

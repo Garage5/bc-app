@@ -1,7 +1,7 @@
 <% unless player.nil? %>
 <li class="player <% if !match.winner.nil? and !match.winner_is?(player) %>disqualified<% end %>">
   <a href="#" class="player_link">
-    <img class="bracket_avatar" src="/images/avatar_big.jpg" height="30"/> 
+    <%= image_tag player.avatar.url(:small), :class => "bracket_avatar", :height => 30 %>
     <%= player.login %>
   </a>
   <% if !match.winner.nil? && match.winner != player %><img class="disqualified" src="/images/bracket_x.gif"><% end %>

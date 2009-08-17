@@ -41,18 +41,9 @@
 			
 			<label><strong>Subscribe the following users to receive email notifications:</strong></label>
 			<ul>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">mattdetails</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">plankton</label></li>
+			  <% @tournament.participants.each do |participant| %>
+  				<li><input type="checkbox" size="40" name="message[user_ids][]" id="message_user_ids_<%= participant.id %>" <%= 'checked="checked"' if @message. /> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
+			  <% end %>
 			</ul>
 		</div><!-- / darkpod -->
 		

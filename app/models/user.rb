@@ -8,6 +8,13 @@ class User < ActiveRecord::Base
   validates_acceptance_of :terms_of_service, :on => :create
   validates_length_of :login, :within => 3..13
   
+  has_attached_file :avatar, :styles => {:large => "75x75#", :medium => "48x48#", :small => "32x32#"},
+    :default_url => "/:class/:attachment/missing_:style.jpg"
+  
+  def to_param
+    self.login
+  end
+  
   def first_name
     name.split(' ')[0] rescue login
   end

@@ -54,17 +54,17 @@
 <div class="col">
 	<div class="pod" id="settings">
   <div class="bd clear">
-    <% form_for @instance, :html => {:onsubmit => 'return false;'} do |f| %>
+    <% form_for @instance, :html => {:multipart => true, :onsubmit => 'return false;'} do |f| %>
 		  <div id="account_url" class="clear group darkpod">
 		    <ul>
       	  <li>
 				    <h2>Your URL</h2>
 				    <p id="url_show">
-				      <span id="url_static">http://<%= @instance.subdomain %>.<%= @instance.domain %></span>
+				      <span id="url_static">http://<%#= @instance.subdomain %>.<%#= @instance.domain %></span>
 				      <a href="#" class="edit_field" rel="{field: 'url'}">Edit</a>
 				    </p>
 				    <p id="url_edit" style="display: none;">
-				      http://<%= f.text_field :subdomain %>.<%= f.select :domain, allowed_domains %>
+				      http://<%#= f.text_field :subdomain %>.<%#= f.select :domain, allowed_domains %>
 				      <a href="#" class="save_field" rel="{field: 'url'}">Save</a> |
 				      <a href="#" class="show_field" rel="{field: 'url'}">Cancel</a>
 				    </p>
@@ -76,10 +76,14 @@
 	      <p>Your logo appears on the Login, Dashboard, and Overview pages.</p>
 	      <p class="note yellow_note"><strong>NOTE:</strong> The logo must not be more than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
         <div class="left_block">
-          <img src="/images/missing_logo.gif" alt="logo" />
+          <% if @instance.logo.exists? %>
+            <%= image_tag @instance.logo.url %>
+          <% else %>
+            <img src="/images/missing_logo.gif" alt="logo" />
+          <% end %>
         </div>
         <div class="block">
-			    <div><input id="_account_logo" name="@account[logo]" type="file" /></div>
+			    <div><%= f.file_field :logo %></div>
 			    <button class="btn"><span class="icon"></span><span>Upload Logo</span></button>
 		    </div>
 	    </div>
