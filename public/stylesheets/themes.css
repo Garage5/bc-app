@@ -20,13 +20,13 @@ a, a:visited {
 	border: 1px #003951 solid; /* dark blue */
 }
 
-#subnav ul li a {
+#subnav ul li a, #right_subnav ul li a {
 	color: #FFF;
 	background: #005e98;
 	background: #000;
 }
 
-#subnav ul li a:hover {
+#subnav ul li a:hover, #right_subnav ul li a:hover {
 	background: #003951;
 }
 

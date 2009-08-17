@@ -479,7 +479,6 @@ ul#right_subnav li a {
 	font-size: 12px;
 	font-weight: bold;
 	color: #FFF;
-	background: #0071a0;
 	-moz-border-radius-topleft: 4px;
 	-moz-border-radius-topright: 4px;
 	-webkit-border-top-left-radius: 4px;
@@ -490,24 +489,8 @@ ul#right_subnav li a {
 }
 
 ul#right_subnav li a:hover {
-	color: #FFF;
 	text-decoration: underline;
 }
-
-ul#right_subnav li.active a {
-	color: #333;
-	background: #ececec;
-	text-decoration: none;
-}
-
-ul#right_subnav li.active a:hover {
-	color: #000;
-	background: #ececec;
-	text-decoration: underline;
-}
-
-
-
 
 #logo a {
 	display: block;
