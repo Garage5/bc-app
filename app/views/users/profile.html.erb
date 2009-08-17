@@ -1,6 +1,24 @@
 <% stylesheet :profile %>
 <% body 'profile' %>
 <% @title = @user.name %>
+
+<% content_for :modals do %>
+<div id="change_avatar" class="modal">
+		<div class="modal_hd">
+			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+			<h1>Change Avatar</h1>
+		</div><!-- / modal_hd -->
+	<div class="modal_inner">
+			<div class="clear">
+			  <% form_for @user, :html => {:multipart => true} do |f| -%>
+			    <%= f.file_field :avatar %>
+			    <button type="submit" class="btn"><span class="icon"></span><span>Upload</span></button>
+			  <% end -%>
+			</div>
+	</div><!-- / modal_inner -->
+</div><!-- / modal -->
+<% end %>
+
 <script>
   function editField(field) {
     $("#"+field+"_show").hide();
@@ -40,7 +58,7 @@
 		<div class="pod">
 		  <div class="bd clear">
 		    <% form_for(@user) do |f| %>
-				  <div class="user_avatar"><img src="/images/avatar_big.jpg" /><a class="user_edit" href="">Edit</a></div>
+				  <div class="user_avatar"><%= image_tag @user.avatar.url(:large) %><a class="user_edit" href="#change_avatar" rel="modal">Edit</a></div>
 				  <div class="user_profile">
 				    <label>BattleID</label>
 				    <p><%= @user.login %></p>

@@ -14,7 +14,7 @@
 		  <% if @message.is_announcement %>
 	      <p id="message_category" class="cat_announcement">Announcement</p>
 	    <% end %>
-	   	<img src="/images/avatar_big.jpg" height="50" class="left" />
+	   	<%= image_tag @message.author.avatar.url(:medium) %>
    	  <h2><%= @message.subject %></h2>
    	  <p class="gray">Posted by <%= @message.author.login %> <span class="date" title="<%= @message.created_at.iso8601 %>"><%= @message.created_at.iso8601 %></span></p>
 	  </div>

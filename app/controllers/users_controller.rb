@@ -23,8 +23,13 @@ class UsersController < ApplicationController
     # for now, only the current user
     @user = current_user
     # can't change BattleID
-    params[:user].delete(:login)
-    @user.attributes = params[:user]
-    @success = @user.save
+    params[:user].delete(:login) if params[:user].has_key?(:login)
+    if request.xhr?
+      @user.attributes = params[:user]
+      @success = @user.save
+    else
+      @user.update_attributes(params[:user])
+      redirect_to [:profile, @user]
+    end
   end
 end

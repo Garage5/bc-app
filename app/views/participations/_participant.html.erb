@@ -5,7 +5,7 @@
     <p class="approve_checkbox"><input type="checkbox" value="<%= participant.id %>" class="approve_checkbox_box" /></p>
   <% end %>
 	<div class="user_avatar">
-		<%= link_to(image_tag("avatar_48x48.jpg", :alt=>"Avatar of #{participant.login}"), profile_user_path(participant.login), :title => profile_title) %>
+		<%= link_to(image_tag(participant.avatar.url(:small), :alt=>"Avatar of #{participant.login}"), profile_user_path(participant.login), :title => profile_title) %>
 	</div>
 	<div class="user_name clear">
 		<% link_to(profile_user_path(participant.login), :title => profile_title) do %>
