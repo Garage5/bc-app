@@ -8,6 +8,8 @@ class Tournament < ActiveRecord::Base
   
   has_many :rounds
   has_many :matches
+  has_many :events, :order => 'created_at DESC'
+  has_many :comments
   
   has_many :teams, :dependent => :destroy
   

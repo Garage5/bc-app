@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090817201726) do
+ActiveRecord::Schema.define(:version => 20090818005812) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"
@@ -29,8 +29,20 @@ ActiveRecord::Schema.define(:version => 20090817201726) do
     t.string   "commentable_type"
     t.integer  "commentable_id"
     t.integer  "author_id"
+    t.integer  "tournament_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "target_id"
+    t.string   "target_type"
+    t.string   "event_type"
+    t.string   "action"
+    t.string   "actor"
+    t.string   "message"
+    t.integer  "tournament_id"
+    t.datetime "created_at"
   end
 
   create_table "instances", :force => true do |t|
@@ -67,6 +79,11 @@ ActiveRecord::Schema.define(:version => 20090817201726) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "hosts_only",      :default => false, :null => false
+  end
+
+  create_table "messages_subscribers", :id => false, :force => true do |t|
+    t.integer "message_id",    :null => false
+    t.integer "subscriber_id", :null => false
   end
 
   create_table "participations", :force => true do |t|

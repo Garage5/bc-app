@@ -10,4 +10,17 @@ class Message < ActiveRecord::Base
   validates_presence_of :subject, :body
   
   accepts_nested_attributes_for :attachments
+
+  
+  after_create do |e|
+    Event.create(
+      :tournament_id => e.tournament_id,
+      :target_id     => e.id,
+      :target_type   => e.class.to_s,
+      :event_type    => (e.is_announcement? ? 'announcement' : 'message'),
+      :action        => 'posted',
+      :message       => e.subject,
+      :actor         => e.author.login
+    )
+  end
 end

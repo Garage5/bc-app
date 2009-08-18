@@ -13,13 +13,15 @@
 	</div><!-- / hd -->
 	<div class="bd">
 		<table id="overview">
-			<tr class="announcement">
-				<td class="item-icon"><span>Announcement</span></td>
-				<td class="item-title"><a href="">Tournament Delayed!</a></td>
-				<td class="item-action">Posted by</td>
-				<td class="item-posted">Matt J.</td>
-				<td class="item-date">Feb 15</td>
-			</tr>
+		  <% if !@tournament.events.blank? %>
+		    <% for event in @tournament.events %>
+		      <%= render :partial => "events/#{event.target_type.underscore}", :locals => {:event => event, :tournament => @tournament} %>
+		    <% end %>
+		  <% else %>
+		    
+		  <% end %>
+		  
+		  <!-->
 			<tr class="dispute">
 				<td class="item-icon"><span>Dispute</span></td>
 				<td class="item-title"><a href="">Match Dispute: Matt hates car salesman.</a></td>
@@ -56,6 +58,7 @@
 				<td class="item-posted">Matt J.</td>
 				<td class="item-date">Feb 15</td>
 			</tr>
+			-->
 		</table>
 	</div><!-- / bd -->
 	</div><!-- / pod -->

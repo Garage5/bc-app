@@ -22,6 +22,15 @@
   	</div><!-- / hd -->
   	<div class="bd">
   		<table id="overview">
+  		  <% if !tournament.events.blank? %>
+  		    <% for event in tournament.events %>
+  		      <%= render :partial => "events/#{event.target_type.underscore}", :locals => {:event => event, :tournament => tournament} %>
+  		    <% end %>
+  		  <% else %>
+  		    No Recent Activity
+  		  <% end %>
+  		  
+        <!-->
   			<tr class="announcement">
   				<td class="item-icon"><span>Announcement</span></td>
   				<td class="item-title"><a href="/preview/messages/show">Tournament Delayed!</a></td>
@@ -79,6 +88,7 @@
   				<td class="item-posted">Matt J.</td>
   				<td class="item-date">Feb 15</td>
   			</tr>
+			  -->
   		</table>
   	</div><!-- / bd -->
 	</div><!-- / pod -->

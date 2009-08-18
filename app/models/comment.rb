@@ -7,4 +7,16 @@ class Comment < ActiveRecord::Base
   validates_presence_of :body
   
   accepts_nested_attributes_for :attachments
+  
+  after_create do |e|
+    Event.create(
+      :tournament_id => e.commentable.tournament_id,
+      :target_id     => e.id,
+      :target_type   => e.class.to_s,
+      :event_type    => 'comment',
+      :message       => 're: ' + e.commentable.subject,
+      :action        => 'posted',
+      :actor         => e.author.login
+    )
+  end
 end

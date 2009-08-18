@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  class: MyString
+  data: MyString
+  tournament_id: 1
+
+two:
+  class: MyString
+  data: MyString
+  tournament_id: 1
