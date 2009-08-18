@@ -175,10 +175,10 @@
 							  <th>Round #<%= n+1 %> Start Time:</th>
 							  <td class="time">
 							    <input type="text" name="tournament[rounds][][start_date]" id="tournament_rounds_<%= n %>_start_date" value="<%= @tournament.rounds[n].start_date.try(:strftime, '%d/%m/%Y') if @tournament.rounds[n] %>" />
-							    <input type="text" name="tournament[rounds][][start_time]" value="<%= @tournament.rounds[n].start_time.try(:strftime, '%H:%M') if @tournament.rounds[n] %>" />
-							    <input type="radio" value="AM" id="tournament_rounds_<%= n %>_start_date_p_am" name="tournament[rounds][][start_time_p]" />
+							    <input type="text" name="tournament[rounds][][start_time]" value="<%= @tournament.rounds[n].start_time.try(:strftime, '%I:%M') if @tournament.rounds[n] %>" />
+							    <input type="radio" value="AM" id="tournament_rounds_<%= n %>_start_date_p_am" name="tournament[rounds][][start_time_p]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i < 12 %>/>
 							    <label for="tournament_rounds_<%= n %>_start_date_p_am">AM
-							    <input type="radio" value="PM" id="tournament_rounds_<%= n %>_start_date_p_pm" name="tournament[rounds][][start_time_p]" />
+							    <input type="radio" value="PM" id="tournament_rounds_<%= n %>_start_date_p_pm" name="tournament[rounds][][start_time_p]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i >= 12 %>/>
 							    <label for="tournament_rounds_<%= n %>_start_date_p_pm">PM
 							    <input type="hidden" name="tournament[rounds][][number]" value="<%= n %>" />
 							  </td>
