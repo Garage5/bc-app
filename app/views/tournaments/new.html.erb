@@ -5,6 +5,34 @@
 <% title "New Tournament" %>
 
 <script type="text/javascript" charset="utf-8">
+  function updateRounds() {
+    r = Math.log(parseInt($('#tournament_slot_count').val()))/Math.log(2);
+    for(i = 0; i < 5; i++) {
+      row = $('#round_'+(i+1)+'_canvas');
+      if (i < r)
+        row.show();
+      else
+        row.hide();
+    }
+  }
+  
+  function updateCalendar() {
+    args = [];
+    args.push({name: 'field', value: $(this).attr('id').replace('tournament_', '')});
+    args.push({name: 'registration_start_date', value: $('#tournament_registration_start_date').val()});
+    args.push({name: 'registration_end_date', value: $('#tournament_registration_end_date').val()});
+    for(i = 0; i < Math.log(parseInt($('#tournament_slot_count').val()))/Math.log(2); i++)
+      args.push({name: 'rounds_'+i+'_start_date', value: $('#tournament_rounds_'+i+'_start_date').val()});
+    jQuery.ajax({
+      success:function(request){
+        jQuery('#calendar_canvas').html(request);
+      },
+      type:'get',
+      data: args,
+      url:'<%= calendar_tournaments_path %>'
+    });
+  }
+  
   $(document).ready(function(){
     
     $('input#tournament_name').keyup(function(e){
@@ -15,6 +43,10 @@
       event.preventDefault()
       window.location.search = 't=' + $('#template_id').val()
     })
+    
+    $('.date input').mask("99/99/9999",{completed: updateCalendar})
+    $('.time').find('input:eq(0)').mask('99/99/9999', {completed: updateCalendar})
+    $('.time').find('input:eq(1)').mask('99:99')
   })
 </script>
 
@@ -85,7 +117,7 @@
 					<%= f.text_field :players_per_team %> <%= f.label :players_per_team, "How many players per team?" %>
 				</div>
 				
-				<div class="block"><%= f.select :slot_count, [4, 8, 16, 32] %> <%= f.label :slot_count, "Maximum Slots" %></div>
+				<div class="block"><%= f.select :slot_count, [4, 8, 16, 32], {}, :onchange => 'updateRounds();' %> <%= f.label :slot_count, "Maximum Slots" %></div>
 			</div><!-- / bd -->
 			</div><!-- / pod -->
 		<!-- / Step 3 -->
@@ -130,34 +162,29 @@
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
-							<td class="date"><%= f.date_select :registration_start_date, :order => [:month, :day, :year] %></td>
+							<td class="date"><%= f.text_field :registration_start_date, :value => @tournament.registration_start_date.try(:strftime, "%d/%m/%Y") %></td>
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
-							<td class="date"><%= f.date_select :registration_end_date, :order => [:month, :day, :year] %></td>
+							<td class="date"><%= f.text_field :registration_end_date, :value => @tournament.registration_end_date.try(:strftime, "%d/%m/%Y") %></td>
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
-						<tr>
-							<th>Round #1 Start Time:</th>
-							<td class="time">
-								<select><option selected="selected" value="8">August</option></select>
-								<select><option selected="selected" value="4">4</option></select>
-								<select><option selected="selected" value="2009">2009</option></select>
-								<select><option>12</option></select> : <select><option>30</option></select> <select><option>pm</option></select>
-							</td>
-							<td class="edit"><a href="">Edit</a></td>
-						</tr>
-						<tr>
-							<th>Round #2 Start Time:</th>
-							<td class="time">
-								<select><option selected="selected" value="8">August</option></select>
-								<select><option selected="selected" value="4">4</option></select>
-								<select><option selected="selected" value="2009">2009</option></select>
-								<select><option>12</option></select> : <select><option>30</option></select> <select><option>pm</option></select>
-							</td>
-							<td class="edit"><a href="">Edit</a></td>
-						</tr>
+						<% 0.upto(4) do |n| %>
+						  <tr class="time" id="round_<%= n+1 %>_canvas" <%= "style='display: none;'" if n > 1 && (!@tournament.slot_count || n > (Math.log(@tournament.slot_count)/Math.log(2))) %>>
+							  <th>Round #<%= n+1 %> Start Time:</th>
+							  <td class="time">
+							    <input type="text" name="tournament[rounds][][start_date]" id="tournament_rounds_<%= n %>_start_date" value="<%= @tournament.rounds[n].start_date.try(:strftime, '%d/%m/%Y') if @tournament.rounds[n] %>" />
+							    <input type="text" name="tournament[rounds][][start_time]" value="<%= @tournament.rounds[n].start_time.try(:strftime, '%I:%M') if @tournament.rounds[n] %>" />
+							    <input type="radio" value="AM" id="tournament_rounds_<%= n %>_start_date_p_am" name="tournament[rounds][][start_time_p]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i < 12 %>/>
+							    <label for="tournament_rounds_<%= n %>_start_date_p_am">AM
+							    <input type="radio" value="PM" id="tournament_rounds_<%= n %>_start_date_p_pm" name="tournament[rounds][][start_time_p]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i >= 12 %>/>
+							    <label for="tournament_rounds_<%= n %>_start_date_p_pm">PM
+							    <input type="hidden" name="tournament[rounds][][number]" value="<%= n %>" />
+							  </td>
+							  <td class="edit"><a href="">Edit</a></td>
+						  </tr>
+					  <% end %>
 					</table>
 			  </div><!-- / tournament_dates -->
 			</div><!-- / clear -->

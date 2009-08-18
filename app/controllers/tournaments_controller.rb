@@ -4,7 +4,25 @@ class TournamentsController < ApplicationController
   before_filter :login_required, :except => [:index, :show, :brackets, :participants, :rules, :calendar]
   
   def calendar
-    render(:partial => 'layouts/calendar', :locals => {:show_date => Date.new(params[:year].to_i, params[:month].to_i, 1)})
+    args = {}
+    if params[:year]
+      args[:show_date] = Date.new(params[:year].to_i, params[:month].to_i, 1)
+    else
+      r = []
+      0.upto(4) { |n| r << "rounds_#{n}_start_date" }
+      r += %w(registration_start_date registration_end_date)
+      r.each do |field|
+        begin
+          d = params[field].split('/')
+          args[field.to_sym] = Date.new(d[2].to_i, d[1].to_i, d[0].to_i)
+        rescue
+          # invalid/empty dates are ignored
+        end
+      end
+      args[:show_date] = args[params[:field].to_sym]
+      logger.debug(args.inspect)
+    end
+    render(:partial => 'layouts/calendar', :locals => args)
   end
   
   def index
@@ -37,6 +55,8 @@ class TournamentsController < ApplicationController
   end
   
   def create
+    render :text => 'm'
+    return false
     @tournament = @instance.tournaments.build(params[:tournament])
     if @tournament.save
       flash[:notice] = "Successfully created tournament."

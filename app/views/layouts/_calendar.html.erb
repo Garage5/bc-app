@@ -32,15 +32,21 @@
 	      <tr class="weekdays">
 		      <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
 	      </tr>
-        <% cal_start.upto(cal_end) do |day| %>
-          <% d_class = [] %>
-          <% d_class << 'other' if day.month != show_date.month %>
-          <% d_class << 'weekend' if [0, 6].include?(day.wday) %>
-          <% d_class << 'today' if day == Date.today %>
-          <% if day.wday == 0 %><tr class="days"><% end %>
+        <%- cal_start.upto(cal_end) do |day| -%>
+          <%-
+            d_class = []
+            d_class << 'other' if day.month != show_date.month
+            d_class << 'weekend' if [0, 6].include?(day.wday)
+            d_class << 'today' if day == Date.today
+            %w(registration_start_date registration_end_date).each do |field|
+              eval("#{field} ||= nil")
+              d_class << field if eval(field) && day == eval(field)
+            end
+          -%>
+          <%- if day.wday == 0 %><tr class="days"><% end -%>
           <td class="<%= d_class.join(' ') %>" date="<%= day.strftime('%Y-%m-%d') %>"><a href="#"><%= day.day %></a></td>
-          <% if day.wday == 7 %><tr class="days"><% end %>
-        <% end %>
+          <%- if day.wday == 7 %><tr class="days"><% end -%>
+        <%- end -%>
 	      </tbody>
       </table>
       </tbody>

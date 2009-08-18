@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20090818005812) do
     t.integer  "host_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "subdomain",         :null => false
+    t.string   "domain",            :null => false
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
@@ -133,7 +135,7 @@ ActiveRecord::Schema.define(:version => 20090818005812) do
     t.string   "third_place_prize",       :default => "",    :null => false
     t.integer  "entry_fee",               :default => 0
     t.text     "other_prizes"
-    t.boolean  "is_template",             :default => false
+    t.boolean  "is_template"
     t.integer  "instance_id"
     t.boolean  "started",                 :default => false
     t.datetime "created_at"
