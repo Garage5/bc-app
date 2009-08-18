@@ -7,6 +7,11 @@ $(document).ready(function(){
   
   // convert dates to relative
   $(".date").timeago()
+  
+  // 'examplify' form fields
+  $('input[title], textarea[title]').example(function() {
+    return $(this).attr('title');
+  });
 })
 
 $.metadata.setType('attr', 'rel');
