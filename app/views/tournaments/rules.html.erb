@@ -12,8 +12,13 @@
 			<h2>Tournament Information</h2>
 		</div>
 	<div class="bd clear tournament-rules">
-		<h2>General Information</h2>
-    <%=simple_format @tournament.rules %>
+		<div class="group">
+			<h2>General Information</h2>
+    	<%=simple_format @tournament.rules %>
+		</div><!-- // group -->
+		
+		<h2>Other Prizes</h2>
+		<p>Stuff</p>
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	</div><!-- / col -->
