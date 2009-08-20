@@ -28,10 +28,13 @@ class Tournament < ActiveRecord::Base
            :conditions => ['state = ?', 'active'], :source => :participant
   
   
-  validates_presence_of :name, :game, :rules, :slot_count, :registration_start_date,
-    :registration_end_date, :instance_id
+  validates_presence_of :name, :game, :rules, :slot_count, :instance_id
+  
+  validates_date :registration_start_date, :after => Date.today-1
+  validates_date :registration_end_date, :after => :registration_start_date
 
   validates_numericality_of :entry_fee
+  
 
   def start
     if self.started?
