@@ -21,14 +21,14 @@ class CreateTournaments < ActiveRecord::Migration
       t.timestamps
     end
     
-    Tournament.create(
+    t = Tournament.create(
       :instance_id => 1,
       :name => 'Awesomeness', 
       :game => 'Starcraft 2',
       :slot_count => 8,
       :rules => 'Do not talk about fight club.',
       :registration_start_date => Time.now - 100,
-      :registration_end_date => Time.now + 100
+      :registration_end_date => 30.days.from_now
       )
   end
 
