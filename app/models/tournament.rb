@@ -7,6 +7,7 @@ class Tournament < ActiveRecord::Base
   has_many    :attachments, :class_name => '::Attachment'
   
   has_many :rounds
+  accepts_nested_attributes_for :rounds
   has_many :matches
   has_many :events, :order => 'created_at DESC'
   has_many :comments

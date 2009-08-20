@@ -13,8 +13,8 @@ class TournamentsController < ApplicationController
       r += %w(registration_start_date registration_end_date)
       r.each do |field|
         begin
-          d = params[field].split('/')
-          args[field.to_sym] = Date.new(d[2].to_i, d[1].to_i, d[0].to_i)
+          d = params[field].split('-')
+          args[field.to_sym] = Date.new(d[0].to_i, d[1].to_i, d[2].to_i)
         rescue
           # invalid/empty dates are ignored
         end
@@ -55,8 +55,9 @@ class TournamentsController < ApplicationController
   end
   
   def create
-    render :text => 'm'
-    return false
+    # temporarily clear out the Round data until it's settled
+    params[:tournament].delete(:rounds_attributes)
+    
     @tournament = @instance.tournaments.build(params[:tournament])
     if @tournament.save
       flash[:notice] = "Successfully created tournament."

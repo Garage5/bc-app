@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(:version => 20090818005812) do
     t.string   "commentable_type"
     t.integer  "commentable_id"
     t.integer  "author_id"
-    t.integer  "tournament_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

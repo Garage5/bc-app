@@ -16,13 +16,63 @@
     }
   }
   
+  // convert a Rails Date set of fields into a yyyy-mm-dd date string
+  // object is a string representation of the model
+  // 'field' here is the model attribute name
+  function getDateFieldValue(obj, field) {
+    year = parseInt($('input[name="'+obj+'['+field+'(1i)]"]').val());
+    month = parseInt($('input[name="'+obj+'['+field+'(2i)]"]').val());
+    day = parseInt($('input[name="'+obj+'['+field+'(3i)]"]').val());
+    date = year+"-"+month+"-"+day;
+    if (date.match(RegExp(/^\d{4}\-\d{1,2}\-\d{1,2}$/)))
+      return date;
+    else
+      return false;
+  }
+  
+  upCal = false;
+  upCalField = false;
   function updateCalendar() {
+    clearTimeout(upCal);
+    upCalField = $(this);
+    setTimeout('realUpdateCalendar()', 2000);
+  }
+  
+  function realUpdateCalendar() {
     args = [];
-    args.push({name: 'field', value: $(this).attr('id').replace('tournament_', '')});
-    args.push({name: 'registration_start_date', value: $('#tournament_registration_start_date').val()});
-    args.push({name: 'registration_end_date', value: $('#tournament_registration_end_date').val()});
+    field = null;
+    f = upCalField;
+    switch(f.attr('id').replace('tournament_registration_', '')) {
+      case 'start_date_year':
+      case 'start_date_month':
+      case 'start_date_day':
+        field = 'registration_start_date'; break;
+      case 'end_date_year':
+      case 'end_date_month':
+      case 'end_date_day':
+        field = 'registration_end_date'; break;
+    }
+    for(i = 0; i < 5 ; i++) {
+      switch(f.attr('id').replace('tournament_rounds_', '')) {
+        case i+'_start_date_year':
+        case i+'_start_date_month':
+        case i+'_start_date_day':
+          field = 'rounds_'+i+'_start_date'; break;
+      }
+    }
+    if(field == 'registration_start_date' && !getDateFieldValue('tournament', 'registration_start_date'))
+      return false;
+    if(field == 'registration_end_date' && !getDateFieldValue('tournament', 'registration_end_date'))
+      return false;
+    for(i = 0; i < Math.log(parseInt($('#tournament_slot_count').val()))/Math.log(2); i++) {
+      if(field == 'registration_end_date' && !getDateFieldValue('tournament[rounds_attributes]['+i+']', 'start_date'))
+        return false;
+    }
+    args.push({name: 'field', value: field});
+    args.push({name: 'registration_start_date', value: getDateFieldValue('tournament', 'registration_start_date')});
+    args.push({name: 'registration_end_date', value: getDateFieldValue('tournament', 'registration_end_date')});
     for(i = 0; i < Math.log(parseInt($('#tournament_slot_count').val()))/Math.log(2); i++)
-      args.push({name: 'rounds_'+i+'_start_date', value: $('#tournament_rounds_'+i+'_start_date').val()});
+      args.push({name: 'rounds_'+i+'_start_date', value: getDateFieldValue('tournament[rounds_attributes]['+i+']', 'start_date')});
     jQuery.ajax({
       success:function(request){
         jQuery('#calendar_canvas').html(request);
@@ -44,9 +94,10 @@
       window.location.search = 't=' + $('#template_id').val()
     })
     
-    $('.date input').mask("99/99/9999",{completed: updateCalendar})
-    $('.time').find('input:eq(0)').mask('99/99/9999', {completed: updateCalendar})
-    $('.time').find('input:eq(1)').mask('99:99')
+    $("td.date input[type='text']").bind('keyup', updateCalendar);
+    $("td.time input[type='text']").change(updateCalendar);
+    
+    updateRounds();
   })
 </script>
 
@@ -153,7 +204,7 @@
 			<p class="note yellow_note">Consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue.<a class="note-close" href="">X</a></p>
 			<div class="clear">
 		    <div id="calendar_canvas">
-      		<%= render :partial => 'layouts/calendar' %>
+      		<%= render :partial => 'layouts/calendar', :locals => {:show_date => @tournament.registration_start_date} %>
         </div>
 				
 				<div class="tournament_dates">
@@ -165,25 +216,36 @@
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
-							<td class="date"><%= f.text_field :registration_start_date, :value => @tournament.registration_start_date.try(:strftime, "%d/%m/%Y") %></td>
+							<td class="date">
+							  <input type="text" class="date_month" name="tournament[registration_start_date(2i)]" id="tournament_registration_start_date_month" title="mm" maxlength="2" value="<%= @tournament.registration_start_date.try(:month) %>" />
+							  / <input type="text" class="date_day" name="tournament[registration_start_date(3i)]" id="tournament_registration_start_date_day" title="dd" maxlength="2" value="<%= @tournament.registration_start_date.try(:day) %>" />
+							  / <input type="text"  class="date_year"name="tournament[registration_start_date(1i)]" id="tournament_registration_start_date_year" title="yyyy" maxlength="4" value="<%= @tournament.registration_start_date.try(:year) %>" />
+							</td>
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
-							<td class="date"><%= f.text_field :registration_end_date, :value => @tournament.registration_end_date.try(:strftime, "%d/%m/%Y") %></td>
+							<td class="date">
+							  <input type="text" class="date_month" name="tournament[registration_end_date(2i)]" id="tournament_registration_end_date_month" title="mm" maxlength="2" value="<%= @tournament.registration_end_date.try(:month) %>" />
+							  / <input type="text" class="date_day" name="tournament[registration_end_date(3i)]" id="tournament_registration_end_date_day" title="dd" maxlength="2" value="<%= @tournament.registration_end_date.try(:day) %>" />
+							  / <input type="text"  class="date_year"name="tournament[registration_end_date(1i)]" id="tournament_registration_end_date_year" title="yyyy" maxlength="4" value="<%= @tournament.registration_end_date.try(:year) %>" />
+							</td>
 							<td class="edit"><a href="">Edit</a></td>
 						</tr>
 						<% 0.upto(4) do |n| %>
-						  <tr class="time" id="round_<%= n+1 %>_canvas" <%= "style='display: none;'" if n > 1 && (!@tournament.slot_count || n > (Math.log(@tournament.slot_count)/Math.log(2))) %>>
+						  <tr class="time" id="round_<%= n+1 %>_canvas" style="display: none;">
 							  <th>Round #<%= n+1 %> Start Time:</th>
 							  <td class="time">
-							    <input type="text" name="tournament[rounds][][start_date]" id="tournament_rounds_<%= n %>_start_date" value="<%= @tournament.rounds[n].start_date.try(:strftime, '%d/%m/%Y') if @tournament.rounds[n] %>" />
-							    <input type="text" name="tournament[rounds][][start_time]" value="<%= @tournament.rounds[n].start_time.try(:strftime, '%I:%M') if @tournament.rounds[n] %>" />
-							    <input type="radio" value="AM" id="tournament_rounds_<%= n %>_start_date_p_am" name="tournament[rounds][][start_time_p]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i < 12 %>/>
+							    <input type="text" class="date_month" name="tournament[rounds_attributes][<%= n %>][start_date(2i)]" id="tournament_rounds_<%= n %>_start_date_month" title="mm" maxlength="2" value="<%= @tournament.rounds[n].start_date.try(:month) if @tournament.rounds[n] %>" />
+							    / <input type="text" class="date_day" name="tournament[rounds_attributes][<%= n %>][start_date(3i)]" id="tournament_rounds_<%= n %>_start_date_day" title="dd" maxlength="2" value="<%= @tournament.rounds[n].start_date.try(:day) if @tournament.rounds[n] %>" />
+							    / <input type="text" class="date_year" name="tournament[rounds_attributes][<%= n %>][start_date(1i)]" id="tournament_rounds_<%= n %>_start_date_year" title="yyyy" maxlength="4" value="<%= @tournament.rounds[n].start_date.try(:year) if @tournament.rounds[n] %>" />
+							    - <input type="text" class="date_hour" name="tournament[rounds_attributes][<%= n %>][start_date(4i)]" id="tournament_rounds_<%= n %>_start_date_hour" title="hh" maxlength="2" />
+							    : <input type="text" class="date_minutes" name="tournament[rounds_attributes][<%= n %>][start_date(5i)]" id="tournament_rounds_<%= n %>_start_date_minutes" title="mm" maxlength="2" />
+							    <input type="radio" value="AM" id="tournament_rounds_<%= n %>_start_date_p_am" name="tournament[rounds_attributes][<%= n %>][start_date(6i)]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i < 12 %>/>
 							    <label for="tournament_rounds_<%= n %>_start_date_p_am">AM
-							    <input type="radio" value="PM" id="tournament_rounds_<%= n %>_start_date_p_pm" name="tournament[rounds][][start_time_p]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i >= 12 %>/>
+							    <input type="radio" value="PM" id="tournament_rounds_<%= n %>_start_date_p_pm" name="tournament[rounds_attributes][<%= n %>][start_date(6i)]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i >= 12 %>/>
 							    <label for="tournament_rounds_<%= n %>_start_date_p_pm">PM
-							    <input type="hidden" name="tournament[rounds][][number]" value="<%= n %>" />
+							    <input type="hidden" name="tournament[rounds_attributes][<%= n %>][number]" value="<%= n %>" />
 							  </td>
 							  <td class="edit"><a href="">Edit</a></td>
 						  </tr>
