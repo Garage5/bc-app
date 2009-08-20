@@ -138,7 +138,4 @@ jQuery.fn.modal = function(options){
 
 $(document).ready(function(){
   $('a[rel^="modal"]').modal({overlayOpacity: 0.3})
-	$("a[rel^='modal'] span").click(function(){
-		$(this).parent('a[rel^="modal"]').click()
-	})
 })

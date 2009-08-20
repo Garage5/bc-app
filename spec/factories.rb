@@ -1,6 +1,7 @@
 Factory.define :user do |u|
   u.sequence(:login) {|n| "user-#{n}"}
   u.sequence(:email) {|n| "user-#{n}@example.com"}
+  u.sequence(:name) {|n| "name-#{n}"}
   u.password 'pass'
   u.password_confirmation 'pass'
 end
@@ -8,6 +9,8 @@ end
 Factory.define :instance do |i|
   i.name        'Starfeeder'
   i.association :host_id, :factory => :user
+  i.sequence(:subdomain) {|n| "subdomain-#{n}"}
+  i.domain 'tbblive.com'
 end
 
 Factory.define :tournament do |t|

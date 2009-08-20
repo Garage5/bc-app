@@ -14,7 +14,7 @@ class Comment < ActiveRecord::Base
       :target_id     => e.id,
       :target_type   => e.class.to_s,
       :event_type    => 'comment',
-      :message       => 're: ' + e.commentable.subject,
+      :message       => 'RE: ' + e.commentable.subject,
       :action        => 'posted',
       :actor         => e.author.login
     )

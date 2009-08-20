@@ -10,29 +10,46 @@ describe Match do
     @tournament.start
   end
   
-  it "should get the position of child match" do
-    match = @tournament.rounds.first.matches[1].find_child_match_position.should == 1
+  it "should get next match" do
+    match = @tournament.rounds.first.matches[1]
+    match.next.should == @tournament.rounds[2].matches[1]
   end
   
   it "should advance 1st player of 2nd match to 2nd slot in 1st match in the next round" do
     match = @tournament.rounds.first.matches[1]
-    match.advance(:player_one)
-    @tournament.rounds[1].matches.first.player_two.should == match.player_one
+    match.slot(0).advance!
+    match.next.slot_two.should == match.slot_one
   end
   
-  it "should advance 2st player of 3nd match to 1nd slot in 2st match in the next round" do
+  it "should advance 2nd player of 3nd match to 1nd slot in 2nd match in the next round" do
     match = @tournament.rounds.first.matches[2]
-    match.advance(:player_two)
-    @tournament.rounds[1].matches[1].player_one.should == match.player_two
+    match.slot(1).advance!
+    match.next.slot_one.should == match.slot_two
   end
   
   it "should advance winner to next round when both players are in agreement" do
     @tournament.start
     match = @tournament.rounds.first.matches.first
-    match.submit_results(:player_one, :won)
-    match.submit_results(:player_two, :lost)
-    match.winner.should == match.player_one
-    match.child_match_in_next_round.player_one.should == match.player_one
+    match.slot(0).won!
+    match.slot(1).lost!
+    match.winner.should == match.slot(0)
+    match.next.slot(0).should == match.slot(1)
+  end
+  
+  it "should disqualify a slot"
+  
+  it "should advance opponent when slot is disqualified"
+  
+  it "should revert a slot to previous match"
+  
+  it "should nullify winner of previews match when slot is reverted"
+  
+  describe Slot do
+    
+    it "should be a team if tournament is team based"
+    
+    it "should be a player if tournament is not team based"
+    
   end
 
 end
