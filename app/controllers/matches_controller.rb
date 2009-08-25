@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
   before_filter :must_be_participant, :only => :submit_result
   
   def show
-    @match = Match.find(params[:id], :include => {:comments => [:author, :attachments]})
+    @match = Match.find(params[:id], :include => [{:comments => [:author, :attachments]}])
   end
   
   def update

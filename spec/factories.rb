@@ -9,8 +9,8 @@ end
 Factory.define :instance do |i|
   i.name        'Starfeeder'
   i.association :host_id, :factory => :user
-  i.sequence(:subdomain) {|n| "subdomain-#{n}"}
-  i.domain 'tbblive.com'
+  # i.sequence(:subdomain) {|n| "subdomain-#{n}"}
+  # i.domain 'tbblive.com'
 end
 
 Factory.define :tournament do |t|

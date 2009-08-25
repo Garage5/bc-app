@@ -1,7 +1,0 @@
-one:
-  instance_id: 1
-  data: MyText
-
-two:
-  instance_id: 1
-  data: MyText

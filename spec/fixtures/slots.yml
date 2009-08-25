@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  opponentable_type: MyString
+  opponentable_id: 1
+
+two:
+  opponentable_type: MyString
+  opponentable_id: 1

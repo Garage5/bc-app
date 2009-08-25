@@ -34,7 +34,7 @@ class TournamentsController < ApplicationController
   end
   
   def brackets
-    @rounds = Round.all(:conditions => {:tournament_id => @tournament.id}, :include => {:matches => [:player_one, :player_two]})
+    @rounds = Round.all(:conditions => {:tournament_id => @tournament.id}, :include => {:matches => {:slots => :player}})
   end
   
   def participants

@@ -30,6 +30,7 @@ Rails::Initializer.run do |config|
   
   require 'array'
   require 'ostruct'
+  OpenStruct.__send__(:define_method, :id) { @table[:id] || self.object_id }
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
