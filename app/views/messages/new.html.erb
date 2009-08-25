@@ -5,6 +5,13 @@
   <%= render :partial => 'layouts/sub_nav', :locals => {:active => 'messages'} %>
 <% end -%>
 
+<script type="text/javascript">
+  $(function() {
+    $('input#select_all').click(function(e) {
+      $('input.subscriber').attr('checked', $(e.target).attr('checked'));
+    });
+  });
+</script>
 <div id="maincol">
 	<div class="col">
 	<div class="pod">
@@ -41,8 +48,16 @@
 			
 			<label><strong>Subscribe the following users to receive email notifications:</strong></label>
 			<ul>
+			  <li><input type="checkbox" id="select_all" /><label for="select_all" class="checkbox">Select All</label></li>
+			</ul>
+			<ul>
+			  <% ([@tournament.instance.host] + @tournament.cohosts).each do |participant| %>
+  				<li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
+			  <% end %>
+			</ul>
+			<ul>
 			  <% @tournament.participants.each do |participant| %>
-  				<li><input type="checkbox" size="40" name="message[user_ids][]" id="message_user_ids_<%= participant.id %>" <%= 'checked="checked"' if @message %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
+  				<li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
 			  <% end %>
 			</ul>
 		</div><!-- / darkpod -->

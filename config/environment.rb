@@ -51,6 +51,7 @@ Rails::Initializer.run do |config|
   begin
     require 'tlsmail'
     Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+	
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.perform_deliveries = true
     config.action_mailer.delivery_method = :smtp
@@ -58,6 +59,7 @@ Rails::Initializer.run do |config|
       :address => 'smtp.gmail.com', 
       :port => 587, 
       :tls => true, 
+      :enable_starttls_auto => true,
       :domain => 'thebattlebegins.com', 
       :authentication => :plain, 
       :user_name => 'no-reply@thebattlebegins.com', 
