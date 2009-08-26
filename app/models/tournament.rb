@@ -15,8 +15,7 @@ class Tournament < ActiveRecord::Base
   has_many :teams, :dependent => :destroy
   
   has_many :participations, :dependent => :destroy
-  has_many :participants , :through => :participations,
-           :conditions => "state IN ('pending', 'active')"
+  has_many :participants , :through => :participations
 
   has_many :cohosts , :through => :participations,
            :conditions => ['state = ?', 'cohost'], :source => :participant
@@ -27,6 +26,10 @@ class Tournament < ActiveRecord::Base
   has_many :active_participants, :through => :participations, 
            :conditions => ['state = ?', 'active'], :source => :participant
   
+  
+  def officials
+    [self.instance.host] + self.cohosts
+  end
   
   validates_presence_of :name, :game, :rules, :slot_count, :instance_id
   

@@ -4,8 +4,10 @@ class ParticipationsController < ApplicationController
   before_filter :must_be_host, :except => [:index, :create, :deny]
   
   def index
-    @pending_participants = @tournament.pending_participants
-    @active_participants = @tournament.active_participants
+    @officials = [@tournament.instance.host] + @tournament.cohosts
+    @pending = @tournament.pending_participants
+    @active = @tournament.active_participants
+    @teams = @tournament.teams if @tournament.use_teams?
   end
   
   def add_cohost

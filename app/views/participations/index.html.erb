@@ -26,81 +26,94 @@
     </div>
   <% end %>
   
-	<% 
-	grouped = {}
-	# officials
-	grouped['Officials'] = [@tournament.instance.host] + @tournament.cohosts
-	# without a team
-  p = grouped['Participants'] = []
-  p2 = grouped['Pending Approval'] = []
-  for participation in @tournament.participations.all(:include => [:participant, :team_memberships])
-    if (participation.team_memberships.reject{|m| m.state == 'pending'}).empty?
-      if participation.state == 'pending'
-        p2 << participation.participant
-      elsif participation.state == 'active'
-        p << participation.participant
-      end
-    end
-  end
-  # with a team
-  teams = {}
-  @tournament.teams.each do |team|
-    p = grouped[team.name] = []
-    teams[team.name] = team
-    for participation in @tournament.participations.all(:include => [:participant, :team_memberships])
-      p << participation.participant if participation.state == 'active' && !(participation.team_memberships.reject{|m| m.team_id != team.id || m.state == 'pending'}).empty?
-    end
-  end
-	keys = ['Officials', 'Participants'] + grouped.keys.reject{|k| ['Officials', 'Participants', 'Pending Approval'].include?(k)}.sort + ['Pending Approval']
-	
-  keys.each do |group_name|
-    group_members = grouped[group_name]
-	  next if group_members.empty?
-	  team = teams[group_name]
-	%>
-	  <div class="pod tab-pod">
-		  <div class="hd">
-			  <h2><%= group_name %></h2>
-			  <% if group_name == 'Officials' %>
-		      <% if current_user && current_user == @tournament.instance.host %>
-		        <ul class="tabbed clear">
-			        <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
-		        </ul>
-		      <% end %>
-			  <% elsif group_name == 'Participants' %>
-		      <% if current_user && current_user.is_participant_of?(@tournament) && current_user.teams_in(@tournament).empty? && @tournament.use_teams? %>
-            <ul class="tabbed clear">
-	            <li class="create_team active"><a class="rc" href="#create_team" rel="modal">Create a Team</a></li>
-            </ul>
-          <% end %>
-        <% elsif group_name == 'Pending Approval' %>
-			  <% else # all the teams %>
-		      <% if current_user && current_user.is_participant_of?(@tournament) && !current_user.teams_in(@tournament).empty? && current_user == team.captain %>
-	          <ul class="tabbed clear">
-		          <li class="edit_team active"><a class="rc" href="#create_team" rel="modal">Edit Team</a></li>
-		          <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, team) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
-	          </ul>
-		      <% end %>
-			  <% end %>
-		  </div>
-	    <div class="bd clear player_list">
-	      <ul class="clear" id="list_<%= group_name.underscore %>">
-	        <% group_members.each do |participant| %>
-            <%= render(:partial => 'participant', :locals => {:participant => participant, :team => participant.teams_in(@tournament)[0]}) %>
-	        <% end %>
-		    </ul>
-		    <% if group_name == 'Pending Approval' %>
-					<% if current_user && current_user == @tournament.instance.host %>
-          	<div class="pending_approval_btns btn_wrapper">
-          	  <button class="btn" id="approve"><span class="icon"></span><span>Approve Selected</span></button>
-          	  <button class="btn" id="decline"><span class="icon"></span><span>Decline Selected</span></button>
-          	  <% # <a href="#deny_participation" class="btn" id="deny" rel="modal">Decline Selected</a> %>
-          	</div>
-					<% end %>
+  <!-- OFFICIALS -->
+  <div class="pod tab-pod">
+	  <div class="hd">
+	    <h2>Officials</h2>
+	    <ul class="tabbed clear">
+        <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
+      </ul>
+	  </div>
+	  <div class="bd clear player_list">
+	    <ul class="clear" id="list_officialts">
+        <% @officials.each do |participant| %>
+          <%= render(:partial => 'participant', :locals => {:participant => participant}) %>
         <% end %>
-	    </div><!-- / bd -->
-	  </div><!-- / pod -->
+	    </ul>
+	  </div>
+	</div>
+  
+  <!-- TEAMS -->
+  <% if @tournament.use_teams? %>
+  <div class="pod tab-pod">
+	  <div class="hd">
+	    <h2>Teams</h2>
+      <% if current_user && current_user.is_participant_of?(@tournament) %>
+      <ul class="tabbed clear">
+        <li class="create_team active"><a class="rc" href="#create_team" rel="modal">Create a Team</a></li>
+      </ul>
+      <% end %>
+	  </div>
+	  <div class="bd clear player_list">
+      <% @teams.each do |team| %>
+      <div class="team">
+        <h3><%= team.name %></h3>
+        <ul>
+          <% for member in team.members %>
+          <li>
+            <%= image_tag member.avatar.url(:small) %>
+            <%= link_to member.login, user_path(member) %>
+          </li>
+          <% end %>
+        </ul>
+        
+        <% if current_user && current_user == team.captain %>
+          <ul class="tabbed clear">
+	          <li class="edit_team active"><a class="rc" href="#create_team" rel="modal">Edit Team</a></li>
+	          <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, team) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
+          </ul>
+	      <% end %>
+	      
+      </div>
+      <% end %>
+	  </div>
+	</div>
 	<% end %>
+  
+  <!-- PARTICIPANTS -->
+  <div class="pod tab-pod">
+	  <div class="hd">
+	    <h2>Participants</h2>
+	  </div>
+	  <div class="bd clear player_list">
+	    <ul class="clear" id="list_officialts">
+        <% @active.each do |participant| %>
+          <%= render(:partial => 'participant', :locals => {:participant => participant}) %>
+        <% end %>
+	    </ul>
+	  </div>
+	</div>
+  
+  <!-- PENDING -->
+  <% if current_user && current_user.is_hosting?(@tournament) && !@pending.blank? %>
+  <div class="pod tab-pod">
+	  <div class="hd">
+	    <h2>Pending Approval</h2>
+	  </div>
+	  <div class="bd clear player_list">
+	    <ul class="clear" id="list_officialts">
+        <% @pending.each do |participant| %>
+          <%= render(:partial => 'participant', :locals => {:participant => participant, :show_checkbox => true}) %>
+        <% end %>
+	    </ul>
+    	<div class="pending_approval_btns btn_wrapper">
+    	  <button class="btn" id="approve"><span class="icon"></span><span>Approve Selected</span></button>
+    	  <button class="btn" id="decline"><span class="icon"></span><span>Decline Selected</span></button>
+    	</div>
+	  </div>
+	</div>
+	<% end %>
+  
 	
 	<script type="text/javascript" charset="utf-8">
 	  $(document).ready(function(){

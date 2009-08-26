@@ -26,7 +26,13 @@ describe Participation do
       @tournament.cohosts.should == [@user]
     end
     
-    it "should not be able to participate in a tournament he/she is hosting"
+    it "#officials should get  tournament host + cohosts" do
+      @user.cohost_tournament(@tournament)
+      @tournament.officials.should == [@tournament.instance.host, @user]
+    end
+    
+    it "#"
+    
   end
 
 end
