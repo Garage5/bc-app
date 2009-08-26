@@ -31,6 +31,9 @@ class MessagesController < ApplicationController
       end
       @message.author = current_user
       if @message.save
+        @message.subscribers.each do |subscriber|
+          Mailer.deliver_message_subscription(@message, subscriber)
+        end
         flash[:notice] = "Successfully created message."
         redirect_to [@tournament, @message]
       else
