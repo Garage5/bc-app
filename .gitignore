@@ -4,3 +4,4 @@
 *.sqlite3
 tmp/restart.txt
 config/database.yml
+*.sw
