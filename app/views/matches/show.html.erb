@@ -26,22 +26,22 @@
 		<div class="clear" id="match_wrapper">
 			
 			<div id="home_player">
-				<%= image_tag @match.player_one.avatar.url(:large) %>
-				<strong><%= @match.player_one.login %></strong>
+				<%= image_tag @match.players[0].avatar.url(:large) %>
+				<strong><%= @match.players[0].login %></strong>
 			</div>
 
 			<div id="match_details">
 				<h2>VS</h2>
 				<h3>Round 1</h3>
 				<h4>6/14/09 12:23PM</h4>
-				<% if @match.is_match_player(current_user) %>
+				<% # if @match.is_match_player(current_user) %>
 				<a href="#match_submit_results" class="btn" rel="modal"><span class="icon"></span><span>Submit Results</span></a>
-				<% end %>
+				<% # end %>
 			</div>
 			
 			<div id="away_player">
-				<%= image_tag @match.player_two.avatar.url(:large) %>
-				<strong><%= @match.player_two.login %></strong>
+				<%= image_tag @match.players[1].avatar.url(:large) %>
+				<strong><%= @match.players[1].login %></strong>
 			</div>
 						
 		</div><!-- / match_wrapper -->

@@ -1,13 +1,14 @@
 class Tournament < ActiveRecord::Base
-  belongs_to  :instance
+  serialize   :places, Hash
+
   
-  belongs_to :host, :class_name => "User", :foreign_key => "host_id"
+  belongs_to  :instance
+  belongs_to  :host, :class_name => "User", :foreign_key => "host_id"
   
   has_many    :messages, :order => 'created_at DESC'
   has_many    :attachments, :class_name => '::Attachment'
   
   has_many :rounds
-  accepts_nested_attributes_for :rounds
   has_many :matches
   has_many :events, :order => 'created_at DESC'
   has_many :comments
@@ -19,12 +20,13 @@ class Tournament < ActiveRecord::Base
 
   has_many :cohosts , :through => :participations,
            :conditions => ['state = ?', 'cohost'], :source => :participant
-  
   has_many :pending_participants, :through => :participations, 
            :conditions => ['state = ?', 'pending'], :source => :participant
-           
   has_many :active_participants, :through => :participations, 
            :conditions => ['state = ?', 'active'], :source => :participant
+  
+  
+  accepts_nested_attributes_for :rounds
   
   
   def officials
@@ -58,15 +60,17 @@ class Tournament < ActiveRecord::Base
       calculate_round_count(self.slot_count).times do |r|
         round_number = r + 1
         round = self.rounds.create(:number => round_number)
-        couples = (participants / 2).collect {|c| c.collect(&:id)} if round_number == 1
+        couples = (participants / 2) if round_number == 1
         calculate_number_of_matches_for_round(round_number).times do |m|
-          match_players = {}
+          opponents = []
           if round_number == 1
             p1 = couples.try(:at, m).try(:at, 0)
             p2 = couples.try(:at, m).try(:at, 1)
-            match_players = {:player_one_id => p1, :player_two_id => p2}
+            opponents = [p1, p2]
           end
-          round.matches.create(match_players)
+          match = round.matches.create(:tournament => self)
+          match.slots.create(:player => opponents[0], :position => 1, :tournament => self)
+          match.slots.create(:player => opponents[1], :position => 2, :tournament => self)
         end
       end  
   

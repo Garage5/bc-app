@@ -1,7 +1,7 @@
 <li class="match <% if match.disputed? %>disputed<% end %> <% if !match.winner.nil? %>winner-p<%= match.winner %><% end %>">
   <ul>
     
-    <%= render :partial => 'player', :locals => {:player => match.player_one, :match => match} %>
+    <%= render :partial => 'player', :locals => {:player => match.slots[0].player, :match => match} %>
 
     
     <li class="comments"><span><a href="<%= tournament_match_path(@tournament, match) %>">
@@ -9,7 +9,7 @@
 			<img src="/images/bracket_attachment.gif"/> 0
     </a></span></li>
     
-    <%= render :partial => 'player', :locals => {:player => match.player_two, :match => match} %>
+    <%= render :partial => 'player', :locals => {:player => match.slots[1].player, :match => match} %>
     
   </ul>
 </li>

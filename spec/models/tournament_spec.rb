@@ -51,13 +51,13 @@ describe Tournament do
   it "should have participants in a match" do
     @tournament.start
     match = @tournament.rounds.first.matches.first
-    match.player_one.should_not be_nil
-    match.player_one.should_not be_nil
+    match.players[0].should_not be_nil
+    match.players[1].should_not be_nil
   end
   
   it "should have different participants in a match" do
     @tournament.start
     match = @tournament.rounds.first.matches.first
-    match.player_one.should_not == match.player_two
+    match.players[0].should_not == match.players[1]
   end
 end
