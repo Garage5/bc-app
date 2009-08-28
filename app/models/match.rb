@@ -5,10 +5,14 @@ class Match < ActiveRecord::Base
   
   has_many :comments, :as => :commentable
 
-  has_many :slots
+  has_many :slots, :order => 'position asc'
   has_many :players, :through => :slots
   
   acts_as_list :scope => :round
+  
+  def has_player?(user)
+    user == self.slots[0].player || self.slots[1].player ? true : false
+  end
   
   def next
     rounded = self.position % 2 == 0 ? self.position : self.position + 2 - (self.position % 2)

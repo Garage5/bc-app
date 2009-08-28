@@ -15,7 +15,7 @@
 		<table id="overview">
 		  <% if !@tournament.events.blank? %>
 		    <% for event in @tournament.events %>
-		      <%= render :partial => "events/#{event.target_type.underscore}", :locals => {:event => event, :tournament => @tournament} %>
+		      <%= render :partial => "events/#{event.event_type.underscore}", :locals => {:event => event, :tournament => @tournament} %>
 		    <% end %>
 		  <% else %>
 		    

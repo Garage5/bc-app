@@ -7,16 +7,18 @@
 <% end -%>
 
 <% content_for :modals do %>
+  <% if @slot %>
 	<div id="match_submit_results" class="modal">
 			<div class="modal_hd">
 				<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
 				<h1>Match Results</h1>
 			</div><!-- / modal_hd -->
 		<div class="modal_inner">
-			<%= link_to '<span class="icon"></span><span>I Won</span>', submit_result_tournament_match_path(@tournament, @match, :result => 'won'), :class => 'btn', :method => :put %>
-			<%= link_to '<span class="icon"></span><span>I Lost</span>', submit_result_tournament_match_path(@tournament, @match, :result => 'lost'), :class => 'btn', :method => :put %>
+			<%= link_to '<span class="icon"></span><span>I Won</span>', [:won, @tournament, @match, @slot], :class => 'btn', :method => :put %>
+			<%= link_to '<span class="icon"></span><span>I Lost</span>', [:lost, @tournament, @match, @slot], :class => 'btn', :method => :put %>
 		</div><!-- / modal_inner -->
 	</div><!-- / modal -->
+	<% end %>
 <% end %>
 
 <div id="maincol">
