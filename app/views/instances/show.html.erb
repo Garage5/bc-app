@@ -21,13 +21,13 @@
   		<h2><%= link_to tournament.name, tournament_path(tournament) %></h2>
   	</div><!-- / hd -->
   	<div class="bd">
-  		<table id="overview">
+      <table id="overview">
+        <%= current_subdomain %>
   		  <% if !tournament.events.blank? %>
   		    <% for event in tournament.events %>
   		      <%= render :partial => "events/#{event.event_type.underscore}", :locals => {:event => event, :tournament => tournament} %>
   		    <% end %>
         <% else %>
-          <%= current_subdomain %>
   		    No Recent Activity
   		  <% end %>
   		  

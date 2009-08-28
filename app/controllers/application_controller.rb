@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     @instance = nil
     if sd != 'www'
       # @instance = Instance.find(:first, :conditions => {:subdomain => sd})
-      @instance = Instance.first
+      @instance = Instance.find_by_name(current_subdomain)
     end
   end
   
