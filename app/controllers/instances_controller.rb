@@ -1,10 +1,12 @@
 class InstancesController < ApplicationController
   before_filter :find_instance, :only => [:show, :settings]
+
   def index
     @instances = Instance.all
   end
   
   def show
+    #@instances = Instance.find_by_name(current_subdomain)
   end
   
   def settings
