@@ -10,8 +10,9 @@
   $(document).ready(function(){
       $('.player:not(:contains("TBD")):not(:contains("Disputed"))').hover(
         function(){
-          box = $("a:contains('" + $(this).text() + "')")
+          box = $("a:contains('" + $(this).find('a.player_link').text() + "')")
           box.addClass('hover')
+          
           
           cog = $(this).find('.manage_player_link')
           cog.css({
@@ -29,7 +30,7 @@
           })    
         }, //end hover in
         function(){
-          $("a:contains('" + $(this).text() + "')").removeClass('hover')
+          $("a.hover").removeClass('hover')
           $(".highlight").remove()
           $('.manage_player_link').hide()
         } //end hover out
@@ -53,7 +54,8 @@
   	  <div id="bracket_window" class="clear">
 	
   	  <% if @tournament.started? %>
-
+  	  
+        <%# ROUND %>
 		  	<% for round in @rounds %>
 	        <ul class="round" id="r<%= round.number %>">
 	          <li class="round_header"><a class="round_info" href="">Round Info</a> <h3>Round <%= round.number %></h3></li>
@@ -61,13 +63,27 @@
 	            <span class="date">6/14/09 12:23PM</span>
 	            <a href="#">change</a>
 	          </li>
-          
+            
+            <%# MATCH %>
 	          <% for match in round.matches %>
-	            <%= render :partial => 'match', :locals => {:match => match} %>
+	            <li class="match <% if match.disputed? %>disputed<% end %> <% if !match.winner.nil? %>winner-p<%= match.winner_position %><% end %>">
+                <ul>
+                  <%= render :partial => 'player', :locals => {:slot => match.slots[0], :match => match} %>
+                  <li class="comments"><span><a href="<%= tournament_match_path(@tournament, match) %>">
+                    <img src="/images/bracket_comment.gif"/> 2 | 
+              			<img src="/images/bracket_attachment.gif"/> 0
+                  </a></span></li>
+                  <%= render :partial => 'player', :locals => {:slot => match.slots[1], :match => match} %>
+                </ul>
+              </li>
 	          <% end %>
+	          <%# END MATCH %>
+	          
 	        </ul>
 		  	<% end %>
-		
+		  	<%# END ROUND %>
+		  	
+		    <%# WINNER OF TOURNAMENT %>
 				<ul class="round final" id="r<%= @rounds.size + 1 %>">
 					<li class="round_header"><a class="round_info" href="">Round Info</a> <h3>Winner</h3></li>
           <li class="round_date">

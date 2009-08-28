@@ -118,6 +118,7 @@ jQuery.fn.modal = function(options){
     } else {
       indicator = $('<div><img src="/images/ajax-loader.gif" id="ajax-indicator" /></div>').center()
       wrapper.append(indicator)
+      console.log($(this).attr('href'))
       $.get($(this).attr('href'), {}, function(html){
         modal = $(html)
         indicator.remove()

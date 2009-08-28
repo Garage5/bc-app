@@ -24,72 +24,17 @@ class Match < ActiveRecord::Base
       :actor => 'someone')
   end
   
-  
-  def is_match_player(user)
-    case user
-    when self.player_one
-      :player_one
-    when self.player_two
-      :player_two
-    else
-      false
-    end
-  end
-  
   def disputed?; self.status == 'disputed'; end
   
   def winner_is?(player)
     self.winner == player
   end
-  
-  def submit_results(player, won_or_lost)
-    won_or_lost = won_or_lost.to_s
-    self.send(player.to_s + '_result=', won_or_lost) # set result for player
-    opponent = player == :player_one ? :player_two : :player_one
-    opponent_result = player == :player_one ? self.player_two_result : self.player_one_result
-    
-    if opponent_result == 'lost' && won_or_lost == 'won' # if both agree that player is winner
-      self.winner = self.send(player)
-      self.advance(player)
-    elsif opponent_result == 'won' && won_or_lost == 'lost' # if both agree that opponent is winner
-      self.winner = self.send(opponent)
-      self.advance(opponent)
-    elsif opponent_result == won_or_lost # if both have the same result then the match should be disputed
-      self.status = 'disputed'
-    end
-    save
+
+  def winner_position
+    1 if self.slots[0].player.id == self.winner_id
+    2 if self.slots[1].player.id == self.winner_id
   end
-  
-  def disqualify(player)
-    opponent = player == :player_one ? :player_two : :player_one
-    self.winner = self.send(opponent)
-    self.advance(opponent)
-    save
-  end
-  
-  def advance(player)
-    next_match = child_match_in_next_round
-    # add player to correct slot in next match
-    case player
-    when :player_one
-      if self.position.odd?
-        next_match.player_one = self.player_one
-      else
-        next_match.player_two = self.player_one
-      end
-      self.winner = self.player_one
-    when :player_two
-      if self.position.odd?
-        next_match.player_one = self.player_two
-      else
-        next_match.player_two = self.player_two
-      end
-      self.winner = self.player_two
-    end
-    self.save
-    next_match.save
-  end
-  
+
   def child_match_in_next_round
     self.round.lower_item.matches.first(:conditions => {:position => find_child_match_position})
   end

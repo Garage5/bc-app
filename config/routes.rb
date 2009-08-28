@@ -25,11 +25,9 @@ ActionController::Routing::Routes.draw do |map|
     tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
     tournament.resources :messages, :has_many => [:comments]
     tournament.resources :files, :controller => :attachments
-    tournament.resources :matches, :has_many => [:comments], :member => {
-      :submit_result => :put,
-      :manage_player => :get, 
-      :disqualify_player => :put,
-      :declare_winner => :put}
+    tournament.resources :matches, :has_many => [:comments]do |match|
+      match.resources :slots, :member => {:manage => :get, :advance => :put, :disqualify => :put, :revert => :put}
+    end
     tournament.resources :teams, :member => {:join => :put, :decline => :delete}
   end
 

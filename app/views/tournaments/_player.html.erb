@@ -1,18 +1,21 @@
+<% 
+slot ||= nil
+player = slot ? slot.player : player 
+%>
+
 <% unless player.nil? %>
 <li class="player <% if !match.winner.nil? and !match.winner_is?(player) %>disqualified<% end %>">
-  <a href="#" class="player_link">
+  <a href="#" class="player_link slot_<%= player.login %>">
     <%= image_tag player.avatar.url(:small), :class => "bracket_avatar", :height => 30 %>
     <%= player.login %>
   </a>
   <% if !match.winner.nil? && match.winner != player %><img class="disqualified" src="/images/bracket_x.gif"><% end %>
   
-  <% if current_user %>
-    <% if current_user.is_hosting?(@tournament) %>
+  <% if current_user && current_user.is_hosting?(@tournament) %>
     <%= link_to "Manage", 
-      manage_player_tournament_match_path(@tournament, match, :pid => player.id), 
+      [:manage, @tournament, match, slot], 
       :rel => 'modal', 
-      :class => 'manage_player_link' %>
-    <% end %>
+      :class => 'manage_player_link' if slot %>
   <% end %>
 
 </li>
