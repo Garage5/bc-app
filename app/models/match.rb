@@ -35,8 +35,8 @@ class Match < ActiveRecord::Base
   end
 
   def winner_position
-    1 if self.slots[0].player.id == self.winner_id
-    2 if self.slots[1].player.id == self.winner_id
+    return 1 if self.slots[0].player.id == self.winner_id
+    return 2 if self.slots[1].player.id == self.winner_id
   end
 
   def child_match_in_next_round
