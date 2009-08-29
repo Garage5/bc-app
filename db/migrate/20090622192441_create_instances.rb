@@ -8,6 +8,7 @@ class CreateInstances < ActiveRecord::Migration
     end
     
     Instance.create(:name => "Starfeeder", :host_id => 1, :subdomain => "starfeeder")
+    Instance.create(:name => "CodeMonkey", :host_id => 1, :subdomain => "codemonkey")
   end
   
   def self.down

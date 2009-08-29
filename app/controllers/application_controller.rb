@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
   def find_instance
     @instance = Instance.find_by_subdomain(current_subdomain)
     unless @instance
+      #flash[:error] = "Dude, I told you to update your bookmarks."
+      #redirect_to root_url
       render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return
     end
   end
