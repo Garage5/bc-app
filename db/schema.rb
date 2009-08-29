@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
 
   create_table "instances", :force => true do |t|
     t.string   "name"
+    t.string   "subdomain"
     t.integer  "host_id"
     t.datetime "created_at"
     t.datetime "updated_at"

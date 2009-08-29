@@ -16,12 +16,16 @@ class ApplicationController < ActionController::Base
 
   private
   def find_instance
-    sd = request.host.split('.')[0]
+    @instance = Instance.find_by_subdomain(current_subdomain)
+
+=begin
+    sd = current_subdomain
     @instance = nil
     if sd != 'www'
       # @instance = Instance.find(:first, :conditions => {:subdomain => sd})
-      @instance = Instance.first
+      @instance = Instance.find_by_name(current_subdomain)
     end
+=end
   end
   
   def find_tournament
