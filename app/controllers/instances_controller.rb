@@ -6,7 +6,7 @@ class InstancesController < ApplicationController
   end
   
   def show
-    #@instances = Instance.find_by_name(current_subdomain)
+    @instances = Instance.find_by_subdomain(current_subdomain)
   end
   
   def settings
