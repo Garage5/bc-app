@@ -10,6 +10,10 @@ class Match < ActiveRecord::Base
   
   acts_as_list :scope => :round
   
+  def active?
+    self.players.size == 2 ? true : false
+  end
+  
   def has_player?(user)
     user == self.slots[0].player || self.slots[1].player ? true : false
   end

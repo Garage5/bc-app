@@ -155,7 +155,19 @@ describe Match do
     end
   end
   
+  it "should not be active if match has less than 2 players" do
+    match = @tournament.rounds.first.matches.first
+    match.slots[0].advance!
+    match.next.active?.should be_false
+  end
+  
+  it "should delete associated models when a player is disqualified or reverted"
+  
+  it "should delete associated 'won' events when a player is disqualified"
+  
   describe 'byes' do
+        
+    it "should not be able to be reverted if byed to corrent slot"
     
   end
   

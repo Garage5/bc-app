@@ -60,4 +60,11 @@ describe Tournament do
     match = @tournament.rounds.first.matches.first
     match.players[0].should_not == match.players[1]
   end
+  
+  it "should generate bye slots for empty slots when started"
+  
+  it "should generate bye slot for slot who's parent match consists of 2 byes"
+
+  it "should auto advance slot to non bye slot"
+
 end
