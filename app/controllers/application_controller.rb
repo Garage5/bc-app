@@ -17,15 +17,9 @@ class ApplicationController < ActionController::Base
   private
   def find_instance
     @instance = Instance.find_by_subdomain(current_subdomain)
-
-=begin
-    sd = current_subdomain
-    @instance = nil
-    if sd != 'www'
-      # @instance = Instance.find(:first, :conditions => {:subdomain => sd})
-      @instance = Instance.find_by_name(current_subdomain)
+    unless @instance
+      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return
     end
-=end
   end
   
   def find_tournament
