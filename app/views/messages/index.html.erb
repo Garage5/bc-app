@@ -32,9 +32,12 @@
 						</span>
   		      <p>Posted by <%= link_to m.author.login, '', :class => 'message_user' %> <span class="date" title="<%= m.created_at.iso8601 %>"><%= m.created_at %></span></p>
           </td>
-          <td class="message_status"><p>
-            <img src="/images/comment.gif" alt="comment" />
-            <span><%= m.comments.count %></span> | <%= link_to m.comments.count.to_s + ' unread (todo)', tournament_message_path(@tournament, m) %></p>
+          
+          <td class="message_status">
+            <p>
+              <img src="/images/comment.gif" alt="comment" />
+              <span><%= m.comments.count %></span>
+            </p>
           </td>		      
           
           <td class="message_latest">
