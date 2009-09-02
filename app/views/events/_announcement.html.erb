@@ -1,0 +1,7 @@
+<tr class="<%= event.event_type %>">
+	<td class="item-icon"><span><%= event.event_type.capitalize %></span></td>
+	<td class="item-title"><%= link_to event.message, tournament_message_path(tournament, event.target_id) %></td>
+	<td class="item-action"><%= event.action.capitalize %> by</td>
+	<td class="item-posted"><%= event.actor %></td>
+	<td class="item-date"><span class="date" title="<%= event.created_at.iso8601 %>"><%= event.created_at.iso8601 %></span></td>
+</tr>
