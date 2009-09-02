@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   
   def show
     @message = Message.find(params[:id], :include => {:comments => [:attachments, :author]})
-    if @message.hosts_only? && (!current_user || !current_user.is_hosting(@tournament))
+    if @message.hosts_only? && (!current_user || !current_user.is_hosting?(@tournament))
       flash[:error] = 'You are not authorized to view this message.'
       redirect_to tournament_messages_path(@tournament)
     end
