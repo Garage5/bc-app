@@ -1,4 +1,4 @@
-config/subdomain_config.rb
+config/initializers/subdomain_config.rb
 *.log
 .DS_Store
 /public/system
