@@ -17,4 +17,8 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = true
 
 # Cookies across base URL
+#
+# If session variable hasn't been created yet
+#config.action_controller.session = {:domain => '.tbc.heroku.com'}
+#
 #config.action_controller.session[:domain] = '.tbc.heroku.com'
