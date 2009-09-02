@@ -1104,7 +1104,7 @@ Footer
 }
 
 #footer .footer_inner {
-	margin: 0 0 0 200px;
+	margin: 0 0 0 0;
 }
 
 #footer a {
@@ -1169,20 +1169,6 @@ Footer
 #footer ul li a {
 	display: block;
 	padding: 6px 6px 2px 6px;
-}
-
-#footer #feedback_support {
-	float: left;
-	position: relative;
-	top: 10px;
-}
-
-#footer #feedback_support a {
-	width: 184px;
-	height: 52px;
-	display: block;
-	background: transparent url(/images/gs_logo.png) 0 0 no-repeat;
-	text-indent: -9999px;
 }
 
 /* 

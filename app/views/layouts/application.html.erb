@@ -26,7 +26,7 @@
 		<ul class="clear">
 			<li class="beta"><a title="" href="/preview/accounts/settings/">Billing</a></li>
 			<li><a title="" href="/preview/accounts/edit/">Settings</a></li>
-			<li id="feedback"><a title="" href="/preview/accounts/help/">Feedback</a></li>
+			<li id="feedback"><a class="feedback" title="" href="/preview/accounts/help/">Feedback</a></li>
 		</ul>
 	</div><!-- / acct_nav -->
 
@@ -52,16 +52,12 @@
 	<p>&copy; 2008-2009 A Service of <a href="">The Battle Begins LLC</a></p>
 	</div>
 	
-	<div id="feedback_support">
-		<a href="/preview/accounts/help/">Hello</a>
-	</div>
-	
 	<div class="footer_inner">
 		<div id="support_info">
 			<h2>Support</h2>
 			<ul>
 				<li><a href="">FAQ</a></li>
-				<li><a href="">Help</a></li>
+				<li><a class="feedback" href="">Help</a></li>
 			</ul>
 		</div><!-- / support_info -->
 		<div class="beta" id="gen_info">
@@ -81,5 +77,15 @@
 	</div><!-- / footer_inner -->
 	</div><!-- / clear -->
 </div><!-- / footer -->
+<script type="text/javascript" charset="utf-8">
+  Tender = {
+    hideToggle: true,
+    widgetToggles: $('.feedback'),
+  }
+</script>
+<script type="text/javascript" defer="defer">
+var baseSslHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + baseSslHost + "tbb.tenderapp.com/tender_widget.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
 </body>
 </html>
