@@ -2,4 +2,5 @@ SubdomainFu.tld_sizes = {:development => 1, #if .localhost, set to 0, if asdf.co
                          :test => 1, # since rspec
                          :production => 1}
 
+# These are the subdomains that will be equivalent to no subdomain  
 SubdomainFu.mirrors = ["www"]
