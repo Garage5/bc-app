@@ -5,3 +5,4 @@
 tmp/restart.txt
 config/database.yml
 *.swp
+config/initializers/subdomain_config.rb
