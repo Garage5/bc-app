@@ -460,6 +460,10 @@ Navigation - Sub Navigation
 	text-decoration: underline;
 }
 
+#subnav ul li#edit_tournament {
+	margin: 0 0 0 0;
+}
+
 /* 
 Navigation - Right Sub Navigation
 -------------------------------------------------------------------------------------
