@@ -105,12 +105,12 @@
   <div id="load_template" class="modal">
   		<div class="modal_hd">
   			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
-  			<h1>Load Template</h1>
+  			<h1>Load from Template</h1>
   		</div><!-- / modal_hd -->
   	<div class="modal_inner">
   			<div class="clear">
-  			  <%= select_tag :template_id, options_for_select( @instance.templates.map {|t| [t.name, t.id]}) %>
-  			  <%= button_link_to 'Load', '#', '', :id => 'load_template_btn' %>
+  			  <div class="group"><%= select_tag :template_id, options_for_select( @instance.templates.map {|t| [t.name, t.id]}) %></div>
+  			  <%= button_link_to 'Load Template', '#', '', :id => 'load_template_btn' %>
   			</div>
   	</div><!-- / modal_inner -->
   </div><!-- / modal -->
@@ -241,11 +241,15 @@
 							    / <input type="text" class="date_year" name="tournament[rounds_attributes][<%= n %>][start_date(1i)]" id="tournament_rounds_<%= n %>_start_date_year" title="yyyy" maxlength="4" value="<%= @tournament.rounds[n].start_date.try(:year) if @tournament.rounds[n] %>" />
 							    - <input type="text" class="date_hour" name="tournament[rounds_attributes][<%= n %>][start_date(4i)]" id="tournament_rounds_<%= n %>_start_date_hour" title="hh" maxlength="2" />
 							    : <input type="text" class="date_minutes" name="tournament[rounds_attributes][<%= n %>][start_date(5i)]" id="tournament_rounds_<%= n %>_start_date_minutes" title="mm" maxlength="2" />
+							    
+							   
+							  <div>
 							    <input type="radio" value="AM" id="tournament_rounds_<%= n %>_start_date_p_am" name="tournament[rounds_attributes][<%= n %>][start_date(6i)]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i < 12 %>/>
-							    <label for="tournament_rounds_<%= n %>_start_date_p_am">AM
+							    <label for="tournament_rounds_<%= n %>_start_date_p_am">AM</label>
 							    <input type="radio" value="PM" id="tournament_rounds_<%= n %>_start_date_p_pm" name="tournament[rounds_attributes][<%= n %>][start_date(6i)]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i >= 12 %>/>
-							    <label for="tournament_rounds_<%= n %>_start_date_p_pm">PM
-							    <input type="hidden" name="tournament[rounds_attributes][<%= n %>][number]" value="<%= n %>" />
+							    <label for="tournament_rounds_<%= n %>_start_date_p_pm">PM</label>
+							  </div>
+							  <input type="hidden" name="tournament[rounds_attributes][<%= n %>][number]" value="<%= n %>" />
 							  </td>
 							  <td class="edit"><a href="">Edit</a></td>
 						  </tr>
@@ -267,7 +271,6 @@
 	<div class="col">
 	<div class="save_wrapper clear">
 		<ul>
-			<li><a class="rc biglink wh" href="/preview/tournament/new/">Save as Template</a></li>
 			<li><a class="rc biglink bl" href="#load_template" rel="modal">Load from Template</a></li>
 		</ul>
 	</div><!-- / save_wrapper -->
