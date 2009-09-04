@@ -337,6 +337,10 @@ Main Structure
 	float: left;
 }
 
+div.account_logo img {
+	margin: 10px 0 0 0;
+}
+
 #back_dashboard {
 	float: left;
 	margin: 0 30px 5px 30px;
