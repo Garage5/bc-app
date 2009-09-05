@@ -1,5 +1,6 @@
 #match_wrapper {
 	margin: 0 auto;
+	min-width: 800px;
 }
 
 #home_player {
