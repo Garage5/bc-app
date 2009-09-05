@@ -1,3 +1,6 @@
+body#match #maincol .pod {
+}
+
 #match_wrapper {
 	margin: 0 auto;
 }
@@ -5,13 +8,11 @@
 #home_player {
 	float: left;
 	width: 25%;
-	min-width: 150px;
 }
 
 #away_player {
 	float: left;
 	width: 25%;
-	min-width: 150px;
 	text-align: right;
 }
 
@@ -27,7 +28,6 @@
 #match_details {
 	float: left;
 	width: 44%;
-	min-width: 150px;
 	text-align: center;
 }
 

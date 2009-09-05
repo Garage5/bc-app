@@ -1,6 +1,7 @@
 <% stylesheet :messages %>
 <% stylesheet :match %>
-<% title "Valor Tournament" %>
+<% body 'match' %>
+<% title "Fuck you, Fix this." %>
 
 <% content_for :tournament_nav do -%>
   <%= render :partial => "layouts/sub_nav", :locals => {:active => 'brackets'} %>
@@ -50,6 +51,7 @@
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	
+<div class="beta">
 	<div id="comment_mod">
 	  <ul class="group">
 			<% if !@match.comments.blank? %>
@@ -62,7 +64,7 @@
 			<%= render :partial => 'comments/form', :locals => {:post_url => [@tournament, @match, Comment.new]} %>
 		</div><!-- / darkpod -->
 	</div><!-- / comment_mod -->
-	
+</div><!-- // beta -->
 	</div><!-- / col -->
 </div><!-- / main-col -->
 

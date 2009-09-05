@@ -97,6 +97,10 @@ div.tournament_dates table tr th {
 	text-align: right;
 }
 
+div.tournament_dates table tr td input[type=text] {
+	width: 50px !important;
+}
+
 div.tournament_dates table tr td.date {
 	width: 50%;
 }
@@ -162,6 +166,6 @@ h1 a:hover {
 	color: #FFF;
 }
 
-
 #load_template {
-  width: 300px;}
+  width: 300px;
+}

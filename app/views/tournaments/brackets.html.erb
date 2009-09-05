@@ -58,10 +58,10 @@
         <%# ROUND %>
 		  	<% for round in @rounds %>
 	        <ul class="round" id="r<%= round.number %>">
-	          <li class="round_header"><a class="round_info" href="">Round Info</a> <h3>Round <%= round.number %></h3></li>
+	          <li class="round_header"><a class="beta round_info" href="">Round Info</a> <h3>Round <%= round.number %></h3></li>
 	          <li class="round_date">
-	            <span class="date">6/14/09 12:23PM</span>
-	            <a href="#">change</a>
+	            <span class="beta date">6/14/09 12:23PM</span>
+	            <a class="beta" href="#">change</a>
 	          </li>
             
             <%# MATCH %>
@@ -91,10 +91,10 @@
 		  	
 		    <%# WINNER OF TOURNAMENT %>
 				<ul class="round final" id="r<%= @rounds.size + 1 %>">
-					<li class="round_header"><a class="round_info" href="">Round Info</a> <h3>Winner</h3></li>
+					<li class="round_header"><a class="beta round_info" href="">Round Info</a> <h3>Winner</h3></li>
           <li class="round_date">
-            <span class="date">6/14/09 12:23PM</span>
-            <a href="#">change</a>
+            <span class="beta date">6/14/09 12:23PM</span>
+            <a class="beta" href="#">change</a>
           </li>
 
 					<li class="match">

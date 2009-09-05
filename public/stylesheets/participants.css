@@ -128,9 +128,14 @@ body#participants #part_nav ul {
 	margin: 10px 10px -5px 0;
 }
 
+body#participants .tab-pod ul.tabbed {
+}
+
 body#participants .tab-pod ul.tabbed li.create_team a {
 	background: #FFF url(/images/icon_add_bl.gif) 12px center no-repeat;
-	padding: 8px 15px 9px 28px;
+	padding: 8px 15px 7px 28px;
+	-moz-border-radius-bottomleft: 0;
+	-moz-border-radius-bottomright: 0;
 }
 
 body#participants .pending_players .user_avatar .avatar img {

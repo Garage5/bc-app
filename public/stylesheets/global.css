@@ -286,7 +286,6 @@ Main Structure
 -------------------------------------------------------------------------------------
 */
 #wrapper {
-	min-width: 985px;
 	background: #242729;
 	border-bottom: 1px #303437 solid;
 	margin: 0 0 -1px 0;
@@ -335,6 +334,10 @@ Main Structure
 	padding: 28px 0 11px 20px;
 	color: #caefff;
 	float: left;
+}
+
+div.account_logo img {
+	margin: 10px 0 0 0;
 }
 
 #back_dashboard {
@@ -728,7 +731,7 @@ Tabbed Headers in Pods ---------------------------------------------------------
 	float: right;
 	margin: 0 10px 0 0;
 	position: absolute;
-	bottom: -3px;
+	bottom: -1px;
 	right: 0;
 }
 
@@ -739,7 +742,7 @@ Tabbed Headers in Pods ---------------------------------------------------------
 }
 
 .tab-pod .hd ul.tabbed li a {
-	padding: 8px 15px 9px 15px;
+	padding: 8px 15px 7px 15px;
 	display: block;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -747,11 +750,15 @@ Tabbed Headers in Pods ---------------------------------------------------------
 }
 
 .tab-pod .hd ul.tabbed li.active a {
-	padding: 8px 14px 9px 14px;
+	padding: 8px 14px 7px 14px;
 	background: #FFF;
 	border: 1px #959595 solid;
 	border-bottom: 0;
 	color: #333;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
 }
 
 .tab-pod .hd ul.tabbed li.active a:hover {
@@ -1095,7 +1102,6 @@ Footer
 */
 
 #footer {
-	min-width: 985px;
 	margin: 0 30px 0 30px;
 	padding: 20px;
 	background: #FFF url(/images/footer_bg.gif) bottom repeat-x;
