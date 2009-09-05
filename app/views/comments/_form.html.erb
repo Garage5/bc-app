@@ -1,6 +1,6 @@
 <% form_for post_url, :html => {:multipart => true} do |f| -%>
   <div><%= f.text_area :body, :rows => 5, :style => "width: 98%" %></div>
-	<div id="message_attach" class="group clear">
+	<div id="message_attach" class="beta group clear">
 		<label>Attach a File</label>
 		<p class="note yellow_note">Files cannot be larger than 42 and must contain references to cats.</p>
 		<% f.fields_for :attachments, Attachment.new do |attachment| -%>

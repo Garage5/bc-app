@@ -40,10 +40,10 @@
   <% end -%>
   
   <% content_tag :li, active == 'files' ? {:class => 'active'} : nil do -%>
-    <%= link_to "Files", tournament_files_path(@tournament) %>
+    <%= link_to "Files", tournament_files_path(@tournament), :class => 'beta' %>
   <% end -%>
   
-  <li id="edit_tournament"><a href="">Edit Tournament</a></li>
+  <li class="beta" id="edit_tournament"><a href="">Edit Tournament</a></li>
   
 </ul><!-- / subnav -->
 

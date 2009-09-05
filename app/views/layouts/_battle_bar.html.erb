@@ -5,7 +5,7 @@
 			<a id="avatar" href="<%= profile_user_path(current_user.login) %>"><%= image_tag current_user.avatar.url(:small) %> <span><%= current_user.try(:login) || 'nologin' %></span></a>
 		</div><!-- / user_avatar -->
 		
-		<div id="your_tournaments">
+		<div class="beta" id="your_tournaments">
 			<a class="clear" href=""><span id="tmenu_txt">Your Tournaments</span> <span id="tmenu_unread">16</span></a>
 			<div id="tmenu">
 				<div id="tmenu_inner">
@@ -47,8 +47,8 @@
 		<div id="user_nav">
 			<ul>
 				<li id="user_login"><%= link_to "Login", login_path %></li>
-				<li><p>Don't have a BattleID?</p></li>
-				<li id="user_signup"><%= link_to "Signup", signup_path %></li>
+				<li class="beta"><p>Don't have a BattleID?</p></li>
+				<li class="beta" id="user_signup"><%= link_to "Signup", signup_path %></li>
 			</ul>
 		</div><!-- / user_nav -->
 		<p>You are not currently logged in!</p>

@@ -1,14 +1,8 @@
-body#login #logo {
-	width: 300px;
-	margin: 0 auto;
-	margin-top: 15%;
-}
-
 body#login #login_wrapper {
 	width: 500px;
 	background: #FFF;
 	color: #000;
-	margin: 0 auto;
+	margin: 15% auto;
 	padding: 15px;
 	-moz-border-radius: 8px;
 }

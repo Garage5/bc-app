@@ -36,6 +36,11 @@ body#index_messages #maincol, body#show_messages #maincol {
 	top: 5px; 
 }
 
+#messages .message_status p img {
+	position: relative;
+	top: 4px;
+}
+
 #messages .message_status a { 
 	color: #000;
 }
