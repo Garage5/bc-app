@@ -1,6 +1,6 @@
 <li class="comment pod darkpod">
   <div class="comment_header">
-   <%= image_tag comment.author.avatar.url(:large) %>
+   <%= image_tag comment.author.avatar.url(:medium) %>
    <h3><%= comment.author.login %> says:</h3>
    <p>posted <span class="date" title="<%= comment.created_at.iso8601 %>"><%= comment.created_at %></span></p>
   </div>

@@ -61,7 +61,13 @@ describe Tournament do
     match.players[0].should_not == match.players[1]
   end
   
-  it "should generate bye slots for empty slots when started"
+  it "should generate bye slots for empty slots when started" do
+    3.times { @tournament.participations.first.destroy }
+    @tournament.start
+    @tournament.matches.[0].slots[1].bye?.should be_true
+    @tournament.matches.[1].slots[1].bye?.should be_true
+    @tournament.matches.[2].slots[1].bye?.should be_true        
+  end
   
   it "should generate bye slot for slot who's parent match consists of 2 byes"
 
