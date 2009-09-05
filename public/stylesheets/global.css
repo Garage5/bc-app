@@ -286,7 +286,6 @@ Main Structure
 -------------------------------------------------------------------------------------
 */
 #wrapper {
-	min-width: 985px;
 	background: #242729;
 	border-bottom: 1px #303437 solid;
 	margin: 0 0 -1px 0;
@@ -1103,7 +1102,6 @@ Footer
 */
 
 #footer {
-	min-width: 985px;
 	margin: 0 30px 0 30px;
 	padding: 20px;
 	background: #FFF url(/images/footer_bg.gif) bottom repeat-x;
