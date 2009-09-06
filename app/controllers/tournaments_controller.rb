@@ -99,7 +99,7 @@ class TournamentsController < ApplicationController
     if @tournament.start
       redirect_to brackets_tournament_path(@tournament)
     else
-      render :text => 'There was a problem starting the tournament (TODO: Error Page)'
+      render :text => @tournament.errors
     end
   end
 end
