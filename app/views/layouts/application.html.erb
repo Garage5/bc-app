@@ -33,7 +33,7 @@
 
 <div id="header">
 	<h1><%= link_to @instance.try(:name) || "Host Name", root_path %></h1><!-- / logo -->
-	<h2 id="page_title"><%= @title || yield(:title) %></h2>
+	<h2 id="page_title"><%= @tournament.try(:name) || '' %></h2>
 	<div class="clear"></div>
 	<%= yield(:tournament_nav) %>
 	<div class="clear"></div>

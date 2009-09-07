@@ -1,5 +1,4 @@
 class TournamentsController < ApplicationController
-  before_filter :find_instance
   before_filter :find_tournament, :except => [:new, :create, :calendar]
   before_filter :login_required, :except => [:index, :show, :brackets, :participants, :rules, :calendar]
   
@@ -97,6 +96,10 @@ class TournamentsController < ApplicationController
   end
 
   def start
-    redirect_to brackets_tournament_path(@tournament) if @tournament.start
+    if @tournament.start
+      redirect_to brackets_tournament_path(@tournament)
+    else
+      render :text => @tournament.errors
+    end
   end
 end
