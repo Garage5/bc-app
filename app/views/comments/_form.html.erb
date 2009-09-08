@@ -1,11 +1,12 @@
 <% form_for post_url, :html => {:multipart => true} do |f| -%>
+  <div style="margin-left: 55px;">
   <div><%= f.text_area :body, :rows => 5, :style => "width: 98%" %></div>
-	<div id="message_attach" class="group clear">
-		<label>Attach a File</label>
-		<p class="note yellow_note">Files cannot be larger than 42 and must contain references to cats.</p>
-		<% f.fields_for :attachments, Attachment.new do |attachment| -%>
-      <%= attachment.file_field :attachment %>
-		<% end -%>
-	</div><!-- / darkpod -->
+	<div id="message_attach" class="clear">
+		<label class="textarea"><strong>Attach a file</strong> (each file should be under 100 MB)</label>
+		  <% f.fields_for :attachments, Attachment.new do |attachment| -%>
+        <%= attachment.file_field :attachment, :class => "file" %>
+		  <% end -%>
+	</div><!-- / message_attach -->
 	<div><button type="submit" class="btn"><span class="icon"></span><span>Post Comment</span></button></div>
+	</div>
 <% end -%>

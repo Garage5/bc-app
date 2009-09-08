@@ -64,8 +64,7 @@ body#index_messages #maincol, body#show_messages #maincol {
   text-align: right;
 }
 
-#message_header,
-.comment_header {
+#message_header {
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
@@ -80,7 +79,7 @@ body#index_messages #maincol, body#show_messages #maincol {
 #message_header h2 {
   font-size: 18px;
   font-weight: bold;
-	padding: 8px 0 0 0;
+	padding: 0 0 0 0;
 }
 
 #message_category {
@@ -100,12 +99,13 @@ body#index_messages #maincol, body#show_messages #maincol {
 }
 
 #message_body {
-  padding: 20px 10px 10px 10px;
+  padding: 15px 10px 0 10px;
   line-height: 18px;
+  border-bottom: 1px solid #ddd;
 }
 
 #message_body p {
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
 }
 
 h2 {
@@ -113,15 +113,25 @@ h2 {
   font-weight: bold;
 }
 
+li.comment {
+  border-bottom: 1px solid #ddd;
+}
+
 .comment_header {
-  margin: 0 0 10px 0;
+  padding: 15px 0 0 0;
 }
 
 .comment_header h3 {
-	font-size: 13px;
+	font-size: 15px;
 	font-weight: bold;
-  color: #000;
-  margin: 0 0 2px;
+  color: #333;
+  margin: 0;
+}
+
+.comment_header h3 span {
+  font-weight: normal;
+  color: #666;
+  font-size: 12px;
 }
 
 .comment_header p {
@@ -129,13 +139,21 @@ h2 {
 }
 
 .comment_body p {
-  margin-bottom: 15px;
+  margin: 0 5px 15px 55px;
+  position: relative;
+  top: -10px;
 }
 
 #comment_mod .comment_form h4 {
 	font-weight: bold;
-	font-size: 11px;
 	color: #333;
+	margin: 0 0 5px 0;
+}
+
+.comment_form img {
+  display: block;
+  float: left;
+  margin: 0 10px 0 0;
 }
 
 .cat_announcement {
@@ -161,20 +179,4 @@ ul.files_attach li {
 	display: block;
 	float: left;
 	margin: 0 5px 0 5px;
-}
-#sidecol .categories .bd {
-	padding: 0;
-}
-
-#sidecol .categories ul li {
-	border-bottom: 1px #BBB solid;
-}
-
-#sidecol .categories ul li a {
-	display: block;
-	padding: 10px;
-}
-
-#sidecol .categories ul li.last {
-	border: 0;
 }

@@ -31,8 +31,8 @@
 	    <% end %>
 	  </ul><!-- /comments ul -->
 	
-	  <div class="comment_form darkpod clear">
-			<h4>Post a Comment</h4>
+	  <div class="comment_form clear">
+			<h4><%= image_tag @message.author.avatar.url(:medium) %>Post a Comment</h4>
 			<%= render :partial => 'comments/form', :locals => {:post_url => [@tournament, @message, Comment.new]} %>
 		</div><!-- / darkpod -->
 	</div><!-- / comment_mod -->

@@ -12,11 +12,12 @@
 	<div id="match_submit_results" class="modal">
 			<div class="modal_hd">
 				<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
-				<h1>Match Results</h1>
+				<h1>Confirm Results</h1>
 			</div><!-- / modal_hd -->
-		<div class="modal_inner">
-			<%= link_to '<span class="icon"></span><span>I Won</span>', [:won, @tournament, @match, @slot], :class => 'btn', :method => :put %>
-			<%= link_to '<span class="icon"></span><span>I Lost</span>', [:lost, @tournament, @match, @slot], :class => 'btn', :method => :put %>
+		<div class="modal_inner clear">
+    	<div class="group"><label>Are you sure about your results you dumbfuck?</label></div>
+    	<div><button type="submit" class="btn"><span class="icon"></span><span>Yes</span></button>
+        <button type="submit" class="btn"><span class="icon"></span><span>no</span></button></div>
 		</div><!-- / modal_inner -->
 	</div><!-- / modal -->
 	<% end %>
@@ -37,11 +38,12 @@
 				<h2>VS</h2>
 				<h3>Round 1</h3>
 				<h4>6/14/09 12:23PM</h4>
-				<% # if @match.is_match_player(current_user) %>
-				<a href="#match_submit_results" class="btn" rel="modal"><span class="icon"></span><span>Submit Results</span></a>
-				<% # end %>
+    		<ul id="match_results" class="clear">
+    			<li class="selected"><%= link_to 'I Won', [:won, @tournament, @match, @slot], :id => "result_won", :method => :put %></li>
+    			<li class="inactive"><%= link_to 'I Lost', [:lost, @tournament, @match, @slot], :id => "result_lost", :method => :put %></li>
+    		</ul>
 			</div>
-			
+      
 			<div id="away_player">
 				<%= image_tag @match.players[1].avatar.url(:large) %>
 				<strong><%= @match.players[1].login %></strong>
