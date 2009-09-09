@@ -1,0 +1,106 @@
+S3SwfUpload
+===========
+
+S3SwfUpload allow user uploading a file to S3 directly, so you can save the cost of uploading process in your app server.
+
+Install
+=======
+
+./script/plugin install git://github.com/GreenAsJade/s3-swf-upload-plugin.git
+
+Example
+=======
+
+There is an example app showing how to use this at
+
+  http://github.com/GreenAsJade/demo-s3-swf-upload/tree/master
+
+It's live at
+
+ http://demo-s3-swf-upload.heroku.com/
+
+Usage
+=======
+
+1. $ script/generate s3_swf_upload
+
+2. Edit app/controller/s3_uploads_controller.rb
+
+   You need to skip any authentication for this controller, the flash
+   needs to be able to access it.  There's a big comment showing you
+   where to do this :) 
+
+3. Configure your amazon parameters.  Either set these through the
+   following environment variables:
+
+        AMAZON_S3_SWF_UPLOAD_BUCKET => my_public_bucket
+        AMAZON_ACCESS_KEY_ID        => secret
+        AMAZON_SECRET_ACCESS_KEY    => very secret
+        AMAZON_S3_SWF_UPLOAD_ACL    => public-read
+        AMAZON_S3_SWF_MAX_FILE_SIZE => 209715200
+
+   or hardcode them in     config/amazon_s3.yml
+
+   (The corresponding yml vars are: 
+     bucket_name, access_key_id, secret_access_key, acl, max_file_size)
+
+   The acl will default to private.
+
+   Your rails app can also change bucket, acl and max file size like
+   this:
+
+    S3SwfUpload::S3Config.bucket = 'different_one'
+    S3SwfUpload::S3Config.acl = 'private'
+    S3SwfUpload::S3Config.max_file_size = 1024
+    
+4. Upload a crossdomain.xml in your bucket and make it public-read.
+
+   You can find what you need in generators/s3-swf-upload/templates in
+   the plugin!
+
+5. init s3_swf object:
+
+  <%= s3_swf_upload_tag %>
+
+6. When you click upload, your file will be upload to http://bucket.s3.amazonasw.com/ by default.
+
+   IE the default prefix is '' (no prefix)
+
+7. If you want to customise its behavior, here's a more complex example:
+
+  <%= s3_swf_upload_tag(:width => 310, 
+        :height => 40, 
+        :success => 'alert("success");',
+        :failed => 'alert("failed");',
+        :selected => 'alert("selected");',
+        :prefix => 'prefix_in_bucket',
+        :initialMessage => 'Press this button to find the file to upload"
+        :upload => 'Press Here To Activate Upload',
+        :do_checks => '0') 
+  %>
+
+  In this case, files will be uploaded to http://bucket.s3.amazonasw.com/prefix_in_bucket/filename
+
+8. If you need to check that the file they have selected is
+   legitimate, before it gets uploaded, (for example, to make sure
+   they aren't overwriting a file of the same name your database
+   knows is already uploaded):
+
+   i) Supply a method s3_swf_upload_error? in your application.rb to
+      check, like this:
+
+   def s3_swf_upload_file_error?(filename)
+     Mod.find_by_zip_name(File::basename(filename)) ?
+     "Sorry, there is already a mod with that zip file name!" :
+     nil
+   end
+
+      Note that this method must return nil if there no error.
+
+   ii) Set the option
+
+     :do_checks => '1'
+
+      in the s3_swf_upload_tag
+
+Copyright (c) 2008 elctech, released under the MIT license
