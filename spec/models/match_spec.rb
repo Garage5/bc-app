@@ -10,32 +10,39 @@ describe Match do
     @tournament.start
   end
   
-  it "should get next match" do
+  it "#next should be nil, not nil when player is advanced" do
     match = @tournament.rounds.first.matches[0]
+    match.next.should be_nil
+    match.slots[0].advance!
     match.next.should_not be_nil
-    match.next.should == @tournament.rounds[1].matches[0]
+    match.next.should == @tournament.rounds[1].matches.by_pos(1).first
   end
   
   it "should get previous slot" do
     match = @tournament.rounds.first.matches[0]
     match.slots[0].advance!
+    match.next.should_not be_nil
     match.next.slots[0].previous.should == match.slots[0]
   end
   
-  it "shoulc get previous match for slot" do
+  it "should get previous match for slot" do
     match = @tournament.rounds.first.matches[0]
+    match.slots[0].advance!
+    match.next.should_not be_nil
     match.next.slots[0].parent_match.should == match
   end
   
   it "should advance 1st player of 2nd match to 2nd slot in 1st match in the next round" do
     match = @tournament.rounds.first.matches[1]
     match.slots[0].advance!
+    match.next.should_not be_nil
     match.next.slots[1].player.should == match.slots[0].player
   end
   
-  it "should advance 2nd player of 3nd match to 1st slot in 2nd match in the next round" do
+  it "should advance 2nd player of 3rd match to 1st slot in 2nd match in the next round" do
     match = @tournament.rounds.first.matches[2]
     match.slots[1].advance!
+    match.next.should_not be_nil
     match.next.slots[0].player.should == match.slots[1].player
   end
   
@@ -83,6 +90,10 @@ describe Match do
     match.slots[1].advance!
     match.next.slots[0].revert!
     match.next.slots[0].player.should be_nil
+  end
+  
+  it "should not be able to revert slots in first round" do
+    @tournament.matches[0].slots[0].revert!.should be_false
   end
   
   it "should nullify winner of previous match when slot is reverted" do
@@ -164,12 +175,6 @@ describe Match do
   it "should delete associated models when a player is disqualified or reverted"
   
   it "should delete associated 'won' events when a player is disqualified"
-  
-  describe 'byes' do
-        
-    it "should not be able to be reverted if byed to corrent slot"
-    
-  end
   
   describe 'slot' do
     

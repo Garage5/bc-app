@@ -1,4 +1,6 @@
 class Match < ActiveRecord::Base
+  named_scope :by_pos, lambda {|pos| {:conditions => {:position => pos}}}
+  
   belongs_to :round
   belongs_to :tournament
   belongs_to :winner, :class_name => "User", :foreign_key => "winner_id"
@@ -15,12 +17,13 @@ class Match < ActiveRecord::Base
   end
   
   def has_player?(user)
-    user == self.slots[0].player || self.slots[1].player ? true : false
+    user == self.slots[0].player || self.slots[1].player
   end
   
   def next
-    rounded = self.position % 2 == 0 ? self.position : self.position + 2 - (self.position % 2)
-    self.round.lower_item.matches.first(:conditions => {:position => (rounded / 2)})
+    next_round = self.round.lower_item
+    match = next_round.matches.first({:conditions => {:position => find_child_match_position}})
+    return match
   end
   
   def dispute!

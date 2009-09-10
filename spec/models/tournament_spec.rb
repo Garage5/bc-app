@@ -44,8 +44,6 @@ describe Tournament do
   it "should create round matches when started" do
     @tournament.start
     @tournament.rounds.by_number(1).first.matches.count.should == 4
-    @tournament.rounds.by_number(2).first.matches.count.should == 2
-    @tournament.rounds.by_number(3).first.matches.count.should == 1
   end
   
   it "should have participants in a match" do
@@ -64,13 +62,27 @@ describe Tournament do
   it "should generate bye slots for empty slots when started" do
     3.times { @tournament.participations.first.destroy }
     @tournament.start
-    @tournament.matches.[0].slots[1].bye?.should be_true
-    @tournament.matches.[1].slots[1].bye?.should be_true
-    @tournament.matches.[2].slots[1].bye?.should be_true        
+    @tournament.matches[0].slots[0].bye?.should be_false
+    @tournament.matches[0].slots[1].bye?.should be_true
+    
+    @tournament.matches[1].slots[0].bye?.should be_false    
+    @tournament.matches[1].slots[1].bye?.should be_true
+    
+    @tournament.matches[2].slots[0].bye?.should be_false
+    @tournament.matches[2].slots[1].bye?.should be_true        
+  end
+
+  it "should auto advance slot to non bye slot" do
+    3.times { @tournament.participations.first.destroy }
+    @tournament.start
+    @tournament.matches[0].slots[0].player.should == @tournament.rounds[1].matches[0].slots[0].player
+    @tournament.matches[1].slots[0].player.should == @tournament.rounds[1].matches[0].slots[1].player
+    @tournament.matches[2].slots[0].player.should == @tournament.rounds[1].matches[1].slots[0].player
   end
   
-  it "should generate bye slot for slot who's parent match consists of 2 byes"
-
-  it "should auto advance slot to non bye slot"
-
+  it "should not let slots be reverted to byed match" do
+    3.times { @tournament.participations.first.destroy }
+    @tournament.start
+    @tournament.rounds[1].matches[0].slots[0].revert!.should be_false
+  end
 end
