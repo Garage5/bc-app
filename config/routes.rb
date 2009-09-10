@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :s3_uploads
+
   map.resources :rounds  
   map.resources :participations
   map.resources :attachments
