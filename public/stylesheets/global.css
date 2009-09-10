@@ -300,7 +300,7 @@ div#system_msg {
 }
 
 div#system_msg div#system_msg_inner {
-  width: 985px;
+  width: 1100px;
   margin: 0 auto;
 }
 
@@ -353,12 +353,12 @@ div#system_msg a:hover#system_msg_close {
 
 #content-wrapper {
   margin: 0 auto;
-	width: 985px;
+	width: 1100px;
 	background: #DCDCDC;
 }
 
 #header {
-  width: 985px;
+  width: 1100px;
   margin: 0 auto;
 	height: 100%;
 	position: relative;
@@ -421,7 +421,7 @@ div.account_logo {
 }
 
 #acct_nav {
-  width: 985px;
+  width: 1100px;
   margin: 0 auto;
 }
 
@@ -722,7 +722,7 @@ p.yellow_note {
 #maincol {
   color: #000;
 	float: left;
-	width: 675px;
+	width: 790px;
 }
 
 #maincol .col {
@@ -1195,7 +1195,7 @@ Footer
 */
 
 #footer {
-	width: 985px;
+	width: 1100px;
 	margin: 0 auto;
 	background: #FFF url(/images/footer_bg.gif) bottom repeat-x;
 	color: #666;
