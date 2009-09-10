@@ -2,7 +2,12 @@ $(document).ready(function(){
   // hide .note elements when closed
   $(".note-close").click(function(e){
     e.preventDefault()
-    $(this).closest('.note').fadeOut(300)
+    $(this).closest('.global_note').fadeOut(300)
+  })
+  
+  $("#system_msg_close").click(function(e){
+    e.preventDefault()
+    $(this).closest('#system_msg').fadeOut(300)
   })
   
   // convert dates to relative

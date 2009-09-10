@@ -285,23 +285,83 @@ a#btn_start_tournament, a#join_tournament {
 Main Structure
 -------------------------------------------------------------------------------------
 */
+
+div#system_msg {
+  background: #1c1e20 url(/images/system_msg_bg.gif) 0 0 repeat-x;
+  text-align: left;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  z-index: 9999;
+  height: 44px;
+}
+
+div#system_msg div#system_msg_inner {
+  width: 985px;
+  margin: 0 auto;
+}
+
+div#system_msg p {
+  font-size: 12px;
+  font-weight: bold;
+  color: #b7c5ce;
+  padding: 15px 0 0 0;
+  float: left;
+}
+
+div#system_msg a.system_read_more {
+  width: 77px;
+  height: 24px;
+  background: transparent url(/images/btn_system_msg_more.png) 0 0 no-repeat;
+  display: block;
+  text-indent: -9999px;
+  float: left;
+  position: relative;
+  top: 9px;
+  left: 10px;
+}
+
+div#system_msg a#system_msg_close {
+  width: 24px;
+  height: 24px;
+  background: transparent url(/images/btn_system_msg_close.png) 0 0 no-repeat;
+  display: block;
+  text-indent: -9999px;
+  float: right;
+  position: relative;
+  top: 9px;
+  right: 9px;
+}
+
+div#system_msg a:hover.system_read_more {
+  background-position: bottom;
+}
+
+div#system_msg a:hover#system_msg_close {
+  background-position: bottom;
+}
+
 #wrapper {
 	background: #242729;
 	border-bottom: 1px #303437 solid;
 	margin: 0 0 -1px 0;
-	padding: 48px 0 0 0;
+	padding: 5px 0 0 0;
 }
 
 #content-wrapper {
-	margin: 0 auto;
-	margin-bottom: 0;
-	width: 100%;
+  margin: 0 auto;
+	width: 985px;
+	background: #DCDCDC;
 }
 
 #header {
+  width: 985px;
+  margin: 0 auto;
 	height: 100%;
 	position: relative;
-	margin: 0 30px 0 30px;
 	-moz-border-radius-topleft:      5px;
 	-moz-border-radius-topright:     5px;
 	-webkit-border-top-left-radius:  5px;
@@ -336,8 +396,8 @@ Main Structure
 	float: left;
 }
 
-div.account_logo img {
-	margin: 10px 0 0 0;
+div.account_logo {
+	margin: 10px 0 10px 0;
 }
 
 #back_dashboard {
@@ -360,9 +420,14 @@ div.account_logo img {
 	text-decoration: none;
 }
 
+#acct_nav {
+  width: 985px;
+  margin: 0 auto;
+}
+
 #acct_nav ul {
 	float: right;
-	margin: 0 30px 5px 30px;
+	margin: 0 0 5px 0;
 }
 
 #acct_nav ul li {
@@ -511,8 +576,7 @@ ul#right_subnav li a:hover {
 }
 
 #content {
-	margin: 0 30px 0 30px;
-	padding: 10px 20px 10px 20px;
+	padding: 10px 10px 0 10px;
 	background: #DCDCDC;
 	border-bottom: 1px #FFF solid;
 }
@@ -540,11 +604,6 @@ ul#right_subnav li a:hover {
 	-moz-border-radius-bottomright:     3px;
 	-webkit-border-top-left-radius:     3px;
 	-webkit-border-bottom-right-radius: 3px;
-}
-
-.global_note {
-	position: relative;
-	top: 10px;
 }
 
 p.yellow_note {
@@ -625,24 +684,58 @@ p.yellow_note {
 	color: #FFF;
 }
 
+.global_note {
+  margin: -10px -10px 0 -10px;
+  background: #DCDCDC url(/images/global_note_bg.gif) 0 0 repeat-x;
+  height: 43px;
+}
+
+.global_note p {
+  color: #303030;
+  font-size: 13px;
+  padding: 15px 0 0 25px;
+}
+
+.global_note p img {
+  float: left;
+  position: relative;
+  top: -5px;
+  margin: 0 7px 0 0;
+}
+
+.global_note a.note-close {
+  display: block;
+  float: right;
+  width: 24px;
+  height: 24px;
+  background: transparent url(/images/btn_global_note_close.png) 0 0 no-repeat;
+  text-indent: -9999px;
+  position: relative;
+  top: 9px;
+  right: 9px;
+}
+
+.global_note a:hover.note-close {
+  background-position: bottom;
+}
+
 #maincol {
   color: #000;
 	float: left;
-	width: 74%;
+	width: 675px;
 }
 
 #maincol .col {
-	padding: 0 10px 0 0;
+	padding: 0 5px 0 0;
 }
 
 #sidecol {
 	float: left;
-	width: 26%;
+	width: 290px;
 }
 
 #sidecol .col {
-	padding: 0 0 0 10px;
-	min-width: 200px;
+	padding: 0 0 0 5px;
 }
 
 .pod {
@@ -1102,8 +1195,8 @@ Footer
 */
 
 #footer {
-	margin: 0 30px 0 30px;
-	padding: 20px;
+	width: 985px;
+	margin: 0 auto;
 	background: #FFF url(/images/footer_bg.gif) bottom repeat-x;
 	color: #666;
 	border-top: 1px #BBB solid;
@@ -1113,8 +1206,8 @@ Footer
 	-webkit-border-bottom-right-radius: 5px;
 }
 
-#footer .footer_inner {
-	margin: 0 0 0 0;
+#footer .inner_footer {
+	padding: 0 20px 20px 20px;
 }
 
 #footer a {

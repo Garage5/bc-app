@@ -19,6 +19,14 @@
 <body id="<%= yield(:body) %>">
 <%= yield(:modals) %>	
 
+<div id="system_msg">
+	<div id="system_msg_inner">
+		<a id="system_msg_close" href="">X</a>
+		<p>You've been abducted by aliens! Alien Nazi Zombies!</p>
+		<a class="system_read_more" href="">Read More</a>
+	</div>
+</div><!-- / system_msg -->
+
 <%= render :partial => "layouts/battle_bar" %>
 	  
 <div id="wrapper">
@@ -40,14 +48,20 @@
 </div><!-- / header -->
 
 <div id="content-wrapper">
+
   <div id="content" class="clear">
+		<div class="global_note">
+			<a class="note-close" href="">X</a>
+			<p><img src="/images/icon_gn_success.png"/> Success it works for you Bryan! Congrats! Asshole!</p>
+
+		</div><!-- / global_note -->
     <%= yield %>
   </div>
 </div><!-- / content-wrapper -->
 
 </div><!-- / wrapper -->
 <div id="footer">
-	<div class="clear">
+	<div class="inner_footer clear">
 	<div id="meta_copy">
 	<div class="clear"><a id="managed_by" href="">Managed by The Battle Center</a></div>
 	<p>&copy; 2008-2009 A Service of <a href="">The Battle Begins LLC</a></p>

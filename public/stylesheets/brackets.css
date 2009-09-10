@@ -1,7 +1,7 @@
 /* General Bracket Styles
 -------------------------------------------*/
 .full_width {
-  width: 100% !important;
+  width: 100.5% !important;
   font-size: 13px;
 }
 
@@ -11,6 +11,7 @@
   color: #fff;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
+  margin: 8px 0 8px 0;
 }
 
 #not_started_message {
