@@ -20,6 +20,11 @@
 	color: #FFF;
 }
 
+/* 
+User Avatar
+-------------------------------------------------------------------------------------
+*/
+
 #battle_bar #user_avatar {
 }
 
@@ -50,6 +55,11 @@
 	background: #121314;
 	color: #95a0ac;
 }
+
+/* 
+Tournament Menu
+-------------------------------------------------------------------------------------
+*/
 
 #battle_bar #your_tournaments {
 	float: left;
@@ -209,6 +219,11 @@
 	margin: 0;
 }
 
+/* 
+Match Menu
+-------------------------------------------------------------------------------------
+*/
+
 #battle_bar #your_matches p a {
 	background: transparent url(/images/icon_time32.png) 7px 2px no-repeat;
 	border-right: 1px #2a2c30 solid;
@@ -248,6 +263,11 @@
 	background: #00900a;
 }
 
+/* 
+User Nav
+-------------------------------------------------------------------------------------
+*/
+
 #user_nav ul {
 	float: right;
 	margin: 7px 0 0 0;
@@ -256,7 +276,7 @@
 #user_nav ul li {
 	float: left;
 	display: block;
-	margin: 0 3px 0 3px;
+	margin: 0 0 0 20px;
 }
 
 #user_nav ul li a {
@@ -266,23 +286,13 @@
 	padding: 8px 12px 8px 12px;
 	-moz-border-radius:     4px;
 	-webkit-border-radius:  4px;
+	float: right;
 }
 
 #user_nav ul li a:hover {
 	background: #1a1d1e;
 	color: #FFF;
 	text-decoration: none;
-}
-
-#user_nav ul li#user_login a {
-	padding: 8px 12px 8px 27px;
-	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
-	color: #FFF;
-}
-
-#user_nav ul li#user_login a:hover {
-	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
-	text-decoration: underline;
 }
 
 #user_nav ul li#user_logout a {
@@ -311,6 +321,18 @@
 	text-decoration: underline;
 }
 
+#logged_out #user_nav ul li#user_signup p, #logged_out #user_nav ul li#user_login p {
+  float: left;
+  padding: 8px 10px 0 0;
+  font-size: 13px;
+  color: #77828f;
+}
+
+/* 
+User Login
+-------------------------------------------------------------------------------------
+*/
+
 #logged_out #user_nav ul li#user_login a {
 	padding: 8px 12px 8px 27px;
 	background: #000 url(/images/icon_login.png) 6px 6px no-repeat;
@@ -322,13 +344,37 @@
 	text-decoration: underline;
 }
 
-#logged_out p {
-	float: right;
-	padding: 15px 20px 0 0;
-	font-size: 14px;
-	color: #77828f;
+#logged_out #user_nav ul li#user_login div.login_btn {
+  display: none;
 }
 
-#logged_out ul li p {
-	padding: 8px 10px 0 15px;
+#logged_out #user_nav ul li#user_login div.login_form label {
+  color: #FFF;
+  margin: 0 5px 0 0;
+  font-size: 12px;
+  color: #77828f;
 }
+
+#logged_out #user_nav ul li#user_login div.login_form input {
+  background: #282c2e;
+  border: 1px #323739 solid;
+  color: #FFF;
+  margin: 0 15px 0 0;
+  padding: 5px 3px 5px 3px;
+  font-size: 13px;
+}
+
+#logged_out #user_nav ul li#user_login div.login_form input:focus {
+  background: #FFF;
+  border: 1px #000 solid;
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
