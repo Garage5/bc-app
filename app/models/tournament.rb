@@ -57,23 +57,27 @@ class Tournament < ActiveRecord::Base
     Tournament.transaction do      
       self.slot_count = calculate_slot_count(participants.size)
     
+      # for each round expected
       calculate_round_count(self.slot_count).times do |r|
         round_number = r + 1
-        round = self.rounds.create(:number => round_number)
-        couples = (participants / 2) if round_number == 1
-        calculate_number_of_matches_for_round(round_number).times do |m|
-          opponents = []
-          if round_number == 1
-            p1 = couples.try(:at, m).try(:at, 0)
-            p2 = couples.try(:at, m).try(:at, 1)
-            opponents = [p1, p2]
-          end
-          match = round.matches.create(:tournament => self)
-          match.slots.create(:player => opponents[0], :position => 1, :tournament => self)
-          match.slots.create(:player => opponents[1], :position => 2, :tournament => self)
-        end
+        self.rounds.create(:number => round_number)
       end  
-  
+      
+      num_byes = slot_count - participants.size
+      first_round = self.rounds.first
+      
+      (slot_count / 2).times do |m|
+        match = first_round.matches.create(:tournament => self)
+        p1 = match.slots.create(:player => participants.shift, :position => 1, :can_revert => false, :tournament => self)
+        if num_byes > 0
+          match.slots.create(:position => 2, :tournament => self, :status => 'bye', :can_revert => false)
+          p1.advance!(:bye)
+          num_byes -= 1
+        else
+          match.slots.create(:player => participants.shift, :position => 2, :can_revert => false, :tournament => self)
+        end
+      end
+      
       self.started = true
       save
     end # end transaction
