@@ -1,3 +1,8 @@
+#index_overview {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 table#overview {
 	width: 100%;
 }

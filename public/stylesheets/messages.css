@@ -2,12 +2,17 @@ body#index_messages #maincol, body#show_messages #maincol {
 	width: 100.5%;
 }
 
-#messages {
+body#index_messages .pod .bd {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+table#messages {
+  width: 100%;
   color: #9f9f9f;
   font-size: 12px;
-  line-height: 20px;
-  margin-bottom: 10px;
-	width: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 #messages .announcment {
@@ -18,17 +23,21 @@ body#index_messages #maincol, body#show_messages #maincol {
 
 #messages tr td {
 	border-bottom: 1px solid #ddd;
-  padding: 0 0 5px 0;
+  padding: 8px 0 8px 0;
   white-space: nowrap;
 }
 
 #messages tr.last td {
 	border: 0;
-	padding: 5px 0 0 0;
+	padding: 8px 0 8px 0;
 }
 
 #messages tr td a {
   font-weight: bold !important;
+}
+
+#messages tr td.message_main {
+  width: 850px;
 }
 
 #messages .message_status p {
@@ -51,18 +60,36 @@ body#index_messages #maincol, body#show_messages #maincol {
   margin-bottom: 5px;
 }
 
-#messages .message_main { 
-	width: 60%;
+#messages .comment_count img {
+  position: relative;
+  top: 4px;
+  margin: 0 7px 0 0;
 }
 
-#messages .message_comments p {
-  position: relative;
-  top: 8px;
+#messages .comment_count {
+  text-align: right;
+  vertical-align: middle;
+  border-right: 1px #DDD solid;
+  padding: 4px 10px 0 0 !important;
+}
+
+#messages .comment_count p {
+}
+
+#messages tr.last .comment_count {
+  border-right: 1px #DDD solid;
 }
 
 #messages .message_latest {
-  text-align: right;
+  text-align: left;
+  vertical-align: middle;
+  padding: 4px 0 0 10px !important;
 }
+
+/*
+Message Show Page
+*/
+
 
 #message_header {
   border-bottom: 1px solid #ddd;

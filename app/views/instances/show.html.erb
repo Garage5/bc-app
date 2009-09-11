@@ -2,16 +2,6 @@
 <%= stylesheet_link_tag 'overview' %>
 <% end -%>
 
-<div style="display: none;"><!-- REMOVE THIS DIV AFTER WE ACTUALLY IMPLEMENT ALERTS -->
-<div class="note yellow_note global_note">
-	<p>Damn, RIP Billy Mays :( <a class="note-close" href="">X</a></p>
-</div><!-- / global_note -->
-
-<div class="note red_note global_note">
-	<p>Sorry to hear that. <a class="note-close" href="">X</a></p>
-</div><!-- / global_note -->
-</div><!-- REMOVE THIS DIV AFTER WE ACTUALLY IMPLEMENT ALERTS -->
-
 <div id="maincol">
 <div class="col">
 <% if !@instance.tournaments.blank? %>
@@ -20,7 +10,7 @@
   	<div class="hd">
   		<h2><%= link_to tournament.name, tournament_path(tournament) %></h2>
   	</div><!-- / hd -->
-  	<div class="bd">
+  	<div id="index_overview" class="bd">
       <table id="overview">
   		  <% if !tournament.events.blank? %>
   		    <% for event in tournament.events %>
