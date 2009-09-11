@@ -73,3 +73,17 @@
 	display: block;
 	margin: 5px;
 }
+
+#manage_player ul {
+  width: 280px;
+}
+
+#manage_player ul li {
+  display: block;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+#manage_player ul li.last {
+  margin: 0;
+}
