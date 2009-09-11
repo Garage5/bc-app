@@ -5,12 +5,14 @@ body#login #login_wrapper {
 	margin: 15% auto;
 	padding: 15px;
 	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
 }
 
 body#login ul {
 	padding: 10px 10px 0 10px;
 	background: #dbeaf1;
 	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 }
 
 body#login ul.section {
@@ -62,6 +64,7 @@ body#login ul li input {
 	padding: 7px;
 	height: 20px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
 	background: #FFF url(/images/signup_input_bg.gif) 0 0 repeat-x;
 	border: 1px #8ba6b1 solid;
 }
