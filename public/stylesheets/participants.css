@@ -27,6 +27,7 @@ body#participants .player_list ul li {
 	border-left: 1px #FFF solid;
 	border-right: 2px #FFF solid;
 	position: relative;
+	width: 200px;
 }
 
 body#participants .player_list ul li:hover {
