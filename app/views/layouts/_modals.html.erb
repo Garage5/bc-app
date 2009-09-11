@@ -36,9 +36,9 @@
 			<h1>Confirm</h1>
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
-			<p>Are you sure you want to join this tournament?</p>
+			<p style="white-space: nowrap;">Are you sure you want to join this tournament?</p>
 			<div class="btn_wrapper clear">
-		<%= link_to '<span class="icon"></span><span>Yes</span>', tournament_participants_path(@tournament), :method => :post, :class => 'btn' %> 
+		<div style="margin: 0 5px 0 0; display: block; float: left;"><%= link_to '<span class="icon"></span><span>Yes</span>', tournament_participants_path(@tournament), :method => :post, :class => 'btn' %></div>
 		<a onclick="closeModal('#join_confirm'); return false;" href="" class="btn"><span class="icon"></span><span>No</span></a>
 			</div>
 	</div><!-- / modal_inner -->

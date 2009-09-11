@@ -15,10 +15,6 @@ body#profile .user_avatar {
 }
 
 body#profile .user_avatar a.user_edit {
-	display: none;
-}
-
-body#profile .user_avatar:hover a.user_edit {
 	width: 16px;
 	height: 16px;
 	text-indent: -9999px;

@@ -18,7 +18,7 @@
   	</div>
   	<div class="bd">
 	    <% if !@messages.blank? %>
-	    <table id="messages">
+	    <table cellspacing="0" id="messages">
         
       <% for m in @messages %>
         <% next if m.hosts_only? && (!current_user || !current_user.is_hosting?(@tournament)) %>
@@ -32,12 +32,9 @@
   		      <p>Posted by <%= link_to m.author.login, '', :class => 'message_user' %> <span class="date" title="<%= m.created_at.iso8601 %>"><%= m.created_at %></span></p>
           </td>
           
-          <td class="message_status">
-            <p>
-              <img src="/images/icon_comment_unread.png" alt="comment" />
-              <span><%= m.comments.count %></span>
-            </p>
-          </td>		      
+          <td class="comment_count">
+            <p><img src="/images/icon_comment.png" alt="comment" /><em><%= m.comments.count %></em></p>
+          </td>
           
           <td class="message_latest">
             <% if m.comments.count > 0 %>

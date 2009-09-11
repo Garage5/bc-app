@@ -1,13 +1,15 @@
-<div id="manage_player" class="modal">
+<div id="manage_player" class="modal" style="display: block;">
 		<div class="modal_hd">
 			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
 			<h1>Manage Player: <%= @slot.player.login %></h1>
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
 			<div class="clear">
-			<%= button_link_to 'Disqualify', [:disqualify, @tournament, @match, @slot], '', :method => :put %>
-			<%= button_link_to 'Declare Winner', [:advance, @tournament, @match, @slot], '', :method => :put %>
-			<%= button_link_to 'Revert', [:revert, @tournament, @match, @slot], '', :method => :put %>
+			<ul>
+			  <li><%= button_link_to 'Disqualify', [:disqualify, @tournament, @match, @slot], '', :method => :put %></li>
+			  <li><%= button_link_to 'Declare Winner', [:advance, @tournament, @match, @slot], '', :method => :put %></li>
+			  <li class="last"><%= button_link_to 'Revert', [:revert, @tournament, @match, @slot], '', :method => :put %></li>
+			</ul>
 			</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
