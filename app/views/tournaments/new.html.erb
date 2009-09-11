@@ -114,6 +114,18 @@
   			</div>
   	</div><!-- / modal_inner -->
   </div><!-- / modal -->
+  
+  <div id="rules_example" class="modal">
+  		<div class="modal_hd">
+  			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+  			<h1>An Example Rules Page</h1>
+  		</div><!-- / modal_hd -->
+  	<div class="modal_inner">
+  			<div class="clear">
+  			  HAHAHAHAHAHAHAHAHAHAHAHAHAHAHA!!!!!!
+  			</div>
+  	</div><!-- / modal_inner -->
+  </div><!-- / modal -->
 <% end %>
 
 <div id="maincol">
@@ -122,72 +134,56 @@
 		<!-- Step 1 -->
 		<% form_for @tournament do |f| -%>
 		<%= f.error_messages %>
-		<div id="tournament_name" class="pod step clear">
+		<h3>Name &amp; Game</h3>
+		<div id="tournament_name" class="pod clear">
 		<div class="bd">
-			<div class="clear">
-				<h4><em>Name &amp; Game</em></h4>
-			</div>
-			
-			<p class="note yellow_note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
-			
-			<div><%= f.text_field :name %> <%= f.label :name, "Tournament Name" %></div>
-			<div><%= f.text_field :game %> <%= f.label :game, "Game" %></div>
+		  
+			<div class="group"><%= f.text_field :name, :size => 35 %> <%= f.label :name, "Tournament Name" %></div>
+			<div><%= f.text_field :game, :size => 35 %> <%= f.label :game, "Game" %></div>
 			
 		</div><!-- / bd -->
 		</div><!-- / pod -->
 		<!-- / Step 1 -->
 		
 		<!-- Step 2-->
-		<div id="tournament_rules" class="pod step clear">
+		<h3>Rules</h3>
+		<div id="tournament_rules" class="pod clear">
 		<div class="bd">
-			<div class="clear">
-				<h4><em>The Rules</em></h4>
-			</div>
-			<p class="note yellow_note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet.<a class="note-close" href="">X</a></p>
-			<%= f.label :rules, "Rules", :class => 'textarea lg' %>
 			<%= f.text_area :rules %>
-			
 		</div><!-- / bd -->
 		</div><!-- / pod -->
 		<!-- / Step 2 -->
 		
 		<!-- Step 3 -->
-		<div id="tournament_players" class="pod step clear">
+		<h3>Players &amp; Teams</h3>
+		<div id="tournament_players" class="pod clear">
 		<div class="bd">
-			<div class="clear">
-				<h4><em>Players &amp; Teams</em></h4>
+		  <div class="group">
+		    <%= f.check_box :use_teams, :onclick => '($(this).attr("checked"))?$("#players_per_team_canvas").show():$("#players_per_team_canvas").hide();'  %>
+		    <%= f.label :use_teams, "Enable Teams", :class => 'checkbox' %>
+		  </div>
+		
+			<div class="group" style="<%= 'display: none;' unless @tournament.use_teams? %>" id="players_per_team_canvas">
+				<%= f.text_field :players_per_team %> <%= f.label :players_per_team, "How many players per team?" %>
 			</div>
-			<p class="note yellow_note">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<a class="note-close" href="">X</a></p>
 			
-			  <div class="group">
-			    <%= f.check_box :use_teams, :onclick => '($(this).attr("checked"))?$("#players_per_team_canvas").show():$("#players_per_team_canvas").hide();'  %>
-			    <%= f.label :use_teams, "Enable Teams", :class => 'checkbox' %>
-			  </div>
-			
-				<div style="<%= 'display: none;' unless @tournament.use_teams? %>" id="players_per_team_canvas">
-					<%= f.text_field :players_per_team %> <%= f.label :players_per_team, "How many players per team?" %>
-				</div>
-				
-				<div class="block"><%= f.select :slot_count, [4, 8, 16, 32], {}, :onchange => 'updateRounds();' %> <%= f.label :slot_count, "Maximum Slots" %></div>
+			<div><%= f.select :slot_count, [4, 8, 16, 32], {}, :onchange => 'updateRounds();' %> <%= f.label :slot_count, "Maximum Slots" %></div>
 			</div><!-- / bd -->
 			</div><!-- / pod -->
 		<!-- / Step 3 -->
 		
 		<!-- Step 4 -->
-		<div id="tournament_prize" class="pod step clear">
+		<h3>Prizes &amp; Fees</h3>
+		<div id="tournament_prize" class="pod clear">
 		<div class="bd">
-			<div class="clear">
-				<h4><em>Prizes &amp; Fees</em></h4>
-			</div>
-			<p class="note yellow_note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.<a class="note-close" href="">X</a></p>
 			
 			<div><%= f.label :first_place_prize, "1st Place" %></div>
-			<div><%= f.text_field :first_place_prize, :size => 55 %></div>
+			<div class="group"><%= f.text_field :first_place_prize, :size => 55 %></div>
 			<div><%= f.label :second_place_prize, "2nd Place" %></div>
-			<div><%= f.text_field :second_place_prize, :size => 55 %></div>
+			<div class="group"><%= f.text_field :second_place_prize, :size => 55 %></div>
 			<div><%= f.label :third_place_prize, "3rd Place" %></div>
-			<div><%= f.text_field :third_place_prize, :size => 55 %></div>
-			<div><%= f.label :entry_fee, "Entry Fees" %><%= f.text_field :entry_fee, :size => 15 %></div>
+			<div class="group"><%= f.text_field :third_place_prize, :size => 55 %></div>
+			<div class="group"><%= f.label :entry_fee, "Entry Fees" %><%= f.text_field :entry_fee, :size => 15 %></div>
 			<div><%= f.label :other_prizes, "Other Prizes", :class => 'textarea' %></div>
 			<div><%= f.text_area :other_prizes, :size => "88x15" %></div>
 		</div><!-- / bd -->
@@ -195,13 +191,10 @@
 		<!-- / Step 4 -->
 		
 		<!-- Step 5 -->
-		<div id="tournament_dates" class="pod step clear">
+		<h3>Dates</h3>
+		<div id="tournament_dates" class="pod clear">
 		<div class="bd">
-			<div class="clear">
-				<h4><em>The Dates</em></h4>
-			</div>
 			
-			<p class="note yellow_note">Consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue.<a class="note-close" href="">X</a></p>
 			<div class="clear">
 		    <div id="calendar_canvas">
       		<%= render :partial => 'layouts/calendar', :locals => {:show_date => @tournament.registration_start_date} %>
@@ -221,7 +214,7 @@
 							  / <input type="text" class="date_day" name="tournament[registration_start_date(3i)]" id="tournament_registration_start_date_day" title="dd" maxlength="2" value="<%= @tournament.registration_start_date.try(:day) %>" />
 							  / <input type="text"  class="date_year"name="tournament[registration_start_date(1i)]" id="tournament_registration_start_date_year" title="yyyy" maxlength="4" value="<%= @tournament.registration_start_date.try(:year) %>" />
 							</td>
-							<td class="edit"><a href="">Edit</a></td>
+							<td class="edit">&nbsp;</td>
 						</tr>
 						<tr>
 							<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
@@ -230,17 +223,19 @@
 							  / <input type="text" class="date_day" name="tournament[registration_end_date(3i)]" id="tournament_registration_end_date_day" title="dd" maxlength="2" value="<%= @tournament.registration_end_date.try(:day) %>" />
 							  / <input type="text"  class="date_year"name="tournament[registration_end_date(1i)]" id="tournament_registration_end_date_year" title="yyyy" maxlength="4" value="<%= @tournament.registration_end_date.try(:year) %>" />
 							</td>
-							<td class="edit"><a href="">Edit</a></td>
+							<td class="edit">&nbsp;</td>
 						</tr>
 						<% 0.upto(4) do |n| %>
 						  <tr class="time" id="round_<%= n+1 %>_canvas" style="display: none;">
 							  <th>Round #<%= n+1 %> Start Time:</th>
 							  <td class="time">
+							  <div class="group">
 							    <input type="text" class="date_month" name="tournament[rounds_attributes][<%= n %>][start_date(2i)]" id="tournament_rounds_<%= n %>_start_date_month" title="mm" maxlength="2" value="<%= @tournament.rounds[n].start_date.try(:month) if @tournament.rounds[n] %>" />
 							    / <input type="text" class="date_day" name="tournament[rounds_attributes][<%= n %>][start_date(3i)]" id="tournament_rounds_<%= n %>_start_date_day" title="dd" maxlength="2" value="<%= @tournament.rounds[n].start_date.try(:day) if @tournament.rounds[n] %>" />
 							    / <input type="text" class="date_year" name="tournament[rounds_attributes][<%= n %>][start_date(1i)]" id="tournament_rounds_<%= n %>_start_date_year" title="yyyy" maxlength="4" value="<%= @tournament.rounds[n].start_date.try(:year) if @tournament.rounds[n] %>" />
 							    - <input type="text" class="date_hour" name="tournament[rounds_attributes][<%= n %>][start_date(4i)]" id="tournament_rounds_<%= n %>_start_date_hour" title="hh" maxlength="2" />
 							    : <input type="text" class="date_minutes" name="tournament[rounds_attributes][<%= n %>][start_date(5i)]" id="tournament_rounds_<%= n %>_start_date_minutes" title="mm" maxlength="2" />
+							  </div>
 							    
 							   
 							  <div>
@@ -251,17 +246,19 @@
 							  </div>
 							  <input type="hidden" name="tournament[rounds_attributes][<%= n %>][number]" value="<%= n %>" />
 							  </td>
-							  <td class="edit"><a href="">Edit</a></td>
+							  <td class="edit">&nbsp;</td>
 						  </tr>
 					  <% end %>
 					</table>
 			  </div><!-- / tournament_dates -->
 			</div><!-- / clear -->
-			<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button>
-			<%= f.check_box :is_template %> <%= f.label :is_template, 'Save this tournament as a Template.' %>
 		</div><!-- / bd -->
 		</div><!-- / pod -->
 		<!-- / Step 5 -->
+		<div style="margin: -20px 0 5px 0;">
+		<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button>
+		<%= f.check_box :is_template %> <%= f.label :is_template, 'Save this tournament as a Template.' %>
+		</div>
 	</div>
 	<% end -%>
 	</div><!-- / col -->
@@ -270,18 +267,42 @@
 <div id="sidecol">
 	<div class="col">
 	<div class="save_wrapper clear">
-		<ul>
-			<li><a class="rc biglink bl" href="#load_template" rel="modal">Load from Template</a></li>
-		</ul>
+		<a class="btn" href="#load_template" rel="modal"><span class="icon"></span><span>Load from Template</span></a>
 	</div><!-- / save_wrapper -->
 	
-	<div class="pod">
+	<div class="pod rules_tips">
 	<div class="hd">
-		<h2>What are Templates?</h2>
+		<h2>Rules - Tips &amp; Tricks</h2>
 	</div><!-- / hd -->
+	<span class="arrow_pod2pod"></span>
+	<div class="bd clear">
+	<h4>Example HTML Usage</h4>
+	  <ul>
+	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	    <li class="last"><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	  </ul>
+	  <a class="btn" href="#rules_example" rel="modal"><span class="icon"></span><span>Example Rules Page</span></a>
+	</div><!-- / bd -->
+	</div><!-- / pod -->
+	
+	<div class="pod prizes_tips">
+	<div class="hd">
+		<h2>Prizes &amp; Fees</h2>
+	</div><!-- / hd -->
+	<span class="arrow_pod2pod"></span>
 	<div class="bd">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.</p>
-	</div>
-	</div>
+	  <p>Enter your prizes below. Prizes do not have to be numerical. Any other prize details should be placed in “Other Prizes” section. Enter an entry fee if you require users to pay an entry fee in order to participate.</p>
+    <ul>
+      <li>1st: $1000</li>
+      <li>2nd: $500</li>
+      <li>3rd: $250</li>
+      <li>Entry Fee: $50</li>
+      <li>Other Prize: All registered participants will receive a free T-Shirt for participation.</li>
+    </ul>
+	</div><!-- / bd -->
+	</div><!-- / pod -->
+	
 	</div><!-- / col -->
 </div><!-- / sidecol -->
