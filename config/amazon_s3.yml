@@ -1,5 +1,5 @@
 development:
-  bucket_name: development_bucket
+  bucket_name: tbbdev
   access_key_id: AKIAJQPNQOXW46LVCXUA
   secret_access_key: 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
   max_file_size: 10485760
