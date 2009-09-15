@@ -7,16 +7,14 @@ class CreateTournaments < ActiveRecord::Migration
       t.integer   :slot_count
       t.boolean   :teams, :default => false
       t.integer   :players_per_team
-      t.string    :prizes
-
       t.string    :places
       
       t.date      :registration_start_date
       t.date      :registration_end_date
       
-      t.integer   :first_place_prize,  :default => 0
-      t.integer   :second_place_prize, :default => 0
-      t.integer   :third_place_prize,  :default => 0
+      t.string    :first_prize,  :default => 0
+      t.string    :second_prize, :default => 0
+      t.string    :third_prize,  :default => 0
       t.integer   :entry_fee,          :default => 0
       t.text      :other_prizes
       

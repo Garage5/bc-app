@@ -1,7 +1,7 @@
 class Tournament < ActiveRecord::Base
   serialize   :places, Hash
+  serialize   :prizes, Hash
 
-  
   belongs_to  :instance
   belongs_to  :host, :class_name => "User", :foreign_key => "host_id"
   
@@ -58,7 +58,7 @@ class Tournament < ActiveRecord::Base
       self.slot_count = calculate_slot_count(participants.size)
     
       # for each round expected
-      calculate_round_count(self.slot_count).times do |r|
+      calculate_round_count.times do |r|
         round_number = r + 1
         self.rounds.create(:number => round_number)
       end  
@@ -83,7 +83,6 @@ class Tournament < ActiveRecord::Base
     end # end transaction
   end
   
-  private
   def calculate_slot_count(n)
     case n
     when 2..4
@@ -99,7 +98,8 @@ class Tournament < ActiveRecord::Base
     end
   end
   
-  def calculate_round_count(n)
+  def calculate_round_count
+    n = slot_count
     r = { 4 => 2, 8 => 3, 16 => 4, 32 => 5, 64 => 6 }
     r[n]
   end

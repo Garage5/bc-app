@@ -1,7 +1,7 @@
 class Team < ActiveRecord::Base
   belongs_to :tournament
   has_many :team_members, :dependent => :destroy
-  has_many :participations, :through => :team_members
+  has_many :members, :through => :team_members
   validates_presence_of :name
   validates_uniqueness_of :name
   

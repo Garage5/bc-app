@@ -58,15 +58,12 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
   end
 
   create_table "matches", :force => true do |t|
-    t.integer  "player_one_id"
-    t.integer  "player_two_id"
     t.integer  "round_id"
     t.integer  "winner_id"
     t.integer  "tournament_id"
     t.integer  "position"
-    t.string   "player_one_result"
-    t.string   "player_two_result"
-    t.string   "status",            :default => "TBD"
+    t.integer  "comments_count"
+    t.string   "status",         :default => "TBD"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -115,9 +112,9 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
   end
 
   create_table "team_members", :force => true do |t|
-    t.integer  "team_id",                                 :null => false
-    t.integer  "participation_id",                        :null => false
-    t.string   "state",            :default => "pending", :null => false
+    t.integer  "team_id",                           :null => false
+    t.integer  "member_id",                         :null => false
+    t.string   "state",      :default => "pending", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -136,13 +133,12 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
     t.integer  "slot_count"
     t.boolean  "use_teams",               :default => false
     t.integer  "players_per_team"
-    t.string   "prizes"
     t.string   "places"
     t.date     "registration_start_date"
     t.date     "registration_end_date"
-    t.string   "first_place_prize",       :default => "",    :null => false
-    t.string   "second_place_prize",      :default => "",    :null => false
-    t.string   "third_place_prize",       :default => "",    :null => false
+    t.string   "first_prize",             :default => "0"
+    t.string   "second_prize",            :default => "0"
+    t.string   "third_prize",             :default => "0"
     t.integer  "entry_fee",               :default => 0
     t.text     "other_prizes"
     t.boolean  "is_template",             :default => false

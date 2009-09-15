@@ -6,14 +6,15 @@ class Match < ActiveRecord::Base
   belongs_to :winner, :class_name => "User", :foreign_key => "winner_id"
   
   has_many :comments, :as => :commentable
-
+  attr_readonly :comments_count
+  
   has_many :slots, :order => 'position asc'
   has_many :players, :through => :slots
   
   acts_as_list :scope => :round
   
   def active?
-    self.players.size == 2 ? true : false
+    self.slots[0].player.nil? || self.slots[1].player.nil? ? false : true
   end
   
   def has_player?(user)

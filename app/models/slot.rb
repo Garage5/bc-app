@@ -2,12 +2,10 @@ class Slot < ActiveRecord::Base
   belongs_to :match
   belongs_to :tournament
   belongs_to :player, :class_name => "User", :foreign_key => "user_id"
-  
-  acts_as_list :scope => :match_id
-  
+    
   def advance!(byed = nil)
     match = self.match
-    unless match.round == self.tournament.rounds.last
+    unless match.round.position == self.tournament.calculate_round_count
       index = match.position.odd? ? 0 : 1
       next_match = match.next
       
@@ -28,7 +26,7 @@ class Slot < ActiveRecord::Base
         :target_id     => self.match.id, :target_type => self.match.class.to_s,
         :event_type    => 'result', :action => 'posted',
         :message       => "#{self.player.login} vanquished #{self.opponent.player.login} in round #{self.match.round.number}",
-        :actor         => 'someone') unless self.opponent.bye?
+        :actor         => 'someone') unless byed
     else
       serialized = OpenStruct.new({:id => self.player.id, :name => self.player.login})
       self.tournament.places.nil? ? self.tournament.places = {0 => serialized} : self.tournament.places[0] = serialized

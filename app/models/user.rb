@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   
   has_many :participations, :foreign_key => :participant_id, :dependent => :destroy
   has_many :tournaments, :through => :participations
-  has_many :team_memberships, :through => :participations, :class_name => 'TeamMember'
+  has_many :team_memberships, :class_name => 'TeamMember', :foreign_key => :member_id
+  has_many :teams, :through => :team_members, :class_name => 'TeamMember'
   
   validates_acceptance_of :terms_of_service, :on => :create
   validates_length_of :login, :within => 3..13
