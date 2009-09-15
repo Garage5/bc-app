@@ -50,13 +50,20 @@
 		      <div class="login_btn">
 		        <p>You are not currently logged in!</p><%= link_to "Login", login_path %>
 		      </div><!-- / login_btn -->
-		      <div class="login_form">
+		      <% form_for UserSession.new, :html => {:class => 'login_form'} do |f| -%>
+		        <%= f.label :login, "BattleID:" %>
+		        <%= f.text_field :login %>
+		        <%= f.label :password, "Password:" %>
+		        <%= f.password_field :password %>
+		        <button type="submit">Login</button>
+		      <% end -%>
+		      <!--><div class="login_form">
 		        <label>BattleID:</label>
 		        <input type="text"/>
 		        <label>Password:</label>
 		        <input type="password"/>
 		        <%= link_to "Login", login_path %>
-		      </div><!-- / login_form -->
+		      </div>--><!-- / login_form -->
 		    </li>
         <li id="user_signup"><p>Don't have a BattleID?</p><%= link_to "Signup", signup_path %></li>
       </ul>
