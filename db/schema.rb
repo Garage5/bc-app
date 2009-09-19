@@ -102,7 +102,8 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
   end
 
   create_table "slots", :force => true do |t|
-    t.integer "user_id"
+    t.integer "player_id"
+    t.string  "player_type"
     t.integer "match_id"
     t.integer "tournament_id"
     t.integer "position"

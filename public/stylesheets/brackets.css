@@ -135,7 +135,11 @@ li.player.disputed span {
 }
 
 li.player.disputed span { color: #de694d; }
-li.player.tbd span { color: #829092; }
+li.player.tbd span { 
+  color: #829092;
+  opacity: 0.4;
+  -moz-opacity: 0.4;
+  filter:alpha(opacity=40); }
 
 li.player.disputed span,
 li.player.tbd span {

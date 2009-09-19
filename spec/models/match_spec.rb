@@ -10,10 +10,8 @@ describe Match do
     @tournament.start
   end
   
-  it "#next should be nil, not nil when player is advanced" do
+  it "#next should not be nil" do
     match = @tournament.rounds.first.matches[0]
-    match.next.should be_nil
-    match.slots[0].advance!
     match.next.should_not be_nil
     match.next.should == @tournament.rounds[1].matches.by_pos(1).first
   end
@@ -176,12 +174,5 @@ describe Match do
   
   it "should delete associated 'won' events when a player is disqualified"
   
-  describe 'slot' do
-    
-    it "should be a team if tournament is team based"
-    
-    it "should be a player if tournament is not team based"
-    
-  end
 
 end

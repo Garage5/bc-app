@@ -1,8 +1,10 @@
 class Slot < ActiveRecord::Base
   belongs_to :match
   belongs_to :tournament
-  belongs_to :player, :class_name => "User", :foreign_key => "user_id"
-    
+  belongs_to :player, :polymorphic => true
+  
+  acts_as_list :scope => :match_id
+  
   def advance!(byed = nil)
     match = self.match
     unless match.round.position == self.tournament.calculate_round_count
@@ -63,7 +65,7 @@ class Slot < ActiveRecord::Base
   
   def revert!
     if self.can_revert?
-      previous_slot  = parent_match.slots.find_by_user_id(self.user_id)
+      previous_slot  = parent_match.slots.find_by_player_id(self.player_id)
       previous_match = parent_match
 
       self.player = nil
@@ -88,7 +90,7 @@ class Slot < ActiveRecord::Base
   end
   
   def previous
-    parent_match.slots.find_by_user_id(self.user_id)
+    parent_match.slots.find_by_player_id(self.player_id)
   end
   
   def parent_match

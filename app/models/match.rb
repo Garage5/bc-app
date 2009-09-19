@@ -9,7 +9,7 @@ class Match < ActiveRecord::Base
   attr_readonly :comments_count
   
   has_many :slots, :order => 'position asc'
-  has_many :players, :through => :slots
+  # has_many :players, :through => :slots
   
   acts_as_list :scope => :round
   

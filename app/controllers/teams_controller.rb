@@ -1,33 +1,40 @@
 class TeamsController < ApplicationController
-  before_filter :find_instance
   before_filter :find_tournament
   before_filter :find_team, :except => :create
   before_filter :login_required
   
   def create
-    if current_user.is_hosting?(@tournament)
-      flash[:error] = 'Officials can\'t create teams.'
-    elsif !@tournament.use_teams?
-      flash[:error] = 'This tournament is not based on teams.'
+    @team = @tournament.teams.new(params[:team])
+    @team.captain = current_user
+    # @team.members << User.all(params[:user_ids])
+    if @team.save
+      redirect_to tournament_participants_path(@tournament)
     else
-      @team = Team.new({:tournament_id => @tournament.id}.merge(params[:team]))
-      # find the participants the user requested
-      parts = @tournament.participations.find(:all, :conditions => {:participant_id => [current_user.id] + (params[:user_ids] || []), :state => 'active'}, :order => "(participant_id = #{current_user.id}) DESC")
-      parts.each do |part|
-        # can't add a participant that accepted to join other team
-        unless part.team_memberships.exists?(:state => ['active', 'captain'])
-          @team.team_members.build(:participation => part, :state => (part.participant_id == current_user.id ? 'captain' : 'pending'))
-        end
-      end
-      if !@team.save
-        flash[:error] = "Could not create the team: #{@team.errors.full_messages.join(",")}"
-      end
-      # creating a team you decline other invitations for you
-      current_user.team_memberships_in(@tournament, true).each do |memb|
-        memb.destroy unless memb.team == @team
-      end
+      flash[:error] = "Could not create the team: #{@team.errors.full_messages.join(",")}"
     end
-    redirect_to tournament_participants_path(@tournament)
+    # if current_user.is_hosting?(@tournament)
+    #   flash[:error] = 'Officials can\'t create teams.'
+    # elsif !@tournament.use_teams?
+    #   flash[:error] = 'This tournament is not based on teams.'
+    # else
+    #   @team = Team.new({:tournament_id => @tournament.id}.merge(params[:team]))
+    #   # find the participants the user requested
+    #   parts = @tournament.participations.find(:all, :conditions => {:participant_id => [current_user.id] + (params[:user_ids] || []), :state => 'active'}, :order => "(participant_id = #{current_user.id}) DESC")
+    #   parts.each do |part|
+    #     # can't add a participant that accepted to join other team
+    #     unless part.team_memberships.exists?(:state => ['active', 'captain'])
+    #       @team.team_members.build(:participation => part, :state => (part.participant_id == current_user.id ? 'captain' : 'pending'))
+    #     end
+    #   end
+    #   if !@team.save
+    #     flash[:error] = "Could not create the team: #{@team.errors.full_messages.join(",")}"
+    #   end
+    #   # creating a team you decline other invitations for you
+    #   current_user.team_memberships_in(@tournament, true).each do |memb|
+    #     memb.destroy unless memb.team == @team
+    #   end
+    # end
+    # redirect_to tournament_participants_path(@tournament)
   end
   
   def update

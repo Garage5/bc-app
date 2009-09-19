@@ -10,7 +10,7 @@
 	<div class="col">
 
   	<% if current_user %>
-	    <% current_user.team_memberships.all(:conditions => {:state => 'pending'}).each do |memb| %>
+	    <% current_user.team_members.all(:conditions => {:state => 'pending'}).each do |memb| %>
 	      <% next unless memb.team.tournament_id == @tournament.id %>
 	   	  <div class="note blue_filled clear">
 			    <p>You were invited to join the team <b><%= h memb.team.name %></b>, created by <b><%= h memb.team.captain.login %></b>.</p>

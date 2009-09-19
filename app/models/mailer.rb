@@ -3,7 +3,7 @@ class Mailer < ActionMailer::Base
 
   def team_invitation(team_membership, sent_at = Time.now)
     subject    '[TBC] Team Invitation'
-    recipients team_membership.participation.participant.email
+    recipients team_membership.member.email
     from       'no-reply@thebattlebegins.com'
     # headers    'From' => '"The Battle Center" <no-reply@thebattlebegins.com>'
     sent_on    sent_at

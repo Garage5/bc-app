@@ -27,3 +27,8 @@ Factory.define :participations do |p|
   p.association :user_id, :factory => :user
   p.association :tournament_id, :factory => :tournament
 end
+
+Factory.define :team do |t|
+  t.association :tournament_id, :factory => :tournament
+  t.sequence(:name) {|n| "team-#{n}"}
+end

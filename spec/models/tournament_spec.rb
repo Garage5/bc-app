@@ -49,14 +49,14 @@ describe Tournament do
   it "should have participants in a match" do
     @tournament.start
     match = @tournament.rounds.first.matches.first
-    match.players[0].should_not be_nil
-    match.players[1].should_not be_nil
+    match.slots[0].player.should_not be_nil
+    match.slots[1].player.should_not be_nil
   end
   
   it "should have different participants in a match" do
     @tournament.start
     match = @tournament.rounds.first.matches.first
-    match.players[0].should_not == match.players[1]
+    match.slots[0].player.should_not == match.slots[1].player
   end
   
   it "should generate bye slots for empty slots when started" do
@@ -84,5 +84,43 @@ describe Tournament do
     3.times { @tournament.participations.first.destroy }
     @tournament.start
     @tournament.rounds[1].matches[0].slots[0].revert!.should be_false
+  end
+  
+  describe "Team based" do
+    before(:each) do
+      @tournament.update_attributes(:use_teams => true)
+    end
+    it "should not be able to be started if there are no teams" do
+      @tournament.start
+      @tournament.errors.size.should == 1
+      @tournament.started?.should be_false
+    end
+    
+    it "should have a captain" do
+      team = @tournament.teams.new(:name => 'Cool People', :captain => User.first)
+      team.save
+      team.captain.should == User.first
+    end
+    
+    it "should start a tournament" do
+      participants = @tournament.participants
+      4.times do 
+        team = Factory(:team, :captain => participants.shift, :tournament => @tournament)
+        team.members << participants.shift
+      end
+      @tournament.start
+      @tournament.errors.should be_empty
+      @tournament.started?.should be_true
+    end
+    
+    it "should have slots that are teams" do
+      participants = @tournament.participants
+      4.times do 
+        team = Factory(:team, :captain => participants.shift, :tournament => @tournament)
+        team.members << participants.shift
+      end
+      @tournament.start
+      @tournament.matches.first.slots[0].player.class.should == Team
+    end
   end
 end
