@@ -1,31 +1,31 @@
 /* General Bracket Styles
 -------------------------------------------*/
 .full_width {
-  width: 100.5% !important;
   font-size: 13px;
+  width: 100.5% !important;
 }
 
 #bracket_window {
-  min-height: 66px;
   background: #101212 url(../images/bracket_header.gif) repeat-x;
   color: #fff;
+  margin: 8px 0 8px 0;
+  min-height: 66px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  margin: 8px 0 8px 0;
 }
 
 #not_started_message {
-  text-align: center;
-  padding: 86px 0 20px;
+  color: #425154;
   font-size: 14px;
   font-weight: bold;
-  color: #425154;
+  padding: 86px 0 20px;
+  text-align: center;
 }
 
 ul.round {
+  border-right: 1px solid #171a1a;
   float: left;
   width: 164px;
-  border-right: 1px solid #171a1a;
 }
 
 ul.round li.round_header {
@@ -35,11 +35,11 @@ ul.round li.round_header {
 ul.round li.round_date {
   background-color: #0a0c0c;
   border-bottom: 1px solid #151717;
-  padding: 0 8px;
+  color: #5d656a;
+  font-size: 11px;
   height: 29px;
   line-height: 29px;
-  font-size: 11px;
-  color: #5d656a;
+  padding: 0 8px;
 }
 
 ul.round li.round_date span {
@@ -63,25 +63,25 @@ ul.round li.round_header {
 }
 
 ul.round li.round_header h3 {
+  border-right: 1px solid #272b2b;
   font-size: 13px;
   font-weight: bold;
   height: 36px;
   line-height: 36px;
-  text-indent: 15px;
   margin: 0;
-  border-right: 1px solid #272b2b;
   margin-right: -1px;
+  text-indent: 15px;
 }
 
 ul.round li.round_header a.round_info {
-	width: 16px;
-	height: 16px;
 	background: transparent url(/images/icon_round_info.gif) 0 0 no-repeat;
-	text-indent: -9999px;
-	display: block;
-	position: absolute;
 	bottom: 0;
+	display: block;
+	height: 16px;
+	position: absolute;
 	right: 0;
+	text-indent: -9999px;
+	width: 16px;
 }
 
 ul.round li.round_header a.round_info:hover {
@@ -106,14 +106,14 @@ li.player#me span {
 
 li.player a.player_link, 
 li.player span {
-  display: block;
   background-color: #425154;
-  height: 27px;
   border: 1px solid #4c5a5d;
+  color: #fff;
+  display: block;
+  height: 27px;
+  line-height: 27px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  color: #fff;
-  line-height: 27px;
 }
 
 li.player.disqualified a.player_link,
@@ -123,9 +123,9 @@ li.player.disqualified span {
 li.player img.disqualified {
   float: right;
   position: relative;
-  z-index: 10;
   top: -18px;
   right: -3px;
+  z-index: 10;
 }
 
 li.match.disputed li.player a.player_link,
@@ -143,27 +143,27 @@ li.player.tbd span {
 
 li.player.disputed span,
 li.player.tbd span {
-  text-align: center;
   font-weight: bold;
+  text-align: center;
 } 
 
 li.player a.player_link:hover, 
 li.player a.player_link.hover {
-  color: #fff;
   background-color: #0082b9 !important;
   border-color: #0094c4 !important;
-  text-decoration: none;
+  color: #fff;
   opacity: 1;
+  text-decoration: none;
 }
 
 li.player img.bracket_avatar {
   float: left;
   height: 21px;
-  width: 21px;
+  left: 3px;
   margin-right: 6px;
   position: relative;
   top: 3px;
-  left: 3px;
+  width: 21px;
 }
 
 li.match li.comments {
@@ -186,9 +186,9 @@ ul.round#r1 {
 }
 
 ul.round#r1 li.match {
-  padding-top: 25px;
-  padding-bottom: 25px;
   background: url(../images/bracket_r1.gif) right 25px no-repeat;
+  padding-bottom: 25px;
+  padding-top: 25px;
 }
 
 ul.round#r1 li.match li.comments {
@@ -216,8 +216,8 @@ ul.round#r1 {
 
 
 ul.round#r2 li.match {
-  padding-top: 55px;
   padding-bottom: 55px;
+  padding-top: 55px;
   background: url(../images/bracket_r2.gif) right 55px no-repeat;
 }
 
@@ -242,9 +242,9 @@ ul.round#r2 li.match .highlight {
 -------------------------------------------*/
 
 ul.round#r3 li.match {
-  padding-top: 124px;
-  padding-bottom: 124px;
   background: url(../images/bracket_r3.gif) right 124px no-repeat;
+  padding-bottom: 124px;
+  padding-top: 124px;
 }
 
 ul.round#r3 li.match li.comments {
@@ -268,9 +268,9 @@ ul.round#r3 li.match .highlight {
 -------------------------------------------*/
 
 ul.round#r4 li.match {
-  padding-top: 261px;
-  padding-bottom: 261px;
   background: url(../images/bracket_r4.gif) 260px right no-repeat;
+  padding-bottom: 261px;
+  padding-top: 261px;
 }
 
 ul.round#r4 li.match li.comments {
@@ -293,9 +293,9 @@ ul.round#r4 li.match .highlight {
 -------------------------------------------*/
 
 ul.round#r5 li.match {
-  padding-top: 538px;
-  padding-bottom: 538px;
   background: url(../images/bracket_r5.gif) 538px right no-repeat;
+  padding-bottom: 538px;
+  padding-top: 538px;
 }
 
 ul.round#r5 li.match li.comments {
@@ -318,9 +318,9 @@ ul.round#r5 li.match .highlight {
 -------------------------------------------*/
 
 ul.round#r6 li.match {
-  padding-top: 1094px;
-  padding-bottom: 1094px;
   background: url(../images/bracket_r6.gif) 260px right no-repeat;
+  padding-bottom: 1094px;
+  padding-top: 1094px;
 }
 
 ul.round#r6 li.match li.comments {
@@ -341,37 +341,38 @@ ul.round#r6 li.match.winner-p2 {
 .manage_player_link {
   background-image: url(../images/manage_player.png);
   display: none;
-  position: absolute;
   height: 14px;
-  width: 14px;
-  text-indent: -9000px;
   overflow: hidden;
+  position: absolute;
+  text-indent: -9000px;
+  width: 14px;
 }
 
 
 .host_links {
   background-color: #2a3639;
   border-color: #334244;
-  border-width: 1px;
   border-style: solid;
-  width: 124px;
+  border-width: 1px;
+  display: none;
   height: 58px;
+  position: absolute;
+  text-align: center;
+  width: 124px;
+  z-index: 0;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-  position: absolute;
-  z-index: 0;
-  display: none;
-  text-align: center;
 }
 
 .host_links a {
-  display: inline !important;
+  
   background: none !important;
   padding: 0 !important;
   border: 0 !important;
+  display: inline !important;
+  margin: 0 3px;
   position: relative;
   top: 38px;
-  margin: 0 3px;
 }
 
 
@@ -392,10 +393,10 @@ ul.round.final li.match {
   background-image: none !important;
 }
 
-.highlight{
-  width: 47px;
+.highlight {
   height: 100px;
   position: absolute;
+  width: 47px;
 }
 
 
