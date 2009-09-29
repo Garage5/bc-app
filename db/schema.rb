@@ -113,9 +113,10 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
   end
 
   create_table "team_members", :force => true do |t|
-    t.integer  "team_id",                           :null => false
-    t.integer  "member_id",                         :null => false
-    t.string   "state",      :default => "pending", :null => false
+    t.integer  "team_id",                              :null => false
+    t.integer  "member_id",                            :null => false
+    t.integer  "tournament_id",                        :null => false
+    t.string   "state",         :default => "pending", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

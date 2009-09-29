@@ -12,6 +12,7 @@ class Tournament < ActiveRecord::Base
   has_many :events, :order => 'created_at DESC'
   has_many :comments
   
+  has_many :team_members, :dependent => :destroy
   has_many :teams, :dependent => :destroy
   
   has_many :participations, :dependent => :destroy

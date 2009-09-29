@@ -3,6 +3,7 @@ class CreateTeamMembers < ActiveRecord::Migration
     create_table :team_members do |t|
       t.belongs_to :team, :null => false
       t.belongs_to :member, :null => false
+      t.belongs_to :tournament, :null => false
       t.string :state, :null => false, :default => 'pending'
 
       t.timestamps
