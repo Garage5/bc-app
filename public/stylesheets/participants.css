@@ -17,6 +17,11 @@ body#participants .player_list ul.first {
 	margin: 0;
 }
 
+body#participants .player_list ul label {
+  display: block !important;
+  position: static !important;
+}
+
 body#participants .player_list ul li {
 	float: left;
 	display: block;
@@ -36,7 +41,6 @@ body#participants .player_list ul li:hover {
 	border-bottom: 2px #e2d484 solid;
 	border-left: 1px #e2d484 solid;
 	border-right: 2px #e2d484 solid;
-	cursor: pointer;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }

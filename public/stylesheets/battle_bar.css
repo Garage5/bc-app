@@ -4,16 +4,16 @@
 	text-align: left;
 	top: 0;
 	left: 0;
-	margin: 0;
 	padding: 0;
 	position: relative;
+	margin: 0;
 	width: 100%;
 	z-index: 9999;
 }
 
 #battle_bar #bar_content {
-	width: 1100px;
 	margin: 0 auto;
+	width: 1100px;
 }
 
 #battle_bar a:hover {
@@ -29,31 +29,31 @@ User Avatar
 }
 
 #battle_bar #user_avatar img {
+  display: block;
 	float: left;
-	display: block;
 }
 
 #battle_bar #user_avatar a#avatar span {
-	font-size: 14px;
-	font-weight: normal;
 	display: block;
 	float: left;
+	font-size: 14px;
+	font-weight: normal;
 	padding: 9px 0 0 10px;
 }
 
 #battle_bar #user_avatar a#avatar {
-	padding: 5px 10px 5px 10px;
+  border-left: 1px #2a2c30 solid;
+  border-right: 1px #2a2c30 solid;
 	color: #77828f;
 	display: block;
+	padding: 5px 10px 5px 10px;
 	float: left;
-	border-left: 1px #2a2c30 solid;
-	border-right: 1px #2a2c30 solid;
 }
 
 #battle_bar #user_avatar a#avatar:hover {
-	text-decoration: none;
 	background: #121314;
 	color: #95a0ac;
+	text-decoration: none;
 }
 
 /* 
@@ -67,9 +67,9 @@ Tournament Menu
 }
 
 #battle_bar #your_tournaments a {
-	padding: 14px 15px 8px 15px;
 	display: block;
 	border-right: 1px #2a2c30 solid;
+	padding: 14px 15px 8px 15px;
 }
 
 #battle_bar #your_tournaments a:hover {
@@ -78,11 +78,11 @@ Tournament Menu
 }
 
 #battle_bar #your_tournaments a span#tmenu_txt {
-	font-size: 13px;
 	color: #77828f;
-	font-weight: normal;
 	display: block;
 	float: left;
+	font-size: 13px;
+	font-weight: normal;
 }
 
 #battle_bar #your_tournaments a:hover span#tmenu_txt {
@@ -90,24 +90,25 @@ Tournament Menu
 }
 
 #battle_bar #your_tournaments a span#tmenu_unread {
-	font-size: 11px;
+	
 	background: transparent url(/images/tmenu_count_bg.png) 1px 0 no-repeat;
-	font-weight: bold;
 	color: #FFF;
-	width: 21px;
 	display: block;
-	padding: 5px 0 4px 0;
 	float: left;
+	font-size: 11px;
+	font-weight: bold;
+	left: 8px;
+	padding: 5px 0 4px 0;
 	position: relative;
 	text-align: center;
-	left: 8px;
 	top: -4px;
+	width: 21px;
 }
 
 #battle_bar #your_tournaments a:hover span#tmenu_unread {
-	text-decoration: none !important;
 	background: transparent url(/images/tmenu_count_blk_bg.png) 0 0 no-repeat;
 	color: #FFF;
+	text-decoration: none !important;
 }
 
 #battle_bar #your_tournaments #tmenu {
@@ -123,19 +124,19 @@ Tournament Menu
 }
 
 #battle_bar #your_tournaments:hover a span#tmenu_unread {
-	text-decoration: none !important;
 	background: transparent url(/images/tmenu_count_blk_bg.png) 1px 0 no-repeat;
 	color: #FFF;
+	text-decoration: none !important;
 }
 
 #battle_bar #your_tournaments:hover #tmenu {
+  background: transparent url(/images/menu_shadow.png) 0 0 repeat;
 	display: block;
+	left: -6px;
+	padding: 0 6px 6px 6px;
 	position: absolute;
 	top: 40px;
-	left: -6px;
 	z-index: 1000;
-	padding: 0 6px 6px 6px;
-	background: transparent url(/images/menu_shadow.png) 0 0 repeat;
 	-moz-border-radius-bottomleft:      7px;
 	-moz-border-radius-bottomright:     7px;
 	-webkit-border-bottom-left-radius:  7px;
@@ -143,9 +144,9 @@ Tournament Menu
 }
 
 #battle_bar #your_tournaments:hover #tmenu #tmenu_inner {
-	width: 350px;
-	background: #FFF;
+  background: #FFF;
 	padding: 4px;
+	width: 350px;
 	-moz-border-radius-bottomleft:      5px;
 	-moz-border-radius-bottomright:     5px;
 	-webkit-border-bottom-left-radius:  5px;
@@ -171,13 +172,13 @@ Tournament Menu
 #battle_bar #your_tournaments:hover #tmenu ul li a {
 	color: #0197d6;
 	background: #FFF;
-	padding: 9px 7px 8px 7px;
+	border: 0;
 	display: block;
 	font-weight: bold;
-	border: 0;
+	font-size: 12px !important;
+	padding: 9px 7px 8px 7px;
 	-moz-border-radius:     2px;
 	-webkit-border-radius:  2px;
-	font-size: 12px !important;
 }
 
 #battle_bar #your_tournaments:hover #tmenu ul li:hover a:hover.tedit {
@@ -191,10 +192,10 @@ Tournament Menu
 }
 
 #battle_bar #your_tournaments:hover #tmenu ul li a em {
-	display: block;
 	color: #666;
-	padding: 5px 0 0 5px;
+	display: block;
 	font-weight: normal;
+	padding: 5px 0 0 5px;
 }
 
 #battle_bar #your_tournaments:hover #tmenu ul li:hover a em {
@@ -206,17 +207,17 @@ Tournament Menu
 }
 
 #battle_bar #your_tournaments:hover #tmenu ul li:hover a.tedit {
+	background: transparent url(/images/icon_edit_tournament.png) 0 0 no-repeat;
 	display: block;
 	float: right;
-	width: 24px;
 	height: 24px;
-	background: transparent url(/images/icon_edit_tournament.png) 0 0 no-repeat;
-	text-indent: -9999px;
-	position: relative;
-	top: 12px;
 	left: -11px;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	position: relative;
+	text-indent: -9999px;
+	top: 12px;
+	width: 24px;
 }
 
 /* 
@@ -274,19 +275,19 @@ User Nav
 }
 
 #user_nav ul li {
+  display: block;
 	float: left;
-	display: block;
 	margin: 0 0 0 20px;
 }
 
 #user_nav ul li a {
 	color: #BBB;
-	font-size: 12px;
 	display: block;
+	font-size: 12px;
+	float: right;
 	padding: 8px 12px 8px 12px;
 	-moz-border-radius:     4px;
 	-webkit-border-radius:  4px;
-	float: right;
 }
 
 #user_nav ul li a:hover {
@@ -296,9 +297,9 @@ User Nav
 }
 
 #user_nav ul li#user_logout a {
-	padding: 8px 12px 8px 27px;
 	background: transparent url(/images/icon_logout.png) 6px 6px no-repeat;
 	color: #FFF;
+	padding: 8px 12px 8px 27px;
 }
 
 #user_nav ul li#user_logout a:hover {
@@ -311,9 +312,9 @@ User Nav
 }
 
 #logged_out #user_nav ul li#user_signup a {
-	padding: 8px 12px 8px 27px;
 	background: #017ecc url(/images/icon_signup.png) 6px 6px no-repeat;
 	color: #FFF;
+	padding: 8px 12px 8px 27px;
 }
 
 #logged_out #user_nav ul li#user_signup a:hover {
@@ -322,10 +323,10 @@ User Nav
 }
 
 #logged_out #user_nav ul li#user_signup p, #logged_out #user_nav ul li#user_login p {
+  color: #77828f;
+  font-size: 13px;
   float: left;
   padding: 8px 10px 0 0;
-  font-size: 13px;
-  color: #77828f;
 }
 
 /* 
@@ -333,13 +334,18 @@ User Login
 -------------------------------------------------------------------------------------
 */
 
-#logged_out #user_nav ul li#user_login a {
-	padding: 8px 12px 8px 27px;
+#logged_out #user_nav ul li#user_login button {
 	background: #000 url(/images/icon_login.png) 6px 6px no-repeat;
 	color: #FFF;
+	display: block;
+	font-size: 12px;
+	float: right;
+	padding: 8px 12px 8px 27px;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
 }
 
-#logged_out #user_nav ul li#user_login a:hover {
+#logged_out #user_nav ul li#user_login button:hover {
 	background: #000 url(/images/icon_login.png) 6px 6px no-repeat;
 	text-decoration: underline;
 }
@@ -348,37 +354,27 @@ User Login
   display: none;
 }
 
-#logged_out #user_nav ul li#user_login div.login_form label {
-  color: #FFF;
-  margin: 8px 5px 0 5px;
-  font-size: 12px;
+#logged_out #user_nav ul li#user_login label {
   color: #77828f;
   display: block;
+  font-size: 12px;
   float: left;
+  margin: 8px 5px 0 5px;
 }
 
-#logged_out #user_nav ul li#user_login div.login_form input {
+#logged_out #user_nav ul li#user_login input {
   background: #282c2e;
   border: 1px #323739 solid;
   color: #FFF;
+  display: block;
+  font-size: 13px;
+  float: left;
   margin: 0 10px 0 0;
   padding: 5px 3px 5px 3px;
-  font-size: 13px;
-  display: block;
-  float: left;
 }
 
-#logged_out #user_nav ul li#user_login div.login_form input:focus {
+#logged_out #user_nav ul li#user_login input:focus {
   background: #FFF;
   border: 1px #000 solid;
   color: #000;
 }
-
-
-
-
-
-
-
-
-
