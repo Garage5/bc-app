@@ -333,13 +333,18 @@ User Login
 -------------------------------------------------------------------------------------
 */
 
-#logged_out #user_nav ul li#user_login a {
+#logged_out #user_nav ul li#user_login button {
 	padding: 8px 12px 8px 27px;
 	background: #000 url(/images/icon_login.png) 6px 6px no-repeat;
 	color: #FFF;
+	font-size: 12px;
+	display: block;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
+	float: right;
 }
 
-#logged_out #user_nav ul li#user_login a:hover {
+#logged_out #user_nav ul li#user_login button:hover {
 	background: #000 url(/images/icon_login.png) 6px 6px no-repeat;
 	text-decoration: underline;
 }
@@ -348,7 +353,7 @@ User Login
   display: none;
 }
 
-#logged_out #user_nav ul li#user_login div.login_form label {
+#logged_out #user_nav ul li#user_login label {
   color: #FFF;
   margin: 8px 5px 0 5px;
   font-size: 12px;
@@ -357,7 +362,7 @@ User Login
   float: left;
 }
 
-#logged_out #user_nav ul li#user_login div.login_form input {
+#logged_out #user_nav ul li#user_login input {
   background: #282c2e;
   border: 1px #323739 solid;
   color: #FFF;
@@ -368,7 +373,7 @@ User Login
   float: left;
 }
 
-#logged_out #user_nav ul li#user_login div.login_form input:focus {
+#logged_out #user_nav ul li#user_login input:focus {
   background: #FFF;
   border: 1px #000 solid;
   color: #000;

@@ -4,7 +4,7 @@
 
 <li class="clear" id="user-<%= participant.id %>">
   <% if show_checkbox %>
-    <p class="approve_checkbox"><input type="checkbox" value="<%= participant.id %>" class="approve_checkbox_box" /></p>
+    <p class="approve_checkbox"><input type="checkbox" id="approve_checkbox-<%= participant.id %>" value="<%= participant.id %>" class="approve_checkbox_box" /></p>
   <% end %>
   
 	<div class="user_avatar">
@@ -25,4 +25,5 @@
   	<%= link_to('Delete', deny_tournament_participants_path(:participant => participant.id), :title => 'Delete User', :class => 'user_delete', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" } this tournament?'}") %>
   <% end %>
 </li>
+
 
