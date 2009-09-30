@@ -6,9 +6,6 @@ class CreateInstances < ActiveRecord::Migration
       t.integer :host_id
       t.timestamps
     end
-    
-    Instance.create(:name => "Starfeeder", :host_id => 1, :subdomain => "starfeeder")
-    Instance.create(:name => "CodeMonkey", :host_id => 1, :subdomain => "codemonkey")
   end
   
   def self.down

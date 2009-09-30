@@ -99,7 +99,7 @@
 
 					<li class="match">
 						<ul>
-							<%= render :partial => 'player', :locals => {:player => @tournament.places[0]} %>
+							<%= render :partial => 'player', :locals => {:player => @tournament.try(:places).try(:at, 0)} %>
 						</ul>
 					</li>
 				</ul>

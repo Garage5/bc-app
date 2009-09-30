@@ -3,6 +3,7 @@ class CreateMatches < ActiveRecord::Migration
     create_table :matches do |t|
       t.integer :round_id
       t.integer :winner_id
+      t.string  :winner_type
       t.integer :tournament_id
       t.integer :position
       t.integer :comments_count

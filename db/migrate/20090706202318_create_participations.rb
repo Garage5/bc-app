@@ -6,11 +6,6 @@ class CreateParticipations < ActiveRecord::Migration
       t.string  :state, :default => 'pending'
       t.timestamps
     end
-    
-    tournament = Tournament.first
-    User.all.each do |u|
-      u.join_tournament(tournament).accept!
-    end
   end
   
   def self.down

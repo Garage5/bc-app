@@ -42,6 +42,12 @@ describe Team do
       }.should change{invite.team.members.count}.from(0).to(1)
     end
     
+    it "should not be able to invite players already in a team" do
+      pending
+      TeamMember.all.each {|t| t.accept!}
+      team = @tournament.teams.first
+    end
+    
     it "should not allow members to be removed once tournament has started" do
       TeamMember.all.each {|t| t.accept!}
       @tournament.start

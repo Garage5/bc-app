@@ -9,17 +9,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :persistence_token,  :null => false     
       t.timestamps
     end
-    
-    # create some users to test with
-    User.create(:login => 'dev',    :name => 'Developer User', :email => 'dev@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
-    User.create(:login => 'bryan',  :name => 'Bryan Cinman', :email => 'bryan@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
-    User.create(:login => 'matt',   :name => 'Matt Johnson', :email => 'matt@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
-    User.create(:login => 'james',  :name => 'James Au', :email => 'james@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
-    User.create(:login => 'victor', :name => 'Victor Au', :email => 'victor@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
-    User.create(:login => 'david',  :name => 'David Nguyen', :email => 'david@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
-    User.create(:login => 'josh',   :name => 'Josh Kim', :email => 'josh@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
-    User.create(:login => 'jeff',   :name => 'Jeff Tang', :email => 'jeff@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
-    User.create(:login => 'Jon',    :name => 'Jon Tang', :email => 'jon@thebattlebegins.com', :password => 'pass', :password_confirmation => 'pass')
   end
   
   def self.down

@@ -14,6 +14,11 @@ class Team < ActiveRecord::Base
   validate_on_create :tournament_is_team_based
   validate_on_create :tournament_has_open_slots
   
+  def login
+    # login attribute for brackets
+    name
+  end
+  
   # def captain
   #   team_members.find(:first, :conditions => {:state => 'captain'}).participation.participant
   # end
