@@ -14,7 +14,7 @@
 	<div class="bd clear tournament-rules">
 		<div class="group">
 			<h2>General Information</h2>
-    	<%=simple_format @tournament.rules %>
+    	<%=@tournament.rules.to_html %>
 		</div><!-- // group -->
 		
 		<h2>Other Prizes</h2>

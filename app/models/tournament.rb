@@ -1,6 +1,9 @@
 class Tournament < ActiveRecord::Base
   serialize   :places, Hash
 
+  acts_as_textile :rules
+  acts_as_textile :other_prizes
+
   belongs_to  :instance
   belongs_to  :host, :class_name => "User", :foreign_key => "host_id"
   
