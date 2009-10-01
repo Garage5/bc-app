@@ -47,30 +47,15 @@
 <!-- / join_confirm -->
 
 <% if current_user && @tournament && current_user.is_participant_of?(@tournament) %>
-  <% p current_user.teams %>
-  <%
-    team = current_user.teams(:tournament => @tournament).first
-    # team = captain ? membs[0].team : nil
-  %>
   <div id="create_team" class="modal">
 		  <div class="modal_hd">
 			  <a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
 			  <h1>Create Team</h1>
 		  </div><!-- / modal_hd -->
 	  <div class="modal_inner">
-			  <p>Enter the name of your team and select the participants you'd like to invite to join your team.</p>
-			  <% form_for [@tournament, team || Team.new] do |f| -%>
+			  <% form_for [@tournament, Team.new] do |f| -%>
 			    <%= f.label :name, "Team Name" %>
 			    <%= f.text_field :name %>
-			    <ul id="player_list" class="clear">
-			      <% @tournament.participants.each do |user| %>
-			        <li>
-			          <%= check_box_tag 'team[member_ids][]', user.id %>
-			          <label class="checkbox" for="members_<%= user.id %>"><%= user.name %></label>
-			        </li>
-    				<% end %>
-			    </ul>
-			    
 			    <div class="btn_wrapper clear">
 					  <button class="btn add"><span class="icon"></span><span>Create Team</span></button>
 					  or <a href="" onclick="closeModal('#create_team'); return false;">Cancel</a>
