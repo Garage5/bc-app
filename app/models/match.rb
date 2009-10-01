@@ -12,6 +12,10 @@ class Match < ActiveRecord::Base
   # has_many :players, :through => :slots
   
   acts_as_list :scope => :round
+
+  def subject
+    "#{self.slots[0].player.login} vs. #{self.slots[1].player.login}"
+  end
   
   def active?
     self.slots[0].player.nil? || self.slots[1].player.nil? ? false : true

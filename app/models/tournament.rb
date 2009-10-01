@@ -36,7 +36,7 @@ class Tournament < ActiveRecord::Base
     [self.instance.host] + self.cohosts
   end
   
-  validates_presence_of :host, :name, :game, :rules, :slot_count, :instance_id
+  validates_presence_of :name, :game, :rules, :slot_count, :instance_id
   
   validates_date :registration_start_date, :after => Date.today-1, :on => :create
   validates_date :registration_end_date, :after => :registration_start_date, :on => :create
@@ -64,10 +64,10 @@ class Tournament < ActiveRecord::Base
       # for each round expected
       calculate_round_count.times do |r|
         round_number = r + 1
-        round = self.rounds.create(:number => round_number)
+        round = self.rounds.create!(:number => round_number)
 
         matches_per_round(round_number).times do
-          match = round.matches.create(:tournament => self)
+          match = round.matches.create!(:tournament => self)
           
           2.times do |index|
             slot = match.slots.new(:tournament => self)
@@ -79,7 +79,7 @@ class Tournament < ActiveRecord::Base
               byed << match
               num_byes -= 1
             end
-            slot.save
+            slot.save!
           end # end ceate slots
         end # end ceate matches
       end #end create rounds

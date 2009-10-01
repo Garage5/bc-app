@@ -99,6 +99,7 @@ class TournamentsController < ApplicationController
     if @tournament.start
       redirect_to brackets_tournament_path(@tournament)
     else
+      p @tournament.errors
       render :text => @tournament.errors
     end
   end

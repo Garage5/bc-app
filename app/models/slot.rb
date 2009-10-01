@@ -12,8 +12,8 @@ class Slot < ActiveRecord::Base
       next_match = match.next
       
       if next_match.nil?
-        next_match = match.round.lower_item.matches.create(:position => (match.find_child_match_position))
-        2.times { next_match.slots.create(:tournament => self.tournament) }
+        next_match = match.round.lower_item.matches.create!(:position => (match.find_child_match_position))
+        2.times { next_match.slots.create!(:tournament => self.tournament) }
       end
       
       next_slot = next_match.slots[index]
@@ -23,8 +23,8 @@ class Slot < ActiveRecord::Base
       end
       
       next_slot.player = self.player
-      next_slot.save
-      self.tournament.events.create(
+      next_slot.save!
+      self.tournament.events.create!(
         :target_id     => self.match.id, :target_type => self.match.class.to_s,
         :event_type    => 'result', :action => 'posted',
         :message       => "#{self.player.login} vanquished #{self.opponent.player.login} in round #{self.match.round.number}",
@@ -32,10 +32,10 @@ class Slot < ActiveRecord::Base
     else
       serialized = OpenStruct.new({:id => self.player.id, :name => self.player.login})
       self.tournament.places.nil? ? self.tournament.places = {0 => serialized} : self.tournament.places[0] = serialized
-      self.tournament.save
+      self.tournament.save!
     end
     match.winner = self.player
-    match.save
+    match.save!
   end
   
   def won!
