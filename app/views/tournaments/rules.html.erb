@@ -14,11 +14,11 @@
 	<div class="bd clear tournament-rules">
 		<div class="group">
 			<h2>General Information</h2>
-    	<%=@tournament.rules.to_html %>
+    	<%= @tournament.rules.to_html %>
 		</div><!-- // group -->
 		
 		<h2>Other Prizes</h2>
-		<p><%= @tournament.other_prizes %></p>
+		<p><%= @tournament.other_prizes.to_html %></p>
 	</div><!-- / bd -->
 	</div><!-- / pod -->
 	</div><!-- / col -->
