@@ -36,7 +36,7 @@ class Tournament < ActiveRecord::Base
     [self.instance.host] + self.cohosts
   end
   
-  validates_presence_of :name, :game, :rules, :slot_count, :instance_id
+  validates_presence_of :host, :name, :game, :rules, :slot_count, :instance_id
   
   validates_date :registration_start_date, :after => Date.today-1, :on => :create
   validates_date :registration_end_date, :after => :registration_start_date, :on => :create

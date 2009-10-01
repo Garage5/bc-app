@@ -31,7 +31,9 @@
 	  <div class="hd">
 	    <h2>Officials</h2>
 	    <ul class="tabbed clear">
-        <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
+	      <% if current_user.is_hosting? @tournament %>
+          <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
+        <% end %>
       </ul>
 	  </div>
 	  <div class="bd clear player_list">

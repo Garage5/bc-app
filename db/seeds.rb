@@ -15,12 +15,14 @@
     :email => "#{u[0]}@thebattlebegins.com", :password => 'pass', :password_confirmation => 'pass')
 end
 
+host = User.find_by_login('dev')
 
 Instance.create(:name => "Starfeeder", :host_id => 1, :subdomain => "starfeeder")
 Instance.create(:name => "CodeMonkey", :host_id => 1, :subdomain => "codemonkey")
 
 
 t1 = Tournament.create(
+  :host => host,
   :instance_id => 1,
   :name => 'Awesomeness', 
   :game => 'Starcraft 2',
@@ -31,6 +33,7 @@ t1 = Tournament.create(
 )
 
 t2 = Tournament.create(
+  :host => host,
   :instance_id => 1,
   :name => 'Plankton', 
   :game => 'Starcraft 2',
