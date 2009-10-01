@@ -33,7 +33,8 @@ class User < ActiveRecord::Base
   end
   
   def is_participant_of?(tournament)
-    Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => ['pending', 'active'])
+    
+    Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => 'active')
   end
   
   def is_eligible_to_join?(tournament)
