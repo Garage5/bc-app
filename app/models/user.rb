@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   def first_name
     name.split(' ')[0] rescue login
   end
+
+  def last_activity
+    self[:last_activity].try(:iso8601) || 'never'
+  end
   
   def join_tournament(tournament)
     Participation.create(:participant => self, :tournament => tournament)

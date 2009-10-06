@@ -183,7 +183,7 @@
 			<div class="group"><%= f.text_field :second_prize, :size => 55 %></div>
 			<div><%= f.label :third_prize, "3rd Place" %></div>
 			<div class="group"><%= f.text_field :third_prize, :size => 55 %></div>
-			<div class="group"><%= f.label :entry_fee, "Entry Fees" %><%= f.text_field :entry_fee, :size => 15 %></div>
+			<div class="group"><%= f.label :entry_fee, "Entry Fees" %><strong>$</strong> <%= f.text_field :entry_fee, :size => 15 %></div>
 			<div><%= f.label :other_prizes, "Other Prizes", :class => 'textarea' %></div>
 			<div><%= f.text_area :other_prizes, :size => "88x15" %></div>
 		</div><!-- / bd -->

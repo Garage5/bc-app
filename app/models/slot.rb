@@ -30,7 +30,7 @@ class Slot < ActiveRecord::Base
         :message       => "#{self.player.login} vanquished #{self.opponent.player.login} in round #{self.match.round.number}",
         :actor         => 'someone') unless byed
     else
-      serialized = OpenStruct.new({:id => self.player.id, :name => self.player.login})
+      serialized = OpenStruct.new({:id => self.player.id, :login => self.player.login})
       self.tournament.places.nil? ? self.tournament.places = {0 => serialized} : self.tournament.places[0] = serialized
       self.tournament.save!
     end

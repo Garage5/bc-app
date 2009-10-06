@@ -19,7 +19,10 @@ class MatchesController < ApplicationController
   end
   
   def submit_result
-    @match.submit_results(@player, params[:result])
+    @slot = @match.slots.find_by_player_id(current_user.id)
+    if @slot.result.nil?
+      @match.submit_results(@player, params[:result])
+    end
     redirect_to [@tournament, @match]
   end
   

@@ -39,10 +39,14 @@
 				<h3>Round 1</h3>
 				<h4>6/14/09 12:23PM</h4>
 				<% if @slot %>
-    		<ul id="match_results" class="clear">
-    			<li class="selected"><%= link_to 'I Won', [:won, @tournament, @match, @slot], :id => "result_won", :method => :put %></li>
-    			<li class="inactive"><%= link_to 'I Lost', [:lost, @tournament, @match, @slot], :id => "result_lost", :method => :put %></li>
-    		</ul>
+				  <% if @slot.result.nil? %>
+      		<ul id="match_results" class="clear">
+      			<li class="selected"><%= link_to 'I Won', [:won, @tournament, @match, @slot], :id => "result_won", :method => :put %></li>
+      			<li class="inactive"><%= link_to 'I Lost', [:lost, @tournament, @match, @slot], :id => "result_lost", :method => :put %></li>
+      		</ul>
+      		<% else %>
+      		  Result Submitted (<%= @slot.result %>)
+      		<% end  %>
     		<% end %>
 			</div>
       
