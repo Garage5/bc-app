@@ -50,11 +50,13 @@
 <div id="content-wrapper">
 
   <div id="content" class="clear">
+    <% if flash[:error] %>
 		<div class="global_note">
 			<a class="note-close" href="">X</a>
-			<p><img src="/images/icon_gn_success.png"/> Success it works for you Bryan! Congrats! Asshole!</p>
-
+			<p><img src="/images/icon_gn_success.png"/> <%= flash[:error] %></p>
 		</div><!-- / global_note -->
+		<% end %>
+		
     <%= yield %>
   </div>
 </div><!-- / content-wrapper -->
