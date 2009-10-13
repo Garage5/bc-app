@@ -170,7 +170,12 @@ describe Match do
     match.next.active?.should be_false
   end
   
-  it "should delete associated models when a player is disqualified or reverted"
+  it "should delete associated models when a player is disqualified or reverted" do
+    match = @tournament.rounds.first.matches.first
+    match.slots[1].advance!
+    match.next.slots[0].revert!
+    match.next.slots[0].player.should be_nil
+  end
   
   it "should delete associated 'won' events when a player is disqualified"
   
