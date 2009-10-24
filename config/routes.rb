@@ -17,8 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'create', :conditions => {:method => :post}
   
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-  map.settings '/settings', :controller => 'instances', :action => 'settings', :conditions => {:method => :get}
-  map.settings '/settings', :controller => 'instances', :action => 'settings', :conditions => {:method => :put}
+  map.settings '/settings', :controller => 'instances', :action => 'edit', :conditions => {:method => :get}
+  map.settings '/settings', :controller => 'instances', :action => 'update', :conditions => {:method => :put}
   
   map.resources :user_sessions
   map.resources :users, :member => {:profile => :get}
@@ -26,7 +26,9 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :tournaments, :member => {:rules => :get, :start => :put, :brackets => :get}, :collection => {:calendar => :get} do |tournament|
     tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
-    tournament.resources :teams
+    tournament.resources :teams do |team|
+      team.invite '/invite/:user_id', :controller => 'teams', :action => 'invite',:path_prefix => '/tournaments/:tournament_id'
+    end
     tournament.resources :messages, :has_many => [:comments]
     tournament.resources :files, :controller => :attachments
     tournament.resources :matches, :has_many => [:comments] do |match|

@@ -38,9 +38,12 @@ class TeamMember < ActiveRecord::Base
   end
   
   def accept!
-    self.update_attributes(:state => 'active')
-    self.member.team_members.pending.for_tournament(self.tournament).each do |invite|
-      invite.destroy
+    unless self.state == 'captain'
+      self.update_attributes(:state => 'active')
+      self.member.team_members.pending.for_tournament(self.tournament).each do |invite|
+        invite.destroy
+      end
     end
   end
+  
 end

@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_filter :find_tournament
-  before_filter :find_team, :except => :create
+  before_filter :find_team, :except => [:create, :invite]
   before_filter :login_required
   
   def create
@@ -70,8 +70,21 @@ class TeamsController < ApplicationController
     redirect_to tournament_participants_path(@tournament)
   end
   
+  def invite
+    team = @tournament.team_members.first(:conditions => {:member_id => current_user, :state => 'captain'}).team
+    if team
+      user = User.find_by_login(params[:user_id])
+      if user
+        redirect_to tournament_participants_path(@tournament) if team.invite(user)
+      end
+    else
+      flash[:error] = 'You must be a captain of a team to invite players'
+      redirect_to tournament_participants_path(@tournament)
+    end
+  end
+  
   def join
-    current_user.join_team(@team)
+    current_user.join_team(@team, @tournament)
     redirect_to tournament_participants_path(@tournament)
   end
   

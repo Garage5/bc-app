@@ -22,11 +22,11 @@ class Tournament < ActiveRecord::Base
   has_many :participants , :through => :participations
 
   has_many :cohosts , :through => :participations,
-           :conditions => ['state = ?', 'cohost'], :source => :participant
+           :conditions => ['participations.state = ?', 'cohost'], :source => :participant
   has_many :pending_participants, :through => :participations, 
-           :conditions => ['state = ?', 'pending'], :source => :participant
+           :conditions => ['participations.state = ?', 'pending'], :source => :participant
   has_many :active_participants, :through => :participations, 
-           :conditions => ['state = ?', 'active'], :source => :participant
+           :conditions => ['participations.state = ?', 'active'], :source => :participant
   
   
   accepts_nested_attributes_for :rounds

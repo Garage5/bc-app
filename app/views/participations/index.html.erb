@@ -25,7 +25,7 @@
 	  <div class="hd">
 	    <h2>Officials</h2>
 	    <ul class="tabbed clear">
-	      <% if current_user.is_hosting? @tournament %>
+	      <% if current_user.try(:is_hosting?, @tournament) %>
           <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
         <% end %>
       </ul>
@@ -55,6 +55,10 @@
       <div class="team">
         <h3><%= team.name %></h3>
         <ul>
+          <li>
+            <%= image_tag team.captain.avatar.url(:small) %>
+            <%= link_to team.captain.login, user_path(team.captain) %>
+          </li>
           <% for member in team.members %>
           <li>
             <%= image_tag member.avatar.url(:small) %>
@@ -82,16 +86,16 @@
 	    <h2>Participants</h2>
 	  </div>
 	  <div class="bd clear player_list">
-	    <ul class="clear" id="list_officialts">
+	    <ul class="clear" id="list_officials">
         <% @active.each do |participant| %>
-          <%= render(:partial => 'participant', :locals => {:participant => participant}) %>
+          <%= render(:partial => 'participant', :locals => {:participant => participant, :show_invite => current_user.try(:is_captain?, @tournament) }) %>
         <% end %>
 	    </ul>
 	  </div>
 	</div>
   
   <!-- PENDING -->
-  <% if current_user && current_user.is_hosting?(@tournament) && !@pending.blank? %>
+  <% if false #current_user && current_user.is_hosting?(@tournament) && !@pending.blank? %>
   <div class="pod tab-pod">
 	  <div class="hd">
 	    <h2>Pending Approval</h2>

@@ -43,7 +43,9 @@
     <%= link_to "Files", tournament_files_path(@tournament) %>
   <% end -%>
   
-  <li id="edit_tournament"><a href="">Edit Tournament</a></li>
+  <% content_tag :li, active == 'edit' ? {:class => 'active'} : nil do -%>
+    <%= link_to "Edit Tournament", edit_tournament_path(@tournament) %>
+  <% end -%>
   
 </ul><!-- / subnav -->
 

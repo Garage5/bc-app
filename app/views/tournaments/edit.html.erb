@@ -4,174 +4,268 @@
 
 <% title "New Tournament" %>
 
+<script type="text/javascript" charset="utf-8">
+  function updateRounds() {
+    r = Math.log(parseInt($('#tournament_slot_count').val()))/Math.log(2);
+    for(i = 0; i < 5; i++) {
+      row = $('#round_'+(i+1)+'_canvas');
+      if (i < r)
+        row.show();
+      else
+        row.hide();
+    }
+  }
+  
+  // convert a Rails Date set of fields into a yyyy-mm-dd date string
+  // object is a string representation of the model
+  // 'field' here is the model attribute name
+  function getDateFieldValue(obj, field) {
+    year = parseInt($('input[name="'+obj+'['+field+'(1i)]"]').val());
+    month = parseInt($('input[name="'+obj+'['+field+'(2i)]"]').val());
+    day = parseInt($('input[name="'+obj+'['+field+'(3i)]"]').val());
+    date = year+"-"+month+"-"+day;
+    if (date.match(RegExp(/^\d{4}\-\d{1,2}\-\d{1,2}$/)))
+      return date;
+    else
+      return false;
+  }
+  
+  upCal = false;
+  upCalField = false;
+  function updateCalendar() {
+    clearTimeout(upCal);
+    upCalField = $(this);
+    setTimeout('realUpdateCalendar()', 2000);
+  }
+  
+  function realUpdateCalendar() {
+    args = [];
+    field = null;
+    f = upCalField;
+    switch(f.attr('id').replace('tournament_registration_', '')) {
+      case 'start_date_year':
+      case 'start_date_month':
+      case 'start_date_day':
+        field = 'registration_start_date'; break;
+      case 'end_date_year':
+      case 'end_date_month':
+      case 'end_date_day':
+        field = 'registration_end_date'; break;
+    }
+    for(i = 0; i < 5 ; i++) {
+      switch(f.attr('id').replace('tournament_rounds_', '')) {
+        case i+'_start_date_year':
+        case i+'_start_date_month':
+        case i+'_start_date_day':
+          field = 'rounds_'+i+'_start_date'; break;
+      }
+    }
+    if(field == 'registration_start_date' && !getDateFieldValue('tournament', 'registration_start_date'))
+      return false;
+    if(field == 'registration_end_date' && !getDateFieldValue('tournament', 'registration_end_date'))
+      return false;
+    for(i = 0; i < Math.log(parseInt($('#tournament_slot_count').val()))/Math.log(2); i++) {
+      if(field == 'registration_end_date' && !getDateFieldValue('tournament[rounds_attributes]['+i+']', 'start_date'))
+        return false;
+    }
+    args.push({name: 'field', value: field});
+    args.push({name: 'registration_start_date', value: getDateFieldValue('tournament', 'registration_start_date')});
+    args.push({name: 'registration_end_date', value: getDateFieldValue('tournament', 'registration_end_date')});
+    for(i = 0; i < Math.log(parseInt($('#tournament_slot_count').val()))/Math.log(2); i++)
+      args.push({name: 'rounds_'+i+'_start_date', value: getDateFieldValue('tournament[rounds_attributes]['+i+']', 'start_date')});
+    jQuery.ajax({
+      success:function(request){
+        jQuery('#calendar_canvas').html(request);
+      },
+      type:'get',
+      data: args,
+      url:'<%= calendar_tournaments_path %>'
+    });
+  }
+  
+  $(document).ready(function(){
+    
+    $('input#tournament_name').keyup(function(e){
+      $('h2#page_title').text($(e.target).val())
+    })
+    
+    $('#load_template_btn').click(function(event){
+      event.preventDefault()
+      window.location.search = 't=' + $('#template_id').val()
+    })
+    
+    $("td.date input[type='text']").bind('keyup', updateCalendar);
+    $("td.time input[type='text']").change(updateCalendar);
+    
+    updateRounds();
+  })
+</script>
+
+<% content_for :modals do %>
+  <div id="rules_example" class="modal">
+  		<div class="modal_hd">
+  			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+  			<h1>An Example Rules Page</h1>
+  		</div><!-- / modal_hd -->
+  	<div class="modal_inner">
+  			<div class="clear">
+  			  HAHAHAHAHAHAHAHAHAHAHAHAHAHAHA!!!!!!
+  			</div>
+  	</div><!-- / modal_inner -->
+  </div><!-- / modal -->
+<% end %>
+
 <div id="maincol">
 	<div class="col">
-	<div class="pod" id="new_tournament">
+	<div id="new_tournament">
+		<!-- Step 1 -->
+		<% form_for @tournament do |f| -%>
+		<%= f.error_messages %>
+		<h3>Name &amp; Game</h3>
+		<div id="tournament_name" class="pod clear">
+		<div class="bd">
+		  
+			<div class="group"><%= f.text_field :name, :size => 35 %> <%= f.label :name, "Tournament Name" %></div>
+			<div><%= f.text_field :game, :size => 35 %> <%= f.label :game, "Game" %></div>
+			
+		</div><!-- / bd -->
+		</div><!-- / pod -->
+		<!-- / Step 1 -->
 		
-	<div id="process_steps" class="clear">
-		<ul>
-			<li class="active"><span><span class="step-icon">1</span> <em>Select a Game</em></span></li>
-			<li><span><span class="step-icon">2</span> <em>Rules</em></span></li>
-			<li><span><span class="step-icon">3</span> <em>Player Structure</em></span></li>
-			<li><span><span class="step-icon">4</span> <em>Prizes &amp; Fees</em></span></li>
-			<li><span><span class="step-icon">5</span> <em>Date</em></span></li>
-		</ul>
-	</div><!-- / -->
-	
-	<div class="bd">
-<!-- Step 1 -->
-		<div id="tournament_game" class="group darkpod step clear">
-			<div class="clear">
-				<h4><span class="step-icon">1</span> <em>Set a Game</em></h4>
-				<a class="txtlink-red" href="/preview/tournament/edit/">Edit</a>
-			</div>
-			
-			<div class="container">
-				<strong>Game:</strong> Starcraft
-			</div><!-- / container -->
-			
-		</div><!-- / darkpod -->
-<!-- / Step 1 -->
-
-<!-- Step 2-->
-		<div id="tournament_rules" class="group darkpod step clear">
-			<div class="clear">
-				<h4><span class="step-icon">2</span> <em>Set the Rules</em></h4>
-				<a class="txtlink-red" href="">Edit</a>
-			</div>
-			
-			<div class="container">
-				<p>Some mother fucking rules yo! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non <strong>lectus molestie</strong> at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue.</p>
-					
-					<p><strong>NO YOU!</strong><br />
-					Donec lacus libero, elementum in posuere ut, feugiat posuere erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.</p>
-					
-					<p><strong>SILENCE!!! I KILL YOU!!!</strong><br />
-					Donec lacus libero, elementum in posuere ut, feugiat posuere erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.</p>
-			</div><!-- / container -->
-			
-		</div><!-- / darkpod -->
-<!-- / Step 2 -->
+		<!-- Step 2-->
+		<h3>Rules</h3>
+		<div id="tournament_rules" class="pod clear">
+		<div class="bd">
+			<%= f.text_area :rules %>
+		</div><!-- / bd -->
+		</div><!-- / pod -->
+		<!-- / Step 2 -->
 		
-<!-- Step 3 -->
-		<div id="tournament_players" class="group darkpod step clear">
+		<!-- Step 4 -->
+		<h3>Prizes &amp; Fees</h3>
+		<div id="tournament_prize" class="pod clear">
+		<div class="bd">
+			
+			<div><%= f.label :first_prize, "1st Place" %></div>
+			<div class="group"><%= f.text_field :first_prize, :size => 55 %></div>
+			<div><%= f.label :second_prize, "2nd Place" %></div>
+			<div class="group"><%= f.text_field :second_prize, :size => 55 %></div>
+			<div><%= f.label :third_prize, "3rd Place" %></div>
+			<div class="group"><%= f.text_field :third_prize, :size => 55 %></div>
+			<div class="group"><%= f.label :entry_fee, "Entry Fees" %><strong>$</strong> <%= f.text_field :entry_fee, :size => 15 %></div>
+			<div><%= f.label :other_prizes, "Other Prizes", :class => 'textarea' %></div>
+			<div><%= f.text_area :other_prizes, :size => "88x15" %></div>
+		</div><!-- / bd -->
+		</div><!-- / pod -->
+		<!-- / Step 4 -->
+		
+		<!-- Step 5 -->
+		<h3>Dates</h3>
+		<div id="tournament_dates" class="pod clear">
+		<div class="bd">
+			
 			<div class="clear">
-				<h4><span class="step-icon">3</span> <em>Players &amp; Teams</em></h4>
-				<a class="txtlink-red" href="/preview/tournament/edit/">Edit</a>
-			</div>
-			<div class="container">
-				This <strong>single elimination</strong> tournament will have <strong><span style="color: #0197d6;">4</span> players per team</strong> with <strong>maximum of <span style="color: #0197d6;">8</span> slots</strong>.
-				</div><!-- / container -->
-		</div><!-- / darkpod -->
-<!-- / Step 3 -->
-
-<!-- Step 4 -->
-		<div id="tournament_prize" class="group darkpod step clear">
-			<div class="clear">
-				<h4><span class="step-icon">4</span> <em>Prizes &amp; Fees</em></h4>
-				<a class="txtlink-red" href="/preview/tournament/edit/">Edit</a>
-			</div>
-			<div class="container">
-			<ul id="prizes">
-				<li class="clear"><div>$1,000,000.00</div> <strong>1st Place</strong></li>
-				<li class="clear"><div>$500,000.00</div> <strong>2nd Place</strong></li>
-				<li class="clear"><div>$250,000.00</div> <strong>3rd Place</strong></li>
-				<li class="clear"><div>T-Shirt</div> <strong>Everyone</strong></li>
-				<li class="clear last"><div>$5.00</div> <strong>Entry Fees</strong></li>
-			</ul>
-			</div><!-- / container -->
-		</div><!-- / darkpod -->
-<!-- / Step 4 -->
-
-<!-- Step 5 -->
-		<div id="tournament_dates" class="group darkpod step clear">
-			<div class="clear">
-				<h4><span class="step-icon">5</span> <em>Set the Dates</em></h4>
-			</div>
-			<div class="clear">
-			<div class="calendar_date_select">
+		    <div id="calendar_canvas">
+      		<%= render :partial => 'layouts/calendar', :locals => {:show_date => @tournament.registration_start_date} %>
+        </div>
 				
-				<div class="header">
-					<div class="pager">
-						<a method="previous" href="#">&laquo;</a>
-						<select class="months">
-							<option value="2008-01-01">Jan 2137</option><option value="2008-02-01">Feb 2137</option>
-							<option value="2008-03-01">Mar 2137</option><option value="2008-04-01">Apr 2137</option>
-						</select>
-						<a method="next" href="#">&raquo;</a>
-					</div>
-				</div>
-			  <div class="body">
-				<table>
-					<tbody>
-						<tr class="weekdays">
-							<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+				<div class="tournament_dates">
+				  <table>
+						<tr>
+							<th>&nbsp;</th>
+							<td class="date">&nbsp;</td>
+							<td class="edit">&nbsp;</td>
 						</tr>
-					<tr class="days">
-						<td class="weekend other" date="2009-05-31"><a href="#">31</a></td><td class="today" date="2009-06-01"><a href="#">1</a></td><td class="" date="2009-06-02"><a href="#">2</a></td><td class="" date="2009-06-03"><a href="#">3</a></td><td class="" date="2009-06-04"><a href="#">4</a></td><td class="" date="2009-06-05"><a href="#">5</a></td><td class="weekend" date="2009-06-06"><a href="#">6</a></td></tr><tr class="days"><td class="weekend" date="2009-06-07"><a href="#">7</a></td><td class="" date="2009-06-08"><a href="#">8</a></td><td class="" date="2009-06-09"><a href="#">9</a></td><td class="selected" date="2009-06-10"><a href="#">10</a></td><td class="" date="2009-06-11"><a style="background-color: #00c277; color: #FFF;" href="#">11</a></td><td class="" date="2009-06-12"><a href="#">12</a></td><td class="weekend" date="2009-06-13"><a href="#">13</a></td></tr><tr class="days"><td class="weekend" date="2009-06-14"><a href="#">14</a></td><td class="" date="2009-06-15"><a href="#">15</a></td><td class="" date="2009-06-16"><a href="#">16</a></td><td class="" date="2009-06-17"><a style="background-color: #00673f; color: #FFF;" href="#">17</a></td><td class="" date="2009-06-18"><a style="background-color: #9b00f4; color: #FFF;" href="#">18</a></td><td class="" date="2009-06-19"><a href="#">19</a></td><td class="weekend" date="2009-06-20"><a href="#">20</a></td></tr><tr class="days"><td class="weekend" date="2009-06-21"><a href="#">21</a></td><td class="" date="2009-06-22"><a href="#">22</a></td><td class="" date="2009-06-23"><a href="#">23</a></td><td class="" date="2009-06-24"><a href="#">24</a></td><td class="" date="2009-06-25"><a href="#">25</a></td><td class="" date="2009-06-26"><a href="#">26</a></td><td class="weekend" date="2009-06-27"><a href="#">27</a></td></tr><tr class="days"><td class="weekend" date="2009-06-28"><a href="#">28</a></td><td class="" date="2009-06-29"><a href="#">29</a></td><td class="" date="2009-06-30"><a style="background-color: #410067; color: #FFF;" href="#">30</a></td><td class="other" date="2009-07-01"><a href="#">1</a></td><td class="other" date="2009-07-02"><a href="#">2</a></td><td class="other" date="2009-07-03"><a href="#">3</a></td><td class="weekend other" date="2009-07-04"><a href="#">4</a></td></tr><tr class="days"><td class="weekend other" date="2009-07-05"><a href="#">5</a></td><td class="other" date="2009-07-06"><a href="#">6</a></td><td class="other" date="2009-07-07"><a href="#">7</a></td><td class="other" date="2009-07-08"><a href="#">8</a></td><td class="other" date="2009-07-09"><a href="#">9</a></td><td class="other" date="2009-07-10"><a href="#">10</a></td><td class="weekend other" date="2009-07-11"><a href="#">11</a></td></tr>
-						</tbody>
+						<tr>
+							<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
+							<td class="date">
+                <%= f.date_select :registration_start_date, :order => [:month, :day, :year] %>
+							</td>
+							<td class="edit">&nbsp;</td>
+						</tr>
+						<tr>
+							<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
+							<td class="date">
+							  <%= f.date_select :registration_end_date, :order => [:month, :day, :year] %>                
+							</td>
+							<td class="edit">&nbsp;</td>
+						</tr>
+						<% 0.times do |n| %>
+						  <tr class="time" id="round_<%= n+1 %>_canvas" style="display: none;">
+							  <th>Round #<%= n+1 %> Start Time:</th>
+							  <td class="time">
+							  <div class="group">
+							    <input type="text" class="date_month" name="tournament[rounds_attributes][<%= n %>][start_date(2i)]" id="tournament_rounds_<%= n %>_start_date_month" title="mm" maxlength="2" value="<%= @tournament.rounds[n].start_date.try(:month) if @tournament.rounds[n] %>" />
+							    / <input type="text" class="date_day" name="tournament[rounds_attributes][<%= n %>][start_date(3i)]" id="tournament_rounds_<%= n %>_start_date_day" title="dd" maxlength="2" value="<%= @tournament.rounds[n].start_date.try(:day) if @tournament.rounds[n] %>" />
+							    / <input type="text" class="date_year" name="tournament[rounds_attributes][<%= n %>][start_date(1i)]" id="tournament_rounds_<%= n %>_start_date_year" title="yyyy" maxlength="4" value="<%= @tournament.rounds[n].start_date.try(:year) if @tournament.rounds[n] %>" />
+							    - <input type="text" class="date_hour" name="tournament[rounds_attributes][<%= n %>][start_date(4i)]" id="tournament_rounds_<%= n %>_start_date_hour" title="hh" maxlength="2" />
+							    : <input type="text" class="date_minutes" name="tournament[rounds_attributes][<%= n %>][start_date(5i)]" id="tournament_rounds_<%= n %>_start_date_minutes" title="mm" maxlength="2" />
+							  </div>
+							    
+							   
+							  <div>
+							    <input type="radio" value="AM" id="tournament_rounds_<%= n %>_start_date_p_am" name="tournament[rounds_attributes][<%= n %>][start_date(6i)]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i < 12 %>/>
+							    <label for="tournament_rounds_<%= n %>_start_date_p_am">AM</label>
+							    <input type="radio" value="PM" id="tournament_rounds_<%= n %>_start_date_p_pm" name="tournament[rounds_attributes][<%= n %>][start_date(6i)]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i >= 12 %>/>
+							    <label for="tournament_rounds_<%= n %>_start_date_p_pm">PM</label>
+							  </div>
+							  <input type="hidden" name="tournament[rounds_attributes][<%= n %>][number]" value="<%= n %>" />
+							  </td>
+							  <td class="edit">&nbsp;</td>
+						  </tr>
+					  <% end %>
 					</table>
-					</tbody>
-				</table>
-				</div>
-				<div class="footer"></div>
-			</div><!-- / calendar_date_select -->
-			  <div class="tournament_dates">
-				<table>
-					<tr>
-						<th>&nbsp;</th>
-						<td class="date">&nbsp;</td>
-						<td class="edit">&nbsp;</td>
-					</tr>
-					<tr>
-						<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
-						<td class="date">January 11th, 2137</td>
-						<td class="edit"><a href="">Edit</a></td>
-					</tr>
-					<tr>
-						<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
-						<td class="date">January 17th, 2137</td>
-						<td class="edit"><a href="">Edit</a></td>
-					</tr>
-					<tr>
-						<th><span class="swatch" style="background-color: #9b00f4;">&nbsp;</span> Tournament Start:</th>
-						<td class="date">January 18th, 2137</td>
-						<td class="edit"><a href="">Edit</a></td>
-					</tr>
-					<tr>
-						<th><span class="swatch" style="background-color: #410067;">&nbsp;</span> Tournament End:</th>
-						<td class="date">January 30th, 2137</td>
-						<td class="edit"><a href="">Edit</a></td>
-					</tr>
-					<tr>
-						<th>Tournament Start Time:</th>
-						<td class="time">12:30pm</td>
-						<td class="edit"><a href="">Edit</a></td>
-					</tr>
-				</table>
-			</div><!-- / tournament_dates -->
+			  </div><!-- / tournament_dates -->
 			</div><!-- / clear -->
-		</div><!-- / darkpod -->
-<!-- / Step 5 -->
-	</div><!-- / bd -->
-	</div><!-- / pod -->
+		</div><!-- / bd -->
+		</div><!-- / pod -->
+		<!-- / Step 5 -->
+		<div style="margin: -20px 0 5px 0;">
+		<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button>
+		<%= f.check_box :is_template %> <%= f.label :is_template, 'Save this tournament as a Template.' %>
+		</div>
+	</div>
+	<% end -%>
+	</div><!-- / col -->
 </div><!-- / main-col -->
 
 <div id="sidecol">
 	<div class="col">
-	<div class="save_wrapper clear">
-		<ul>
-			<li><a class="rc biglink bl" href="">Load from Template</a></li>
-		</ul>
-	</div><!-- / save_wrapper -->
+	<div class="save_wrapper clear"></div><!-- / save_wrapper -->
 	
-	<div class="pod">
+	<div class="pod rules_tips">
 	<div class="hd">
-		<h2>What are Templates?</h2>
+		<h2>Rules - Tips &amp; Tricks</h2>
 	</div><!-- / hd -->
+	<span class="arrow_pod2pod"></span>
+	<div class="bd clear">
+	<h4>Example HTML Usage</h4>
+	  <ul>
+	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	    <li class="last"><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	  </ul>
+	  <a class="btn" href="#rules_example" rel="modal"><span class="icon"></span><span>Example Rules Page</span></a>
+	</div><!-- / bd -->
+	</div><!-- / pod -->
+	
+	<div class="pod prizes_tips">
+	<div class="hd">
+		<h2>Prizes &amp; Fees</h2>
+	</div><!-- / hd -->
+	<span class="arrow_pod2pod"></span>
 	<div class="bd">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet velit quis magna ornare imperdiet. Cras fermentum tellus non lectus molestie at laoreet mauris congue. Donec lacus libero, elementum in posuere ut, feugiat posuere erat.</p>
-	</div>
-	</div>
+	  <p>Enter your prizes below. Prizes do not have to be numerical. Any other prize details should be placed in “Other Prizes” section. Enter an entry fee if you require users to pay an entry fee in order to participate.</p>
+    <ul>
+      <li>1st: $1000</li>
+      <li>2nd: $500</li>
+      <li>3rd: $250</li>
+      <li>Entry Fee: $50</li>
+      <li>Other Prize: All registered participants will receive a free T-Shirt for participation.</li>
+    </ul>
+	</div><!-- / bd -->
+	</div><!-- / pod -->
+	
 	</div><!-- / col -->
 </div><!-- / sidecol -->

@@ -70,6 +70,10 @@ class User < ActiveRecord::Base
     tournament.team_members.exists?(:member_id => self.id)
   end
   
+  def is_captain?(tournament)
+    tournament.team_members.exists?(:member_id => self.id, :state => 'captain')
+  end
+  
   def role_in(tournament, team)
     return "Host" if tournament.instance.host_id == self.id
     return "Co-Host" if is_hosting?(tournament)
@@ -84,8 +88,8 @@ class User < ActiveRecord::Base
   end
   
   # accept invitation that already exists
-  def join_team(team)
-    invite = self.team_members.pending(:conditions => {:team => @team}).for_tournament(@tournament)
+  def join_team(team, tournament)
+    invite = self.team_members.pending(:conditions => {:team => team}).for_tournament(tournament).first
     invite.accept!
     # part = Participation.find(:first, :conditions => {:participant_id => self.id, :tournament_id => team.tournament.id, :state => 'active'}, :include => [:team_memberships])
     # uses reject instead of find with conditions to benefit from query cache

@@ -1,5 +1,5 @@
 class InstancesController < ApplicationController
-  before_filter :find_instance, :only => [:show, :settings]
+  before_filter :find_instance, :only => [:show, :edit, :update, :settings]
 
   def index
     @instances = Instance.all
@@ -36,11 +36,9 @@ class InstancesController < ApplicationController
   end
   
   def edit
-    @instance = Instance.find(params[:id]) unless @instance
   end
   
   def update
-    @instance = Instance.find(params[:id])
     if @instance.update_attributes(params[:instance])
       flash[:notice] = "Successfully updated instance."
       redirect_to instances_url

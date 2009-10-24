@@ -2,7 +2,7 @@ class Team < ActiveRecord::Base
   belongs_to :tournament
   
   has_many :team_members, :dependent => :destroy
-  has_many :members, :through => :team_members, :conditions => ['team_members.state = ?', 'active']
+  has_many :members, :through => :team_members, :conditions => {:team_members => {:state => 'active'}}
   has_one  :captain, :through => :team_members, :conditions => ['state = ?', 'captain'], :source => :member
   
   validates_presence_of :name
@@ -30,6 +30,14 @@ class Team < ActiveRecord::Base
   def captain=(user)
     self.team_members.build(:member => user, :state => 'captain')
     @captain = user
+  end
+  
+  def invite(user)
+    unless self.team_members.exists?(:member_id => user)
+      self.team_members.create(:member => user)
+    else
+      self.errors.add_to_base('User has already been invited to this team.')
+    end
   end
   
   def tournament_has_open_slots
