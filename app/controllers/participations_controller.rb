@@ -6,9 +6,16 @@ class ParticipationsController < ApplicationController
   def index
     @officials = [@instance.host] + @tournament.cohosts
     @pending = @tournament.pending_participants
-    # @active = @tournament.active_participants.all(:joins => :team_members, :conditions => {:team_members => {:id => nil}})
-    @active = @tournament.active_participants.all(:joins => 'LEFT JOIN team_members ON team_members.member_id = users.id', :conditions => {:team_members => {:id => nil}})
-    @teams = @tournament.teams(:include => [:members, :captain]) if @tournament.use_teams?
+    
+    if @tournament.use_teams?
+      @teams = @tournament.teams(:include => [:members, :captain])
+      @active = @tournament.active_participants.all(
+        :joins => 'LEFT JOIN team_members ON team_members.member_id = users.id', 
+        :conditions => {:team_members => {:id => nil}}
+      )
+    else
+      @active = @tournament.active_participants
+    end
   end
   
   def add_cohost
