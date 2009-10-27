@@ -757,6 +757,10 @@ p.yellow_note {
 	position: relative;
 }
 
+.pod .hd h2 {
+  text-shadow: 1px 1px 0px #FFF;
+}
+
 .pod .bd {
 	color: #000;
 	padding: 10px;

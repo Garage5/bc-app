@@ -22,7 +22,7 @@ body#participants .player_list ul label {
   position: static !important;
 }
 
-body#participants .player_list ul li {
+body#participants .player_list ul.players li {
 	float: left;
 	display: block;
 	margin: 0 25px 0 0;
@@ -154,3 +154,120 @@ body#participants  p.approve_checkbox {
 body#participants .pending_approval_btns {
 	margin: 15px 0 0 0;
 }
+
+body#participants .team_player {
+  padding: 13px 0 0 13px;
+}
+
+body#participants .team {
+  width: 250px;
+  border: 1px #c9c9c9 solid;
+  background: #e5e5e5;
+  display: block;
+  float: left;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 0 13px 13px 0;
+}
+
+body#participants .team .team_inner {
+  border: 1px #FFF solid;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+body#participants .team .team_inner h3 {
+  background: #c5c5c5;
+  border-bottom: 1px #FFF solid;
+  padding: 9px 8px 6px 10px;
+  margin: 0;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-radius-top-left: 5px;
+  -webkit-border-radius-top-right: 5px;
+}
+
+body#participants .team ul {
+  border-top: 1px #c9c9c9 solid;
+}
+
+body#participants .team ul li {
+  display: block;
+  float: none;
+}
+
+body#participants .team ul li:hover {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+body#participants .team ul li, body#participants .team ul li:hover {
+  border-top: 1px #FFF solid;
+  border-bottom: 1px #d0d0d0 solid;
+}
+
+body#participants .team ul li.team_captain {
+  border-top: 0;
+  border-bottom: 1px #d0d0d0 solid;
+}
+
+body#participants .team ul li.last {
+  border-top: 1px #FFF solid;
+  border-bottom: 0;
+}
+
+body#participants .team ul li span.avatar {
+  float: left;
+  display: block;
+  padding: 10px 10px 10px 10px;
+}
+
+body#participants .team ul li span.username {
+  float: left;
+  display: block;
+  padding: 19px 10px 19px 0;
+  text-transform: capitalize;
+}
+
+body#participants .team ul li.team_captain span.username {
+  border-right: 1px #FFF solid;
+}
+
+body#participants .team ul li.team_captain span.captain {
+  float: left;
+  display: block;
+  padding: 21px 0 18px 30px;
+  font-family: "Helvetica LT Std", Helvetica, Arial, sans-serif;
+  color: #515151;
+  font-size: 12px;
+  background: transparent url(/images/icon_team_captain.png) 13px 18px no-repeat;
+  border-left: 1px #cecece solid;
+}
+
+body#participants .team ul li span.actions {
+  display: block;
+  float: right;
+}
+
+body#participants .team ul li span.actions a.team_user_delete {
+  display: none;
+}
+
+body#participants .team ul li:hover span.actions a.team_user_delete {
+  width: 24px;
+  height: 24px;
+  display: block;
+  text-indent: -9999px;
+  background: transparent url(/images/btn_global_note_close.png) bottom no-repeat;
+  position: relative;
+  top: 14px;
+  right: 5px;
+}
+
+body#participants .team ul li:hover span.actions a:hover.team_user_delete {
+  opacity: 0.8;
+}
+
+
