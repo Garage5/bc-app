@@ -13,7 +13,6 @@
           box = $("a:contains('" + $(this).find('a.player_link').text() + "')")
           box.addClass('hover')
           
-          
           cog = $(this).find('.manage_player_link')
           cog.css({
             position: 'absolute',
@@ -36,11 +35,6 @@
         } //end hover out
       )
     
-      $('.player#me').pulse({opacityRange: [0.5, 1.0]})
-    })
-
-
-  $(document).ready(function(){
     $('.player#me').pulse({opacityRange: [0.5, 1.0]})
   })
 </script>

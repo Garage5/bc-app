@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
     t.string   "winner_type"
     t.integer  "tournament_id"
     t.integer  "position"
-    t.integer  "comments_count"
+    t.integer  "comments_count", :default => 0
     t.string   "status",         :default => "TBD"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -5,7 +5,7 @@ player ||= slot.player if slot
 %>
 
 <% unless player.nil? %>
-  <li class="player <% if !match.winner.nil? and !match.winner_is?(player) %>disqualified<% end %>">
+  <li class="player<% if !match.winner.nil? and !match.winner_is?(player) %> disqualified<% end %>" id="<% if current_user == player %>me<% end %>">
     
     
     <a href="#" class="player_link slot_<%= player.login %>">
@@ -20,7 +20,7 @@ player ||= slot.player if slot
       <%= link_to "Manage", 
         [:manage, @tournament, match, slot], 
         :rel => 'modal', 
-        :class => 'manage_player_link' if slot and match %>
+        :class => 'manage_player_link' %>
     <% end %>
 
   </li>

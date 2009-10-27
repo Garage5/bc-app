@@ -43,54 +43,56 @@
         <%= attachment.file_field :attachment %>
 			<% end -%>
 		</div><!-- / darkpod -->
-
-		<div id="message_subscribe" class="group darkpod clear">
-			
-			<label><strong>Subscribe the following users to receive email notifications:</strong></label>
-			<ul>
-			  <li><input type="checkbox" id="select_all" /><label for="select_all" class="checkbox">Select All</label></li>
-			</ul>
-			<ul>
-			  <% ([@tournament.instance.host] + @tournament.cohosts).each do |participant| %>
-  				<li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
-			  <% end %>
-			</ul>
-			<ul>
-			  <% @tournament.participants.each do |participant| %>
-  				<li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
-			  <% end %>
-			</ul>
-		</div><!-- / darkpod -->
-		
-		<button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
-		or <a href="">Cancel</a>
-    <% end -%>			
-	</div><!-- / bd -->
-	</div><!-- / pod -->
-	</div><!-- / col -->
+    <%- 
+=begin %>
+    <div id="message_subscribe" class="group darkpod clear">
+      
+      <label><strong>Subscribe the following users to receive email notifications:</strong></label>
+      <ul>
+        <li><input type="checkbox" id="select_all" /><label for="select_all" class="checkbox">Select All</label></li>
+      </ul>
+      <ul>
+        <% ([@tournament.instance.host] + @tournament.cohosts).each do |participant| %>
+          <li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
+        <% end %>
+      </ul>
+      <ul>
+        <% @tournament.participants.each do |participant| %>
+          <li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
+        <% end %>
+      </ul>
+    </div><!-- / darkpod -->
+<%- 
+=end %>
+    <button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
+    or <a href="">Cancel</a>
+    <% end -%>      
+  </div><!-- / bd -->
+  </div><!-- / pod -->
+  </div><!-- / col -->
 </div><!-- / main-col -->
 
 <div class="beta" id="sidecol">
-	<div class="col">
-		<div class="pod">
-		<div class="hd">
-	 	 <h2>Options</h2>
-		</div>
-		<div class="bd clear">
-			
-			<div class="group">
-			<h3>Categories</h3>
-			<ul>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">Announcments</label></li>
-				<li><input type="checkbox" size="40"/> <label class="checkbox">Disputes</label></li>
-			</ul>
-			</div>
-			
-			<div class="group">
-			<h3>Private</h3>
-			
-			</div>
-		</div><!-- / bd -->
-		</div><!-- / pod -->	
-	</div><!-- / col -->
+  <div class="col">
+    <div class="pod">
+    <div class="hd">
+     <h2>Options</h2>
+    </div>
+    <div class="bd clear">
+      
+      <div class="group">
+      <h3>Categories</h3>
+      <ul>
+        <li><input type="checkbox" size="40"/> <label class="checkbox">Announcments</label></li>
+        <li><input type="checkbox" size="40"/> <label class="checkbox">Disputes</label></li>
+      </ul>
+      </div>
+      
+      <div class="group">
+      <h3>Private</h3>
+      
+      </div>
+    </div><!-- / bd -->
+    </div><!-- / pod -->  
+  </div><!-- / col -->
 </div><!-- / sidecol -->

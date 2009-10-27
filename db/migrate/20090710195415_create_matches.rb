@@ -6,7 +6,7 @@ class CreateMatches < ActiveRecord::Migration
       t.string  :winner_type
       t.integer :tournament_id
       t.integer :position
-      t.integer :comments_count
+      t.integer :comments_count, :default => 0
       t.string  :status, :default => 'TBD'
       t.timestamps
     end
