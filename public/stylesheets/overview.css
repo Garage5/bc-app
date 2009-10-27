@@ -100,3 +100,27 @@ table#overview tr td.today {
 table#overview tr.last td {
 	border: 0;
 }
+
+/* Blank Overview */
+#blank {
+  padding: 10px 0 10px 50px;
+  background: transparent url(/images/icon_no_events.gif) 0 7px no-repeat;
+}
+
+#blank h2 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #57626a;
+  margin: 2px 0 0 0;
+}
+
+#blank p {
+  color: #57626a;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
