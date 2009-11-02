@@ -6,6 +6,8 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :author_id
       t.integer :tournament_id
       t.boolean :is_announcement, :default => false
+      t.integer :comments_count, :default => 0
+      
       t.timestamps
     end
   end
