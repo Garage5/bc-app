@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
     t.boolean  "use_teams",               :default => false
     t.integer  "players_per_team"
     t.string   "places"
+    t.integer  "first_place"
     t.date     "registration_start_date"
     t.date     "registration_end_date"
     t.string   "first_prize",             :default => "0"

@@ -2,6 +2,7 @@ class ParticipationsController < ApplicationController
   before_filter :find_tournament
   before_filter :login_required, :except => [:index]
   before_filter :must_be_host, :except => [:index, :create, :deny]
+  before_filter :tournament_not_started, :only => [:create, :accept, :deny]
   
   def index
     @officials = [@instance.host] + @tournament.cohosts
@@ -35,7 +36,14 @@ class ParticipationsController < ApplicationController
   end
   
   def create
-    current_user.join_tournament @tournament
+    participation = current_user.join_tournament(@tournament)
+    if participation
+      p "YES"
+      flash[:notice] = "You are now pending acceptance into '#{@tournament.name}'"
+    else
+      p "NO"
+      flash[:error] = "Uh oh. Something happened that wasn't supposed to happen."
+    end
     redirect_to @tournament
   end
   

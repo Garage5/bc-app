@@ -98,11 +98,6 @@ li.player {
   overflow: visible;
 }
 
-li.player#me a.player_link,
-li.player#me span {
-  background-color: #ca5a00;
-  border-color: #e39700;
-}
 
 li.player a.player_link, 
 li.player span {

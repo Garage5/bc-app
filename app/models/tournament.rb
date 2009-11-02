@@ -21,6 +21,8 @@ class Tournament < ActiveRecord::Base
   has_many :participations, :dependent => :destroy
   has_many :participants , :through => :participations
 
+  belongs_to :first_place, :polymorphic => true
+
   has_many :cohosts , :through => :participations,
            :conditions => ['participations.state = ?', 'cohost'], :source => :participant
   has_many :pending_participants, :through => :participations, 

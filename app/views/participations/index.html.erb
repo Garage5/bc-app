@@ -104,7 +104,7 @@
 	</div>
   
   <!-- PENDING -->
-  <% if false #current_user && current_user.is_hosting?(@tournament) && !@pending.blank? %>
+  <% if current_user && current_user.is_hosting?(@tournament) && !@pending.blank? %>
   <div class="pod tab-pod">
 	  <div class="hd">
 	    <h2>Pending Approval</h2>

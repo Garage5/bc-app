@@ -24,6 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :member => {:profile => :get}
   map.resources :instances
   
+  # TOURNAMENT ROUTES
   map.resources :tournaments, :member => {:rules => :get, :start => :put, :brackets => :get}, :collection => {:calendar => :get} do |tournament|
     tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
     tournament.resources :teams do |team|
@@ -43,6 +44,29 @@ ActionController::Routing::Routes.draw do |map|
     end
     tournament.resources :teams, :member => {:join => :put, :decline => :delete}
   end
+
+  # ADMIN ROUTES
+  map.with_options(:conditions => {:subdomain => AppConfig['admin_subdomain']}) do |subdom|
+    subdom.root :controller => 'subscription_admin/subscriptions', :action => 'index'
+    subdom.with_options(:namespace => 'subscription_admin/', :name_prefix => 'admin_', :path_prefix => nil) do |admin|
+      admin.resources :subscriptions, :member => { :charge => :post }
+      admin.resources :accounts
+      admin.resources :subscription_plans, :as => 'plans'
+      admin.resources :subscription_discounts, :as => 'discounts'
+      admin.resources :subscription_affiliates, :as => 'affiliates'
+    end
+  end
+  
+  map.root :controller => "accounts", :action => "dashboard"
+  
+  # ACCOUNT (SaaS) ROUTES
+  map.plans '/signup', :controller => 'accounts', :action => 'plans'
+  map.connect '/signup/d/:discount', :controller => 'accounts', :action => 'plans'
+  map.thanks '/signup/thanks', :controller => 'accounts', :action => 'thanks'
+  map.create '/signup/create/:discount', :controller => 'accounts', :action => 'create', :discount => nil
+  map.resource :account, :collection => { :dashboard => :get, :thanks => :get, :plans => :get, :billing => :any, :paypal => :any, :plan => :any, :plan_paypal => :any, :cancel => :any, :canceled => :get }
+  map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
+
 
   map.connect '/preview/*view', :controller => 'preview', :action => 'index'
   map.connect '/preview-lite/*view', :controller => 'preview', :action => 'lite'

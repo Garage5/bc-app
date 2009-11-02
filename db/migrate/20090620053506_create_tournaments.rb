@@ -9,6 +9,9 @@ class CreateTournaments < ActiveRecord::Migration
       t.integer   :players_per_team
       t.string    :places
       
+      t.integer   :first_place_id
+      t.string    :first_place_type
+      
       t.date      :registration_start_date
       t.date      :registration_end_date
       

@@ -5,7 +5,7 @@ player ||= slot.player if slot
 %>
 
 <% unless player.nil? %>
-  <li class="player<% if !match.winner.nil? and !match.winner_is?(player) %> disqualified<% end %>" id="<% if current_user == player %>me<% end %>">
+  <li class="player<% if !match.try(:winner_id).nil? and !match.try(:winner_is?, player) %> disqualified<% end %><% if current_user == player %> me<% end %>">
     
     
     <a href="#" class="player_link slot_<%= player.login %>">

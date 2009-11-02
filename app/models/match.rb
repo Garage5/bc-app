@@ -43,7 +43,7 @@ class Match < ActiveRecord::Base
   def disputed?; self.status == 'disputed'; end
   
   def winner_is?(player)
-    self.winner == player
+    self.winner_id == player.id
   end
 
   def winner_position

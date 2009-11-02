@@ -1,6 +1,7 @@
 class InstancesController < ApplicationController
   before_filter :find_instance, :only => [:show, :edit, :update, :settings]
-
+  before_filter :must_be_host, :only => [:settings, :edit, :update]
+  
   def index
     @instances = Instance.all
   end
@@ -45,12 +46,5 @@ class InstancesController < ApplicationController
     else
       render :action => 'edit'
     end
-  end
-  
-  def destroy
-    @instance = Instance.find(params[:id])
-    @instance.destroy
-    flash[:notice] = "Successfully destroyed instance."
-    redirect_to instances_url
   end
 end

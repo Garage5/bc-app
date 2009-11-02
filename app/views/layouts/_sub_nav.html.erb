@@ -11,7 +11,7 @@
 <% end %>
 
 <% if current_user %>
-	<% if current_user.is_eligible_to_join?(@tournament) %>
+	<% if current_user.is_eligible_to_join?(@tournament) && !@tournament.started? %>
 		<a id="join_tournament" class="btn" href="#join_confirm" rel="modal"><span class="icon"></span><span>Join Tournament</span></a>
 	<% end %>
 <% end %>
@@ -43,9 +43,13 @@
     <%= link_to "Files", tournament_files_path(@tournament) %>
   <% end -%>
   
-  <% content_tag :li, active == 'edit' ? {:class => 'active'} : nil do -%>
-    <%= link_to "Edit Tournament", edit_tournament_path(@tournament) %>
-  <% end -%>
+  <% if current_user %>
+    <% if current_user.is_hosting?(@tournament) %>
+      <% content_tag :li, active == 'edit' ? {:class => 'active'} : nil do -%>
+        <%= link_to "Edit Tournament", edit_tournament_path(@tournament) %>
+      <% end -%>
+    <% end %>
+  <% end %>
   
 </ul><!-- / subnav -->
 
