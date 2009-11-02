@@ -25,7 +25,7 @@
 	  <div class="hd">
 	    <h2>Officials</h2>
 	    <ul class="tabbed clear">
-	      <% if current_user.try(:is_hosting?, @tournament) %>
+	      <% if current_user.try(:is_hosting?, @instance) %>
           <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
         <% end %>
       </ul>
