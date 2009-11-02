@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   end
   
   def is_eligible_to_join?(tournament)
-    !self.is_hosting?(tournament) && !self.is_participant_of?(tournament)
+    !self.is_hosting?(tournament.instance) && !self.is_participant_of?(tournament)
   end
   
   def team_memberships_in(tournament, include_pending = false)
