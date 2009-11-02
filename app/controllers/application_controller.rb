@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
   
   def must_be_host
-    return false unless current_user.is_hosting?(@tournament)
+    return false unless current_user.is_hosting?(@instance)
   end
 
   def current_user_session

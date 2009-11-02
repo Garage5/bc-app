@@ -32,8 +32,8 @@ class User < ActiveRecord::Base
     Participation.create(:participant => self, :tournament => tournament, :state => 'cohost')
   end
   
-  def is_hosting?(tournament)
-    tournament.instance.host_id == self.id || Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => 'cohost')
+  def is_hosting?(instance)
+    instance.host_id == self.id || Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => 'cohost')
   end
   
   def is_participant_of?(tournament)
