@@ -88,4 +88,13 @@ class ParticipationsController < ApplicationController
       render :action => 'edit'
     end
   end
+  
+  protected
+  
+  def tournament_not_started
+    if @tournament.started?
+      flash[:error] = "Participants cannot be added or removed once a tournament has started."
+      redirect_back_or_default tournament_participants_path(@tournament)
+    end  
+  end
 end
