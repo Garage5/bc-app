@@ -21,22 +21,29 @@ Instance.create(:name => "Starfeeder", :host_id => 1, :subdomain => "starfeeder"
 Instance.create(:name => "CodeMonkey", :host_id => 1, :subdomain => "codemonkey")
 
 
-t1 = Tournament.create(
-  :host => host,
-  :instance_id => 1,
-  :name => 'Awesomeness', 
-  :game => 'Starcraft 2',
-  :slot_count => 8,
-  :rules => 'Do not talk about fight club.',
-  :registration_start_date => 1.days.from_now,
-  :registration_end_date => 30.days.from_now
-)
+3.times do |i|
+  t = Tournament.create(
+    :host => host,
+    :instance_id => 1,
+    :name => "Valor Tournament #{i+1}", 
+    :game => 'Starcraft 2',
+    :slot_count => 8,
+    :rules => 'Do not talk about fight club.',
+    :registration_start_date => 1.days.from_now,
+    :registration_end_date => 30.days.from_now
+  )
+  
+  User.all.each do |u|
+    u.join_tournament(t).accept!
+  end
+end
+
 
 t2 = Tournament.create(
   :host => host,
   :instance_id => 1,
   :name => 'Plankton', 
-  :game => 'Starcraft 2',
+  :game => 'Starcraft 2 Invitational',
   :slot_count => 8,
   :rules => 'Do not talk about fight club.',
   :registration_start_date => 1.days.from_now,
@@ -44,10 +51,6 @@ t2 = Tournament.create(
   :use_teams => true,
   :players_per_team => 2
 )
-
-User.all.each do |u|
-  u.join_tournament(t1).accept!
-end
 
 User.all.each do |u|
   u.join_tournament(t2).accept!
