@@ -8,7 +8,7 @@ player ||= slot.player if slot
   <li class="player<% if !match.try(:winner_id).nil? and !match.try(:winner_is?, player) %> disqualified<% end %><% if current_user == player %> me<% end %>">
     
     
-    <a href="#" class="player_link slot_<%= player.login %>">
+    <a href="<%= tournament_match_path(@tournament, match) %>" class="player_link slot_<%= player.login %>">
       <% unless player.is_a?(Team) %><%= image_tag player.avatar.url(:small), :class => "bracket_avatar", :height => 30 %><% end %>
       <%= player.login %>
     </a>
@@ -26,7 +26,7 @@ player ||= slot.player if slot
   </li>
 <% else %>
   <li class="player tbd">
-    <span href="#" class="player_link">
+    <span class="player_link">
       <% if slot.try(:status) == 'bye' %>
         BYE
       <% else %>
