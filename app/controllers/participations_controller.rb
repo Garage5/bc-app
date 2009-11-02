@@ -22,7 +22,7 @@ class ParticipationsController < ApplicationController
   def add_cohost
     user = User.find(:first, :conditions => ['login = ? OR email = ?', params[:user], params[:user]])
     if user
-      if user.is_hosting?(@tournament)
+      if user.is_hosting?(@instance)
         flash[:error] = "This user is already hosting or co-hosting this tournament."
       elsif user.is_participant_of?(@tournament)
         flash[:error] = "You can not add a participant as a co-host. Please remove the user from participants first."
@@ -66,7 +66,7 @@ class ParticipationsController < ApplicationController
     @participants = User.find(ids)
     if !ids.blank?
       @participants.delete_if do |user|
-        !current_user.is_hosting?(@tournament) && user != current_user
+        !current_user.is_hosting?(@instance) && user != current_user
       end
       if !@participants.blank?
         parts = Participation.find(:all, :conditions => {:participant_id => @participants.collect{|p| p.id}, :tournament_id => @tournament.id})

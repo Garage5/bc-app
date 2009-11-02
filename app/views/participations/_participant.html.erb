@@ -24,7 +24,7 @@
 	<% if current_user && 
 	  @instance.host != participant && 
 	  ((current_user == @instance.host && @officials.include?(participant)) || 
-	  (current_user.is_hosting?(@tournament) && !@officials.include?(participant)) || 
+	  (current_user.is_hosting?(@instance) && !@officials.include?(participant)) || 
 	  (current_user == participant)) &&
 	  !@tournament.started? %>
   	
