@@ -42,8 +42,8 @@ end
 t2 = Tournament.create(
   :host => host,
   :instance_id => 1,
-  :name => 'Plankton', 
-  :game => 'Starcraft 2 Invitational',
+  :name => 'Starcraft 2 Invitational', 
+  :game => 'Starcraft 2',
   :slot_count => 8,
   :rules => 'Do not talk about fight club.',
   :registration_start_date => 1.days.from_now,
