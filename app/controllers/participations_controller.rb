@@ -12,7 +12,10 @@ class ParticipationsController < ApplicationController
       @teams = @tournament.teams(:include => [:members, :captain])
       @active = @tournament.active_participants.all(
         :joins => 'LEFT JOIN team_members ON team_members.member_id = users.id', 
-        :conditions => {:team_members => {:id => nil}}
+        :conditions => {
+          :team_members => {:id => nil},
+          :participations => {:tournament_id => @tournament.id}
+        }
       )
     else
       @active = @tournament.active_participants
