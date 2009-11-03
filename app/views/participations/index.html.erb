@@ -76,12 +76,14 @@
             </li>
         </ul>
         
-        <% if current_user && current_user == team.captain %>
-          <ul class="tabbed clear">
-	          <li class="edit_team active"><a class="rc" href="#create_team" rel="modal">Edit Team</a></li>
-	          <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, team) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
-          </ul>
-	      <% end %>
+	      <% if current_user && current_user == team.captain %>
+	        <div class="captain_actions">
+            <ul class="clear">
+  	          <li class="edit_team active"><a class="rc" href="#create_team" rel="modal">Edit Team</a></li>
+  	          <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, team) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
+            </ul>
+          </div>
+  	      <% end %>
 	      </div><!-- / team_inner -->
       </div><!-- / team -->
       <% end %>

@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20090822011655) do
     t.integer  "author_id"
     t.integer  "tournament_id"
     t.boolean  "is_announcement", :default => false
+    t.integer  "comments_count",  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "hosts_only",      :default => false, :null => false
