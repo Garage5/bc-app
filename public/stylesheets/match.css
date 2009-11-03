@@ -30,7 +30,6 @@ body#match #maincol .pod {
   float: left;
   font-size: 20px;
   font-weight: bold;
-  letter-spacing: -1px;
   margin: 16px 0 0 8px;
 }
 
@@ -55,7 +54,6 @@ body#match #maincol .pod {
 
 .team ul.team_players li.captain h2 {
   font-size: 18px;
-  letter-spacing: -0.6px;
   font-weight: bold;
   padding: 2px 0 0 0;
   line-height: 14px;
@@ -66,7 +64,6 @@ body#match #maincol .pod {
   font-size: 12px;
   background: transparent url(/images/icon_team_captain.png) 0 0 no-repeat;
   font-weight: bold;
-  letter-spacing: -0.5px;
   float: left;
   margin: 3px 0 0 0;
   padding: 2px 0 0 14px;
@@ -87,6 +84,36 @@ body#match #maincol .pod {
   margin: 0;
 }
 
+#away_player .team .team_hd img {
+  float: right;
+}
+
+#away_player .team .team_hd h1 {
+  text-align: right;
+  float: right;
+  margin: 16px 8px 0 0;
+}
+
+#away_player .team ul li img {
+  float: right;
+  margin: 0 0 0 8px;
+}
+
+#away_player .team ul.team_players li h2 {
+  text-align: right;
+}
+
+#away_player .team ul.team_players li span.game_handle,
+#away_player .team ul.team_players li span.team_captain {
+  text-align: right;
+}
+
+#away_player .team ul.team_players li.captain span.team_captain {
+  float: right;
+  background: transparent url(/images/icon_team_captain.png) right top no-repeat;
+  padding: 2px 14px 0 0;
+}
+ΩΩΩ
 #match_details {
   width: 180px;
 	float: left;
@@ -96,7 +123,6 @@ body#match #maincol .pod {
 #match_details h3 {
   font-size: 24px;
   font-weight: bold;
-  letter-spacing: -1px;
   text-shadow: 1px 1px 2px #999;
   margin: 10px 0 8px 0;
 }
@@ -153,7 +179,6 @@ body#match #maincol .pod {
   padding: 10px;
   background: #efefef;
   color: #848484;
-  letter-spacing: -0.5px;
   font-size: 12px;
   font-weight: bold;
   -moz-border-radius-topleft: 5px;
