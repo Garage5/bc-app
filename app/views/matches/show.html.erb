@@ -1,5 +1,5 @@
-<% stylesheet :messages %>
 <% stylesheet :match %>
+<% stylesheet :messages %>
 <% body 'match' %>
 <% title "Fuck you, Fix this." %>
 
@@ -54,23 +54,22 @@
 				<%= image_tag @match.slots[1].player.avatar.url(:large) %>
 				<strong><%= @match.slots[1].player.login %></strong>
 			</div>
-						
 		</div><!-- / match_wrapper -->
+		
+		<div id="comment_mod">
+  	  <ul class="group">
+  			<% if !@match.comments.blank? %>
+  	      <%= render @match.comments %> <!-- renders partial in comments/_comment -->
+  	    <% end %>
+  	  </ul><!-- /comments ul -->
+
+  	  <div class="comment_form clear">
+  			<h4><img src="/users/avatars/missing_medium.jpg?1251918398"/>Post a Comment</h4>
+  			<%= render :partial => 'comments/form', :locals => {:post_url => [@tournament, @match, Comment.new]} %>
+  		</div><!-- / comment_form -->
+  	</div><!-- / comment_mod -->
 	</div><!-- / bd -->
 	</div><!-- / pod -->
-	
-	<div id="comment_mod">
-	  <ul class="group">
-			<% if !@match.comments.blank? %>
-	      <%= render @match.comments %> <!-- renders partial in comments/_comment -->
-	    <% end %>
-	  </ul><!-- /comments ul -->
-	
-	  <div class="comment_form darkpod clear">
-			<h4>Post a Comment</h4>
-			<%= render :partial => 'comments/form', :locals => {:post_url => [@tournament, @match, Comment.new]} %>
-		</div><!-- / darkpod -->
-	</div><!-- / comment_mod -->
 	</div><!-- / col -->
 </div><!-- / main-col -->
 
