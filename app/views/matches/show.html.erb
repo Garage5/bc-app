@@ -30,30 +30,87 @@
 		<div class="clear" id="match_wrapper">
 			
 			<div id="home_player">
-				<%= image_tag @match.slots[0].player.avatar.url(:large) %>
-				<strong><%= @match.slots[0].player.login %></strong>
-			</div>
+			  <div class="team">
+			    <div class="team_hd clear">
+				    <img src="/users/avatars/missing_medium.jpg" />
+				    <h1>The A-Team</h1>
+				  </div><!-- / team_hd -->
+				  
+				  <ul class="clear team_players">
+				    <li class="captain clear">
+				      <img src="/users/avatars/missing_medium.jpg" />
+  				    <h2>Matt Johnson</h2>
+      				<span class="game_handle">mattdetails</span>
+      				<span class="team_captain">Team Captain</span>
+				    </li>
+				    <li class="clear">
+				      <img src="/users/avatars/missing_medium.jpg" />
+  				    <h2>James Au</h2>
+      				<span class="game_handle">thebossman</span>
+				    </li>
+				    <li class="clear">
+				      <img src="/users/avatars/missing_medium.jpg" />
+  				    <h2>Bryan Cinman</h2>
+      				<span class="game_handle">plankton</span>
+				    </li>
+				    <li class="clear">
+				      <img src="/users/avatars/missing_medium.jpg" />
+  				    <h2>Random Guy</h2>
+      				<span class="game_handle">randomguy</span>
+				    </li>
+				  </ul>
+				</div><!-- / team -->
+			</div><!-- / home_player -->
 
 			<div id="match_details">
-				<h2>VS</h2>
 				<h3>Round 1</h3>
-				<h4>6/14/09 12:23PM</h4>
 				<% if @slot %>
 				  <% if @slot.result.nil? %>
       		<ul id="match_results" class="clear">
-      			<li class="selected"><%= link_to 'I Won', [:won, @tournament, @match, @slot], :id => "result_won", :method => :put %></li>
-      			<li class="inactive"><%= link_to 'I Lost', [:lost, @tournament, @match, @slot], :id => "result_lost", :method => :put %></li>
+      			<li><%= link_to 'I Won', [:won, @tournament, @match, @slot], :id => "result_won", :method => :put %></li>
+      			<li><%= link_to 'I Lost', [:lost, @tournament, @match, @slot], :id => "result_lost", :method => :put %></li>
       		</ul>
       		<% else %>
       		  Result Submitted (<%= @slot.result %>)
       		<% end  %>
     		<% end %>
+  				<span class="txt_versus">VS</span>
 			</div>
       
 			<div id="away_player">
-				<%= image_tag @match.slots[1].player.avatar.url(:large) %>
-				<strong><%= @match.slots[1].player.login %></strong>
-			</div>
+			  <div class="team">
+			    <div class="team_hd clear">
+				    <img src="/users/avatars/missing_medium.jpg" />
+				    <h1>The A-Team</h1>
+				  </div><!-- / team_hd -->
+				  
+				  <ul class="clear team_players">
+				    <li class="captain clear">
+				      <img src="/users/avatars/missing_medium.jpg" />
+  				    <h2>Matt Johnson</h2>
+      				<span class="game_handle">mattdetails</span>
+      				<span class="team_captain">Team Captain</span>
+				    </li>
+				    <li class="clear">
+				      <img src="/users/avatars/missing_medium.jpg" />
+  				    <h2>James Au</h2>
+      				<span class="game_handle">thebossman</span>
+				    </li>
+				    <li class="clear">
+				      <img src="/users/avatars/missing_medium.jpg" />
+  				    <h2>Bryan Cinman</h2>
+      				<span class="game_handle">plankton</span>
+				    </li>
+				    <li class="clear">
+				      <img src="/users/avatars/missing_medium.jpg" />
+  				    <h2>Random Guy</h2>
+      				<span class="game_handle">randomguy</span>
+				    </li>
+				  </ul>
+				</div><!-- / team -->
+			</div><!-- / away_player -->
+			<div class="clear"></div>
+		<div id="date_played">Played at <strong>12:23PM</strong> at <strong>6/14/09</strong></div>
 		</div><!-- / match_wrapper -->
 		
 		<div id="comment_mod">

@@ -3,69 +3,171 @@ body#match #maincol .pod {
 
 #match_wrapper {
 	margin: 0 auto;
-	padding: 0 0 10px 0;
+	padding: 0;
 	border-bottom: 1px #DDD solid;
 }
 
-#home_player {
-	float: left;
-	width: 25%;
+.team {
+  width: 290px;
+  float: left;
 }
 
-#away_player {
-	float: left;
-	width: 25%;
-	text-align: right;
-}
-
-#home_player, #away_player {
-	padding: 10px;
-}
-
-#home_player strong, #away_player strong {
+.team h3 {
 	display: block;
-	margin: 5px 0 0 0;
+	margin: 0 0 0 8px;
+	float: left;
+}
+
+.team .team_hd {
+  border-bottom: 1px #999 solid;
+  display: block;
+  padding: 0 0 10px 0;
+  margin: 0 0 10px 0;
+  width: 290px;
+}
+
+.team .team_hd h1 {
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  margin: 16px 0 0 8px;
+}
+
+.team .team_hd img {
+  float: left;
+}
+
+.team ul.team_players li {
+  margin: 0 0 15px 0;
+}
+
+.team ul.team_players li img {
+  float: left;
+  margin: 0 8px 0 0;
+}
+
+.team ul.team_players li h2,
+.team ul.team_players li span.game_handle,
+.team ul.team_players li span.team_captain {
+  display: block;
+}
+
+.team ul.team_players li.captain h2 {
+  font-size: 18px;
+  letter-spacing: -0.6px;
+  font-weight: bold;
+  padding: 2px 0 0 0;
+  line-height: 14px;
+}
+
+.team ul.team_players li.captain span.team_captain {
+  color: #575757;
+  font-size: 12px;
+  background: transparent url(/images/icon_team_captain.png) 0 0 no-repeat;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  float: left;
+  margin: 3px 0 0 0;
+  padding: 2px 0 0 14px;
+  height: 16px;
+}
+
+.team ul.team_players li.captain span.game_handle {
+  color: #898989;
+  margin: 3px 0 0 0;
+}
+
+.team ul.team_players li h2 {
+  padding: 10px 0 0 0;
+}
+
+.team ul.team_players li span.game_handle {
+  color: #898989;
+  margin: 0;
 }
 
 #match_details {
+  width: 180px;
 	float: left;
-	width: 44%;
 	text-align: center;
 }
 
-#match_details h2 {
-	color: #777;
-	font-size: 16px;
-	font-weight: bold;
-	line-height: 0;
-	padding: 15px 0 0 0;
-}
-
 #match_details h3 {
-	font-size: 15px;
-	font-weight: bold;
-	line-height: 0;
-	padding: 0 0 5px 0;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  text-shadow: 1px 1px 2px #999;
+  margin: 10px 0 8px 0;
 }
 
-#match_details h4 {
-	font-size: 12px;
-	font-weight: normal;
-	line-height: 0;
-	padding: 5px 0 15px 0;
+#match_details span.txt_versus {
+  width: 70px;
+  height: 43px;
+  background: transparent url(/images/match_vs.gif) 0 0 no-repeat;
+  margin: 10px auto;
+  display: block;
+  text-indent: -9999px;
 }
 
 #match_details ul#match_results {
-  width: 146px;
+  width: 136px;
   margin: 0 auto;
 }
 
 #match_details ul#match_results li {
-	margin: 0 10px 0 0;
 	display: block;
 	float: left;
 }
 
+#match_details ul#match_results li a#result_won, #match_details ul#match_results li a#result_lost {
+  width: 68px;
+  height: 33px;
+  background: transparent url(/images/btn_match_results.png) 0 0 no-repeat;
+  display: block;
+  text-indent: -9999px;
+}
+
+#match_details ul#match_results li a#result_lost {
+  background-position: 0 -99px;
+}
+
+#match_details ul#match_results li a:hover#result_won {
+  background-position: 0 -33px;
+}
+
+#match_details ul#match_results li a:hover#result_lost {
+  background-position: 0 -132px;
+}
+
+#match_details ul#match_results li a:active#result_won {
+  background-position: 0 -66px;
+}
+
+#match_details ul#match_results li a:active#result_lost {
+  background-position: 0 -165px;
+}
+
+#date_played {
+  float: left;
+  padding: 10px;
+  background: #efefef;
+  color: #848484;
+  letter-spacing: -0.5px;
+  font-size: 12px;
+  font-weight: bold;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+	-webkit-border-radius-top-right: 5px;
+	-webkit-border-radius-top-left: 5px;
+}
+
+#date_played strong {
+  color: #2c2c2c;
+}
+
+
+/*
 #match_details ul#match_results li a#result_won, #match_details ul#match_results li a#result_lost {
 	color: #FFF;
 	text-decoration: none;
@@ -128,4 +230,4 @@ body#match #maincol .pod {
 	color: #FFF;
 	border: 2px #666 solid;
 }
-
+*/
