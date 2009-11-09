@@ -5,15 +5,7 @@
   <div style="margin-left: 55px;">
   <div><%= f.text_area :body, :rows => 5, :style => "width: 98%" %></div>
   <div id="message_attach" class="clear">
-
-<% if false %>
-		<label class="textarea"><strong>Attach a file</strong> (each file should be under 100 MB)</label>
-		  <% f.fields_for :attachments, Attachment.new do |attachment| -%>
-        <%= attachment.file_field :attachment, :class => "file" %>
-      <% end -%>
-<% end %>
-
-
+   <input type="file"/>
 	</div><!-- / message_attach -->
 	<div><button type="submit" class="btn"><span class="icon"></span><span>Post Comment</span></button></div>
 </div>

@@ -177,7 +177,7 @@ body#participants .team .team_inner {
 }
 
 body#participants .team .team_inner h3 {
-  background: #c5c5c5;
+  background: #c5c5c5 url(/images/team_hdr_bg.png) 0 0 repeat-x;
   border-bottom: 1px #FFF solid;
   padding: 9px 8px 6px 10px;
   margin: 0;
@@ -185,6 +185,7 @@ body#participants .team .team_inner h3 {
   -moz-border-radius-topright: 5px;
   -webkit-border-radius-top-left: 5px;
   -webkit-border-radius-top-right: 5px;
+  text-shadow: 1px 1px 0px #FFF;
 }
 
 body#participants .team ul {
@@ -268,6 +269,51 @@ body#participants .team ul li:hover span.actions a.team_user_delete {
 
 body#participants .team ul li:hover span.actions a:hover.team_user_delete {
   opacity: 0.8;
+}
+
+
+body#participants .team_inner .captain_actions {
+  float: right;
+  width: 250px;
+  border-top: 1px #c9c9c9 solid;
+}
+
+body#participants .team_inner .captain_actions ul {
+  width: 248px;
+  border: 1px #FFF solid;
+  margin: 0 0 0 1px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-radius-bottom-left: 5px;
+  -webkit-border-radius-bottom-right: 5px;
+}
+
+body#participants .team_inner .captain_actions ul li {
+  float: left;
+  display: block;
+  padding: 5px 0 0 5px;
+  border: 0;
+}
+
+body#participants .team_inner .captain_actions ul li a {
+  padding: 5px;
+  color: #333;
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+  
+}
+
+body#participants .team_inner .captain_actions ul li:hover {
+  padding: 5px 0 0 5px;
+  margin: 0;
+  border: 0;
+}
+
+body#participants .team_inner .captain_actions ul li a:hover {
+  color: #000;
+  padding: 5px !important;
+  margin: 0 !important;
 }
 
 

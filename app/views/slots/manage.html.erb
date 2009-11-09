@@ -5,7 +5,7 @@
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
 			<div class="clear">
-			<ul>
+			<ul id="host_management_tools">
 			  <li><%= button_link_to 'Disqualify', [:disqualify, @tournament, @match, @slot], '', :method => :put %></li>
 			  <li><%= button_link_to 'Declare Winner', [:advance, @tournament, @match, @slot], '', :method => :put %></li>
 			  <li class="last"><%= button_link_to 'Revert', [:revert, @tournament, @match, @slot], '', :method => :put %></li>

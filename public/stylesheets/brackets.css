@@ -360,7 +360,6 @@ ul.round#r6 li.match.winner-p2 {
 }
 
 .host_links a {
-  
   background: none !important;
   padding: 0 !important;
   border: 0 !important;
@@ -374,6 +373,10 @@ ul.round#r6 li.match.winner-p2 {
 li.player a {
   position: relative;
   z-index: 1;
+}
+
+ul#host_management_tools {
+  width: 290px;
 }
 
 

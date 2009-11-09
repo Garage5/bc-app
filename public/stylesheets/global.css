@@ -372,6 +372,7 @@ div#system_msg a:hover#system_msg_close {
 	font-size: 24px;
 	padding: 26px 0 26px 20px;
 	float: left;
+	letter-spacing: -1px;
 }
 
 #header h1 a {
@@ -394,6 +395,7 @@ div#system_msg a:hover#system_msg_close {
 	padding: 28px 0 11px 20px;
 	color: #caefff;
 	float: left;
+	letter-spacing: -1px;
 }
 
 div.account_logo {
