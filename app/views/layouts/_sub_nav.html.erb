@@ -5,7 +5,7 @@
 <% active ||= '' %>
 
 <% if current_user %>
-  <% if current_user.is_hosting?(@instance) && !@tournament.started? %>
+  <% if current_user.is_hosting?(current_account) && !@tournament.started? %>
     <a id="btn_start_tournament" class="btn" href="#confirm_start_tournament" rel="modal"><span class="icon"></span><span>Start Tournament</span></a>
   <% end %>
 <% end %>
@@ -44,7 +44,7 @@
   <% end -%>
   
   <% if current_user %>
-    <% if current_user.is_hosting?(@instance) %>
+    <% if current_user.is_hosting?(current_account) %>
       <% content_tag :li, active == 'edit' ? {:class => 'active'} : nil do -%>
         <%= link_to "Edit Tournament", edit_tournament_path(@tournament) %>
       <% end -%>

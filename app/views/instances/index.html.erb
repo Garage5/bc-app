@@ -5,7 +5,7 @@
     <th>Name</th>
     <th>Manager</th>
   </tr>
-  <% for instance in @instances %>
+  <% for instance in current_accounts %>
     <tr>
       <td><%=h instance.name %></td>
       <td><%=h instance.manager_id %></td>

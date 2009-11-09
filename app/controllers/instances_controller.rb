@@ -3,7 +3,7 @@ class InstancesController < ApplicationController
   before_filter :must_be_host, :only => [:settings, :edit, :update]
   
   def index
-    @instances = Instance.all
+    current_accounts = Instance.all
   end
   
   def show
@@ -11,11 +11,11 @@ class InstancesController < ApplicationController
   
   def settings
     if request.put?
-      @instance.attributes = params[:instance]
-      @success = @instance.save
+      current_account.attributes = params[:instance]
+      @success = current_account.save
       if params[:instance][:subdomain] && @success
         sd = request.host.split('.')
-        sd[0] = @instance.subdomain
+        sd[0] = current_account.subdomain
         render :text => "location.href = '#{url_for(:host => sd.join('.'))}';"
         return
       end
@@ -23,12 +23,12 @@ class InstancesController < ApplicationController
   end
   
   def new
-    @instance = Instance.new
+    current_account = Instance.new
   end
   
   def create
-    @instance = Instance.new(params[:instance])
-    if @instance.save
+    current_account = Instance.new(params[:instance])
+    if current_account.save
       flash[:notice] = "Successfully created instance."
       redirect_to instances_url
     else
@@ -40,7 +40,7 @@ class InstancesController < ApplicationController
   end
   
   def update
-    if @instance.update_attributes(params[:instance])
+    if current_account.update_attributes(params[:instance])
       flash[:notice] = "Successfully updated instance."
       redirect_to instances_url
     else

@@ -25,7 +25,7 @@
 	  <div class="hd">
 	    <h2>Officials</h2>
 	    <ul class="tabbed clear">
-	      <% if current_user.try(:is_hosting?, @instance) %>
+	      <% if current_user.try(:is_hosting?, current_account) %>
           <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
         <% end %>
       </ul>
@@ -76,14 +76,12 @@
             </li>
         </ul>
         
-	      <% if current_user && current_user == team.captain %>
-	        <div class="captain_actions">
-            <ul class="clear">
-  	          <li class="edit_team active"><a class="rc" href="#create_team" rel="modal">Edit Team</a></li>
-  	          <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, team) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
-            </ul>
-          </div>
-  	      <% end %>
+        <% if current_user && current_user == team.captain %>
+          <ul class="tabbed clear">
+	          <li class="edit_team active"><a class="rc" href="#create_team" rel="modal">Edit Team</a></li>
+	          <li class="delete_team active"><a class="rc" href="<%= tournament_team_path(@tournament, team) %>" rel="modal {method: 'delete', text: 'Do you really want to delete your team?'}">Delete Team</a></li>
+          </ul>
+	      <% end %>
 	      </div><!-- / team_inner -->
       </div><!-- / team -->
       <% end %>
@@ -106,7 +104,7 @@
 	</div>
   
   <!-- PENDING -->
-  <% if current_user && current_user.is_hosting?(@instance) && !@pending.blank? %>
+  <% if current_user && current_user.is_hosting?(current_account) && !@pending.blank? %>
   <div class="pod tab-pod">
 	  <div class="hd">
 	    <h2>Pending Approval</h2>

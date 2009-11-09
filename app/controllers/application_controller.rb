@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   helper_method :current_user_session, :current_user, :allowed_domains, :logged_in?
   
-  before_filter :http_authentication, :find_instance
+  before_filter :http_authentication
   
   def http_authentication
     authenticate_or_request_with_http_basic do |user, pass|
@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
   private
   
   def find_instance
-    @instance = current_account
-   # @instance = Instance.find_by_subdomain(current_subdomain)
-   # unless @instance
+    current_account = current_account
+   # current_account = Instance.find_by_subdomain(current_subdomain)
+   # unless current_account
    #   #flash[:error] = "Dude, I told you to update your bookmarks."
    #   #redirect_to root_url
    #   render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   
   def must_be_host
-    return false unless current_user.is_hosting?(@instance)
+    return false unless current_user.is_hosting?(current_account)
   end
 
   def current_user_session

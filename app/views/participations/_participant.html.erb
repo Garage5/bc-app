@@ -22,9 +22,9 @@
 	<div class="activity">Last activity: <span class='date' title="<%= participant.last_activity %>"><%= participant.last_activity %></span></div>
 	
 	<% if current_user && 
-	  @instance.admin != participant && 
-	  ((current_user == @instance.admin && @officials.include?(participant)) || 
-	  (current_user.is_hosting?(@instance) && !@officials.include?(participant)) || 
+	  current_account.admin != participant && 
+	  ((current_user == current_account.admin && @officials.include?(participant)) || 
+	  (current_user.is_hosting?(current_account) && !@officials.include?(participant)) || 
 	  (current_user == participant)) &&
 	  !@tournament.started? %>
   	

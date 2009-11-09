@@ -12,7 +12,7 @@ class TeamsController < ApplicationController
     else
       flash[:error] = "Could not create the team: #{@team.errors.full_messages.join(",")}"
     end
-    # if current_user.is_hosting?(@instance)
+    # if current_user.is_hosting?(current_account)
     #   flash[:error] = 'Officials can\'t create teams.'
     # elsif !@tournament.use_teams?
     #   flash[:error] = 'This tournament is not based on teams.'
@@ -39,7 +39,7 @@ class TeamsController < ApplicationController
   
   def update
     params[:user_ids] ||= []
-    if current_user.is_hosting?(@instance) || current_user == @team.captain
+    if current_user.is_hosting?(current_account) || current_user == @team.captain
       # change the name, if we can
       if @team.update_attributes(params[:team])
         # find the participants the user requested
@@ -62,7 +62,7 @@ class TeamsController < ApplicationController
   end
   
   def destroy
-    if current_user.is_hosting?(@instance) || current_user == @team.captain
+    if current_user.is_hosting?(current_account) || current_user == @team.captain
       @team.destroy
     else
       flash[:error] = "You are not allowed to delete this team."

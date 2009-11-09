@@ -4,8 +4,8 @@
 
 <div id="maincol">
 <div class="col">
-<% if !@instance.tournaments.blank? %>
-  <% for tournament in @instance.tournaments %>
+<% if !current_account.tournaments.blank? %>
+  <% for tournament in current_account.tournaments %>
 	<div class="pod">
   	<div class="hd">
   		<h2><%= link_to tournament.name, tournament_path(tournament) %></h2>

@@ -58,7 +58,7 @@ class TournamentsController < ApplicationController
     # temporarily clear out the Round data until it's settled
     params[:tournament].delete(:rounds_attributes)
     
-    @tournament = @instance.tournaments.build(params[:tournament])
+    @tournament = current_account.tournaments.build(params[:tournament])
     if @tournament.save
       flash[:notice] = "Successfully created tournament."
       redirect_to @tournament

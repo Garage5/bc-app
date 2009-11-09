@@ -16,7 +16,7 @@ player ||= slot.player if slot
     
     <% if !match.winner.nil? && match.winner != player %><img class="disqualified" src="/images/bracket_x.gif"><% end %>
     
-    <% if current_user && current_user.is_hosting?(@instance) && match.winner.nil? %>
+    <% if current_user && current_user.is_hosting?(current_account) && match.winner.nil? %>
       <%= link_to "Manage", 
         [:manage, @tournament, match, slot], 
         :rel => 'modal', 

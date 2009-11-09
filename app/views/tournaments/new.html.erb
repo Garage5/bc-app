@@ -109,7 +109,7 @@
   		</div><!-- / modal_hd -->
   	<div class="modal_inner">
   			<div class="clear">
-  			  <div class="group"><%= select_tag :template_id, options_for_select( @instance.templates.map {|t| [t.name, t.id]}) %></div>
+  			  <div class="group"><%= select_tag :template_id, options_for_select( current_account.templates.map {|t| [t.name, t.id]}) %></div>
   			  <%= button_link_to 'Load Template', '#', '', :id => 'load_template_btn' %>
   			</div>
   	</div><!-- / modal_inner -->

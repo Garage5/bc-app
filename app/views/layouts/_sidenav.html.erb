@@ -4,13 +4,13 @@
 	</div><!-- / hd -->
 	<div class="bd">
 		<ul>
-		  <% if !@instance.tournaments.blank? %>
-		    <% for t in @instance.tournaments %>
+		  <% if !current_account.tournaments.blank? %>
+		    <% for t in current_account.tournaments %>
 		      <li><%= link_to t.name, tournament_path(t) %></li>
 		    <% end %>
 		  <% end %>
 			<li class="beta"><a href="" class="beta tedit">Edit</a><a href="">Valor Tournament</a></li>
-			<% if @instance.admin == current_user %>
+			<% if current_account.admin == current_user %>
 			  <li><%= link_to "Create a New Tournament", new_tournament_path, :class => 'icon-add' %></li>
 			<% end %>
 		</ul>
