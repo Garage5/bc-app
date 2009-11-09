@@ -1,22 +1,24 @@
 class Account < ActiveRecord::Base
+  has_many :tournaments
+  has_many :templates, :class_name => "Tournament", :foreign_key => "instance_id", :conditions => {:is_template => true}
   
-  has_many :users, :dependent => :destroy
-  has_one :admin, :class_name => "User", :conditions => { :admin => true }
+  # has_many :users, :dependent => :destroy
+  belongs_to :admin, :class_name => "User"
   has_one :subscription, :dependent => :destroy
   has_many :subscription_payments
   
   validates_format_of :domain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/
   validates_exclusion_of :domain, :in => %W( support blog www billing help api #{AppConfig['admin_subdomain']} ), :message => "The domain <strong>{{value}}</strong> is not available."
   validate :valid_domain?
-  validate_on_create :valid_user?
+  # validate_on_create :valid_user?
   validate_on_create :valid_plan?
   validate_on_create :valid_payment_info?
   validate_on_create :valid_subscription?
   
-  attr_accessible :name, :domain, :user, :plan, :plan_start, :creditcard, :address
+  attr_accessible :name, :domain, :admin, :plan, :plan_start, :creditcard, :address
   attr_accessor :user, :plan, :plan_start, :creditcard, :address, :affiliate
   
-  after_create :create_admin
+  # after_create :create_admin
   after_create :send_welcome_email
   
   acts_as_paranoid
@@ -57,6 +59,10 @@ class Account < ActiveRecord::Base
   def domain=(domain)
     @domain = domain
     self.full_domain = "#{domain}.#{AppConfig['base_domain']}"
+  end
+  
+  def admin=(admin)
+    self.admin_id = admin.id
   end
   
   def to_s

@@ -4,7 +4,7 @@ class Tournament < ActiveRecord::Base
   acts_as_textile :rules
   acts_as_textile :other_prizes
 
-  belongs_to  :instance
+  belongs_to  :account
   belongs_to  :host, :class_name => "User", :foreign_key => "host_id"
   
   has_many    :messages, :order => 'created_at DESC'
@@ -35,10 +35,10 @@ class Tournament < ActiveRecord::Base
   
   
   def officials
-    [self.instance.host] + self.cohosts
+    [self.account.admin] + self.cohosts
   end
   
-  validates_presence_of :name, :game, :rules, :slot_count, :instance_id
+  validates_presence_of :name, :game, :rules, :slot_count, :account_id
   
   validates_date :registration_start_date, :after => Date.today-1, :on => :create
   validates_date :registration_end_date, :after => :registration_start_date, :on => :create

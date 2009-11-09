@@ -22,7 +22,7 @@ class CreateTournaments < ActiveRecord::Migration
       t.text      :other_prizes
       
       t.boolean   :is_template, :default => false
-      t.integer   :instance_id
+      t.integer   :account_id
       t.boolean   :started, :default => false
       t.timestamps
     end

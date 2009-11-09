@@ -5,7 +5,7 @@ class ParticipationsController < ApplicationController
   before_filter :tournament_not_started, :only => [:create, :accept, :deny]
   
   def index
-    @officials = [@instance.host] + @tournament.cohosts
+    @officials = [@instance.admin] + @tournament.cohosts
     @pending = @tournament.pending_participants
     
     if @tournament.use_teams?

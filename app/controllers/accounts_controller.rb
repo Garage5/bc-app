@@ -1,6 +1,9 @@
 class AccountsController < ApplicationController
   include ModelControllerMethods
   
+  layout 'accounts'
+
+  before_filter :login_required, :except => [:show]
   before_filter :build_user, :only => [:new, :create]
   before_filter :load_billing, :only => [ :new, :create, :billing, :paypal ]
   before_filter :load_subscription, :only => [ :billing, :plan, :paypal, :plan_paypal ]
@@ -15,6 +18,7 @@ class AccountsController < ApplicationController
   end
   
   def create
+    @account.admin = current_user
     @account.affiliate = SubscriptionAffiliate.find_by_token(cookies[:affiliate]) unless cookies[:affiliate].blank?
 
     if @account.needs_payment_info?

@@ -52,7 +52,7 @@
         <li><input type="checkbox" id="select_all" /><label for="select_all" class="checkbox">Select All</label></li>
       </ul>
       <ul>
-        <% ([@tournament.instance.host] + @tournament.cohosts).each do |participant| %>
+        <% ([@tournament.instance.admin] + @tournament.cohosts).each do |participant| %>
           <li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
         <% end %>
       </ul>

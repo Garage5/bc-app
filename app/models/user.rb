@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_authentic
   
+  has_many :accounts
   has_many :participations, :foreign_key => :participant_id, :dependent => :destroy
   has_many :tournaments, :through => :participations
   has_many :team_members, :foreign_key => :member_id
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
   end
   
   def is_hosting?(instance)
-    instance.host_id == self.id
+    account.admin_id == self.id
   end
   
   def is_cohosting?(tournament)
@@ -79,7 +80,7 @@ class User < ActiveRecord::Base
   end
   
   def role_in(tournament, team)
-    return "Host" if tournament.instance.host_id == self.id
+    return "Host" if tournament.account.admin_id == self.id
     return "Co-Host" if is_hosting?(tournament)
     return nil unless team
     part = participations.find(:first, :conditions => {:tournament_id => team.tournament_id})

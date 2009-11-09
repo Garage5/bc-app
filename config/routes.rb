@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :messages
 
   map.instance_root '', :controller => 'instances', :action => 'show', :condition => { :subdomain => /.+/ }
-  map.root :controller => 'instances', :action => 'show'
+  map.root :controller => 'home', :action => 'index'
   
   map.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
   map.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}

@@ -2,9 +2,12 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include SslRequirement
+  include SubscriptionSystem
+  
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  helper_method :current_user_session, :current_user, :allowed_domains
+  helper_method :current_user_session, :current_user, :allowed_domains, :logged_in?
   
   before_filter :http_authentication, :find_instance
   
@@ -15,13 +18,15 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  
   def find_instance
-    @instance = Instance.find_by_subdomain(current_subdomain)
-    unless @instance
-      #flash[:error] = "Dude, I told you to update your bookmarks."
-      #redirect_to root_url
-      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return
-    end
+    @instance = current_account
+   # @instance = Instance.find_by_subdomain(current_subdomain)
+   # unless @instance
+   #   #flash[:error] = "Dude, I told you to update your bookmarks."
+   #   #redirect_to root_url
+   #   render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return
+   # end
   end
   
   def find_tournament
@@ -56,6 +61,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
       return false
     end
+  end
+
+  def logged_in?
+    !!current_user
   end
   
   def store_location
