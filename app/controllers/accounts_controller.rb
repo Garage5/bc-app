@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   include ModelControllerMethods
   
-  layout 'accounts'
+  layout 'application'
 
   before_filter :login_required, :except => [:show]
   before_filter :build_user, :only => [:new, :create]
@@ -12,6 +12,10 @@ class AccountsController < ApplicationController
   
   ssl_required :billing, :cancel, :new, :create
   ssl_allowed :plans, :thanks, :canceled, :paypal
+  
+  def show
+    
+  end
   
   def new
     # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users

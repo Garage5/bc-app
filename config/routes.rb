@@ -7,8 +7,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :comments
   map.resources :messages
 
-  map.instance_root '', :controller => 'instances', :action => 'show', :condition => { :subdomain => /.+/ }
-  map.root :controller => 'home', :action => 'index'
   
   map.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
   map.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
@@ -24,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   
   # PORTAL ROUTES
   map.with_options :condition => { :subdomain => /.+/ } do |account|
+    map.instance_root '', :controller => 'accounts', :action => 'show'
     account.settings '/settings', :controller => 'accounts', :action => 'edit', :conditions => {:method => :get}
     account.settings '/settings', :controller => 'accounts', :action => 'update', :conditions => {:method => :put}
     

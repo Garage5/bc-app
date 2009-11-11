@@ -1,8 +1,42 @@
-Hi, <%= @account.name %>!
+<% content_for :head do -%>
+<%= stylesheet_link_tag 'overview' %>
+<% end -%>
 
-<ul>
-  <li><%= link_to('Edit account', edit_account_url) %></li>
-  <li><%= link_to('Change plan', plan_account_url) %></li>
-  <li><%= link_to('Billing info', billing_account_url) %></li>
-  <li><%= link_to('Cancel plan', cancel_account_url) %></li>
-</ul>
+<div id="maincol">
+<div class="col">
+<% if !current_account.tournaments.blank? %>
+  <% for tournament in current_account.tournaments %>
+	<div class="pod">
+  	<div class="hd">
+  		<h2><%= link_to tournament.name, tournament_path(tournament) %></h2>
+  	</div><!-- / hd -->
+  	<div id="index_overview" class="bd">
+      <table id="overview">
+  		  <% if !tournament.events.blank? %>
+  		    <% for event in tournament.events %>
+  		      <%= render :partial => "events/#{event.event_type.underscore}", :locals => {:event => event, :tournament => tournament} %>
+  		    <% end %>
+        <% else %>
+        <div id="blank">
+  		    <h2>No Recent Events</h2>
+  		    <p>This page will highlight any events from <strong>Bracket Updates</strong>, <strong>Disputes</strong>, <strong>Messages</strong>, and <strong>Comments</strong>.</p>
+  		  </div>
+  		  <% end %>
+  		</table>
+  	</div><!-- / bd -->
+	</div><!-- / pod -->
+  <% end %>
+<% else %>
+  No Tournaments
+<% end %>
+</div><!-- / col -->
+</div><!-- / main-col -->
+
+<div id="sidecol">
+<div class="col">
+  <div class="account_logo">
+    <img src="/images/logo.png"/>
+  </div><!-- / account_logo -->
+<%= render :partial => "layouts/sidenav" %>
+</div><!-- / col -->
+</div><!-- / sidecol -->
