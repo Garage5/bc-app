@@ -17,32 +17,35 @@ ActionController::Routing::Routes.draw do |map|
   # map.signup '/signup', :controller => 'users', :action => 'create', :conditions => {:method => :post}
   
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-  map.settings '/settings', :controller => 'instances', :action => 'edit', :conditions => {:method => :get}
-  map.settings '/settings', :controller => 'instances', :action => 'update', :conditions => {:method => :put}
   
   map.resources :user_sessions
   map.resources :users, :member => {:profile => :get}
   map.resources :instances
   
-  # TOURNAMENT ROUTES
-  map.resources :tournaments, :member => {:rules => :get, :start => :put, :brackets => :get}, :collection => {:calendar => :get} do |tournament|
-    tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
-    tournament.resources :teams do |team|
-      team.invite '/invite/:user_id', :controller => 'teams', :action => 'invite',:path_prefix => '/tournaments/:tournament_id'
+  # PORTAL ROUTES
+  map.with_options :condition => { :subdomain => /.+/ } do |account|
+    account.settings '/settings', :controller => 'accounts', :action => 'edit', :conditions => {:method => :get}
+    account.settings '/settings', :controller => 'accounts', :action => 'update', :conditions => {:method => :put}
+    
+    account.resources :tournaments, :member => {:rules => :get, :start => :put, :brackets => :get}, :collection => {:calendar => :get} do |tournament|
+      tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
+      tournament.resources :teams do |team|
+        team.invite '/invite/:user_id', :controller => 'teams', :action => 'invite',:path_prefix => '/tournaments/:tournament_id'
+      end
+      tournament.resources :messages, :has_many => [:comments]
+      tournament.resources :files, :controller => :attachments
+      tournament.resources :matches, :has_many => [:comments] do |match|
+        match.resources :slots, :member => {
+          :manage => :get, 
+          :advance => :put, 
+          :disqualify => :put, 
+          :revert => :put,
+          :won => :put,
+          :lost => :put
+        }
+      end
+      tournament.resources :teams, :member => {:join => :put, :decline => :delete}
     end
-    tournament.resources :messages, :has_many => [:comments]
-    tournament.resources :files, :controller => :attachments
-    tournament.resources :matches, :has_many => [:comments] do |match|
-      match.resources :slots, :member => {
-        :manage => :get, 
-        :advance => :put, 
-        :disqualify => :put, 
-        :revert => :put,
-        :won => :put,
-        :lost => :put
-      }
-    end
-    tournament.resources :teams, :member => {:join => :put, :decline => :delete}
   end
 
   # ADMIN ROUTES
@@ -66,8 +69,4 @@ ActionController::Routing::Routes.draw do |map|
   map.create '/signup/create/:discount', :controller => 'accounts', :action => 'create', :discount => nil
   map.resource :account, :collection => { :dashboard => :get, :thanks => :get, :plans => :get, :billing => :any, :paypal => :any, :plan => :any, :plan_paypal => :any, :cancel => :any, :canceled => :get }
   map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
-
-
-  map.connect '/preview/*view', :controller => 'preview', :action => 'index'
-  map.connect '/preview-lite/*view', :controller => 'preview', :action => 'lite'
 end

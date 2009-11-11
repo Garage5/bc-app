@@ -1,21 +1,23 @@
 class Account < ActiveRecord::Base
   has_many :tournaments
-  has_many :templates, :class_name => "Tournament", :foreign_key => "instance_id", :conditions => {:is_template => true}
+  has_many :templates, :class_name => "Tournament", :foreign_key => "account_id", :conditions => {:is_template => true}
+  
+  has_attached_file :logo
   
   # has_many :users, :dependent => :destroy
   belongs_to :admin, :class_name => "User"
   has_one :subscription, :dependent => :destroy
   has_many :subscription_payments
   
-  validates_format_of :domain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/
-  validates_exclusion_of :domain, :in => %W( support blog www billing help api #{AppConfig['admin_subdomain']} ), :message => "The domain <strong>{{value}}</strong> is not available."
+  validates_format_of :subdomain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/
+  validates_exclusion_of :subdomain, :in => %W( support blog www billing help api #{AppConfig['admin_subdomain']} ), :message => "The domain <strong>{{value}}</strong> is not available."
   validate :valid_domain?
   # validate_on_create :valid_user?
   validate_on_create :valid_plan?
   validate_on_create :valid_payment_info?
   validate_on_create :valid_subscription?
   
-  attr_accessible :name, :domain, :admin, :plan, :plan_start, :creditcard, :address
+  attr_accessible :name, :subdomain, :admin, :plan, :plan_start, :creditcard, :address
   attr_accessor :user, :plan, :plan_start, :creditcard, :address, :affiliate
   
   # after_create :create_admin
@@ -52,14 +54,18 @@ class Account < ActiveRecord::Base
     self.subscription.next_renewal_at >= Time.now
   end
   
-  def domain
-    @domain ||= self.full_domain.blank? ? '' : self.full_domain.split('.').first
+  def full_domain
+    self.subdomain + '.tbblive.com'
   end
   
-  def domain=(domain)
-    @domain = domain
-    self.full_domain = "#{domain}.#{AppConfig['base_domain']}"
-  end
+  # def domain
+  #   @domain ||= self.full_domain.blank? ? '' : self.full_domain.split('.').first
+  # end
+  # 
+  # def domain=(domain)
+  #   @domain = domain
+  #   self.full_domain = "#{domain}.#{AppConfig['base_domain']}"
+  # end
   
   def admin=(admin)
     self.admin_id = admin.id
@@ -72,8 +78,8 @@ class Account < ActiveRecord::Base
   protected
   
     def valid_domain?
-      conditions = new_record? ? ['full_domain = ?', self.full_domain] : ['full_domain = ? and id <> ?', self.full_domain, self.id]
-      self.errors.add(:domain, 'is not available') if self.full_domain.blank? || self.class.count(:conditions => conditions) > 0
+      conditions = new_record? ? ['subdomain = ?', self.subdomain] : ['subdomain = ? and id <> ?', self.subdomain, self.id]
+      self.errors.add(:subdomain, 'is not available') if self.subdomain.blank? || self.class.count(:conditions => conditions) > 0
     end
     
     # An account must have an associated user to be the administrator

@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
     Participation.create(:participant => self, :tournament => tournament, :state => 'cohost')
   end
   
-  def is_hosting?(instance)
+  def is_hosting?(account)
     account.admin_id == self.id
   end
   

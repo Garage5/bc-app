@@ -1,8 +1,8 @@
 [
   ['dev',    'Developer User'],
   ['bryan',  'Bryan Cinman'],
-  ['matt',   'James Au'],
-  ['james',  'Matt Johnson'],
+  ['matt',   'Matt Johnson'],
+  ['james',  'James Au'],
   ['victor', 'Victor Au'],
   ['david',  'David Nguyen'],
   ['josh',   'Josh Kim'],
@@ -26,10 +26,8 @@ if SubscriptionPlan.count == 0
   end
 end
 
-user = User.create(:name => 'Test', :login => 'test', :password => 'test', :password_confirmation => 'test', :email => 'test@example.com')
-a = Account.create(:name => 'Test Account', :domain => 'localhost', :plan => plans.first, :admin => user)
-p a.admin.email
-a.update_attribute(:full_domain, 'localhost')
+user = User.first
+a = Account.create(:name => 'Starfeeder', :subdomain => 'starfeeder', :plan => plans.first, :admin => user)
 
 puts 'Changing secret in environment.rb...'
 new_secret = ActiveSupport::SecureRandom.hex(64)
@@ -41,15 +39,14 @@ end
 # end Saas
 
 
-host = User.find_by_login('dev')
-
-Account.create(:name => "Starfeeder", :admin => host, :domain => "starfeeder", :plan => plans.first)
-Account.create(:name => "CodeMonkey", :admin => host, :domain => "codemonkey", :plan => plans.first)
+# host = User.find_by_login('dev')
+# 
+# Account.create(:name => "Starfeeder", :admin => host, :subdomain => "starfeeder", :plan => plans.first)
 
 
 3.times do |i|
   t = Tournament.create(
-    :host => host,
+    :host => user,
     :account_id => 1,
     :name => "Valor Tournament #{i+1}", 
     :game => 'Starcraft 2',
@@ -66,7 +63,7 @@ end
 
 
 t2 = Tournament.create(
-  :host => host,
+  :host => user,
   :account_id => 1,
   :name => 'Starcraft 2 Invitational', 
   :game => 'Starcraft 2',
