@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
   config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => "http://gems.github.com"
   config.gem 'tlsmail'
   config.gem 'acts_as_markup'
+  config.gem 'subdomain-fu'
   
   require 'array'
   require 'ostruct'

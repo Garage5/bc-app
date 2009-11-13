@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_filter :store_location
   before_filter :find_tournament
   before_filter :login_required, :except => [:index, :show]
   

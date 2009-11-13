@@ -10,7 +10,6 @@ module SubscriptionSystem
   protected
   
     def current_account
-      p request.subdomains.first
       @current_account ||= Account.find_by_subdomain(request.subdomains.first)
       raise ActiveRecord::RecordNotFound unless @current_account
       @current_account

@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  before_filter :store_location
   before_filter :find_tournament
   before_filter :login_required, :only => :submit_result
   before_filter :must_be_participant, :only => :submit_result

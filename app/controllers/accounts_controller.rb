@@ -1,8 +1,9 @@
 class AccountsController < ApplicationController
   include ModelControllerMethods
   
-  layout 'application'
+  layout 'accounts'
 
+  before_filter :store_location, :only => :show
   before_filter :login_required, :except => [:show]
   before_filter :build_user, :only => [:new, :create]
   before_filter :load_billing, :only => [ :new, :create, :billing, :paypal ]
@@ -14,10 +15,15 @@ class AccountsController < ApplicationController
   ssl_allowed :plans, :thanks, :canceled, :paypal
   
   def show
-    
+    p session[:return_to]
+    @tournaments = current_account.tournaments.all(:include => :events)
+    render :layout => 'application'
   end
   
   def new
+    if account = Account.first(:conditions => {:admin_id => current_user.id})
+      redirect_to root_url(:subdomain => account.subdomain)
+    end
     # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
   end
   

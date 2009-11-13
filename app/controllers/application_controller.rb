@@ -19,16 +19,6 @@ class ApplicationController < ActionController::Base
 
   private
   
-  def find_instance
-    current_account = current_account
-   # current_account = Instance.find_by_subdomain(current_subdomain)
-   # unless current_account
-   #   #flash[:error] = "Dude, I told you to update your bookmarks."
-   #   #redirect_to root_url
-   #   render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return
-   # end
-  end
-  
   def find_tournament
     tournament_id = params[:tournament_id] || params[:id]
     @tournament = Tournament.find(tournament_id)
@@ -69,7 +59,11 @@ class ApplicationController < ActionController::Base
   
   def store_location
     return if @prevent_store_location == true
-    session[:return_to] = request.request_uri
+    if current_account
+      session[:return_to] = root_url(:subdomain => current_account.subdomain).chop + request.request_uri
+    else
+      session[:return_to] = request.request_uri
+    end
   end
   
   def redirect_back_or_default(default)

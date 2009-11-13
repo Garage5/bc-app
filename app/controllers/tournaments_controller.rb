@@ -1,4 +1,5 @@
 class TournamentsController < ApplicationController
+  before_filter :store_location
   before_filter :find_tournament, :except => [:new, :create, :calendar]
   before_filter :login_required, :except => [:index, :show, :brackets, :participants, :rules, :calendar]
   before_filter :must_be_host, :only => [:new, :create, :edit, :update, :destroy, :start, :load_template]

@@ -6,19 +6,23 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :attachments
   map.resources :comments
   map.resources :messages
-
-  
-  map.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
-  map.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
-  
-  # map.signup '/signup', :controller => 'users', :action => 'new', :conditions => {:method => :get}
-  # map.signup '/signup', :controller => 'users', :action => 'create', :conditions => {:method => :post}
-  
-  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-  
-  map.resources :user_sessions
-  map.resources :users, :member => {:profile => :get}
   map.resources :instances
+  
+  # ACCOUNT (SaaS) ROUTES
+  map.with_options(:conditions => {:subdomain => "app"}) do |home|
+    home.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
+    home.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
+    home.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+    home.resources :user_sessions
+    home.resources :users, :member => {:profile => :get}
+    
+    home.plans '/signup', :controller => 'accounts', :action => 'plans'
+    home.connect '/signup/d/:discount', :controller => 'accounts', :action => 'plans'
+    home.thanks '/signup/thanks', :controller => 'accounts', :action => 'thanks'
+    home.create '/signup/create/:discount', :controller => 'accounts', :action => 'create', :discount => nil
+    home.resource :account, :collection => { :dashboard => :get, :thanks => :get, :plans => :get, :billing => :any, :paypal => :any, :plan => :any, :plan_paypal => :any, :cancel => :any, :canceled => :get }
+    home.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
+  end
   
   # PORTAL ROUTES
   map.with_options :condition => { :subdomain => /.+/ } do |account|
@@ -60,12 +64,4 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.root :controller => "accounts", :action => "dashboard"
-  
-  # ACCOUNT (SaaS) ROUTES
-  map.plans '/signup', :controller => 'accounts', :action => 'plans'
-  map.connect '/signup/d/:discount', :controller => 'accounts', :action => 'plans'
-  map.thanks '/signup/thanks', :controller => 'accounts', :action => 'thanks'
-  map.create '/signup/create/:discount', :controller => 'accounts', :action => 'create', :discount => nil
-  map.resource :account, :collection => { :dashboard => :get, :thanks => :get, :plans => :get, :billing => :any, :paypal => :any, :plan => :any, :plan_paypal => :any, :cancel => :any, :canceled => :get }
-  map.new_account '/signup/:plan/:discount', :controller => 'accounts', :action => 'new', :plan => nil, :discount => nil
 end

@@ -19,8 +19,8 @@
     <% fields_for :account do |f| %>
       <%= f.label :name, "Organization Name" %>
       <%= f.text_field :name %>
-      <%= f.label :domain, "Domain" %>
-      <%= f.text_field :domain %>.<%= AppConfig['base_domain'] %>
+      <%= f.label :subdomain, "Domain" %>
+      <%= f.text_field :subdomain %>.<%= AppConfig['base_domain'] %>
     <% end %>
   </fieldset>
   
