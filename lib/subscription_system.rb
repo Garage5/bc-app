@@ -10,9 +10,11 @@ module SubscriptionSystem
   protected
   
     def current_account
-      @current_account ||= Account.find_by_subdomain(request.subdomains.first)
-      raise ActiveRecord::RecordNotFound unless @current_account
-      @current_account
+      if current_subdomain
+        @current_account ||= Account.find_by_subdomain(request.subdomains.first)
+        raise ActiveRecord::RecordNotFound unless @current_account
+        @current_account
+      end
     end
     
     def admin?

@@ -8,10 +8,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :messages
   map.resources :instances
   
-  # ACCOUNT (SaaS) ROUTES
-  map.root :controller => 'home', :action => 'index', :conditions => {:subdomain => ""}
-  
-  map.with_options(:conditions => {:subdomain => "app"}) do |home|
+  # ACCOUNT (SaaS) ROUTES  
+  map.with_options(:conditions => {:subdomain => ""}) do |home|
+    home.root :controller => 'home', :action => 'index'
     home.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
     home.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
     home.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
