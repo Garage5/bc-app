@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   
   def index
-    render :text => 'Here thar be pirates...'
+  end
+  
+  def tour    
   end
   
 end

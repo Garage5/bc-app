@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :instances
   
   # ACCOUNT (SaaS) ROUTES
+  map.root :controller => 'home', :action => 'index', :conditions => {:subdomain => ""}
+  
   map.with_options(:conditions => {:subdomain => "app"}) do |home|
     home.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
     home.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
@@ -62,6 +64,4 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :subscription_affiliates, :as => 'affiliates'
     end
   end
-  
-  map.root :controller => "accounts", :action => "dashboard"
 end
