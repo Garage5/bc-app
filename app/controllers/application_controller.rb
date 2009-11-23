@@ -48,7 +48,10 @@ class ApplicationController < ActionController::Base
     unless current_user
       store_location
       flash[:notice] = "You must be logged in to access this page"
-      redirect_to login_url
+      hostname = "tbb.local"
+      hostname += ":#{request.port}" unless request.port == 80
+      # redirect_to login_url(:host => hostname)
+      redirect_back_or_default
       return false
     end
   end
@@ -59,11 +62,10 @@ class ApplicationController < ActionController::Base
   
   def store_location
     return if @prevent_store_location == true
-    if current_account
-      session[:return_to] = root_url(:subdomain => current_account.subdomain).chop + request.request_uri
-    else
-      session[:return_to] = request.request_uri
-    end
+    # session[:return_to] = request.request_uri
+    host = request.host
+    host += ":#{request.port}" unless request.port == 80
+    session[:return_to] = host
   end
   
   def redirect_back_or_default(default)

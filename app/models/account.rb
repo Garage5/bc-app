@@ -36,6 +36,10 @@ class Account < ActiveRecord::Base
     end
   end
   
+  def to_param
+    subdomain
+  end
+  
   def needs_payment_info?
     if new_record?
       AppConfig['require_payment_info_for_trials'] && @plan && @plan.amount.to_f + @plan.setup_amount.to_f > 0
