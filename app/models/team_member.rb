@@ -19,7 +19,7 @@ class TeamMember < ActiveRecord::Base
   end
   
   def before_destroy
-    if self.team.tournament.started?
+    if self.tournament.started?
       self.errors.add_to_base('You cannot remove team members once the tournament has started.')
     end
   end

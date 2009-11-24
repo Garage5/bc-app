@@ -8,9 +8,11 @@
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-      $('.player:not(:contains("TBD")):not(:contains("Disputed"))').hover(
+      $('.player:not(:contains("TBD")):not(:contains("Disputed")):not(:contains("BYE"))').hover(
         function(){
-          box = $("a:contains('" + $(this).find('a.player_link').text() + "')")
+          player_name = jQuery.trim($(this).find('a.player_link').text())
+          box = $("a:contains('" + player_name + "')")
+          console.log($(this).find('a.player_link').text())
           box.addClass('hover')
           
           cog = $(this).find('.manage_player_link')

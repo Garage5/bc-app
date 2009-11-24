@@ -9,7 +9,7 @@ class ParticipationsController < ApplicationController
     @pending = @tournament.pending_participants
     
     if @tournament.use_teams?
-      @teams = @tournament.teams(:include => [:members, :captain])
+      @teams = @tournament.teams.all(:include => :members)
       @active = @tournament.active_participants.all(
         :joins => 'LEFT JOIN team_members ON team_members.member_id = users.id', 
         :conditions => {

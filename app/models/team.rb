@@ -2,8 +2,9 @@ class Team < ActiveRecord::Base
   belongs_to :tournament
   
   has_many :team_members, :dependent => :destroy
-  has_many :members, :through => :team_members, :conditions => {:team_members => {:state => 'active'}}
-  has_one  :captain, :through => :team_members, :conditions => ['state = ?', 'captain'], :source => :member
+  has_many :active_team_members, :class_name => 'TeamMember', :dependent => :destroy, :conditions => {:state => ['active', 'captain']}
+  has_many :members, :through => :active_team_members, :source => :member
+  has_one  :captain, :through => :team_members, :conditions => {:team_members => {:state => 'captain'}}, :source => :member
   
   validates_presence_of :name
   validates_uniqueness_of :name
