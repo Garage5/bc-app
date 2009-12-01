@@ -20,6 +20,10 @@ class AccountsController < ApplicationController
     render :layout => 'application'
   end
   
+  def edit
+    render :layout => 'application'
+  end
+  
   def new
     # if account = Account.first(:conditions => {:admin_id => current_user.id})
     #   redirect_to root_url(:subdomain => account.subdomain)

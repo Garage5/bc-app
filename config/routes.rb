@@ -8,19 +8,19 @@ ActionController::Routing::Routes.draw do |map|
 
   # ACCOUNT (SaaS) ROUTES
   # map.with_options :domain => 'tbb.local', :conditions => {:subdomain => false, :domain => 'tbb.local'} do |home|
-  map.subdomain nil do |home|
-    home.root :controller => 'home', :action => 'index'
-    home.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
-    home.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
-    home.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-    home.resources :user_sessions
-    home.resources :users, :member => {:profile => :get}
-    
-    home.resource :account, :collection => { :dashboard => :get, :thanks => :get, :plans => :get, :billing => :any, :paypal => :any, :plan => :any, :plan_paypal => :any, :cancel => :any, :canceled => :get }
-  end
+  # map.subdomain nil do |home|
+  #   home.root :controller => 'home', :action => 'index'
+  # 
+  # end
   
   # PORTAL ROUTES
   map.with_options :conditions => {:subdomain => /^(?!www|admin$).+/} do |account|
+    account.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
+    account.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
+    account.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+    account.resources :user_sessions
+    account.resources :users, :member => {:profile => :get}
+        
     account.resource :account, :collection => { :dashboard => :get, :thanks => :get, :plans => :get, :billing => :any, :paypal => :any, :plan => :any, :plan_paypal => :any, :cancel => :any, :canceled => :get }
     
     account.root :controller => 'accounts', :action => 'show'
