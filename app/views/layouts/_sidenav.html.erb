@@ -5,7 +5,7 @@
 	<div class="bd">
 		<ul>
 		  <% if !current_account.tournaments.blank? %>
-		    <% for t in current_account.tournaments %>
+		    <% for t in @tournaments_alpha %>
 		      <li><%= link_to t.name, tournament_path(t) %></li>
 		    <% end %>
 		  <% end %>

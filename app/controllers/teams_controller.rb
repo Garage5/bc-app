@@ -8,10 +8,11 @@ class TeamsController < ApplicationController
     @team.captain = current_user
     # @team.members << User.all(params[:user_ids])
     if @team.save
-      redirect_to tournament_participants_path(@tournament)
+      flash[:notice] = "Teams '#{@team.name}' created!"
     else
       flash[:error] = "Could not create the team: #{@team.errors.full_messages.join(",")}"
     end
+    redirect_to tournament_participants_path(@tournament)
     # if current_user.is_hosting?(current_account)
     #   flash[:error] = 'Officials can\'t create teams.'
     # elsif !@tournament.use_teams?

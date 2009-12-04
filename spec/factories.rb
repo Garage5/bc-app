@@ -6,11 +6,10 @@ Factory.define :user do |u|
   u.password_confirmation 'pass'
 end
 
-Factory.define :instance do |i|
-  i.name        'Starfeeder'
-  i.association :host_id, :factory => :user
-  # i.sequence(:subdomain) {|n| "subdomain-#{n}"}
-  # i.domain 'tbblive.com'
+Factory.define :account do |a|
+  a.name        'Starfeeder'
+  a.association :admin_id, :factory => :user
+  a.sequence(:subdomain) {|n| "subdomain-#{n}"}
 end
 
 Factory.define :tournament do |t|
@@ -20,7 +19,13 @@ Factory.define :tournament do |t|
   t.slot_count              8
   t.registration_start_date Date.today
   t.registration_end_date   Date.today + 1
-  t.association             :instance_id, :factory => :instance
+  t.association             :account_id, :factory => :account
+end
+
+Factory.define :plan do |p|
+  p.name        'Test'
+  p.amount      0
+  p.user_limit  100
 end
 
 Factory.define :participations do |p|

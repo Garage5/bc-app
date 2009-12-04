@@ -1,4 +1,5 @@
 class Tournament < ActiveRecord::Base
+  default_scope :order => 'updated_at DESC'
   serialize   :places, Hash
 
   acts_as_textile :rules
@@ -33,11 +34,6 @@ class Tournament < ActiveRecord::Base
   
   accepts_nested_attributes_for :rounds
   
-  
-  def officials
-    [self.account.admin] + self.cohosts
-  end
-  
   validates_presence_of :name, :game, :rules, :slot_count, :account_id
   
   validates_date :registration_start_date, :after => Date.today-1, :on => :create
@@ -45,6 +41,14 @@ class Tournament < ActiveRecord::Base
 
   validates_numericality_of :entry_fee
   
+  
+  def officials
+    [self.account.admin] + self.cohosts
+  end
+  
+  def open_slots
+    slot_count - self.active_participants.count
+  end
 
   def start
     if self.started?

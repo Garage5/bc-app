@@ -6,7 +6,7 @@ class MatchesController < ApplicationController
   
   def show
     @match = Match.find(params[:id], :include => [:slots, {:comments => [:author, :attachments]}])
-    @slot = @match.slots.find_by_player_id(current_user.id)
+    @slot = @match.slots.find_by_player_id(current_user.id) if current_user
   end
   
   def update

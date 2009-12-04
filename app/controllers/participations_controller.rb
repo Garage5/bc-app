@@ -41,10 +41,8 @@ class ParticipationsController < ApplicationController
   def create
     participation = current_user.join_tournament(@tournament)
     if participation
-      p "YES"
       flash[:notice] = "You are now pending acceptance into '#{@tournament.name}'"
     else
-      p "NO"
       flash[:error] = "Uh oh. Something happened that wasn't supposed to happen."
     end
     redirect_to @tournament
@@ -52,15 +50,16 @@ class ParticipationsController < ApplicationController
   
   def accept
     ids = params[:participant_ids] || []
-    @participants = User.find(ids)
-    if !@participants.empty?
-      Participation.update_all("state = 'active'", 
-      "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
+    if ids.size > @tournmanet.open_slots
+      flash[:error] = "Cannot accept #{ids.size} participants because there are only #{@tournament.open_slots} open slots."
+    else
+      @participants = User.find(ids)
+      if !@participants.empty?
+        Participation.update_all("state = 'active'", 
+        "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
+      end
     end
-    respond_to do |format|
-      format.html { redirect_to tournament_participants_path(@tournament) }
-      format.js { render :text => ("location.href = '#{tournament_participants_path(@tournament)}'") }
-    end
+    redirect_to tournament_participants_path(@tournament)
   end
   
   def deny

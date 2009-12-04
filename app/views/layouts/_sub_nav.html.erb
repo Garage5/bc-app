@@ -5,7 +5,7 @@
 <% active ||= '' %>
 
 <% if current_user %>
-  <% if current_user.is_hosting?(current_account) && !@tournament.started? %>
+  <% if @tournament.officials.include?(current_user) && !@tournament.started? %>
     <a id="btn_start_tournament" class="btn" href="#confirm_start_tournament" rel="modal"><span class="icon"></span><span>Start Tournament</span></a>
   <% end %>
 <% end %>

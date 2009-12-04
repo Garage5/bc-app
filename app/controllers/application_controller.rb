@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
   def must_be_host
     return false unless current_user.is_hosting?(current_account)
   end
+  
+  def must_be_official
+    return false unless @tournament.officials.include?(current_user)
+  end
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

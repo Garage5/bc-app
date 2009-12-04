@@ -13,7 +13,7 @@
   	<div id="index_overview" class="bd">
       <table id="overview">
   		  <% if !tournament.events.blank? %>
-  		    <% for event in tournament.events %>
+  		    <% tournament.events.each_with_index do |event, index| %>
   		      <%= render :partial => "events/#{event.event_type.underscore}", :locals => {:event => event, :tournament => tournament} %>
   		    <% end %>
         <% else %>

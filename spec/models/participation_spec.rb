@@ -20,6 +20,19 @@ describe Participation do
       @tournament.active_participants.should == [@user]
       @tournament.pending_participants.should == []
     end
+    
+    it "should not accept a participant if slot limit is reached" do
+      @tournament.slot_count.times do
+        u = Factory(:user)
+        u.join_tournament @tournament
+        p = Participation.find_by_participant_id_and_tournament_id(u.id, @tournament.id)
+        p.accept!
+      end
+      
+      @user.join_tournament @tournament
+      p = Participation.find_by_participant_id_and_tournament_id(@user.id, @tournament.id)
+      p.accept!.should be_false
+    end
 
     it "should add a co-host" do
       @user.cohost_tournament(@tournament)
