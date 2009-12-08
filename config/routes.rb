@@ -60,6 +60,8 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :subscription_plans, :as => 'plans'
       admin.resources :subscription_discounts, :as => 'discounts'
       admin.resources :subscription_affiliates, :as => 'affiliates'
+      map.connect '/preview/*view', :controller => 'preview', :action => 'index'
+      map.connect '/preview-lite/*view', :controller => 'preview', :action => 'lite'
     end
   end
 end
