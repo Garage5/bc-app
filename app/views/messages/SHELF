@@ -1,0 +1,19 @@
+Message Subscription HTML
+--------------------------------------------
+    <div id="message_subscribe" class="group darkpod clear">
+      
+      <label><strong>Subscribe the following users to receive email notifications:</strong></label>
+      <ul>
+        <li><input type="checkbox" id="select_all" /><label for="select_all" class="checkbox">Select All</label></li>
+      </ul>
+      <ul>
+        <% ([@tournament.instance.admin] + @tournament.cohosts).each do |participant| %>
+          <li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
+        <% end %>
+      </ul>
+      <ul>
+        <% @tournament.participants.each do |participant| %>
+          <li><input class="subscriber" type="checkbox" size="40" name="message[subscriber_ids][]" id="message_user_ids_<%= participant.id %>" value="<%= participant.id %>" <%= 'checked="checked"' if @message.subscribers.include?(participant) %>/> <label class="checkbox" for="message_user_ids_<%= participant.id %>"><%= participant.login %></label></li>
+        <% end %>
+      </ul>
+    </div><!-- / darkpod -->

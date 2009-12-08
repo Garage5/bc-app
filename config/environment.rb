@@ -24,11 +24,12 @@ Rails::Initializer.run do |config|
   config.gem 'rspec', :lib => false
   config.gem 'rspec-rails', :lib => false
   config.gem 'remarkable_rails', :lib => false
-  config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
-  config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :source => "http://gems.github.com"
+  config.gem 'paperclip', :lib => 'paperclip'
+  config.gem 'factory_girl', :lib => 'factory_girl'
   config.gem 'tlsmail'
   config.gem 'acts_as_markup'
   config.gem 'subdomain-fu'
+  config.gem 'aws-s3', :lib => false
   
   require 'array'
   require 'ostruct'
