@@ -23,7 +23,6 @@ Rails::Initializer.run do |config|
   # config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
   config.gem 'rspec', :lib => false
   config.gem 'rspec-rails', :lib => false
-  config.gem 'remarkable_rails', :lib => false
   config.gem 'paperclip', :lib => 'paperclip'
   config.gem 'factory_girl', :lib => 'factory_girl'
   config.gem 'tlsmail'
