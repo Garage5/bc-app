@@ -1,0 +1,97 @@
+body#new_overview .overview {
+  padding: 0 0 10px 0;
+}
+
+body#new_overview .overview h3 {
+  font-size: 13px;
+  font-weight: bold;
+  color: #666;
+  padding: 1px 0 9px 20px;
+  margin: 20px 0 0 12px;
+}
+
+body#new_overview .overview h3.today {
+  background: transparent url(/images/icon_overview_today.png) left top no-repeat;
+  margin: 10px 0 0 12px;
+}
+
+body#new_overview .overview h3.date {
+  background: transparent url(/images/icon_overview_yesterday.png) left top no-repeat;
+}
+
+body#new_overview .overview ul li a {
+  background: transparent url(/images/overview_row_bg.png) center bottom repeat-x;
+  border-top: 1px #CCC solid;
+  border-bottom: 1px #CCC solid;
+  padding: 14px 12px 14px 12px;
+  color: #999;
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+  display: block;
+  margin: -1px 0 0 0;
+}
+
+body#new_overview .overview ul li a span.icon {
+  float: left;
+  position: relative;
+  top: -7px;
+  margin: 0 13px 0 0;
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+body#new_overview .overview ul li.comment a span.icon { background: transparent url(/images/icon_overview_comment.png) 0 0 no-repeat; }
+body#new_overview .overview ul li.message a span.icon { background: transparent url(/images/icon_overview_message.png) 0 0 no-repeat; }
+body#new_overview .overview ul li.attachment a span.icon { background: transparent url(/images/icon_overview_attachment.png) 0 0 no-repeat; }
+body#new_overview .overview ul li.announcement a span.icon { background: transparent url(/images/icon_overview_announcement.png) 0 0 no-repeat; }
+body#new_overview .overview ul li.dispute a span.icon { background: transparent url(/images/icon_overview_dispute.png) 0 0 no-repeat; }
+body#new_overview .overview ul li.bracket_update a span.icon { background: transparent url(/images/icon_overview_bracketupdate.png) 0 0 no-repeat; }
+
+body#new_overview .overview ul li a span.comments {
+  display: block;
+  float: right;
+  background: #999 url(/images/icon_overview_comments.png) 7px center no-repeat;
+  color: #FFF;
+  padding: 5px 8px 5px 27px;
+  -moz-border-radius: 3px;
+  position: relative;
+  top: -5px;
+}
+
+body#new_overview .overview ul li a strong {
+  color: #666;
+}
+
+body#new_overview .overview ul li a em {
+  color: #017ecc;
+}
+
+body#new_overview .overview ul li.dispute a strong {
+  color: #c40000;
+}
+
+body#new_overview .overview ul li.dispute a em {
+  color: #c40000;
+}
+
+body#new_overview .overview ul li.bracket_update a strong {
+  color: #017ecc;
+}
+
+body#new_overview .overview ul li a:hover {
+  background: transparent url(/images/overview_row_bg_over.png) center top repeat-x;
+  border-top: 1px #FFF solid;
+  color: #d6dde2;
+}
+
+body#new_overview .overview ul li a:hover strong, body#new_overview .overview ul li a:hover em {
+  color: #d6dde2;
+}
+
+body#new_overview .overview ul li a:hover span.comments {
+  background: transparent url(/images/icon_overview_comments.png) 7px center no-repeat;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #FFF;
+}
