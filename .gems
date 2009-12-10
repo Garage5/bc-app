@@ -7,3 +7,4 @@ acts_as_markup
 subdomain-fu
 aws-s3
 paperclip
+hashie
