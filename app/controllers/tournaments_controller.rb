@@ -33,6 +33,7 @@ class TournamentsController < ApplicationController
   
   def show
     @tournament = Tournament.find(params[:id])
+    @event_days = @tournament.events.group_by { |e| e.created_at.beginning_of_day }
   end
   
   def brackets

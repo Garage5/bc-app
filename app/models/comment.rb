@@ -11,12 +11,15 @@ class Comment < ActiveRecord::Base
   after_create do |e|
     Event.create(
       :tournament_id => e.commentable.tournament_id,
-      :target_id     => e.id,
-      :target_type   => e.class.to_s,
       :event_type    => 'comment',
-      :message       => 'RE: ' + e.commentable.subject,
-      :action        => 'posted',
-      :actor         => e.author.login
+      :data => Hashie::Mash.new({
+        :author => e.author.login,
+        :commentable => {
+          :id => e.commentable.id,
+          :subject => e.commentable.subject,
+          :class => e.commentable_type
+        }
+      })
     )
   end
 end

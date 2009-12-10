@@ -25,15 +25,20 @@ class Slot < ActiveRecord::Base
       next_slot.player = self.player
       next_slot.save!
       self.tournament.events.create!(
-        :target_id     => self.match.id, :target_type => self.match.class.to_s,
-        :event_type    => 'result', :action => 'posted',
-        :message       => "#{self.player.login} vanquished #{self.opponent.player.login} in round #{self.match.round.number}",
-        :actor         => 'someone') unless byed
+        :event_type    => 'result',
+        :data => Hashie::Mash.new({
+          :opponents => [self.player.login, self.opponent.player.login]
+        })
+      ) unless byed
     else
-      # serialized = OpenStruct.new({:id => self.player.id, :login => self.player.login})
-      # self.tournament.places.nil? ? self.tournament.places = {0 => serialized} : self.tournament.places[0] = serialized
       self.tournament.first_place = self.player
       self.tournament.save!
+      self.tournament.events.create!(
+        :event_type    => 'result',
+        :data => Hashie::Mash.new({
+          :participant => self.player
+        })
+      ) unless byed
     end
     match.winner = self.player
     match.save!
@@ -58,10 +63,11 @@ class Slot < ActiveRecord::Base
     self.opponent.advance!
     save
     self.tournament.events.create(
-      :target_id     => self.match.id, :target_type => self.match.class.to_s,
-      :event_type    => 'disqualified',:action => 'posted',
-      :message       => "#{self.player.login} has been disqualified",
-      :actor         => 'someone')
+      :event_type    => 'disqualified',
+      :data => Hashie::Mash.new({
+        :opponent => self.player.login
+      })
+    )
   end
   
   def revert!

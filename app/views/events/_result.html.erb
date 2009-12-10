@@ -1,5 +1,6 @@
-<tr class="brackets">
-	<td class="item-icon"><span>Brackets Update</span></td>
-	<td class="item-title" colspan="3"><%= link_to event.message, tournament_match_path(event.tournament_id, event.target_id) %></td>
-	<td class="item-date"><span class="date" title="<%= event.created_at.iso8601 %>"><%= event.created_at.iso8601 %></span></td>
-</tr>
+<li class="bracket_update">
+  <a href="<%= brackets_tournament_path(tournament) %>">
+    <span class="icon"></span>
+    Bracket Update: <em><%= event.data.opponents[0] %></em> victorious vs. <em><%= event.data.opponents[1] %></em>.
+  </a>
+</li>

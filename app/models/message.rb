@@ -10,17 +10,18 @@ class Message < ActiveRecord::Base
   validates_presence_of :subject, :body
   
   accepts_nested_attributes_for :attachments
-
   
-  after_create do |e|
+  after_create :create_event
+  
+  def create_event
     Event.create(
-      :tournament_id => e.tournament_id,
-      :target_id     => e.id,
-      :target_type   => e.class.to_s,
-      :event_type    => (e.is_announcement? ? 'announcement' : 'message'),
-      :action        => 'posted',
-      :message       => e.subject,
-      :actor         => e.author.login
+      :tournament_id => self.tournament_id,
+      :event_type    => (self.is_announcement? ? 'announcement' : 'message'),
+      :data => Hashie::Mash.new({
+        :id => self.id,
+        :author => self.author.login,
+        :subject => self.subject
+      })
     )
   end
 end

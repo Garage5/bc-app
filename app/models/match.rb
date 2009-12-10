@@ -35,9 +35,11 @@ class Match < ActiveRecord::Base
     self.update_attributes(:status => 'disputed')
     self.tournament.events.create(
       :target_id => self.id, :target_type => self.class.to_s,
-      :event_type => 'dispute', :action => 'posted',
-      :message => "A dispute has occured between #{self.slots[0].player.login} and #{self.slots[1].player.login}",
-      :actor => 'someone')
+      :event_type => 'dispute',
+      :data => Hashie::Mash.new({
+        :opponents => [self.slots[0].player.login, self.slots[1].player.login]
+      })
+    )
   end
   
   def disputed?; self.status == 'disputed'; end

@@ -1,32 +1,100 @@
-<% stylesheet :overview, :new_tournament %>
 <% title @tournament.name %>
+
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'new_overview' %>
+  <% body 'new_overview' %>
+<% end -%>
+
 
 <% content_for :tournament_nav do -%>
   <%= render :partial => "layouts/sub_nav", :locals => {:active => 'overview'} %>
 <% end -%>
 
 <div id="maincol">
-	<div class="col">
+<div class="col">
 	<div class="pod">
-	<div class="hd">
-		<h2>Recent Tournament Activity</h2>
-	</div><!-- / hd -->
-	<div id="index_overview" class="bd">
-		<table id="overview">
-		  <% if !@tournament.events.blank? %>
-		    <% for event in @tournament.events %>
-		      <%= render :partial => "events/#{event.event_type.underscore}", :locals => {:event => event, :tournament => @tournament} %>
-		    <% end %>
-		  <% else %>
-		     <div id="blank">
-    		    <h2>No Recent Events</h2>
-    		    <p>This page will highlight any events from <strong>Bracket Updates</strong>, <strong>Disputes</strong>, <strong>Messages</strong>, and <strong>Comments</strong>.</p>
-    		  </div>
-		  <% end %>
-		</table>
-	</div><!-- / bd -->
+  	<div class="hd">
+  		<h2>Recent Activity</h2>
+  	</div><!-- / hd -->
+  	<div class="overview bd">
+  	  <% @event_days.sort.each do |day, events| %>
+  	    <h3 class="today"><%= day %></h3>
+  	    <ul>
+  	    <% for event in events %>
+  	      <%= render :partial => "events/#{event.event_type}", :locals => {:event => event, :tournament => @tournament} %>
+  	    <% end %>
+  	    </ul>
+  	  <% end %>
+  	  <!-->
+  	  <h3 class="today">Today</h3>
+  	  <ul>
+  	    <li class="comment">
+  	      <a href="">
+  	        <span class="icon"></span>
+  	        <strong>James Au</strong> posted a reply to <em>Organizing this tournament</em>.
+  	        <span class="comments">681523</span>
+  	      </a>
+  	    </li>
+  	    <li class="message">
+  	      <a href="">
+  	        <span class="icon"></span>
+  	        <strong>Matt Johnson</strong> posted <em>Starting up the tournament</em>.
+  	        <span class="comments">681523</span>
+  	      </a>
+  	    </li>
+  	    
+  	    <li class="announcement">
+  	      <a href="">
+  	        <span class="icon"></span>
+  	        <strong>Bryan Cinman</strong> announced <em>The Tournament Rules</em>.
+  	        <span class="comments">681523</span>
+  	      </a>
+  	    </li>
+  	  </ul>
+  	  
+  	  <h3 class="date">Yesterday</h3>
+  	  <ul>
+  	    <li class="attachment">
+  	      <a href="">
+  	        <span class="icon"></span>
+  	        <strong>Matt Johnson</strong> uploaded <em>rulesdraft.doc</em>.
+  	      </a>
+  	    </li>
+  	    <li class="bracket_update">
+  	      <a href="">
+  	        <span class="icon"></span>
+  	        A <strong>Bracket Update</strong> was detected between <em>Team A</em> vs <em>Team B</em>.
+  	      </a>
+  	    </li>
+  	    <li class="dispute">
+  	      <a href="">
+  	        <span class="icon"></span>
+  	        A <strong>Dispute</strong> between <em>James Au</em> vs <em>Matt Johnson</em> was detected.
+  	      </a>
+  	    </li>
+  	  </ul>
+  	  
+  	  <h3 class="date">December 8th, 2009</h3>
+  	  <ul>
+  	    <li class="comment">
+  	      <a href="">
+  	        <span class="icon"></span>
+  	        <strong>James Au</strong> posted a reply to <em>Organizing this tournament</em>.
+  	        <span class="comments">681523</span>
+  	      </a>
+  	    </li>
+  	    <li class="attachment">
+  	      <a href="">
+  	        <span class="icon"></span>
+  	        <strong>James Au</strong> uploaded <em>random.doc</em>.
+  	      </a>
+  	    </li>
+  	  </ul>
+  	  <-->
+  	  
+  	</div><!-- / bd -->
 	</div><!-- / pod -->
-	</div><!-- / col -->
+</div><!-- / col -->
 </div><!-- / main-col -->
 
 <div id="sidecol">

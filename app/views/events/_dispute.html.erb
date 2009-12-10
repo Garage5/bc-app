@@ -1,5 +1,6 @@
-<tr class="dispute">
-	<td class="item-icon"><span>Dispute</span></td>
-	<td class="item-title" colspan="3"><%= link_to event.message, tournament_match_path(event.tournament_id, event.target_id) %></td>
-	<td class="item-date"><span class="date" title="<%= event.created_at.iso8601 %>"><%= event.created_at.iso8601 %></span></td>
-</tr>
+<li class="disqualified">
+  <a href="">
+    <span class="icon"></span>
+    A <strong>Dispute</strong> between <em><%= event.data['users'][0] %></em> vs <em><%= event.data['users'][1] %></em> was detected.
+  </a>
+</li>
