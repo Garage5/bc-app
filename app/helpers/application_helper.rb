@@ -22,6 +22,6 @@ module ApplicationHelper
   def relative_date_or_formatted(date)
     return 'Today' if date.to_date == Date.today
     return 'Yesterday' if date.to_date == Date.today - 1
-    return date.strftime('%B %d, %Y')
+    return date.strftime('%B %e, %Y')
   end
 end

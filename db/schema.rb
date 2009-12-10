@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.string   "event_type"
     t.integer  "tournament_id"
     t.datetime "created_at"
-    t.string   "data"
+    t.text     "data"
   end
 
   create_table "instances", :force => true do |t|
