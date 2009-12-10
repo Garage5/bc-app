@@ -1,5 +1,6 @@
 <% content_for :head do -%>
-<%= stylesheet_link_tag 'overview' %>
+<%= stylesheet_link_tag 'new_overview' %>
+<% body 'new_overview' %>
 <% end -%>
 
 <div id="maincol">
@@ -9,21 +10,14 @@
 	<div class="pod">
   	<div class="hd">
   		<h2><%= link_to tournament.name, tournament_path(tournament) %></h2>
-  	</div><!-- / hd -->
-  	<div id="index_overview" class="bd">
-      <table id="overview">
-  		  <% if !tournament.events.blank? %>
-  		    <% tournament.events.each_with_index do |event, index| %>
-  		      <%= render :partial => "events/#{event.event_type.underscore}", :locals => {:event => event, :tournament => tournament} %>
-  		    <% end %>
-        <% else %>
-        <div id="blank">
-  		    <h2>No Recent Events</h2>
-  		    <p>This page will highlight any events from <strong>Bracket Updates</strong>, <strong>Disputes</strong>, <strong>Messages</strong>, and <strong>Comments</strong>.</p>
-  		  </div>
-  		  <% end %>
-  		</table>
-  	</div><!-- / bd -->
+  	</div>
+    <div class="overview bd">
+      <ul>
+        <% tournament.events.each do |event| %>
+          <%= render :partial => "events/#{event.event_type}", :locals => {:event => event, :tournament => tournament} %>
+        <% end %>
+      </ul>
+    </div>
 	</div><!-- / pod -->
   <% end %>
 <% else %>
