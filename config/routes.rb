@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   # end
   
   # PORTAL ROUTES
-  map.with_options :conditions => {:subdomain => /^(?!www|admin$).+/} do |account|
+  map.with_options :conditions => {:subdomain => /^(?!www|admin|signup$).+/} do |account|
     account.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
     account.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
     account.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
