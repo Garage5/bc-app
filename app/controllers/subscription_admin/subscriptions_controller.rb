@@ -2,6 +2,8 @@ class SubscriptionAdmin::SubscriptionsController < ApplicationController
   include ModelControllerMethods
   include AdminControllerMethods
   
+  layout 'accounts'
+  
   def index
     @stats = SubscriptionPayment.stats if params[:page].blank?
     @subscriptions = Subscription.paginate(:include => :account, :page => params[:page], :per_page => 30, :order => 'accounts.name')

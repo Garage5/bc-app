@@ -51,7 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   # ADMIN ROUTES
-  map.subdomain :admin do |subdom|
+  map.with_options :conditions => {:subdomain => 'admin'} do |subdom|
     subdom.root :controller => 'subscription_admin/subscriptions', :action => 'index'
     subdom.with_options(:namespace => 'subscription_admin/', :name_prefix => 'admin_', :path_prefix => nil) do |admin|
       admin.resources :subscriptions, :member => { :charge => :post }
