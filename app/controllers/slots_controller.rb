@@ -8,29 +8,41 @@ class SlotsController < ApplicationController
   end
   
   def advance
-    redirect_to [:brackets, @tournament] if @slot.advance!
+    @slot.advance!
+    redirect_to [:brackets, @tournament]
   end
   
   def revert
-    redirect_to [:brackets, @tournament] if @slot.revert!    
+    @slot.revert!
+    redirect_to [:brackets, @tournament]
   end
   
   def disqualify
-    redirect_to [:brackets, @tournament] if @slot.disqualify!
+    @slot.disqualify!
+    redirect_to [:brackets, @tournament]
   end
   
   def won
-    redirect_to [:brackets, @tournament] if @slot.won!
+    @slot.won!
+    redirect_to [:brackets, @tournament] 
   end
   
   def lost
-    redirect_to [:brackets, @tournament] if @slot.lost!
+    @slot.lost!
+    redirect_to [:brackets, @tournament]
   end
 
   private
   def find_slot
     @match = Match.find(params[:match_id])
     @slot = @match.slots.find(params[:id])
+  end
+  
+  def must_by_participant_or_host
+    unless @slot.player == current_user or current_user.is_cohosting?(@tournament)
+      flash[:error] = 'You do not have permission to do that.'
+      redirect_to [:brackets, @tournament]
+    end
   end
   
   def must_not_have_winner

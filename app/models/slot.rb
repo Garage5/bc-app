@@ -40,6 +40,7 @@ class Slot < ActiveRecord::Base
         })
       ) unless byed
     end
+    match.status = 'resolved'
     match.winner = self.player
     match.save!
   end
