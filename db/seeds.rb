@@ -62,26 +62,26 @@ end
 end
 
 
-t2 = Tournament.create(
-  :host => user,
-  :account_id => 1,
-  :name => 'Starcraft 2 Invitational', 
-  :game => 'Starcraft 2',
-  :slot_count => 8,
-  :rules => 'Do not talk about fight club.',
-  :registration_start_date => 1.days.from_now,
-  :registration_end_date => 30.days.from_now,
-  :use_teams => true,
-  :players_per_team => 2
-)
-
-User.all.each do |u|
-  u.join_tournament(t2).accept!
-end
-
-t2_participants = t2.participants
-4.times do |i|
-  team = t2.teams.create :name => "Team #{i}", :captain => t2_participants.shift
-  team.members << t2_participants.shift
-end
-TeamMember.all.each { |m| m.accept! }
+# t2 = Tournament.create(
+#   :host => user,
+#   :account_id => 1,
+#   :name => 'Starcraft 2 Invitational', 
+#   :game => 'Starcraft 2',
+#   :slot_count => 8,
+#   :rules => 'Do not talk about fight club.',
+#   :registration_start_date => 1.days.from_now,
+#   :registration_end_date => 30.days.from_now,
+#   :use_teams => true,
+#   :players_per_team => 2
+# )
+# 
+# User.all.each do |u|
+#   u.join_tournament(t2).accept!
+# end
+# 
+# t2_participants = t2.participants
+# 4.times do |i|
+#   team = t2.teams.create :name => "Team #{i}", :captain => t2_participants.shift
+#   team.members << t2_participants.shift
+# end
+# TeamMember.all.each { |m| m.accept! }
