@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   end
   
   def is_cohosting?(tournament)
-    self.is_hosting?(tournament.instance) || Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => 'cohost')
+    self.is_hosting?(tournament.account) || Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => 'cohost')
   end
   
   def is_participant_of?(tournament)

@@ -2,7 +2,12 @@ class Account < ActiveRecord::Base
   has_many :tournaments
   has_many :templates, :class_name => "Tournament", :foreign_key => "account_id", :conditions => {:is_template => true}
   
-  has_attached_file :logo
+  has_attached_file :logo,
+    :default_url => "/:class/:attachment/missing_:style.jpg",
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :bucket => 'tbbdev',
+    :path => ":attachment/:id/:style.:extension"
   
   # has_many :users, :dependent => :destroy
   belongs_to :admin, :class_name => "User"
@@ -17,7 +22,7 @@ class Account < ActiveRecord::Base
   validate_on_create :valid_payment_info?
   validate_on_create :valid_subscription?
   
-  attr_accessible :name, :subdomain, :admin, :plan, :plan_start, :creditcard, :address
+  attr_accessible :name, :subdomain, :admin, :plan, :plan_start, :creditcard, :address, :logo
   attr_accessor :user, :plan, :plan_start, :creditcard, :address, :affiliate
   
   # after_create :create_admin
