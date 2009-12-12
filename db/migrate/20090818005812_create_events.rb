@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string   :event_type
       t.integer  :tournament_id
       t.datetime :created_at
-      t.string   :data
+      t.text     :data
     end
   end
 

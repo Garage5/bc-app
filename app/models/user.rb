@@ -11,7 +11,11 @@ class User < ActiveRecord::Base
   validates_length_of :login, :within => 3..13
   
   has_attached_file :avatar, :styles => {:large => "75x75#", :medium => "48x48#", :small => "32x32#"},
-    :default_url => "/:class/:attachment/missing_:style.jpg"
+    :default_url => "/:class/:attachment/missing_:style.jpg",
+    :storage => :s3,
+    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+    :bucket => 'tbbdev',
+    :path => ":attachment/:id/:style.:extension"
   
   def to_param
     self.login
@@ -38,7 +42,7 @@ class User < ActiveRecord::Base
   end
   
   def is_cohosting?(tournament)
-    self.is_hosting?(tournament.instance) || Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => 'cohost')
+    self.is_hosting?(tournament.account) || Participation.exists?(:participant_id => self.id, :tournament_id => tournament.id, :state => 'cohost')
   end
   
   def is_participant_of?(tournament)

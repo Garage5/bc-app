@@ -1,6 +1,6 @@
 # Used for subscription emails (subscription_notifier.rb)
 app_name: Battle Center
-from_email: support@example.com
+from_email: support@thebattlebegins.com
 
 # Used in account creation (account.rb)
 base_domain: tbbdev.com

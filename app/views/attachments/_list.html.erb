@@ -1,5 +1,7 @@
 <ul class="files_attach clear">
   <% for a in attachments %>
     <li><a href="<%= a.attachment.url %>"><%= icon_or_thumbnail a %></a></li>
+    filename: <%= a.attachment.original_filename %>
+    extension: <%= File.extname(a.attachment.original_filename) %>
 	<% end %>
 </ul><!-- / files_attach -->

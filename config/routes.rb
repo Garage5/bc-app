@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   # end
   
   # PORTAL ROUTES
-  map.with_options :conditions => {:subdomain => /^(?!www|admin$).+/} do |account|
+  map.with_options :conditions => {:subdomain => /^(?!www|admin|signup$).+/} do |account|
     account.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
     account.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
     account.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
@@ -30,10 +30,10 @@ ActionController::Routing::Routes.draw do |map|
     account.resources :tournaments, :member => {:rules => :get, :start => :put, :brackets => :get}, :collection => {:calendar => :get} do |tournaments|
       tournaments.with_options :conditions => {:subdomain => /^(?!www|admin$).+/} do |tournament|
         tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
-        tournament.resources :teams do |team|
-          team.invite '/invite/:user_id', :controller => 'teams', :action => 'invite',:path_prefix => '/tournaments/:tournament_id',
-           :conditions => {:subdomain => /^(?!www|admin$).+/}
-        end
+        # tournament.resources :teams, :member => {:join => :put, :decline => :delete} do |team|
+        #   team.invite '/invite/:user_id', :controller => 'teams', :action => 'invite',:path_prefix => '/tournaments/:tournament_id',
+        #    :conditions => {:subdomain => /^(?!www|admin$).+/}
+        # end
         tournament.resources :messages, :has_many => [:comments]
         tournament.resources :files, :controller => :attachments
         tournament.resources :matches, :has_many => [:comments] do |match|
@@ -46,13 +46,12 @@ ActionController::Routing::Routes.draw do |map|
             :lost => :put
           }, :conditions => {:subdomain => /^(?!www|admin$).+/}
         end
-        tournament.resources :teams, :member => {:join => :put, :decline => :delete}
       end
     end
   end
 
   # ADMIN ROUTES
-  map.subdomain :admin do |subdom|
+  map.with_options :conditions => {:subdomain => 'admin'} do |subdom|
     subdom.root :controller => 'subscription_admin/subscriptions', :action => 'index'
     subdom.with_options(:namespace => 'subscription_admin/', :name_prefix => 'admin_', :path_prefix => nil) do |admin|
       admin.resources :subscriptions, :member => { :charge => :post }
