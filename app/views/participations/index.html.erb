@@ -98,7 +98,7 @@
 	    <h2>Participants</h2>
 	  </div>
 	  <div class="bd clear player_list">
-	    <ul class="clear players" id="list_officials">
+	    <ul class="clear players" id="list_participants">
         <% @active.each do |participant| %>
           <%= render(:partial => 'participant', :locals => {:participant => participant, :show_invite => current_user.try(:is_captain?, @tournament) }) %>
         <% end %>

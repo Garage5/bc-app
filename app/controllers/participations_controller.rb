@@ -50,7 +50,7 @@ class ParticipationsController < ApplicationController
   
   def accept
     ids = params[:participant_ids] || []
-    if ids.size > @tournmanet.open_slots
+    if ids.size > @tournament.open_slots
       flash[:error] = "Cannot accept #{ids.size} participants because there are only #{@tournament.open_slots} open slots."
     else
       @participants = User.find(ids)
@@ -59,7 +59,9 @@ class ParticipationsController < ApplicationController
         "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
       end
     end
-    redirect_to tournament_participants_path(@tournament)
+    @officials = @tournament.officials
+    render :layout => false
+    # redirect_to tournament_participants_path(@tournament)
   end
   
   def deny
