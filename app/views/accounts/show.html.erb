@@ -29,7 +29,9 @@
 <div id="sidecol">
 <div class="col">
   <div class="account_logo">
-    <%= image_tag current_account.logo.url %>
+    <% if current_account.logo.exists? %>
+      <%= image_tag current_account.logo.url %>
+    <% end %>
   </div><!-- / account_logo -->
 <%= render :partial => "layouts/sidenav" %>
 </div><!-- / col -->
