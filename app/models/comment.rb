@@ -17,7 +17,7 @@ class Comment < ActiveRecord::Base
         :commentable => {
           :id => e.commentable.id,
           :subject => e.commentable.subject,
-          :class => e.commentable_type
+          :klass => e.commentable_type
         }
       })
     )
