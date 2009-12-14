@@ -7,6 +7,14 @@ class Slot < ActiveRecord::Base
   
   def advance!(byed = nil)
     match = self.match
+    # if not last match
+    
+    match_event = self.tournament.events.new(
+      :event_type    => 'result',
+      :data => Hashie::Mash.new({
+        :opponents => [self.player.login, self.opponent.player.login]
+      }))
+    
     unless match.round.position == self.tournament.calculate_round_count
       index = match.position.odd? ? 0 : 1
       next_match = match.next
@@ -24,19 +32,15 @@ class Slot < ActiveRecord::Base
       
       next_slot.player = self.player
       next_slot.save!
-      self.tournament.events.create!(
-        :event_type    => 'result',
-        :data => Hashie::Mash.new({
-          :opponents => [self.player.login, self.opponent.player.login]
-        })
-      ) unless byed
+      match_event.save! unless byed
     else
       self.tournament.first_place = self.player
       self.tournament.save!
+      match_event.save! unless byed
       self.tournament.events.create!(
-        :event_type    => 'result',
+        :event_type    => 'places',
         :data => Hashie::Mash.new({
-          :participant => self.player
+          :player => self.player.name
         })
       ) unless byed
     end
