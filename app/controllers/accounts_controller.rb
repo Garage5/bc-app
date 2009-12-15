@@ -27,7 +27,7 @@ class AccountsController < ApplicationController
   def update
     if @account.update_attributes(params[:account])
       flash[:notice] = "The #{cname.humanize.downcase} has been updated."
-      redirect_back_or_default redirect_url
+      redirect_to settings_url(:subdomain => @account.subdomain)
     else
       render :action => 'edit'
     end

@@ -9,6 +9,7 @@
 <div class="col">
 	<div class="pod" id="settings">
   <div class="bd clear">
+    <% form_for @account, :url => '/settings', :method => :put do |f| %>
 		<div id="account_url" class="clear group darkpod">
 		<ul>
   	  <li>
@@ -17,8 +18,8 @@
 				<span class="gray">(<a href="#">change URL</a>)</span>
 			</li>
 			<li id="account_url_input">
-				http:// <input type="text" value="starfeeder"/> .tbblive.com
-				<button class="btn"><span class="icon"></span><span>Save</span></button>
+				http:// <%= f.text_field :subdomain %> .tbblive.com
+				<button type="submit" class="btn"><span class="icon"></span><span>Save</span></button>
 			</li>
   	</ul>
 		</div><!-- // darkpod -->
@@ -38,9 +39,7 @@
 	  <h3>Your Site Name</h3>
     <div id="your_site_name" class="clear group darkpod">
 	    <p>Your site name appears at the top of every page.</p>
-	    <% form_for '@account' do |f| -%>
-	      <%= f.text_field :name %>
-	    <% end -%>
+	    <%= f.text_field :name %>
 	  </div>
 		
 		<div class="beta">
@@ -60,13 +59,14 @@
         	<td class="remove"><a href="#">remove</a></td>
         </tr>
 	    </table>
-	    <% form_for '@account' do |f| -%>
-	    	<div class="left_block"><%= f.text_field :title %></div>
+	    <%# form_for '@account' do |f| -%>
+	    	<div class="left_block"><%#= f.text_field :title %></div>
 				<div class="left_block add_cat"><button class="btn add"><span class="icon"></span><span>Add Category</span></button></div>
-	    <% end -%>
+	    <%# end -%>
 	  </div>
-	</div><!-- // BETA -->
-	<button class="btn"><span class="icon"></span><span>Save Changes</span></button>
+	  </div><!-- // BETA -->
+	  <button class="btn"><span class="icon"></span><span>Save Changes</span></button>
+	  <% end %>
 	</div><!-- / bd -->
 	
 </div><!-- / pod -->
