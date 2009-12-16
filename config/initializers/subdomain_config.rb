@@ -1,4 +1,4 @@
-TBBLIVE_DOMAIN = {:development => 'tbblive.local',
+TBBLIVE_DOMAIN = {:development => 'tbb.local',
                   :production => ENV['TBBLIVE_DOMAIN']}
                   
 TBC_DOMAIN = {:development => 'thebattlecenter.local',

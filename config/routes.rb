@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|  
+  map.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
+  map.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
+  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+  map.resources :user_sessions
+  map.resources :users, :member => {:profile => :get}
+  
   map.with_options :conditions => {:subdomain => 'signup', :domain => TBC_DOMAIN[Rails.env.to_sym]} do |signup|
     signup.connect '/signup/d/:discount', :controller => 'accounts', :action => 'plans'
     signup.thanks '/signup/thanks', :controller => 'accounts', :action => 'thanks'

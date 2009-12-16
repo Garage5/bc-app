@@ -186,9 +186,12 @@ class AccountsController < ApplicationController
     end
     
     def build_plan
-      redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan])
-      @plan.discount = @discount
-      @account.plan = @plan
+      unless @plan = SubscriptionPlan.find_by_name(params[:plan])
+        redirect_to('http://thebattlecenter.com/plans') 
+      else
+        @plan.discount = @discount
+        @account.plan = @plan
+      end
     end
     
     def redirect_url
