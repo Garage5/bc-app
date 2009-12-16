@@ -5,6 +5,7 @@ module AdminControllerMethods
   
   def self.included(base)
     base.send :prepend_before_filter, :check_admin_subdomain
+    base.send :layout, 'accounts'
   end
   
   protected

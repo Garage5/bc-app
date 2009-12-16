@@ -24,12 +24,16 @@ class ApplicationController < ActionController::Base
     @tournament = Tournament.find(tournament_id)
   end
   
+  def must_be_admin
+    redirect_to root_url unless current_user == current_account.admin
+  end
+  
   def must_be_host
-    return false unless current_user.is_hosting?(current_account)
+    redirect_back_or_default(root_url) unless current_user.is_hosting?(current_account)
   end
   
   def must_be_official
-    return false unless @tournament.officials.include?(current_user)
+    redirect_back_or_default(root_url) unless @tournament.officials.include?(current_user)
   end
 
   def current_user_session
