@@ -58,8 +58,7 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "You must be logged in to access this page"
       hostname = TBBLIVE_DOMAIN[Rails.env.to_sym]
       hostname += ":#{request.port}" unless request.port == 80
-      # redirect_to login_url(:host => hostname)
-      redirect_back_or_default
+      redirect_to login_url
       return false
     end
   end

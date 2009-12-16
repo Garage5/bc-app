@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   layout 'accounts'
 
   before_filter :store_location, :only => :show
-  before_filter :login_required, :except => [:new, :show]
+  before_filter :login_required, :except => [:show]
   before_filter :build_user, :only => [:new, :create]
   before_filter :load_billing, :only => [ :new, :create, :billing, :paypal ]
   before_filter :load_subscription, :only => [ :billing, :plan, :paypal, :plan_paypal ]
@@ -54,7 +54,7 @@ class AccountsController < ApplicationController
     end
     
     if @account.save
-      flash[:domain] = @account.domain
+      flash[:domain] = @account.subdomain
       redirect_to :action => 'thanks'
     else
       render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
