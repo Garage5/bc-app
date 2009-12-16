@@ -7,6 +7,41 @@ body#match #maincol .pod {
 	border-bottom: 1px #DDD solid;
 }
 
+/* One vs One Match
+----------------------------------------------
+*/
+
+.onevone #home_player {
+  float: left;
+  width: 290px;
+  text-align: right;
+}
+
+.onevone #away_player {
+  float: right;
+  width: 290px;
+}
+
+.onevone #home_player img {
+  float: right;
+  display: block;
+  margin: 0 0 0 10px;
+}
+
+.onevone #away_player img {
+  float: left;
+  display: block;
+  margin: 0 10px 0 0;
+}
+
+.onevone .player {
+  margin: 8px 0 0 0;
+}
+
+/* Team Match
+----------------------------------------------
+*/
+
 .team {
   width: 290px;
   float: left;
@@ -113,7 +148,7 @@ body#match #maincol .pod {
   background: transparent url(/images/icon_team_captain.png) right top no-repeat;
   padding: 2px 14px 0 0;
 }
-ΩΩΩ
+
 #match_details {
   width: 180px;
 	float: left;
