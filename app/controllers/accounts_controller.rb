@@ -11,6 +11,8 @@ class AccountsController < ApplicationController
   before_filter :load_discount, :only => [ :plans, :plan, :new, :create ]
   before_filter :build_plan, :only => [:new, :create]
   
+  before_filter :must_be_admin, :except => [:show, :new, :create]
+  
   ssl_required :billing, :cancel, :new, :create
   ssl_allowed :plans, :thanks, :canceled, :paypal
   
@@ -184,9 +186,12 @@ class AccountsController < ApplicationController
     end
     
     def build_plan
-      redirect_to :action => "plans" unless @plan = SubscriptionPlan.find_by_name(params[:plan])
-      @plan.discount = @discount
-      @account.plan = @plan
+      unless @plan = SubscriptionPlan.find_by_name(params[:plan])
+        redirect_to('http://thebattlecenter.com/plans') 
+      else
+        @plan.discount = @discount
+        @account.plan = @plan
+      end
     end
     
     def redirect_url

@@ -1,6 +1,6 @@
 <body id="login">
 <div id="login_wrapper">
-		<% form_for @user_session, :url => '/login' do |f| -%>
+		<% form_for @user_session, :url => login_path(:ref => params[:ref]) do |f| -%>
 		<ul class="section">
 			<li class="header">
 				<img src="/images/signup_icon_battleid.png" />

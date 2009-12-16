@@ -34,7 +34,10 @@
 	<div id="acct_nav" class="clear">
 		<ul class="clear">
 			<li class="beta"><a title="" href="/preview/accounts/settings/">Billing</a></li>
-			<% if current_account.admin == current_user %><li><%= link_to "Settings", settings_path %></li><% end %>
+			<% if current_account.admin == current_user %>
+			  <li><%= link_to "Account", billing_account_path %></li>
+			  <li><%= link_to "Settings", settings_path %></li>
+			<% end %>
 			<li id="feedback"><a class="feedback" title="" href="/preview/accounts/help/">Feedback</a></li>
 		</ul>
 	</div><!-- / acct_nav -->
