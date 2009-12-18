@@ -30,10 +30,9 @@
 		<div class="clear onevone" id="match_wrapper">
 			
 			<div id="home_player">
-        <img src="/users/avatars/missing_medium.jpg" />
+        <%= image_tag @match.slots[0].player.avatar.url(:medium) %>
         <div class="player">
-          <h2>Matt Johnson</h2>
-          <span class="game_handle">mattdetails</span>
+          <h2><%= @match.slots[0].player.login %></h2>
         </div>
 			</div><!-- / home_player -->
 
@@ -53,10 +52,9 @@
 			</div>
       
 			<div id="away_player">
-        <img src="/users/avatars/missing_medium.jpg" />
+        <%= image_tag @match.slots[1].player.avatar.url(:medium) %>
         <div class="player">
-          <h2>Matt Johnson</h2>
-          <span class="game_handle">mattdetails</span>
+          <h2><%= @match.slots[1].player.login %></h2>
         </div>
 			</div><!-- / away_player -->
 			
