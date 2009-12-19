@@ -15,6 +15,7 @@ class UsersController < ApplicationController
         redirect_back_or_default root_url
       end
     else
+      @ref = params[:ref] if params[:ref]
       render :action => 'new', :layout => 'lite'
     end
   end
