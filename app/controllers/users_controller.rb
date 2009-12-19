@@ -9,7 +9,11 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Successfully created user."
-      redirect_to '/preview/accounts/dashboard'
+      if params[:ref]
+        redirect_to CGI.unescape(params[:ref])
+      else
+        redirect_back_or_default root_url
+      end
     else
       render :action => 'new', :layout => 'lite'
     end

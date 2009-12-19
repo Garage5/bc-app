@@ -10,8 +10,7 @@
   ['jon',    'Jon Tang']
 ].each do |u|
   User.create(
-    :login => u[0],
-    :name => u[1], 
+    :login => u[0], 
     :email => "#{u[0]}@thebattlebegins.com", :password => 'pass', :password_confirmation => 'pass')
 end
 
