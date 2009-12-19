@@ -1,6 +1,7 @@
 <body id="signup">
 <div id="wrapper">
 	<% form_for @user do |f| -%>
+	  <%= hidden_tag :ref, params[:ref] %>
 	<ul class="section">
 		<li class="header">
 			<img src="/images/signup_icon_battleid.png" />
