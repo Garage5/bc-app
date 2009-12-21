@@ -1,6 +1,6 @@
 <% stylesheet :profile %>
 <% body 'profile' %>
-<% @title = @user.name %>
+<% @title = @user.login %>
 
 <% content_for :modals do %>
 <div id="change_avatar" class="modal">
@@ -62,9 +62,6 @@
 				  <div class="user_profile">
 				    <label>BattleID</label>
 				    <p><%= @user.login %></p>
-				    <%= f.label(:name) %>
-				    <p id="name_show"><span id="name_static"><%= h @user.name %></span> <a href="#" style="display: none" class="edit_field" rel="{field: 'name'}">Edit</a></p>
-				    <p id="name_edit" style="display: none"><%= f.text_field(:name) %> <a href="#" class="save_field" rel="{field: 'name'}">Save</a> | <a href="#" class="show_field" rel="{field: 'name'}">Cancel</a></p>
 				    <%= f.label(:email) %>
 				    <p class="last" id="email_show"><span id="email_static"><%= h @user.email %></span> <a href="#" style="display: none" class="edit_field" rel="{field: 'email'}">Edit</a></p>
 				    <p class="last" id="email_edit" style="display: none"><%= f.text_field(:email) %> <a href="#" class="save_field" rel="{field: 'email'}">Save</a> | <a href="#" class="show_field" rel="{field: 'email'}">Cancel</a></p>
