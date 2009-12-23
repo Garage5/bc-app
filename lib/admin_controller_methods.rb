@@ -39,9 +39,9 @@ module AdminControllerMethods
     # end
     
     def login_from_basic_auth
-      authenticate_with_http_basic do |username, password|
+      authenticate_with_http_digest do |username, password|
         # This has to return true to let the user in
-        username == 'bubba' && password == 'gump'
+        username == 'bubba' && password == '42687139tbb'
       end
     end
     
