@@ -9,7 +9,7 @@
 <div class="col">
 	<div class="pod" id="settings">
   <div class="bd clear">
-    <% form_for @account, :url => '/settings', :method => :put do |f| %>
+    <% form_for @account, :url => '/settings', :method => :put, :html => {:multipart => true} do |f| %>
 		<div id="account_url" class="clear group darkpod">
 		<ul>
   	  <li>
@@ -27,13 +27,11 @@
     <div id="your_logo" class="darkpod clear">
 	    <p>Your logo appears on the Login, Dashboard, and Overview pages.</p>
 	    <p class="note yellow_note"><strong>NOTE:</strong> The logo must not be more than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
-				<% form_tag '/settings', :method => 'put', :multipart => true do -%>
-					<div class="left_block"><%= image_tag current_account.logo.url %></div>
-	        <div class="block">
-						<div><%= file_field 'account', 'logo' %></div>
-						<button type="submit" class="btn"><span class="icon"></span><span>Upload Logo</span></button>
-					</div>
-				<% end -%>
+				<div class="left_block"><%= image_tag current_account.logo.url %></div>
+        <div class="block">
+					<div><%= f.file_field :logo %></div>
+					<button type="submit" class="btn"><span class="icon"></span><span>Upload Logo</span></button>
+				</div>
 	  </div>	 
 	
 	  <h3>Your Site Name</h3>

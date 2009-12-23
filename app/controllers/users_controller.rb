@@ -2,12 +2,14 @@ class UsersController < ApplicationController
   before_filter :login_required, :only => [:update]
   def new
     @user = User.new
+    session[:return_to] = params[:ref] if params[:ref]
     render :layout => 'lite'
   end
   
   def create
     @user = User.new(params[:user])
     if @user.save
+      UserSession.new(:login => params[:user][:login], :password => params[:user][:password])
       flash[:notice] = "Successfully created user."
       if params[:ref]
         redirect_to CGI.unescape(params[:ref])

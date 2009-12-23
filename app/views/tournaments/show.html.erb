@@ -100,7 +100,9 @@
 <div id="sidecol">
 	<div class="col">
 	  <div class="account_logo">
-	    <img src="/images/logo.png"/>
+      <% if current_account.logo.exists? %>
+        <%= image_tag current_account.logo.url %>
+      <% end %>
 	  </div><!-- / account_logo -->
 	</div><!-- / col -->
 </div><!-- / sidecol -->
