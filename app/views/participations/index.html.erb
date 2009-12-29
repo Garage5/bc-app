@@ -32,8 +32,8 @@
 	  </div>
 	  <div class="bd clear player_list">
 	    <ul class="clear players" id="list_officialts">
-        <% @officials.each do |participant| %>
-          <%= render(:partial => 'participant', :locals => {:participant => participant}) %>
+        <% @officials.each_with_index do |participant, index| %>
+          <%= render(:partial => 'participant', :locals => {:participant => participant, :role => index == 0 ? 'Host' : 'Co-host' }) %>
         <% end %>
 	    </ul>
 	  </div>

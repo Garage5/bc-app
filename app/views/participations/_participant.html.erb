@@ -1,6 +1,7 @@
 <% team ||= nil %>
 <% show_invite ||= nil %>
 <% show_checkbox ||= nil %>
+<% role ||= nil %>
 <% profile_title = "View #{participant.login}'#{'s' unless participant.login[-1..-1] == 's'} profile" %>
 
 <li class="clear" id="user-<%= participant.id %>">
@@ -15,7 +16,7 @@
 	<div class="user_name clear">
 	  <%= link_to participant.login, profile_user_path(participant.login), :title => profile_title %>
     <p class="nick_name"><%= participant.login %></p>
-	  <p class="role"><%#= participant.role_in(@tournament, team) %></p>
+	  <p class="role"><% if role %><%= role %><% end %></p>
 	</div><!-- / user_name -->
 	<div class="clear"></div>
 	
