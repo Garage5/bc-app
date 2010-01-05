@@ -168,7 +168,7 @@
 				<%= f.text_field :players_per_team %> <%= f.label :players_per_team, "How many players per team?" %>
 			</div>
 			
-			<div><%= f.select :slot_count, [4, 8, 16, 32], {}, :onchange => 'updateRounds();' %> <%= f.label :slot_count, "Maximum Slots" %></div>
+			<div><%= f.select :slot_count, current_account.slot_multiples, {}, :onchange => 'updateRounds();' %> <%= f.label :slot_count, "Maximum Slots" %></div>
 		</div><!-- / bd -->
 		</div><!-- / pod -->
 		</div><!-- / beta -->

@@ -6,7 +6,7 @@ from_email: support@thebattlebegins.com
 base_domain: tbbdev.com
 
 # Set this to true if you want to require CC info when creating a trial account for a paid plan
-require_payment_info_for_trials: false
+require_payment_info_for_trials: true
 
 # Credit card gateway: One of brain_tree, authorize_net_cim, payment_express, or trust_commerce
 gateway: brain_tree

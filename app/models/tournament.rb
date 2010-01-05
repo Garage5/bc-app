@@ -41,6 +41,11 @@ class Tournament < ActiveRecord::Base
 
   validates_numericality_of :entry_fee
   
+  validate_on_create :check_slot_limit
+  
+  def check_slot_limit
+    errors.add_to_base('Invalid slot limit.') if !tournament.account.slot_multiples.include?(slot_count)
+  end
   
   def officials
     [self.account.admin] + self.cohosts

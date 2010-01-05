@@ -1,0 +1,6 @@
+localhost:
+  name: My first account
+  subdomain: test.host
+otherhost:
+  name: Another account
+  subdomain: other.host

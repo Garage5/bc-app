@@ -17,9 +17,10 @@ end
 # SaaS
 if SubscriptionPlan.count == 0
   plans = [
-    { 'name' => 'Free', 'amount' => 0, 'user_limit' => 2 },
-    { 'name' => 'Basic', 'amount' => 10, 'user_limit' => 5 },
-    { 'name' => 'Premium', 'amount' => 30, 'user_limit' => nil }
+    { 'name' => 'Free',    'amount' => 0,  'tournament_limit' => 1,  'slot_limit' => 8   },
+    { 'name' => 'Basic',   'amount' => 12, 'tournament_limit' => 2,  'slot_limit' => 32  },
+    { 'name' => 'Plus',    'amount' => 24, 'tournament_limit' => 5,  'slot_limit' => 64  },
+    { 'name' => 'Premium', 'amount' => 49, 'tournament_limit' => 10, 'slot_limit' => 64  }
   ].collect do |plan|
     SubscriptionPlan.create(plan)
   end

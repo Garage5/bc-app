@@ -31,7 +31,7 @@ class Account < ActiveRecord::Base
   acts_as_paranoid
   
   Limits = {
-    'user_limit' => Proc.new {|a| a.users.count }
+    'tournament_limit' => Proc.new {|a| a.tournaments.active.count }
   }
   
   Limits.each do |name, meth|
@@ -39,6 +39,10 @@ class Account < ActiveRecord::Base
       return false unless self.subscription
       self.subscription.send(name) && self.subscription.send(name) <= meth.call(self)
     end
+  end
+  
+  def slot_multiples
+    [4, 8, 16, 32, 64].reject {|i| i > self.subscription.slot_limit}
   end
   
   def to_param

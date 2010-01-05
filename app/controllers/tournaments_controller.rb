@@ -4,6 +4,7 @@ class TournamentsController < ApplicationController
   before_filter :login_required, :except => [:index, :show, :brackets, :participants, :rules, :calendar]
   before_filter :must_be_host, :only => [:new, :create, :edit, :update, :destroy, :load_template]
   before_filter :must_be_official, :only => :start
+  before_filter :check_tournament_limit, :only => [:new, :create]
   
   def calendar
     args = {}
@@ -103,8 +104,14 @@ class TournamentsController < ApplicationController
     if @tournament.start
       redirect_to brackets_tournament_path(@tournament)
     else
-      p @tournament.errors
       render :text => @tournament.errors
     end
   end
+  
+  protected
+  
+    def check_tournament_limit
+      errors.add('You have already reached the active tournament limit for this account')
+      redirect_to current_account
+    end
 end
