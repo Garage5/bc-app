@@ -175,13 +175,14 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
 
   create_table "subscription_plans", :force => true do |t|
     t.string   "name"
-    t.decimal  "amount",                       :precision => 10, :scale => 2
+    t.decimal  "amount",                         :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_limit",     :limit => 11
-    t.integer  "renewal_period", :limit => 11,                                :default => 1
-    t.decimal  "setup_amount",                 :precision => 10, :scale => 2
-    t.integer  "trial_period",   :limit => 11,                                :default => 1
+    t.integer  "tournament_limit", :limit => 11
+    t.integer  "slot_limit",       :limit => 3
+    t.integer  "renewal_period",   :limit => 11,                                :default => 1
+    t.decimal  "setup_amount",                   :precision => 10, :scale => 2
+    t.integer  "trial_period",     :limit => 11,                                :default => 1
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -194,7 +195,8 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.string   "state",                                                                  :default => "trial"
     t.integer  "subscription_plan_id",      :limit => 11
     t.integer  "account_id",                :limit => 11
-    t.integer  "user_limit",                :limit => 11
+    t.integer  "tournament_limit",          :limit => 11
+    t.integer  "slot_limit",                :limit => 3
     t.integer  "renewal_period",            :limit => 11,                                :default => 1
     t.string   "billing_id"
     t.integer  "subscription_discount_id",  :limit => 11

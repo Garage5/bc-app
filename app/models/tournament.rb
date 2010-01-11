@@ -8,16 +8,16 @@ class Tournament < ActiveRecord::Base
   belongs_to  :account
   belongs_to  :host, :class_name => "User", :foreign_key => "host_id"
   
-  has_many    :messages, :order => 'created_at DESC'
-  has_many    :attachments, :class_name => '::Attachment'
+  has_many    :messages, :order => 'created_at DESC', :dependent => :destroy
+  has_many    :attachments, :class_name => '::Attachment', :dependent => :destroy
   
-  has_many :rounds
-  has_many :matches
-  has_many :events, :order => 'created_at DESC'
-  has_many :comments
+  has_many :rounds, :dependent => :destroy
+  has_many :matches, :dependent => :destroy
+  has_many :events, :order => 'created_at DESC', :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   
-  has_many :team_members, :dependent => :destroy
-  has_many :teams, :dependent => :destroy
+  # has_many :team_members, :dependent => :destroy
+  # has_many :teams, :dependent => :destroy
   
   has_many :participations, :dependent => :destroy
   has_many :participants , :through => :participations
@@ -44,7 +44,7 @@ class Tournament < ActiveRecord::Base
   validate_on_create :check_slot_limit
   
   def check_slot_limit
-    errors.add_to_base('Invalid slot limit.') if !tournament.account.slot_multiples.include?(slot_count)
+    errors.add_to_base('Invalid slot limit.') if !self.account.slot_multiples.include?(slot_count)
   end
   
   def officials

@@ -1,6 +1,6 @@
 development:
-  login: 'demo'
-  password: 'password'
+  login: 'demoapi'
+  password: 'password1'
 production:
   login: 'demo'
   password: 'password'

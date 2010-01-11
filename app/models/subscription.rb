@@ -22,8 +22,8 @@ class Subscription < ActiveRecord::Base
   # is changed.  It includes both the validation rules and the error
   # message for each limit to be checked.
   Limits = {
-    Proc.new {|account, plan| !plan.user_limit || plan.user_limit >= Account::Limits['user_limit'].call(account) } => 
-      'User limit for new plan would be exceeded.  Please delete some users and try again.'
+    Proc.new {|account, plan| !plan.tournament_limit || plan.tournament_limit >= Account::Limits['tournament_limit'].call(account) } => 
+      'Tournament limit for new plan would be exceeded.  Please deactivate some tournaments and try again.'
   }
   
   # Changes the subscription plan, and assigns various properties, 
@@ -45,7 +45,7 @@ class Subscription < ActiveRecord::Base
       self.state = 'active' if new_record?
     end
     
-    [:amount, :user_limit, :renewal_period].each do |f|
+    [:amount, :tournament_limit, :slot_limit, :renewal_period].each do |f|
       self.send("#{f}=", plan.send(f))
     end
     
