@@ -29,11 +29,15 @@
   <div class="bd clear">
     <% form_for @account, :url => '/settings', :method => :put, :html => {:multipart => true} do |f| %>
 		<div id="account_url" class="clear group darkpod">
+		  <div id="your_site_name">
+    	  <h2>Your Site Name</h2>
+    	  <p>Your site name appears at the top of every page.</p>
+  	    <%= f.text_field :name %>
+  	  </div><!-- / your_site_name -->
 		<ul>
   	  <li>
 				<h2>Your URL</h2>
 				http://starfeeder.tbblive.com
-				<span class="gray">(<a href="#change_url">change URL</a>)</span>
 			</li>
 			<li id="account_url_input">
 				http:// <%= f.text_field :subdomain, :disabled => true %> .tbblive.com
@@ -41,47 +45,19 @@
 			</li>
   	</ul>
 		</div><!-- // darkpod -->
-	  <h3 class="first">Your Logo</h3>
+	  <h3>Your Logo <span>&mdash; Your logo appears on the Login, Dashboard, and Overview pages.</span></h3>
     <div id="your_logo" class="darkpod clear">
-	    <p>Your logo appears on the Login, Dashboard, and Overview pages.</p>
-	    <p class="note yellow_note"><strong>NOTE:</strong> The logo must not be more than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
+	    <p></p>
+	      <div class="clear">
 				<div class="left_block"><%= image_tag current_account.logo.url %></div>
         <div class="block">
 					<div><%= f.file_field :logo %></div>
 					<button type="submit" class="btn"><span class="icon"></span><span>Upload Logo</span></button>
+					</div><!-- / clear -->
 				</div>
-	  </div>	 
-	
-	  <h3>Your Site Name</h3>
-    <div id="your_site_name" class="clear group darkpod">
-	    <p>Your site name appears at the top of every page.</p>
-	    <%= f.text_field :name %>
+				<p><strong>NOTE:</strong> The logo must not be more than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
 	  </div>
-		
-		<div class="beta">
-	  <h3>Message Categories</h3>
-	  <div id="message_categories" class="darkpod group clear">
-	    <table>
-        <tr>
-        	<td>Announcements</td>
-        	<td>&nbsp;</td>
-        </tr>
-        <tr>
-        	<td>Disputes</td>
-        	<td>&nbsp;</td>
-        </tr>
-        <tr>
-        	<td>Stuff</td>
-        	<td class="remove"><a href="#">remove</a></td>
-        </tr>
-	    </table>
-	    <%# form_for '@account' do |f| -%>
-	    	<div class="left_block"><%#= f.text_field :title %></div>
-				<div class="left_block add_cat"><button class="btn add"><span class="icon"></span><span>Add Category</span></button></div>
-	    <%# end -%>
-	  </div>
-	  </div><!-- // BETA -->
-	  <button class="btn"><span class="icon"></span><span>Save Changes</span></button>
+	  <button class="btn save_changes"><span class="icon"></span><span>Save Changes</span></button>
 	  <% end %>
 	</div><!-- / bd -->
 	
