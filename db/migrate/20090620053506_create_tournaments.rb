@@ -18,12 +18,12 @@ class CreateTournaments < ActiveRecord::Migration
       t.string    :first_prize,  :default => 0
       t.string    :second_prize, :default => 0
       t.string    :third_prize,  :default => 0
-      t.integer   :entry_fee,          :default => 0
+      t.integer   :entry_fee,    :default => 0
       t.text      :other_prizes
       
       t.boolean   :is_template, :default => false
       t.integer   :account_id
-      t.boolean   :started, :default => false
+      t.boolean   :state, :default => 'active'
       t.timestamps
     end
   end

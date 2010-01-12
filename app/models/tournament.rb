@@ -1,5 +1,7 @@
 class Tournament < ActiveRecord::Base
   default_scope :order => 'updated_at DESC'
+  named_scope :active, :conditions => {:state => 'active'}
+  
   serialize   :places, Hash
 
   acts_as_textile :rules

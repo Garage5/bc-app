@@ -27,7 +27,7 @@ if SubscriptionPlan.count == 0
 end
 
 user = User.first
-a = Account.create(:name => 'Starfeeder', :subdomain => 'starfeeder', :plan => plans.first, :admin => user)
+a = Account.create(:name => 'Starfeeder', :subdomain => 'starfeeder', :plan => SubscriptionPlan.find_by_name('Free'), :admin => user)
 
 puts 'Changing secret in environment.rb...'
 new_secret = ActiveSupport::SecureRandom.hex(64)
@@ -44,10 +44,9 @@ end
 # Account.create(:name => "Starfeeder", :admin => host, :subdomain => "starfeeder", :plan => plans.first)
 
 
-3.times do |i|
-  t = Tournament.create(
+1.times do |i|
+  t = a.tournaments.create(
     :host => user,
-    :account_id => 1,
     :name => "Valor Tournament #{i+1}", 
     :game => 'Starcraft 2',
     :slot_count => 8,
