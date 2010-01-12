@@ -1,67 +1,101 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title><%= @page_title ? "#{@page_title} | #{AppConfig['app_name']}" : AppConfig['app_name'] %></title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<%= stylesheet_link_tag 'reset-fonts.css', 'gt-styles.css', 'admin.css' %>
-		<%= yield :head %>
-	</head>
-	<body class="<%= controller.controller_path.gsub('/', ' ') %>">
-		<!-- head -->
-		<div class="gt-hd clearfix">
-			<!-- logo -->
-			<div class="gt-logo">
-				<%= AppConfig['app_name'] %>
-			</div>
-			<!-- / logo -->
-			
-			<!-- navigation -->
-			<div class="gt-nav">
-				<ul>
-				  <% if admin_subdomain? %>
-				    <li><%= link_to('Subscriptions', admin_subscriptions_path) %></li>
-				    <li><%= link_to('Accounts', admin_accounts_path) %></li>
-				    <li><%= link_to('Plans', admin_subscription_plans_path) %></li>
-				    <li><%= link_to('Discounts', admin_subscription_discounts_path) %></li>
-				    <li><%= link_to('Affiliates', admin_subscription_affiliates_path) %></li>
-				  <% elsif logged_in? %>
-  					<li><a href="/">Home</a></li>
-  					<li><a href="/users">Users</a></li>
-  					<%= content_tag(:li, link_to("Account", account_url)) if admin? %>
-  					<li><%= link_to("Log out #{current_user.login}", logout_url) %></li>
-  				<% end %>
-				</ul>
-			</div>
-			<!-- / navigation -->
-			
-		</div>
-		<!-- / head -->
-		
-		<!-- body -->
-		<div class="gt-bd gt-cols clearfix">
-			
-			<!-- main content -->
-			<div class="gt-content">
-				
-				<%= flash_notices %>
-				<%= yield %>
-				
-			</div>
-			<!-- / main content -->
-			
-			<!-- sidebar -->
-			<div class="gt-sidebar">
-				<%= yield :sidebar %>
-			</div>
-			<!-- / sidebar -->
-			
-		</div>
-		<!-- / body -->
-		
-		<!-- footer -->
-		<div class="gt-footer">
-			<p>Copyright &copy; 2008 Gooey Templates - <a href="http://www.gooeytemplates.com" target="_blank">GooeyTemplates.com</a></p>
-		</div>
-		<!-- /footer -->
-	</body>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title><%= current_account.name %></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="en-us" />
+	<meta name="robots" content="all" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<%= stylesheet_link_tag 'screen' %>
+	<%= stylesheet_link_tag 'modals' %>
+	<%= stylesheet_link_tag 'battle_bar' %>
+	<%= stylesheet_link_tag 'accounts' %>
+	<%= javascript_include_tag :defaults, 'lowpro.jquery', 'jquery.timeago', 'jquery.metadata', 'jquery.livequery', 'jquery.maskedinput', 'jquery.example', 'jquery.autotab', 'global', 'bmodal' %>
+	<%= yield(:head) %>
+	<link rel="Shortcut Icon" href="/favicon.ico?0909050105" type="image/x-icon" />
+	
+</head>
+<body id="accounts">
+<%= yield(:modals) %>	
+
+<div id="system_msg">
+	<div id="system_msg_inner">
+		<a id="system_msg_close" href="">X</a>
+		<p>We've made an update on how the participants page works.</p>
+		<a class="system_read_more" href="">Read More</a>
+	</div>
+</div><!-- / system_msg -->
+
+<%= render :partial => "layouts/battle_bar" %>
+	  
+<div id="wrapper">
+	
+	<div id="acct_nav" class="clear">
+		<ul class="clear">
+			<li class="beta"><a title="" href="/preview/accounts/settings/">Billing</a></li>
+			<% if current_account.admin == current_user %>
+			  <li><%= link_to "Account", billing_account_path %></li>
+			  <li><%= link_to "Settings", settings_path %></li>
+			<% end %>
+			<li id="feedback"><a class="feedback" title="" href="/preview/accounts/help/">Feedback</a></li>
+		</ul>
+	</div><!-- / acct_nav -->
+
+<div id="header">
+  
+	<h1>
+	  <% link_to root_path do %>
+	    <% if @tournament %><span id="back_to_dash">Back to Dashboard</span><% end %>
+	    <%= current_account.try(:name) || "Host Name" %>
+	  <% end %>
+	</h1><!-- / logo -->
+	<h2 id="page_title"><%= @tournament.try(:name) || '' %></h2>
+	<div class="clear"></div>
+	<%= yield(:tournament_nav) %>
+	<div class="clear"></div>
+</div><!-- / header -->
+
+<div id="content-wrapper">
+  <div id="content" class="clear">	
+    <%= flash_notices %>
+    <%= yield %>
+  </div>
+</div><!-- / content-wrapper -->
+
+</div><!-- / wrapper -->
+<div id="footer">
+	<div class="inner_footer clear">
+	<div id="meta_copy">
+	<div class="clear"><a id="managed_by" href="http://www.thebattlecenter.com">Managed by The Battle Center</a></div>
+	<p>&copy; 2008-2009 A Service of <a href="http://www.thebattlebegins.com">The Battle Begins LLC</a></p>
+	</div>
+	
+	<div class="footer_inner">
+		<div class="beta" id="support_info">
+			<h2>Support</h2>
+			<ul>
+				<li><a href="">FAQ</a></li>
+				<li><a class="feedback" href="">Help</a></li>
+			</ul>
+		</div><!-- / support_info -->
+		<div class="beta" id="gen_info">
+			<h2>General</h2>
+			<ul>
+				<li><a href="">Blog</a></li>
+				<li><a href="">BattleID</a></li>
+			</ul>
+		</div><!-- / gen_info -->
+		<div class="beta" id="gen_info">
+	 		<h2>Legal</h2>
+	 		<ul>
+	 			<li><a href="">Privacy Policy</a></li>
+	 			<li><a href="">Terms of Service</a></li>
+	 		</ul>
+		</div><!-- / gen_info -->
+	</div><!-- / footer_inner -->
+	</div><!-- / clear -->
+</div><!-- / footer -->
+</body>
 </html>

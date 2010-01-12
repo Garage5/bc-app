@@ -1,4 +1,10 @@
-<h1><%= @page_title = 'View / Change Billing Information' %></h1>
+<div id="maincol">
+	<div class="col">
+	<div class="pod tab-pod">
+  	<div class="hd">
+  	 <h2><%= @page_title = 'View / Change Billing Information' %></h2>
+  	</div>
+  	<div class="bd">
 
 <% if @subscription.state == 'trial' %>
   <% if @subscription.next_renewal_at > Time.now %>
@@ -37,3 +43,7 @@
     <%= submit_or_cancel '/account', 'Update billing information' %>
   <% end %>
 <% end %>
+</div><!-- / bd -->
+</div><!-- / pod -->
+</div><!-- / col -->
+</div><!-- / main-col -->
