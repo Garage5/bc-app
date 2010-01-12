@@ -70,7 +70,7 @@ class Tournament < ActiveRecord::Base
       return self
     end
     
-    Tournament.transaction do      
+    Tournament.transaction do
       self.slot_count = calculate_slot_count(participants.size)
       byed = []
       num_byes = slot_count - participants.size
@@ -116,9 +116,13 @@ class Tournament < ActiveRecord::Base
       #   end
       # end
       
-      self.started = true
+      self.state = 'started'
       save
     end # end transaction
+  end
+
+  def started?
+    state == 'started'
   end
   
   def calculate_slot_count(n)
