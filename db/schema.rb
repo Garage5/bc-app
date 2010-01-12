@@ -240,7 +240,7 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.text     "other_prizes"
     t.boolean  "is_template",             :default => false
     t.integer  "account_id"
-    t.boolean  "started",                 :default => false
+    t.boolean  "state",                   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
