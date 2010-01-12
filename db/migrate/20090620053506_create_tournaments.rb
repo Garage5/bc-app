@@ -23,7 +23,7 @@ class CreateTournaments < ActiveRecord::Migration
       
       t.boolean   :is_template, :default => false
       t.integer   :account_id
-      t.boolean   :state, :default => 'active'
+      t.string    :state, :default => 'active'
       t.timestamps
     end
   end
