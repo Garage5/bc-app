@@ -139,6 +139,7 @@ class AccountsController < ApplicationController
     else
       @plans = SubscriptionPlan.find(:all, :conditions => ['id <> ?', @subscription.subscription_plan_id], :order => 'amount desc').collect {|p| p.discount = @subscription.discount; p }
     end
+    render :layout => 'application'
   end
   
   # Handle the redirect return from PayPal when changing plans
