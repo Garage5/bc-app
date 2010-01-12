@@ -83,6 +83,7 @@ class AccountsController < ApplicationController
         end
       end
     end
+    render :layout => 'application'
   end
   
   # Handle the redirect return from PayPal
