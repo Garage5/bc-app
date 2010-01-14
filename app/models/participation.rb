@@ -1,6 +1,6 @@
 class Participation < ActiveRecord::Base
   belongs_to :participant, :class_name => 'User'
-  belongs_to :tournament, :dependent => :destroy
+  belongs_to :tournament
   belongs_to :account
   
   validates_uniqueness_of :participant_id, :scope => :tournament_id
