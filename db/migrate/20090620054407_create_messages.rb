@@ -10,9 +10,12 @@ class CreateMessages < ActiveRecord::Migration
       
       t.timestamps
     end
+    
+    add_index :messages, :tournament_id
   end
 
   def self.down
+    remove_index :messages, :tournament_id
     drop_table :messages
   end
 end

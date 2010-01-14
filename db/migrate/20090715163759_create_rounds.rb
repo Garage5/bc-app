@@ -7,9 +7,12 @@ class CreateRounds < ActiveRecord::Migration
       t.integer :position
       t.timestamps
     end
+    
+    add_index :rounds, :tournament_id
   end
   
   def self.down
+    remove_index :rounds, :tournament_id
     drop_table :rounds
   end
 end

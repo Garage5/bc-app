@@ -6,9 +6,12 @@ class CreateParticipations < ActiveRecord::Migration
       t.string  :state, :default => 'pending'
       t.timestamps
     end
+    
+    add_index :participations, :tournament_id
   end
   
   def self.down
+    remove_index :participations, :tournament_id
     drop_table :participations
   end
 end

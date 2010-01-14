@@ -10,9 +10,14 @@ class CreateMatches < ActiveRecord::Migration
       t.string  :status, :default => 'TBD'
       t.timestamps
     end
+    
+    add_index :matches, :tournament_id
+    add_index :matches, :round_id
   end
   
   def self.down
+    remove_index :matches, :round_id
+    remove_index :matches, :tournament_id
     drop_table :matches
   end
 end

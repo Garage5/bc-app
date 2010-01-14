@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.datetime "updated_at"
   end
 
+  add_index "attachments", ["attachable_id", "attachable_type"], :name => "index_attachments_on_attachable_id_and_attachable_type"
+
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.string   "commentable_type"
@@ -49,12 +51,16 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
+
   create_table "events", :force => true do |t|
     t.string   "event_type"
     t.integer  "tournament_id"
     t.datetime "created_at"
     t.text     "data"
   end
+
+  add_index "events", ["tournament_id"], :name => "index_events_on_tournament_id"
 
   create_table "instances", :force => true do |t|
     t.string   "name"
@@ -80,6 +86,9 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.datetime "updated_at"
   end
 
+  add_index "matches", ["round_id"], :name => "index_matches_on_round_id"
+  add_index "matches", ["tournament_id"], :name => "index_matches_on_tournament_id"
+
   create_table "messages", :force => true do |t|
     t.string   "subject"
     t.text     "body"
@@ -91,6 +100,8 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.datetime "updated_at"
     t.boolean  "hosts_only",      :default => false, :null => false
   end
+
+  add_index "messages", ["tournament_id"], :name => "index_messages_on_tournament_id"
 
   create_table "messages_subscribers", :id => false, :force => true do |t|
     t.integer "message_id",    :null => false
@@ -104,6 +115,8 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "participations", ["tournament_id"], :name => "index_participations_on_tournament_id"
 
   create_table "password_resets", :force => true do |t|
     t.string   "email"
@@ -122,6 +135,8 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.datetime "updated_at"
   end
 
+  add_index "rounds", ["tournament_id"], :name => "index_rounds_on_tournament_id"
+
   create_table "slots", :force => true do |t|
     t.integer "player_id"
     t.string  "player_type"
@@ -132,6 +147,8 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.string  "status"
     t.boolean "can_revert",    :default => true
   end
+
+  add_index "slots", ["match_id"], :name => "index_slots_on_match_id"
 
   create_table "subscription_affiliates", :force => true do |t|
     t.string   "name"
@@ -244,6 +261,8 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tournaments", ["account_id"], :name => "index_tournaments_on_account_id"
 
   create_table "users", :force => true do |t|
     t.string   "login",                                 :null => false

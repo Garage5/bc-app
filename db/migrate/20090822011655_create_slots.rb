@@ -10,9 +10,12 @@ class CreateSlots < ActiveRecord::Migration
       t.string  :status
       t.boolean :can_revert, :default => true
     end
+    
+    add_index :slots, :match_id
   end
 
   def self.down
+    remove_index :slots, :match_id
     drop_table :slots
   end
 end

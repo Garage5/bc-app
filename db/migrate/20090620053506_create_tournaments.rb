@@ -26,9 +26,12 @@ class CreateTournaments < ActiveRecord::Migration
       t.string    :state, :default => 'active'
       t.timestamps
     end
+    
+    add_index :tournaments, :account_id
   end
 
   def self.down
+    remove_index :tournaments, :account_id
     drop_table :tournaments
   end
 end

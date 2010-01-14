@@ -11,9 +11,12 @@ class CreateAttachments < ActiveRecord::Migration
       t.integer   :uploader_id
       t.timestamps
     end
+    
+    add_index :attachments, [:attachable_id, :attachable_type]
   end
   
   def self.down
+    remove_index :attachments, [:attachable_id, :attachable_type]
     drop_table :attachments
   end
 end

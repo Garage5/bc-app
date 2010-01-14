@@ -6,9 +6,12 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :created_at
       t.text     :data
     end
+    
+    add_index :events, :tournament_id
   end
 
   def self.down
+    remove_index :events, :tournament_id
     drop_table :events
   end
 end
