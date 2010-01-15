@@ -48,7 +48,7 @@ body#settings #account_url h2 {
 }
 
 body#settings #account_url ul li#account_url_input {
-	margin: 1px 0 0 0;
+  margin: 2px 0 0 0;
 }
 
 body#settings #your_site_name {

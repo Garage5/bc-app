@@ -40,6 +40,7 @@ class AccountsController < ApplicationController
     #   redirect_to root_url(:subdomain => account.subdomain)
     # end
     # render :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
+    render :layout => 'accounts'
   end
   
   def create
@@ -58,6 +59,7 @@ class AccountsController < ApplicationController
       redirect_to :action => 'thanks'
     else
       render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
+      render :layout => 'accounts'
     end
   end
   

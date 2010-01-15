@@ -1,0 +1,193 @@
+#beta_terms {
+	margin: 0 0 0 5px;
+}
+
+body#signup #wrapper {
+	min-width: 750px !important;
+	width: 750px !important;
+	background: #FFF;
+	color: #000;
+	margin: 5% auto;
+	padding: 15px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+body#signup ul {
+	padding: 10px 10px 0 10px;
+	background: #dbeaf1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+body#signup ul.section {
+	margin: 0 0 15px 0;
+}
+
+body#signup ul li.header {
+	border-bottom: 0;
+}
+
+body#signup ul li.header h1 {
+	color: #008ad1;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+body#signup ul li.header p {
+	color: #426a7f;
+	margin: 5px 0 0 0;
+	font-size: 15px;
+}
+
+body#signup ul li.header img {
+	float: left;
+	margin: 0 5px 0 0;
+}
+
+body#signup ul li {
+	padding: 8px 8px 0 8px;
+	border-bottom: 1px #b4c0c5 solid;
+}
+
+body#signup ul li.last {
+	border: 0;
+}
+
+body#signup ul li label {
+	color: #2a566d;
+	display: block;
+	margin: 12px 10px 0 0;
+	font-weight: bold;
+	float: left;
+	width: 125px;
+	text-align: right;
+}
+
+body#signup ul li.dropdown label {
+	margin: 3px 10px 0 0;
+}
+
+body#signup ul li.dropdown {
+	padding: 8px;
+}
+
+body#signup ul li input {
+	width: 562px;
+	font-size: 16px;
+	padding: 7px;
+	height: 20px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background: #FFF url(/images/signup_input_bg.gif) 0 0 repeat-x;
+	border: 1px #8ba6b1 solid;
+}
+
+body#signup ul li input:focus {
+	border-color: #39acdb;
+}
+
+body#signup ul li#account_url input {
+	width: 253px;
+	background: #FFF url(/images/signup_account_url_input_bg.png) top left no-repeat;
+	padding: 7px 7px 7px 56px;
+	font-weight: bold;
+	font-size: 15px;
+	color: #2a566d;
+	margin-right: 10px;
+}
+
+body#signup ul li#account_url select {
+	margin: 0 0 0 5px;
+}
+
+body#signup ul li#account_url em {
+	font-size: 18px;
+	font-weight: bold;
+	color: #22445a;
+}
+
+body#signup ul li.expiration_input {
+	width: 300px;
+	float: left;
+	border: 0;
+	
+}
+
+body#signup ul li#expiration_input label {
+	width: 50px;
+}
+
+body#signup ul li#cvv_input {
+	border: 0;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+body#signup ul li#cvv_input label {
+	width: 50px;
+}
+
+body#signup ul li#cvv_input input {
+	width: 50px;
+}
+
+body#signup ul li#cvv_input span {
+	padding: 0 0 0 5px;
+	font-size: 12px;
+}
+
+body#signup ul li.checkbox {
+	padding: 12px 8px 12px 8px;
+}
+
+body#signup ul li.checkbox label {
+	float: none;
+	margin: 0 0 0 5px;
+	padding: 0;
+	display: inline;
+	text-align: left;
+}
+
+body#signup ul li.checkbox input {
+	width: auto;
+	padding: 0;
+	margin: 0;
+	height: auto;
+}
+
+body#signup ul li.confirm_plan, body#signup ul li.confirm_terms {
+	padding: 14px;
+}
+
+body#signup ul li.confirm_plan h3, body#signup ul li.confirm_terms h3 {
+	color: #426a7f;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+}
+
+body#signup ul li.confirm_plan h4 {
+	color: #00945b;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+}
+
+body#signup ul li.confirm_plan p, body#signup ul li.confirm_terms p {
+	color: #426a7f;
+	font-size: 14px;
+}
+
+body#signup ul li.confirm_terms p {
+	margin: 0 0 15px 0;
+}
+
+/* 
+---------------------------------------------------------------------------------------------
+------------------------------------------- THE END -----------------------------------------
+---------------------------------------------------------------------------------------------
+----------------------------- Copyright 2009-FOREVER Matt Johnson ---------------------------
+---------------------------------------------------------------------------------------------
+*/

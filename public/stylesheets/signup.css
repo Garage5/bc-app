@@ -1,193 +1,253 @@
-#beta_terms {
-	margin: 0 0 0 5px;
+body#signup {
+  background: #1a1c1d;
+  color: #818e96;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 
-body#signup #wrapper {
-	min-width: 750px !important;
-	width: 750px !important;
-	background: #FFF;
-	color: #000;
-	margin: 5% auto;
-	padding: 15px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
+body#signup a, a:visited {
+  color: #f0ff00;
+  text-decoration: none;
 }
 
-body#signup ul {
-	padding: 10px 10px 0 10px;
-	background: #dbeaf1;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+body#signup a:hover {
+  text-decoration: underline;
 }
 
-body#signup ul.section {
-	margin: 0 0 15px 0;
+body.secondary #header {
+  height: 165px;
+  border-bottom: 1px #000 solid;
 }
 
-body#signup ul li.header {
-	border-bottom: 0;
+body#signup #header {
+  background: transparent url(../images/tbc_hdr_bg.png) top center no-repeat;
+  height: 509px;
 }
 
-body#signup ul li.header h1 {
-	color: #008ad1;
-	font-size: 25px;
-	font-weight: bold;
+body#signup #header_wrapper {
+  width: 1100px;
+  margin: 0 auto;
 }
 
-body#signup ul li.header p {
-	color: #426a7f;
-	margin: 5px 0 0 0;
-	font-size: 15px;
+body#signup #header h1 {
+  margin: 0 auto;
+  position: relative;
+  top: 50px;
+  width: 342px;
+  height: 63px;
+  background: transparent url(../images/tbc_logo.png) 0 0 no-repeat;
+  display: block;
+  text-indent: -9999px;
 }
 
-body#signup ul li.header img {
-	float: left;
-	margin: 0 5px 0 0;
+/* BattleCenter Signup */
+
+body#signup #content {
+  border-top: 1px #383c40 solid;
 }
 
-body#signup ul li {
-	padding: 8px 8px 0 8px;
-	border-bottom: 1px #b4c0c5 solid;
+body#signup #content_wrapper {
+  margin: 20px auto;
+  width: 800px;
 }
 
-body#signup ul li.last {
-	border: 0;
+body#signup #signup_wrap {
+  background: #1a1d1f;
+  border: 1px #25292c solid;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.30) 0 0 15px;
+	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.30);
 }
 
-body#signup ul li label {
-	color: #2a566d;
-	display: block;
-	margin: 12px 10px 0 0;
-	font-weight: bold;
-	float: left;
-	width: 125px;
-	text-align: right;
+body#signup #signup_wrap .hd {
+  background: #131617;
+  border-bottom: 1px #25292c solid;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-radius-top-left: 10px;
+  -webkit-border-radius-top-right: 10px;
+  padding: 20px;
 }
 
-body#signup ul li.dropdown label {
-	margin: 3px 10px 0 0;
+body#signup #signup_wrap .hd h1 {
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #FFF;
 }
 
-body#signup ul li.dropdown {
-	padding: 8px;
+body#signup .signup_options {
+  padding: 20px;
+  margin: 0 auto;
 }
 
-body#signup ul li input {
-	width: 562px;
-	font-size: 16px;
-	padding: 7px;
-	height: 20px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	background: #FFF url(/images/signup_input_bg.gif) 0 0 repeat-x;
-	border: 1px #8ba6b1 solid;
+body#signup .step1 {
+  width: 380px;
 }
 
-body#signup ul li input:focus {
-	border-color: #39acdb;
+body#signup .step2 {
+  width: 490px;
 }
 
-body#signup ul li#account_url input {
-	width: 253px;
-	background: #FFF url(/images/signup_account_url_input_bg.png) top left no-repeat;
-	padding: 7px 7px 7px 56px;
-	font-weight: bold;
-	font-size: 15px;
-	color: #2a566d;
-	margin-right: 10px;
+body#signup .signup_options h1 {
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  text-align: center;
 }
 
-body#signup ul li#account_url select {
-	margin: 0 0 0 5px;
+body#signup .signup_options a.options {
+  display: block;
+  float: left;
+  padding: 40px;
+  background: #131617;
+  font-size: 14px;
+  color: #818e96;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  margin: 0 5px 0 5px;
+  text-align: center;
+  text-decoration: none;
 }
 
-body#signup ul li#account_url em {
-	font-size: 18px;
-	font-weight: bold;
-	color: #22445a;
+body#signup .signup_options a.options span {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: #f0ff00;
+  display: block;
+  padding: 0 0 7px 0;
 }
 
-body#signup ul li.expiration_input {
-	width: 300px;
-	float: left;
-	border: 0;
-	
+body#signup .signup_options a.options:hover {
+  text-decoration: none;
+  color: #5f696f;
+  background: #000;
 }
 
-body#signup ul li#expiration_input label {
-	width: 50px;
+body#signup .signup_options a.options:hover span {
+  text-decoration: underline;
 }
 
-body#signup ul li#cvv_input {
-	border: 0;
-	float: left;
-	padding: 0;
-	margin: 0;
+body#signup #signup_wrap .section {
+  margin: 20px;
+  padding: 20px;
+  background: #131617;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
 }
 
-body#signup ul li#cvv_input label {
-	width: 50px;
+body#signup #signup_wrap .section h1 {
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #FFF;
+  margin: 0 0 20px 0;
 }
 
-body#signup ul li#cvv_input input {
-	width: 50px;
+body#signup #signup_wrap .section p {
+  margin: 5px 0 5px 0;
 }
 
-body#signup ul li#cvv_input span {
-	padding: 0 0 0 5px;
-	font-size: 12px;
+body#signup #signup_wrap .section p span {
+  font-size: 12px;
 }
 
-body#signup ul li.checkbox {
-	padding: 12px 8px 12px 8px;
+body#signup #signup_wrap .section label {
+  width: 175px;
+  text-align: right;
+  display: block;
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #FFF;
+  letter-spacing: -0.7px;
+  position: relative;
+  top: 16px;
 }
 
-body#signup ul li.checkbox label {
-	float: none;
-	margin: 0 0 0 5px;
-	padding: 0;
-	display: inline;
-	text-align: left;
+body#signup #signup_wrap .section input {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 0;
+  background: #FFF;
+  padding: 12px;
+  font-size: 14px;
+  width: 300px;
+  margin: 0 5px 0 5px;
 }
 
-body#signup ul li.checkbox input {
-	width: auto;
-	padding: 0;
-	margin: 0;
-	height: auto;
+body#signup #signup_wrap .section p.dropdown {
+  height: 35px;
 }
 
-body#signup ul li.confirm_plan, body#signup ul li.confirm_terms {
-	padding: 14px;
+body#signup #signup_wrap .section p.dropdown select {
+  margin: 7px 0 0 10px;
+  padding: 3px;
 }
 
-body#signup ul li.confirm_plan h3, body#signup ul li.confirm_terms h3 {
-	color: #426a7f;
-	font-size: 14px;
-	font-weight: bold;
-	margin: 0 0 5px 0;
+body#signup #signup_wrap .section fieldset {
+  margin: 0 0 25px 0;
+  border-top: 1px #2a2f32 solid;
+  padding: 0 0 0 15px;
 }
 
-body#signup ul li.confirm_plan h4 {
-	color: #00945b;
-	font-size: 20px;
-	font-weight: bold;
-	margin: 0 0 5px 0;
+body#signup #signup_wrap .section fieldset legend {
+  padding: 7px;
 }
 
-body#signup ul li.confirm_plan p, body#signup ul li.confirm_terms p {
-	color: #426a7f;
-	font-size: 14px;
+body#signup #signup_wrap .section fieldset.last {
+  margin: 0;
 }
 
-body#signup ul li.confirm_terms p {
-	margin: 0 0 15px 0;
+body#signup #signup_wrap #signup_finish {
+  padding: 0 25px 20px 25px;
 }
 
-/* 
----------------------------------------------------------------------------------------------
-------------------------------------------- THE END -----------------------------------------
----------------------------------------------------------------------------------------------
------------------------------ Copyright 2009-FOREVER Matt Johnson ---------------------------
----------------------------------------------------------------------------------------------
-*/
+body#signup #signup_wrap #signup_finish button {
+  background: #64ae00;
+  border: 0;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #FFF;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  text-shadow: -1px -1px 0 #247a00;
+  margin: 15px 0 0 0;
+}
+
+body#signup #signup_wrap #signup_finish button:hover {
+  background: #4e8700;
+}
+
+div#thanks h2 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #f0ff00;
+  margin: 0 0 15px 0;
+}
+
+div#thanks p {
+  color: #FFF;
+  font-size: 16px;
+}
+
+div#thanks p a {
+  background: #f0ff00;
+  color: #000;
+  display: inline-block;
+  padding: 3px 6px 3px 6px;
+  font-weight: bold;
+}
+
+body#signup #footer {
+  margin: 15px 0 0 0;
+  font-size: 13px;
+}
+  

@@ -42,6 +42,50 @@ a:hover {
 	-webkit-border-radius: 4px;
 }
 
+a, a:visited {
+	color: #017ecc; /* blue */
+}
+
+#header {
+	background: #017ecc; /* blue */
+}
+
+#nav ul li a {
+	background: #0197d6; /* blue */
+}
+
+#nav ul li a:hover {
+	background: #0071a0; /* dark blue */
+}
+
+.tnav a.icon-add {
+	background-color: #017ecc; /* blue */
+	border: 1px #003951 solid; /* dark blue */
+}
+
+#subnav ul li a, #right_subnav ul li a {
+	color: #FFF;
+	background: #005e98;
+	background: #000;
+}
+
+#subnav ul li a:hover, #right_subnav ul li a:hover {
+	background: #003951;
+}
+
+ul#right_subnav li a:hover {
+	background: #0197d6; /* blue */
+	background: #003951; /* dark blue */
+}
+
+input:focus, textarea:focus {
+	border-color: #0197d6; /* blue */
+}
+
+.modal .modal_hd {
+	background: #017ecc; /* blue */
+}
+
 /* 
 Headings
 -------------------------------------------------------------------------------------

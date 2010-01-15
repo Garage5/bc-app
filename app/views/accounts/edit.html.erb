@@ -5,24 +5,6 @@
 
 <% title "Settings" %>
 
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    
-    $('a[href="#change_url"]').click(function(event){
-      event.preventDefault();
-      $('#account_url_input').slideToggle(function(){
-        subdomain = $('#account_subdomain')
-        if (subdomain.attr('disabled') == true){
-          subdomain.removeAttr('disabled')
-        } else {
-          subdomain.attr('disabled', true)
-        }
-      })
-    })
-    
-  })
-</script>
-
 <div id="maincol">
 <div class="col">
 	<div class="pod" id="settings">
@@ -40,7 +22,7 @@
 				http://starfeeder.tbblive.com
 			</li>
 			<li id="account_url_input">
-				http:// <%= f.text_field :subdomain, :disabled => true %> .tbblive.com
+				http:// <%= f.text_field :subdomain  %> .tbblive.com
 				<button type="submit" class="btn"><span class="icon"></span><span>Save</span></button>
 			</li>
   	</ul>

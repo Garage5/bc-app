@@ -7,11 +7,9 @@ SCREEN Stylesheet --------------------------------------------------------------
 */
 
 @import url(reset.css);
-@import url(themes.css);
 @import url(global.css);
 @import url(forms.css);
 @import url(login.css);
-@import url(signup.css);
 @import url(new_tournament.css);
 @import url(tournament_rules.css);
 
