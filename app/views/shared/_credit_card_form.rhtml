@@ -27,41 +27,73 @@
   <% end %>
 
 
-<fieldset>
+<fieldset id="pay_cc">
   <% if @subscription %>
-    <h2><input type="radio" name="paypal" value=" " <%= 'checked="checked"' unless @subscription.paypal? %>> Pay with a credit card</h2>
+  <div class="clear">
+    <h2><input type="radio" name="paypal" id="creditcard" value=" " <%= 'checked="checked"' unless @subscription.paypal? %>> <label for="creditcard">Pay with a credit card</label></h2>
+    <span id="pay_cc_insure"> - Required to activate your plan.</span>
+  </div>
   <% end %>
-  <label>Name on Card</label>
-  <%= text_field :creditcard, :first_name, :size => 20 %>
-  <%= text_field :creditcard, :last_name, :size => 20 %>
-  
-  <label>Card Number</label>
-  <%= text_field :creditcard, :number, :size => 20 %>
-  <label>Type</label>
-  <%= select :creditcard, :type, [['Visa', 'visa'], ['MasterCard', 'master'], ['American Express', 'american_express']] %>
-  <label>Expiration</label>
-  <%= select :creditcard, :month, (1 .. 12) %>
-  <%= select :creditcard, :year, (Time.now.year .. 10.years.from_now.year) %>
-  <label>CVV</label>
-  <%= text_field :creditcard, :verification_value, :size => 4 %>
-  <%= image_tag('cvv.gif', :size => '51x31', :align => 'top') %>
-  <label>Address</label>
-  <%= text_field :address, :address1 %><br/>
-  <%= text_field :address, :address2 %>
-  <label>City</label>
-  <%= text_field :address, :city %>
-  <label>State</label>
-  <%= text_field :address, :state %>
-  <label>Zip</label>
-  <%= text_field :address, :zip %>
-  <label>Country</label>
-  <%= country_select :address, :country, ['United States', 'Canada'] %>
-  <label>Phone</label>
-  <%= text_field :address ,:phone %>
+  <div id="inner_fieldset">
+    <div>
+      <label>Name on Card</label>
+      <%= text_field :creditcard, :first_name, :size => 20 %>
+      <%= text_field :creditcard, :last_name, :size => 20 %>
+    </div>
+    
+    <div>
+      <span>
+        <label>Card Number</label>
+        <%= text_field :creditcard, :number, :size => 20 %>
+      </span>
+      <span>
+        <label>Card Type</label>
+        <%= select :creditcard, :type, [['Visa', 'visa'], ['MasterCard', 'master'], ['American Express', 'american_express']] %>
+      </span>
+      <span>
+        <label>Expiration</label>
+        <%= select :creditcard, :month, (1 .. 12) %>
+        <%= select :creditcard, :year, (Time.now.year .. 10.years.from_now.year) %>
+      </span>
+      <span>
+        <label>CVV</label>
+        <%= text_field :creditcard, :verification_value, :size => 4 %>
+        <%= image_tag('cvv.gif', :size => '51x31', :align => 'top') %>
+      </span>
+    </div>
+    <div>
+      <label>Address</label>
+      <%= text_field :address, :address1 %>
+      <%= text_field :address, :address2 %>
+    </div>
+    <div>
+      <span>
+        <label>City</label>
+        <%= text_field :address, :city %>
+      </span>
+      <span>
+        <label>State</label>
+        <%= text_field :address, :state %>
+      </span>
+      <span>
+        <label>Zip</label>
+        <%= text_field :address, :zip %>
+      </span>
+    </div>
+    <div style="padding-bottom: 10px;">
+      <label>Country</label>
+      <%= country_select :address, :country, ['United States', 'Canada'] %>
+    </div>
+    <div>
+      <label>Phone</label>
+      <%= text_field :address ,:phone %>
+    </div>
+    
+  </div><!-- / inner_fieldset -->
 </fieldset>
 
 <% if @subscription %>
   <fieldset>
-    <h2><input type="radio" name="paypal" value="true" <%= 'checked="checked"' if @subscription.paypal? %>> Pay with PayPal </h2>
+    <h2><input type="radio" name="paypal" id="paypal" value="true" <%= 'checked="checked"' if @subscription.paypal? %>> <label for="paypal">Pay with PayPal</label></h2>
   </fieldset>
 <% end %>

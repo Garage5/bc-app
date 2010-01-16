@@ -1,3 +1,172 @@
 body#accounts #maincol {
 	width: 100.5%;
 }
+
+body#accounts div#current_plan {
+  float: left;
+}
+
+body#accounts div#current_plan h2 {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  color: #b1b9c0;
+  text-transform: uppercase;
+  background: #383d41;
+  padding: 10px 10px 0 10px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+}
+
+body#accounts div#current_plan p {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #b1b9c0;
+  background: #383d41;
+  -moz-border-radius-bottomright: 5px;
+  padding: 10px;
+}
+
+body#accounts div#current_plan p em {
+  color: #FFF;
+}
+
+body#accounts div#current_plan a {
+  float: left;
+  display: block;
+  padding: 6px 10px 8px 10px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  background: #26292c;
+  border-top: 1px #4d5358 solid;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+}
+
+body#accounts div#current_plan a:hover {
+  color: #b1b9c0;
+  text-decoration: noneΩ;
+}
+
+body#accounts div#billing_info ul {
+  margin: 0 0 0 10px;
+  float: left;
+}
+
+body#accounts div#billing_info ul li {
+  float: left;
+  border-right: 1px #CCC solid;
+  padding: 10px 15px 10px 15px;
+}
+
+body#accounts div#billing_info ul li.last {
+  border: 0;
+  padding: 10px 0 10px 15px;
+}
+
+body#accounts div#billing_info ul li h3 {
+  font-weight: normal;
+  letter-spacing: -0.5px;
+  font-size: 16px;
+  color: #888;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+body#accounts div#billing_info ul li span {
+  color: #777;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+body#accounts div#billing_form {
+  margin: 15px 0 0 0;
+}
+
+body#accounts div#billing_form h1 {
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  color: #333;
+  border-bottom: 1px #DDD solid;
+  margin: 20px 0 15px 0;
+}
+
+body#accounts div#billing_form fieldset#pay_cc span#pay_cc_insure {
+  color: #777;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: 0;
+  display: block;
+  float: left;
+  margin: 9px 0 0 12px;
+}
+
+body#accounts div#billing_form fieldset#pay_cc {
+  margin: 0 0 20px 0;
+}
+
+body#accounts div#billing_form fieldset#pay_cc h2 {
+  display: block;
+  background: #383d41;
+  color: #FFF;
+  font-weight: bold;
+  float: left;
+  margin: 0;
+  padding: 10px 10px 2px 10px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+}
+
+body#accounts div#billing_form fieldset#pay_cc h2 label {
+  color: #FFF;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body#accounts div#billing_form fieldset#pay_cc #inner_fieldset {
+  background: #383d41;
+  padding: 10px 10px 2px 10px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+}
+
+body#accounts div#billing_form fieldset#pay_cc #inner_fieldset label {
+  color: #FFF;
+}
+
+body#accounts div#billing_form fieldset#pay_cc #inner_fieldset input {
+  border: 0 !important;
+}
+
+body#accounts div#billing_form fieldset#pay_cc #inner_fieldset div {
+  background: #26292c;
+  padding: 10px 10px 0 10px;
+  margin: 5px 0 5px 0;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  color: #FFF;
+}
+
+body#accounts div#billing_form fieldset#pay_cc #inner_fieldset div span {
+  padding: 0 15px 0 0;
+}
+
+body#accounts div#billing_form div#billing_submit input {
+  background: #529100;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.5px;
+  border: 0;
+  padding: 10px;
+}
+
+body#accounts div#billing_form div#billing_submit input:hover {
+  cursor: pointer;
+  background: #5ba100;
+}

@@ -14,14 +14,14 @@ body#signup a:hover {
   text-decoration: underline;
 }
 
-body.secondary #header {
-  height: 165px;
-  border-bottom: 1px #000 solid;
-}
-
 body#signup #header {
   background: transparent url(../images/tbc_hdr_bg.png) top center no-repeat;
   height: 509px;
+}
+
+body.secondary #header {
+  height: 165px !important;
+  border-bottom: 1px #000 solid;
 }
 
 body#signup #header_wrapper {
