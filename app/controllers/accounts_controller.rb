@@ -58,8 +58,7 @@ class AccountsController < ApplicationController
       flash[:domain] = @account.subdomain
       redirect_to :action => 'thanks'
     else
-      render :action => 'new'#, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
-      render :layout => 'accounts'
+      render :action => 'new', :layout => 'accounts' #, :layout => 'public' # Uncomment if your "public" site has a different layout than the one used for logged-in users
     end
   end
   
@@ -120,7 +119,7 @@ class AccountsController < ApplicationController
           else
             flash[:error] = "Error deleting PayPal profile: #{@subscription.errors.full_messages.to_sentence}"
           end
-          redirect_to :action => "plan" and return
+          redirect_to :action => "plan", :layout => 'application' and return
         else
           if redirect_url = @subscription.start_paypal(plan_paypal_account_url(:plan_id => params[:plan_id]), plan_account_url)
             redirect_to redirect_url and return
@@ -137,11 +136,11 @@ class AccountsController < ApplicationController
       else
         flash[:error] = "Error updating your plan: #{@subscription.errors.full_messages.to_sentence}"
       end
-      redirect_to :action => "plan"
+      redirect_to :action => "plan", :layout => 'application'
     else
       @plans = SubscriptionPlan.find(:all, :conditions => ['id <> ?', @subscription.subscription_plan_id], :order => 'amount desc').collect {|p| p.discount = @subscription.discount; p }
+      render :layout => 'application'
     end
-    render :layout => 'application'
   end
   
   # Handle the redirect return from PayPal when changing plans

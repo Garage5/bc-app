@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     session[:return_to] = params[:ref] if params[:ref]
-    render :layout => 'lite'
+    render :layout => 'accounts'
   end
   
   def create

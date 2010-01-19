@@ -111,7 +111,9 @@ class TournamentsController < ApplicationController
   protected
   
     def check_tournament_limit
-      flash[:error] = ('You have already reached the active tournament limit for this account')
-      redirect_to root_url
+      if current_account.tournaments.count >= current_account.subscription.tournament_limit
+        flash[:error] = ('You have already reached the active tournament limit for this account')
+        redirect_to root_url
+      end
     end
 end
