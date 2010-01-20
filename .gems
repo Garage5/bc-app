@@ -8,3 +8,4 @@ subdomain-fu
 aws-s3
 paperclip
 hashie
+cancan
