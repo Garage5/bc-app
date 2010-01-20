@@ -4,16 +4,17 @@
 
 <% active ||= '' %>
 
-<% if current_user %>
-  <% if @tournament.officials.include?(current_user) && !@tournament.started? %>
-    <a id="btn_start_tournament" class="btn" href="#confirm_start_tournament" rel="modal"><span class="icon"></span><span>Start Tournament</span></a>
-  <% end %>
+
+<% if can? :start, @tournament %>
+  <a id="btn_start_tournament" class="btn" href="#confirm_start_tournament" rel="modal">
+    <span class="icon"></span><span>Start Tournament</span>
+  </a>
 <% end %>
 
-<% if current_user %>
-	<% if current_user.is_eligible_to_join?(@tournament) && !@tournament.started? %>
-		<a id="join_tournament" class="btn" href="#join_confirm" rel="modal"><span class="icon"></span><span>Join Tournament</span></a>
-	<% end %>
+<% if can? :join, @tournament %>
+	<a id="join_tournament" class="btn" href="#join_confirm" rel="modal">
+	  <span class="icon"></span><span>Join Tournament</span>
+	</a>
 <% end %>
 
 <div id="subnav">

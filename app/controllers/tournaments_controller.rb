@@ -101,6 +101,7 @@ class TournamentsController < ApplicationController
   end
 
   def start
+    unauthorized! if cannot? :start, @tournament
     if @tournament.start
       redirect_to brackets_tournament_path(@tournament)
     else

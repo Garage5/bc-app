@@ -14,7 +14,7 @@
 	  <div class="hd">
 	    <h2>Officials</h2>
 	    <ul class="tabbed clear">
-	      <% if current_user.try(:is_hosting?, current_account) %>
+	      <% if can? :add_cohost, @tournament %>
           <li class="create_team active"><a class="rc" href="#add_cohost" rel="modal">Add a Co-Host</a></li>
         <% end %>
       </ul>
@@ -96,20 +96,19 @@
 	</div>
   
   <!-- PENDING -->
-  <% if current_user && current_user.is_hosting?(current_account) && !@pending.blank? %>
+  <% if can?(:approve, Participation.new(:tournament => @tournament)) && !@pending.blank? %>
   <div class="pod tab-pod">
 	  <div class="hd">
 	    <h2>Pending Approval</h2>
 	  </div>
 	  <div class="bd clear player_list">
-	    <ul class="clear players" id="list_officialts">
+	    <ul class="clear players" id="list_officials">
         <% @pending.each do |participant| %>
           <%= render(:partial => 'participant', :locals => {:participant => participant, :show_checkbox => true}) %>
         <% end %>
 	    </ul>
     	<div class="pending_approval_btns btn_wrapper">
     	  <button class="btn" id="approve"><span class="icon"></span><span>Approve Selected</span></button>
-    	  <button class="btn" id="decline"><span class="icon"></span><span>Decline Selected</span></button>
     	</div>
 	  </div>
 	</div>

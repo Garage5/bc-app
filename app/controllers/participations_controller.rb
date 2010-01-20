@@ -24,8 +24,11 @@ class ParticipationsController < ApplicationController
   
   def add_cohost
     user = User.find(:first, :conditions => ['login = ? OR email = ?', params[:user], params[:user]])
+
+    unauthorized! if cannot?(:add_cohost, @tournament)
+
     if user
-      if user.is_hosting?(current_account)
+      if user.is_cohosting?(current_account)
         flash[:error] = "This user is already hosting or co-hosting this tournament."
       elsif user.is_participant_of?(@tournament)
         flash[:error] = "You can not add a participant as a co-host. Please remove the user from participants first."
@@ -49,6 +52,7 @@ class ParticipationsController < ApplicationController
   end
   
   def accept
+    unauthorized! if cannot? :approve, Participation.new(:tournament => @tournament)
     ids = params[:participant_ids] || []
     if ids.size > @tournament.open_slots
       flash[:error] = "Cannot accept #{ids.size} participants because there are only #{@tournament.open_slots} open slots."
@@ -64,34 +68,36 @@ class ParticipationsController < ApplicationController
     # redirect_to tournament_participants_path(@tournament)
   end
   
-  def deny
-    ids = params[:participant_ids] || []
-    ids = [params[:participant]] if params[:participant]
-    @participants = User.find(ids)
-    if !ids.blank?
-      @participants.delete_if do |user|
-        !current_user.is_hosting?(current_account) && user != current_user
-      end
-      if !@participants.blank?
-        parts = Participation.find(:all, :conditions => {:participant_id => @participants.collect{|p| p.id}, :tournament_id => @tournament.id})
-        parts.each { |p| p.destroy }
-      end
-    end
+  def deny    
+    @participation = Participation.first(:conditions => {:participant_id => params[:participant]})
+    unauthorized! if cannot? :destroy, @participation
+    @participation.destroy
+    
+    # if !ids.blank?
+    #   @participants.delete_if do |user|
+    #     !current_user.is_hosting?(current_account) && user != current_user
+    #   end
+    #   if !@participants.blank?
+    #     parts = Participation.find(:all, :conditions => {:participant_id => @participants.collect{|p| p.id}, :tournament_id => @tournament.id})
+    #     parts.each { |p| p.destroy }
+    #   end
+    # end
+    # 
     respond_to do |format|
       format.html { redirect_to tournament_participants_path(@tournament) }
       format.js { render :text => ("location.href = '#{tournament_participants_path(@tournament)}'") }
     end
   end
 
-  def update
-    @participation = Participation.find(params[:id])
-    if @participation.update_attributes(params[:participation])
-      flash[:notice] = "Successfully updated participation."
-      redirect_to root_url
-    else
-      render :action => 'edit'
-    end
-  end
+  # def update
+  #   @participation = Participation.find(params[:id])
+  #   if @participation.update_attributes(params[:participation])
+  #     flash[:notice] = "Successfully updated participation."
+  #     redirect_to root_url
+  #   else
+  #     render :action => 'edit'
+  #   end
+  # end
   
   protected
   

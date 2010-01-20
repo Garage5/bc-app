@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
   
   before_filter :http_authentication
   
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "You do not have permission to do that" #exception.message
+    redirect_to root_url
+  end
+  
   def http_authentication
     authenticate_or_request_with_http_basic do |user, pass|
       user == 'dev' && pass == 'tbbd3v'
