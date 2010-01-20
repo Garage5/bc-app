@@ -1,7 +1,7 @@
 class ParticipationsController < ApplicationController
   before_filter :find_tournament
   before_filter :login_required, :except => [:index]
-  before_filter :must_be_host, :except => [:index, :create, :deny]
+  before_filter :must_be_host, :except => [:index, :create, :deny, :accept]
   before_filter :tournament_not_started, :only => [:create, :accept, :deny]
   
   def index
@@ -28,7 +28,7 @@ class ParticipationsController < ApplicationController
     unauthorized! if cannot?(:add_cohost, @tournament)
 
     if user
-      if user.is_cohosting?(current_account)
+      if user.is_cohosting?(@tournament)
         flash[:error] = "This user is already hosting or co-hosting this tournament."
       elsif user.is_participant_of?(@tournament)
         flash[:error] = "You can not add a participant as a co-host. Please remove the user from participants first."
