@@ -28,7 +28,7 @@
 			<%= f.label :post, "Post Body" %>
 			<%= f.text_area :body, :size => '60x15' %>
 			
-			<% if current_user.is_hosting?(current_account) %>
+			<% if can? :create, Message.new(:is_announcement => true, :hosts_only => true, :tournament => @tournament) %>
 			  <div>
 				  <%= f.check_box :is_announcement %> <%= f.label :is_announcement, "This message is an announcement", :style => 'display:inline' %>
 				  <%= f.check_box :hosts_only %> <%= f.label :hosts_only, "Private to Hosts/Co-Hosts", :style => 'display:inline' %>

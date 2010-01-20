@@ -24,7 +24,15 @@ class Ability
       end
       
       can :create, Message do |message|
-        is_participant?(user, message.tournament)
+        if message.is_announcement? || message.hosts_only?
+          is_host_or_cohost?(user, message.tournament)
+        else
+          is_participant?(user, message.tournament)
+        end
+      end
+      
+      can :view, Message do |message|
+        message.hosts_only? ? is_host_or_cohost?(user, message.tournament) : true
       end
     end
   end

@@ -9,10 +9,7 @@ class MessagesController < ApplicationController
   
   def show
     @message = Message.find(params[:id], :include => {:comments => [:attachments, :author]})
-    if @message.hosts_only? && (!current_user || !current_user.is_hosting?(current_account))
-      flash[:error] = 'You are not authorized to view this message.'
-      redirect_to tournament_messages_path(@tournament)
-    end
+    unauthorized! if cannot? :view, @message
   end
   
   def new
@@ -21,29 +18,23 @@ class MessagesController < ApplicationController
   end
   
   def create
-    if current_user.is_hosting?(current_account) || current_user.is_participant_of?(@tournament)
-      unless current_user.is_hosting?(current_account)
-        params[:message].delete(:is_announcement)
-        params[:message].delete(:hosts_only)
-      end
-      @message = @tournament.messages.build(params[:message])
-      unauthorized! if cannot? :create, @message
-      @message.attachments.each do |a| 
-        a.tournament_id = @tournament.id
-        a.uploader = current_user
-      end
-      @message.author = current_user
-      if @message.save
-        @message.subscribers.each do |subscriber|
-          Mailer.deliver_message_subscription(@message, subscriber)
-        end
-        flash[:notice] = "Successfully created message."
-        redirect_to [@tournament, @message]
-      else
-        render :action => 'new'
-      end
+    @message = @tournament.messages.build(params[:message])
+    unauthorized! if cannot? :create, @message
+
+    @message.author = current_user
+    @message.attachments.each do |a| 
+      a.tournament_id = @tournament.id
+      a.uploader = current_user
+    end
+    
+    if @message.save
+      # @message.subscribers.each do |subscriber|
+      #   Mailer.deliver_message_subscription(@message, subscriber)
+      # end
+      flash[:notice] = "Successfully created message."
+      redirect_to [@tournament, @message]
     else
-      flash[:error] = "You can't post a message to this tournament."
+      render :action => 'new'
     end
   end
   
