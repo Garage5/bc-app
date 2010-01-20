@@ -4,7 +4,7 @@ class UserSessionsController < ApplicationController
   
   def new
     @user_session = UserSession.new
-    #render :layout => 'lite'
+    render :layout => 'accounts'
   end
   
   def create
@@ -17,7 +17,7 @@ class UserSessionsController < ApplicationController
         redirect_back_or_default root_url
       end
     else
-      render :action => 'new', :layout => 'lite'
+      render :action => 'new', :layout => 'accounts'
     end
   end
   

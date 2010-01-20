@@ -16,6 +16,8 @@ body#accounts div#current_plan h2 {
   padding: 10px 10px 0 10px;
   -moz-border-radius-topleft: 5px;
   -moz-border-radius-topright: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
 }
 
 body#accounts div#current_plan p {
@@ -44,6 +46,8 @@ body#accounts div#current_plan a {
   border-top: 1px #4d5358 solid;
   -moz-border-radius-bottomleft: 5px;
   -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
 }
 
 body#accounts div#current_plan a:hover {
@@ -119,6 +123,8 @@ body#accounts div#billing_form fieldset#pay_cc h2 {
   padding: 10px 10px 2px 10px;
   -moz-border-radius-topleft: 5px;
   -moz-border-radius-topright: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
 }
 
 body#accounts div#billing_form fieldset#pay_cc h2 label {
@@ -133,6 +139,9 @@ body#accounts div#billing_form fieldset#pay_cc #inner_fieldset {
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomleft: 5px;
   -moz-border-radius-bottomright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
 }
 
 body#accounts div#billing_form fieldset#pay_cc #inner_fieldset label {

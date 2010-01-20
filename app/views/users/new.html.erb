@@ -1,36 +1,20 @@
 <body id="signup">
-<div id="wrapper">
+<div id="signup_wrap">
+  <div class="hd">
+    <h1>Create your BattleID</h1>
+  </div>
 	<% form_for @user do |f| -%>
 	  <%= hidden_field_tag :ref, params[:ref] || @ref %>
-	<ul class="section">
-		<li class="header">
-			<img src="/images/signup_icon_battleid.png" />
-			<h1>Create your BattleID</h1>
-			<p>Some info shit about this remarkable fucking idea. Fuck yeah.</p>
-		</li>
-		<li class="error_wrapper"><%= f.error_messages %></li>
-		<li>
-			<%= f.label :login, "Username" %>
-			<%= f.text_field :login %>
-		</li>
-		<li>	
-			<%= f.label :email, "Email" %>
-			<%= f.text_field :email %>
-		</li>
-		<li>	
-			<%= f.label :password, "Password" %>
-			<%= f.password_field :password %>
-		</li>
-		<li>	
-			<%= f.label :password_confirmation, "Confirm Password" %>
-			<%= f.password_field :password_confirmation %>
-		</li>
-	</ul>
-
-	<div id="beta_terms">
-		<%= f.check_box :terms_of_service, :id => 'agree_terms' %>
-		<label for="agree_terms">I Agree to the <a target="_blank" href="">Terms of Service</a>.</label>
-		<% end -%>
-	</div><!-- // beta_terms -->
-	<button class="btn" type="submit"><span class="icon"></span><span>Signup</span></button>
+	<div class="section">
+		  <div class="error_wrapper"><%= f.error_messages %></div>
+			<p><label><%= f.label :login, "Username" %></label><%= f.text_field :login %> <span>Must be at least 2,500 characters.</span></p>
+			<p><label><%= f.label :email, "Email" %></label><%= f.text_field :email %> <span>Must be a valid email address.</span></p>
+			<p><label><%= f.label :password, "Password" %></label><%= f.password_field :password %> <span>Must be at least 500 characters.</span></p>
+			<p><label><%= f.label :password_confirmation, "Confirm Password" %></label><%= f.password_field :password_confirmation %></p>
+	</div><!-- / section -->
+<% end -%>
+	<div id="signup_finish">
+    <p>By clicking Create my BattleID you agree to the <a href="http://thebattlecenter.com/terms/">Terms of Service</a> &amp; <a href="http://thebattlecenter.com/privacy/">Privacy</a>.</p>
+    <p><button>Create my BattleID</button></p>
+  </div><!-- /signup_finish -->
 </div><!-- / wrapper -->

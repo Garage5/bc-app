@@ -1,24 +1,18 @@
-<body id="login">
-<div id="login_wrapper">
+<body id="signup">
+<div id="signup_wrap">
+  <div class="hd">
+		<h1>Login with your BattleID</h1>
+	</div><!-- / hd -->
+	
 		<% form_for @user_session, :url => login_path(:ref => params[:ref]) do |f| -%>
-		<ul class="section">
-			<li class="header">
-				<img src="/images/signup_icon_battleid.png" />
-				<h1>Login with your BattleID</h1>
-			</li>
-			<li class="error_wrapper"><%= f.error_messages %></li>
-			<li>
-				<%= f.label :login, "Username" %>
-				<%= f.text_field :login, :class => 'text' %>
-			</li>
-			<li class="last">
-				<%= f.label :password, "Password" %>
-				<%= f.password_field :password, :class => 'text' %>
-			</li>
-		</ul>
-			<div id="forgot_pass"><a href="">Forgot Password</a></div>
-			<button class="btn" type="submit"><span class="icon"></span><span>Login</span></button>
-			<input type="checkbox" id="rememberme" /><label class="remember_label" for="rememberme">Remember Me</label>
+		<div class="section">
+			<div class="error_wrapper"><%= f.error_messages %></div>
+				<p><label><%= f.label :login, "Username" %></label> <%= f.text_field :login, :class => 'text' %></p>
+				<p><label><%= f.label :password, "Password" %></label> <%= f.password_field :password, :class => 'text' %></p>
+		</div><!-- / section -->
+		<div id="signup_finish">
+			<p><button type="submit">Login</button> <span><input type="checkbox" id="rememberme" /><label class="remember_label" for="rememberme">Remember Me</label></span></p>
+		</div><!-- /signup_finish -->
 		<% end -%>
 </div><!-- / wrapper -->
 
