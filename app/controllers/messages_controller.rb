@@ -16,7 +16,8 @@ class MessagesController < ApplicationController
   end
   
   def new
-    @message = Message.new
+    @message = @tournament.messages.new
+    unauthorized! if cannot? :create, @message
   end
   
   def create
@@ -26,6 +27,7 @@ class MessagesController < ApplicationController
         params[:message].delete(:hosts_only)
       end
       @message = @tournament.messages.build(params[:message])
+      unauthorized! if cannot? :create, @message
       @message.attachments.each do |a| 
         a.tournament_id = @tournament.id
         a.uploader = current_user
