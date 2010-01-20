@@ -10,7 +10,7 @@
 	<div class="pod tab-pod">
   	<div class="hd">
   	 <h2>Messages</h2>
-  	  <% if current_user && (current_user.is_hosting?(current_account) || current_user.is_participant_of?(@tournament)) %>
+  	  <% if can? :create, Message.new(:tournament => @tournament) %>
 			  <ul class="tabbed clear">
 				  <li class="active"><%= link_to"New Message", new_tournament_message_path(@tournament) %></li>
 			  </ul>

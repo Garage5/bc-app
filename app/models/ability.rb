@@ -22,7 +22,15 @@ class Ability
       can :add_cohost, Tournament do |tournament|
         tournament.account.admin == user
       end
+      
+      can :create, Message do |message|
+        is_participant?(user, message.tournament)
+      end
     end
+  end
+
+  def is_participant?(user, tournament)
+    is_host_or_cohost?(user, tournament) || tournament.participants.include?(user)
   end
 
   def is_host_or_cohost?(user, tournament)
