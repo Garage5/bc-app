@@ -162,6 +162,7 @@ body#signup #signup_wrap .section label {
   display: block;
   float: left;
   font-size: 14px;
+  line-height: 16px;
   font-weight: bold;
   text-transform: uppercase;
   color: #FFF;
