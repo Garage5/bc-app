@@ -25,3 +25,5 @@ config.action_mailer.raise_delivery_errors = true
 config.action_controller.session = {
   :domain => '.tbb.local'
 }
+
+ActiveMerchant::Billing::Base.mode = :test

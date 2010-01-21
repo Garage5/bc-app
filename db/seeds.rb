@@ -27,7 +27,7 @@ if SubscriptionPlan.count == 0
 end
 
 # user = User.first
-# a = Account.create(:name => 'Starfeeder', :subdomain => 'starfeeder', :plan => SubscriptionPlan.find_by_name('Free'), :admin => user)
+# a = Account.create(:name => 'Starfeeder', :subdomain => 'starfeeder', :plan => SubscriptionPlan.find_by_name('Free'), :admin => User.first)
 
 puts 'Changing secret in environment.rb...'
 new_secret = ActiveSupport::SecureRandom.hex(64)
