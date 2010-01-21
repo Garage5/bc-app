@@ -7,9 +7,9 @@
 	  <%= hidden_field_tag :ref, params[:ref] || @ref %>
 	<div class="section">
 		  <div class="error_wrapper"><%= f.error_messages %></div>
-			<p><label><%= f.label :login, "Username" %></label><%= f.text_field :login %> <span>Must be at least 2,500 characters.</span></p>
+			<p><label><%= f.label :login, "Username" %></label><%= f.text_field :login %> <span>Must be at least 4 characters.</span></p>
 			<p><label><%= f.label :email, "Email" %></label><%= f.text_field :email %> <span>Must be a valid email address.</span></p>
-			<p><label><%= f.label :password, "Password" %></label><%= f.password_field :password %> <span>Must be at least 500 characters.</span></p>
+			<p><label><%= f.label :password, "Password" %></label><%= f.password_field :password %> <span>Must be at least 7 characters.</span></p>
 			<p><label><%= f.label :password_confirmation, "Confirm Password" %></label><%= f.password_field :password_confirmation %></p>
 	</div><!-- / section -->
 <% end -%>

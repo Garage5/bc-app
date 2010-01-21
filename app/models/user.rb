@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+  acts_as_authentic do |c|
+    c.validates_length_of_password_field_options = {:minimum => 7}
+  end
   
   has_many :accounts
   has_many :participations, :foreign_key => :participant_id, :dependent => :destroy
@@ -8,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :teams, :through => :team_members
   
   validates_acceptance_of :terms_of_service, :on => :create
-  validates_length_of :login, :within => 3..13
+  validates_length_of :login, :within => 4..13
   
   has_attached_file :avatar, :styles => {:large => "75x75#", :medium => "48x48#", :small => "32x32#"},
     :default_url => "/:class/:attachment/missing_:style.jpg",

@@ -12,6 +12,6 @@ User.seed_many(:login, :email, [
     { :login => u[0], 
       :email => "#{u[0]}@thebattlebegins.com", 
       :password => 'pass', 
-      :password_confirmation => 'pass' }
+      :password_confirmation => 'passpass' }
   end
 )
