@@ -1,18 +1,18 @@
-[
-  ['dev',    'Developer User'],
-  ['bryan',  'Bryan Cinman'],
-  ['matt',   'Matt Johnson'],
-  ['james',  'James Au'],
-  ['victor', 'Victor Au'],
-  ['david',  'David Nguyen'],
-  ['josh',   'Josh Kim'],
-  ['jeff',   'Jeff Tang'],
-  ['jon',    'Jon Tang']
-].each do |u|
-  User.create(
-    :login => u[0], 
-    :email => "#{u[0]}@thebattlebegins.com", :password => 'pass', :password_confirmation => 'pass')
-end
+# [
+#   ['dev',    'Developer User'],
+#   ['bryan',  'Bryan Cinman'],
+#   ['matt',   'Matt Johnson'],
+#   ['james',  'James Au'],
+#   ['victor', 'Victor Au'],
+#   ['david',  'David Nguyen'],
+#   ['josh',   'Josh Kim'],
+#   ['jeff',   'Jeff Tang'],
+#   ['jon',    'Jon Tang']
+# ].each do |u|
+#   User.create(
+#     :login => u[0], 
+#     :email => "#{u[0]}@thebattlebegins.com", :password => 'pass', :password_confirmation => 'pass')
+# end
 
 # SaaS
 if SubscriptionPlan.count == 0
@@ -26,8 +26,8 @@ if SubscriptionPlan.count == 0
   end
 end
 
-user = User.first
-a = Account.create(:name => 'Starfeeder', :subdomain => 'starfeeder', :plan => SubscriptionPlan.find_by_name('Free'), :admin => user)
+# user = User.first
+# a = Account.create(:name => 'Starfeeder', :subdomain => 'starfeeder', :plan => SubscriptionPlan.find_by_name('Free'), :admin => user)
 
 puts 'Changing secret in environment.rb...'
 new_secret = ActiveSupport::SecureRandom.hex(64)
@@ -44,21 +44,21 @@ end
 # Account.create(:name => "Starfeeder", :admin => host, :subdomain => "starfeeder", :plan => plans.first)
 
 
-1.times do |i|
-  t = a.tournaments.create(
-    :host => user,
-    :name => "Valor Tournament #{i+1}", 
-    :game => 'Starcraft 2',
-    :slot_count => 8,
-    :rules => 'Do not talk about fight club.',
-    :registration_start_date => 1.days.from_now,
-    :registration_end_date => 30.days.from_now
-  )
-  
-  User.all.each do |u|
-    u.join_tournament(t).accept!
-  end
-end
+# 1.times do |i|
+#   t = a.tournaments.create(
+#     :host => user,
+#     :name => "Valor Tournament #{i+1}", 
+#     :game => 'Starcraft 2',
+#     :slot_count => 8,
+#     :rules => 'Do not talk about fight club.',
+#     :registration_start_date => 1.days.from_now,
+#     :registration_end_date => 30.days.from_now
+#   )
+#   
+#   User.all.each do |u|
+#     u.join_tournament(t).accept!
+#   end
+# end
 
 
 # t2 = Tournament.create(
