@@ -69,7 +69,7 @@ class ParticipationsController < ApplicationController
   end
   
   def deny    
-    @participation = Participation.first(:conditions => {:participant_id => params[:participant]})
+    @participation = Participation.find_by_participant_id_and_tournament_id(params[:participant], @tournament.id)
     unauthorized! if cannot? :destroy, @participation
     @participation.destroy
     
