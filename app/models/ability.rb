@@ -16,7 +16,7 @@ class Ability
       end
       
       can :destroy, Participation do |participation|
-        is_host_or_cohost?(user, participation.tournament) || participation.user == user
+        is_host_or_cohost?(user, participation.tournament) || participation.participant == user
       end
       
       can :add_cohost, Tournament do |tournament|
