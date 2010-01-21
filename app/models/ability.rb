@@ -3,7 +3,7 @@ class Ability
   
   def initialize(user)
     if user
-      can :approve, Participation do |participation|
+      can :accept, Participation do |participation|
         is_host_or_cohost?(user, participation.tournament)
       end
       

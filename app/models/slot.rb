@@ -40,7 +40,7 @@ class Slot < ActiveRecord::Base
       self.tournament.events.create!(
         :event_type    => 'places',
         :data => Hashie::Mash.new({
-          :player => self.player.name
+          :player => self.player.login
         })
       ) unless byed
     end

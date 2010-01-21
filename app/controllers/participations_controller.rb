@@ -52,7 +52,7 @@ class ParticipationsController < ApplicationController
   end
   
   def accept
-    unauthorized! if cannot? :approve, Participation.new(:tournament => @tournament)
+    unauthorized! if cannot? :accept, Participation.new(:tournament => @tournament)
     ids = params[:participant_ids] || []
     if ids.size > @tournament.open_slots
       flash[:error] = "Cannot accept #{ids.size} participants because there are only #{@tournament.open_slots} open slots."

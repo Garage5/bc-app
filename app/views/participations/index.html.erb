@@ -96,7 +96,7 @@
 	</div>
   
   <!-- PENDING -->
-  <% if can?(:approve, Participation.new(:tournament => @tournament)) && !@pending.blank? %>
+  <% if can?(:accept, Participation.new(:tournament => @tournament)) && !@pending.blank? %>
   <div class="pod tab-pod">
 	  <div class="hd">
 	    <h2>Pending Approval</h2>
@@ -107,9 +107,6 @@
           <%= render(:partial => 'participant', :locals => {:participant => participant, :show_checkbox => true}) %>
         <% end %>
 	    </ul>
-    	<div class="pending_approval_btns btn_wrapper">
-    	  <button class="btn" id="approve"><span class="icon"></span><span>Approve Selected</span></button>
-    	</div>
 	  </div>
 	</div>
 	<% end %>
