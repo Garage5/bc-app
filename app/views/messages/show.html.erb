@@ -21,8 +21,9 @@
 	
 	  <div id="message_body">
 	    <p><%= @message.body %></p>
-		  <%= render :partial => 'attachments/list', :locals => {:attachments => @message.attachments} %>
 	  </div>
+	  
+	  <%= render :partial => 'attachments/list', :locals => {:attachments => @message.attachments} %>
 	
 	<div id="comment_mod">
 	  <ul class="group">

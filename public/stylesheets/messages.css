@@ -1,3 +1,4 @@
+@import url(attachments.css);
 body#index_messages #maincol, body#show_messages #maincol {
 	width: 100.5%;
 }
@@ -187,23 +188,28 @@ li.comment {
 	background: #fd5f00 !important;
 }
 
-.message_subject .cat_announcement {
-	float: left;
-	position: relative;
-	top: -2px;
+.cat_announcement {
+	color: #FFF !important;
+	font-weight: bold;
+	text-align: right;
+	padding: 0 8px 0 8px;
+	margin: 0 5px 0 0;
+	display: block;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background: #fd5f00 !important;
+	font-size: 12px !important;
+}
+
+.cat_hosts_only {
 	color: #FFF !important;
 	font-weight: bold;
 	text-align: right;
 	padding: 0 7px 0 7px;
-	margin: 0 5px 0 0;
+	margin: 2px 5px 0 0;
 	display: block;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	background: #fd5f00 !important;
-}
-
-ul.files_attach li {
-	display: block;
-	float: left;
-	margin: 0 5px 0 5px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background: #c40000 !important;
+	font-size: 12px !important;
 }

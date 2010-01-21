@@ -23,10 +23,12 @@
       <% for m in @messages %>
         <% next if m.hosts_only? && (!current_user || !current_user.is_hosting?(current_account)) %>
         <tr <%= m == @messages.last ? 'class="last"' : nil %>>
+          <td>
+          <% if m.is_announcement %><p class="cat_announcement">Announcement</p><% end %>
+					<% if m.hosts_only %><p class="cat_hosts_only">Private To Hosts</p><% end %>
+					</td>
           <td class="message_main">
 		        <span class="message_subject">
-							<% if m.is_announcement %><p class="cat_announcement">Announcement</p><% end %>
-							<% if m.hosts_only %><p class="cat_hosts_only">Private To Hosts</p><% end %>
 							<%= link_to m.subject, tournament_message_path(@tournament, m) %>
 						</span>
   		      <p>Posted by <%= link_to m.author.login, '', :class => 'message_user' %> <span class="date" title="<%= m.created_at.iso8601 %>"><%= m.created_at %></span></p>
