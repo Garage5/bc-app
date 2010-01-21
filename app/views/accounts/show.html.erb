@@ -13,7 +13,7 @@
   	</div>
     <div class="overview bd">
       <ul>
-        <% tournament.events.each do |event| %>
+        <% tournament.public_events.each do |event| %>
           <%= render :partial => "events/#{event.event_type}", :locals => {:event => event, :tournament => tournament} %>
         <% end %>
       </ul>

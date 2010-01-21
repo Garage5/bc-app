@@ -6,7 +6,11 @@ class Ability
       can :approve, Participation do |participation|
         is_host_or_cohost?(user, participation.tournament)
       end
-    
+      
+      can :start, Tournament do |tournament|
+        is_host_or_cohost?(user, tournament) && !tournament.started?
+      end
+      
       can :join, Tournament do |tournament|
         user.is_eligible_to_join?(tournament) && !tournament.started? && !is_host_or_cohost?(user, tournament)
       end
@@ -15,10 +19,6 @@ class Ability
         is_host_or_cohost?(user, participation.tournament) || participation.user == user
       end
       
-      can :start, Tournament do |tournament|
-        is_host_or_cohost?(user, tournament) && !tournament.started?
-      end
-    
       can :add_cohost, Tournament do |tournament|
         tournament.account.admin == user
       end

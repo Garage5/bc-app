@@ -16,6 +16,7 @@ class Tournament < ActiveRecord::Base
   has_many :rounds, :dependent => :destroy
   has_many :matches, :dependent => :destroy
   has_many :events, :order => 'created_at DESC', :dependent => :destroy
+  has_many :public_events, :class_name => "Event", :conditions => ['event_type = ?', 'message']
   has_many :comments, :dependent => :destroy
   
   # has_many :team_members, :dependent => :destroy
@@ -32,7 +33,6 @@ class Tournament < ActiveRecord::Base
            :conditions => ['participations.state = ?', 'pending'], :source => :participant
   has_many :active_participants, :through => :participations, 
            :conditions => ['participations.state = ?', 'active'], :source => :participant
-  
   
   accepts_nested_attributes_for :rounds
   
