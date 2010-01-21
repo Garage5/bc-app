@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       end
     else
       @ref = params[:ref] if params[:ref]
-      render :action => 'new', :layout => 'lite'
+      render :action => 'new', :layout => 'accounts'
     end
   end
   
