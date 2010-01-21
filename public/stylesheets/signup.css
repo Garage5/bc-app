@@ -166,6 +166,8 @@ body#signup #signup_wrap .section label {
   text-transform: uppercase;
   color: #FFF;
   letter-spacing: -0.7px;
+  position: relative;
+  top: 10px;
 }
 
 body#signup #signup_wrap .section input {
