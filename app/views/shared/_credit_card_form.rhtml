@@ -28,12 +28,6 @@
 
 
 <fieldset id="pay_cc">
-  <% if @subscription %>
-  <div class="clear">
-    <h2><input type="radio" name="paypal" id="creditcard" value=" " <%= 'checked="checked"' unless @subscription.paypal? %>> <label for="creditcard">Pay with a credit card</label></h2>
-    <span id="pay_cc_insure"> - Required to activate your plan.</span>
-  </div>
-  <% end %>
   <div id="inner_fieldset">
     <div>
       <label>Name on Card</label>
@@ -91,9 +85,3 @@
     
   </div><!-- / inner_fieldset -->
 </fieldset>
-
-<% if @subscription %>
-  <fieldset>
-    <h2><input type="radio" name="paypal" id="paypal" value="true" <%= 'checked="checked"' if @subscription.paypal? %>> <label for="paypal">Pay with PayPal</label></h2>
-  </fieldset>
-<% end %>

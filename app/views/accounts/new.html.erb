@@ -61,9 +61,6 @@
       <% end %>
       
       <legend>Billing Information</legend>
-        <% if @subscription %>
-          <h2><input type="radio" name="paypal" value=" " <%= 'checked="checked"' unless @subscription.paypal? %>> Pay with a credit card</h2>
-        <% end %>
         <p><label>First Name:</label>  <%= text_field :creditcard, :first_name %></p>
         <p><label>Last Name:</label>   <%= text_field :creditcard, :last_name %></p>
         <p><label>Card Number:</label> <%= text_field :creditcard, :number, :size => 20 %></p>
