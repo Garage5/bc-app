@@ -162,13 +162,12 @@ body#signup #signup_wrap .section label {
   display: block;
   float: left;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1px;
   font-weight: bold;
   text-transform: uppercase;
   color: #FFF;
   letter-spacing: -0.7px;
-  position: relative;
-  top: 10px;
+  margin: 10px 0 0 0;
 }
 
 body#signup #signup_wrap .section input {
@@ -180,6 +179,7 @@ body#signup #signup_wrap .section input {
   font-size: 14px;
   width: 300px;
   margin: 0 5px 0 5px;
+  line-height: 14px;
 }
 
 body#signup #signup_wrap .section p.dropdown {
