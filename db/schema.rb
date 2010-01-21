@@ -128,7 +128,6 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
 
   create_table "rounds", :force => true do |t|
     t.integer  "tournament_id"
-    t.date     "start_date"
     t.integer  "number"
     t.integer  "position"
     t.datetime "created_at"
