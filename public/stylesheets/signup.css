@@ -168,6 +168,7 @@ body#signup #signup_wrap .section label {
   letter-spacing: -0.7px;
   position: relative;
   top: 16px;
+  vertical-align: middle;
 }
 
 body#signup #signup_wrap .section input {
