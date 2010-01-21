@@ -3,8 +3,8 @@ development:
   password: '5Qy85Py5qh9s62ZG'
   test: true
 production:
-  login: 'demo'
-  password: 'password'
+  login: '5XaM5XT6q8'
+  password: '5Qy85Py5qh9s62ZG'
 test:
   login: '5XaM5XT6q8'
   password: '5Qy85Py5qh9s62ZG'
