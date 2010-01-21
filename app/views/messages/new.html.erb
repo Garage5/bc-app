@@ -29,22 +29,21 @@
 			<%= f.text_area :body, :size => '60x15' %>
 			
 			<% if can? :create, Message.new(:is_announcement => true, :hosts_only => true, :tournament => @tournament) %>
-			  <div>
+			  <div style="margin: 0 0 0 7px;">
 				  <%= f.check_box :is_announcement %> <%= f.label :is_announcement, "This message is an announcement", :style => 'display:inline' %>
 				  <%= f.check_box :hosts_only %> <%= f.label :hosts_only, "Private to Hosts/Co-Hosts", :style => 'display:inline' %>
 			  </div>
 			<% end %>
 		</div><!-- / darkpod -->
 		
-		<div id="message_attach" class="group darkpod clear">
-			<label><strong>Attach a File</strong></label>
-			<p class="note yellow_note">Files cannot be larger than 42 and must contain references to cats.</p>
 			<% f.fields_for :attachments, Attachment.new do |attachment| -%>
+			<div id="message_attach" class="group darkpod clear">
+  			<label><strong>Attach a File</strong></label>
         <%= attachment.file_field :attachment %>
+  			<span class="note yellow_note">Max File Size is 4MB</span>
+  		</div><!-- / darkpod -->
 			<% end -%>
-		</div><!-- / darkpod -->
-
-    <button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
+    <br /><button type="submit" class="btn"><span class="icon"></span><span>Post Message</span></button>
     or <a href="">Cancel</a>
     <% end -%>      
   </div><!-- / bd -->
