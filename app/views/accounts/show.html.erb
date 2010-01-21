@@ -30,7 +30,7 @@
 <div class="col">
   <div class="account_logo">
     <% if current_account.logo.exists? %>
-      <%= image_tag current_account.logo.url %>
+      <%= image_tag current_account.logo.url, :width => '200px' %>
     <% end %>
   </div><!-- / account_logo -->
 <%= render :partial => "layouts/sidenav" %>
