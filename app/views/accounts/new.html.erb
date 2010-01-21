@@ -64,6 +64,7 @@
         <p><label>First Name:</label>  <%= text_field :creditcard, :first_name %></p>
         <p><label>Last Name:</label>   <%= text_field :creditcard, :last_name %></p>
         <p><label>Card Number:</label> <%= text_field :creditcard, :number, :size => 20 %></p>
+        <p><label>Type:</label> <%= select :creditcard, :type, [['Visa', 'visa'], ['MasterCard', 'master'], ['American Express', 'american_express']] %></p>
         <p class="dropdown">
           <label>Expiration:</label>
           <%= select :creditcard, :month, (1 .. 12) %>
