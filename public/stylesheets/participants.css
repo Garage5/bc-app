@@ -71,11 +71,13 @@ body#participants .player_list ul li:hover a:hover.user_edit {
 	background: #e2d484 url(/images/icon_user_edit.png) center no-repeat;
 }
 
-body#participants .player_list ul li a.user_delete {
+body#participants .player_list ul li a.user_delete,
+body#participants .player_list ul li a.user_accept {
 	display: none;
 }
 
-body#participants .player_list ul li:hover a.user_delete {
+body#participants .player_list ul li:hover a.user_delete,
+body#participants .player_list ul li:hover a.user_accept {
 	width: 16px;
 	height: 16px;
 	text-indent: -9999px;
@@ -94,8 +96,15 @@ body#participants .player_list ul li:hover a.user_delete {
 	-webkit-border-bottom-right-radius: 5px;
 }
 
-body#participants .player_list ul li:hover a:hover.user_delete {
-	background: #e2d484 url(/images/icon_user_delete.png) center no-repeat;
+body#participants .player_list ul li:hover a.user_accept {
+  background: #fff8cf url(/images/icon_user_accept.png) center no-repeat;
+  top: 26px;
+}
+
+
+body#participants .player_list ul li:hover a:hover.user_delete,
+body#participants .player_list ul li:hover a:hover.user_accept {
+	background-color: #e2d484;
 }
 
 body#participants .player_list ul li .user_avatar {
