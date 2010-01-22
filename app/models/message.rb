@@ -13,6 +13,10 @@ class Message < ActiveRecord::Base
   
   after_create :create_event
   
+  def to_param
+    "#{id}-#{subject.parameterize}"
+  end
+  
   def create_event
     type = 'annoucement' if self.is_announcement?
     type = 'private_message' if self.hosts_only?

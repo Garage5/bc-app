@@ -45,6 +45,10 @@ class Tournament < ActiveRecord::Base
   
   validate_on_create :check_slot_limit
   
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+  
   def check_slot_limit
     errors.add_to_base('Invalid slot limit.') if !self.account.slot_multiples.include?(slot_count)
   end
