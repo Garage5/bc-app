@@ -52,19 +52,26 @@ class ParticipationsController < ApplicationController
   end
   
   def accept
-    unauthorized! if cannot? :accept, Participation.new(:tournament => @tournament)
-    ids = params[:participant_ids] || []
-    if ids.size > @tournament.open_slots
-      flash[:error] = "Cannot accept #{ids.size} participants because there are only #{@tournament.open_slots} open slots."
+    @participation = Participation.find_by_participant_id_and_tournament_id(params[:participant], @tournament.id)
+    unauthorized! if cannot? :accept, @participation
+    if @participation.accept!
+      @officials = @tournament.officials
+      render :layout => false
     else
-      @participants = User.find(ids)
-      if !@participants.empty?
-        Participation.update_all("state = 'active'", 
-        "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
-      end
+      render :nothing => true
     end
-    @officials = @tournament.officials
-    render :layout => false
+    
+    # ids = params[:participant_ids] || []
+    # if ids.size > @tournament.open_slots
+    #   flash[:error] = "Cannot accept #{ids.size} participants because there are only #{@tournament.open_slots} open slots."
+    # else
+    #   @participants = User.find(ids)
+    #   if !@participants.empty?
+    #     Participation.update_all("state = 'active'", 
+    #     "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
+    #   end
+    # end
+    
     # redirect_to tournament_participants_path(@tournament)
   end
   

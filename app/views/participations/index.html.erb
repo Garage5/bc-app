@@ -124,10 +124,9 @@
         return serialized;
       }
 	    // Approve Participants
-	    $("button#approve").click(function() {
-	      serialized = getPendingChecked();
-	      serialized.push({name: "_method", value: "put"});
-        $.post('<%= accept_tournament_participants_path(@tournament) %>', serialized, null, 'script');
+	    $(".user_accept").click(function(event) {
+	      event.preventDefault();
+        $.post(this.href, {'_method': 'put'}, null, 'script');
       })
       
       // Deny Participants

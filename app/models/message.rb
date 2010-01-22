@@ -18,7 +18,7 @@ class Message < ActiveRecord::Base
   end
   
   def create_event
-    type = 'annoucement' if self.is_announcement?
+    type = 'announcement' if self.is_announcement?
     type = 'private_message' if self.hosts_only?
     type ||= 'message'
     

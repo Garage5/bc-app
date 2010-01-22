@@ -1,4 +1,2 @@
-$('<%= @participants.collect {|p| "#user-#{p.id}"}.join(', ') %>').fadeOut(500);
-<% for participant in @participants %>
-  $('#list_participants').append('<%= escape_javascript render(:partial => 'participant', :locals => {:participant => participant}) %>')
-<% end %>
+$('<%= "#user-#{@participation.participant.id}" %>').fadeOut(500);
+$('#list_participants').append('<%= escape_javascript render(:partial => 'participant', :locals => {:participant => @participation.participant}) %>')
