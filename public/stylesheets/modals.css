@@ -87,3 +87,34 @@
 #manage_player ul li.last {
   margin: 0;
 }
+
+a.modal_btn, button.modal_btn {
+  display: block;
+  float: left;
+  background: #0177c1;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 14px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 11px 12px 7px 12px;
+  margin: 0 3px 0 0;
+  line-height: 10px;
+  border: 0;
+}
+
+a:hover.modal_btn, button:hover.modal_btn {
+  color: #FFF;
+  background: #549b00;
+  text-decoration: none;
+}
+
+a.btn_cancel, button.btn_cancel {
+  background: #DDD;
+  color: #888;
+}
+
+a:hover.btn_cancel, button:hover.btn_cancel {
+  color: #333;
+  background: #DDD;
+}
