@@ -75,7 +75,7 @@ class ParticipationsController < ApplicationController
     # redirect_to tournament_participants_path(@tournament)
   end
   
-  def deny    
+  def deny
     @participation = Participation.find_by_participant_id_and_tournament_id(params[:participant], @tournament.id)
     unauthorized! if cannot? :destroy, @participation
     @participation.destroy
