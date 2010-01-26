@@ -136,12 +136,8 @@ body#accounts div#billing_form fieldset#pay_cc h2 label {
 body#accounts div#billing_form fieldset#pay_cc #inner_fieldset {
   background: #383d41;
   padding: 10px 10px 2px 10px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 body#accounts div#billing_form fieldset#pay_cc #inner_fieldset label {

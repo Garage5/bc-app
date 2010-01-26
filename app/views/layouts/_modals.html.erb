@@ -76,9 +76,11 @@
 	<div class="modal_inner">
 			<p style="white-space: nowrap;">Enter a BattleID to add a Co-Host to this tournament.</p>
 			<% form_tag add_cohost_tournament_participants_path(@tournament) , :method => :post do %>
-				<div style="margin: 0 0 0 0;"><label for="team_name">Enter a BattleID</label><input size="30" type="text" name="user" /></div>
-					<button class="modal_btn add">Add Co-Host</button>
-					or <a class="modal_close" href="">Cancel</a>
+				<label for="team_name">Enter a BattleID</label><input size="30" type="text" name="user" />
+				<div class="btn_wrapper clear">
+					<button class="modal_btn">Add Co-Host</button>
+					<a href="#" class="modal_btn btn_cancel modal_close">No</a>
+				</div>
 			<% end %>
 			
 	</div><!-- / modal_inner -->
@@ -99,7 +101,7 @@
 				
 				<div class="btn_wrapper clear">
 					<button class="modal_btn">Yes, decline</button>
-					or <a class="modal_close modal_cancel" href="">Cancel</a>
+					<a class="modal_close modal_cancel" href="">Cancel</a>
 				</div>
 			</form>
 			
@@ -118,7 +120,7 @@
 			<p>Are you sure you want to start this tournament?</p>
 			<div class="btn_wrapper clear">
 			<%= link_to 'Yes', start_tournament_path(@tournament), :method => :put, :class => 'modal_btn' %>
-			<button class="modal_btn btn_cancel modal_close">No</button>
+			<a class="modal_btn btn_cancel modal_close">No</a>
 			</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->

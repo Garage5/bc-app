@@ -94,14 +94,21 @@ a.modal_btn, button.modal_btn {
   background: #0177c1;
   color: #FFF;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 13px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  padding: 11px 12px 7px 12px;
   margin: 0 3px 0 0;
-  line-height: 10px;
   border: 0;
+  white-space: nowrap;
+  line-height: 10px;
+  padding: 10px 15px 10px 15px;
 }
+
+button.modal_btn {
+  padding: 7px 15px 7px 15px;
+  line-height: 7px;
+}
+
 
 a:hover.modal_btn, button:hover.modal_btn {
   color: #FFF;
@@ -112,6 +119,12 @@ a:hover.modal_btn, button:hover.modal_btn {
 a.btn_cancel, button.btn_cancel {
   background: #DDD;
   color: #888;
+  padding: 10px 15px 10px 15px !important;
+  line-height: 10px !important;
+  font-size: 13px !important;
+  border: 0 !important;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
 }
 
 a:hover.btn_cancel, button:hover.btn_cancel {
