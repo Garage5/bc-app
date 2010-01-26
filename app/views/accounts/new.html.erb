@@ -8,7 +8,7 @@
   <div class="section">
     <h1>Admin Account</h1>
     <%= image_tag current_user.avatar.url, :size => '20x20' %>
-    <%= current_user.login %> (<%= link_to 'Login as a different user', login_url(:ref => request.url) %>)
+    <%= current_user.login %> (<%= link_to 'Login as a different user', new_user_session_url(:ref => request.url) %>)
   </div>
   
   <div class="section">

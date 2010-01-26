@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :login_required, :only => [:update]
+  
   def new
     @user = User.new
     session[:return_to] = params[:ref] if params[:ref]

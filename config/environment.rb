@@ -19,7 +19,8 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem 'authlogic'
+  # config.gem 'authlogic'
+  config.gem 'devise'
   # config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
   config.gem 'rspec', :lib => false
   config.gem 'rspec-rails', :lib => false
@@ -73,6 +74,7 @@ Rails::Initializer.run do |config|
     puts "The application will work, except for the e-mails. Run rake gems:install to fix this."
   end
 end
+
 ActionView::Helpers::InstanceTag::DEFAULT_FIELD_OPTIONS = {}
 ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|"<span class=\"fieldWithErrors\">#{html_tag}</span>" }
 

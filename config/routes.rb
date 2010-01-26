@@ -1,8 +1,5 @@
-ActionController::Routing::Routes.draw do |map|  
-  map.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
-  map.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
-  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-  map.resources :user_sessions
+ActionController::Routing::Routes.draw do |map|
+  map.devise_for :user, :as => :sessions, :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   map.resources :users, :member => {:profile => :get}
   
   map.with_options :conditions => {:subdomain => 'signup'} do |signup|
@@ -21,12 +18,6 @@ ActionController::Routing::Routes.draw do |map|
   
   # PORTAL ROUTES
   map.with_options :conditions => {:subdomain => /^(?!www|admin|signup$).+/} do |account|
-    account.login  '/login',  :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
-    account.login  '/login',  :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}
-    account.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-    account.resources :user_sessions
-    account.resources :users, :member => {:profile => :get}
-        
     account.resource :account, :collection => { :dashboard => :get, :thanks => :get, :plans => :get, :billing => :any, :paypal => :any, :plan => :any, :plan_paypal => :any, :cancel => :any, :canceled => :get }
     
     account.root :controller => 'accounts', :action => 'show'
@@ -36,10 +27,6 @@ ActionController::Routing::Routes.draw do |map|
     account.resources :tournaments, :member => {:rules => :get, :start => :put, :brackets => :get}, :collection => {:calendar => :get} do |tournaments|
       tournaments.with_options :conditions => {:subdomain => /^(?!www|admin$).+/} do |tournament|
         tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
-        # tournament.resources :teams, :member => {:join => :put, :decline => :delete} do |team|
-        #   team.invite '/invite/:user_id', :controller => 'teams', :action => 'invite',:path_prefix => '/tournaments/:tournament_id',
-        #    :conditions => {:subdomain => /^(?!www|admin$).+/}
-        # end
         tournament.resources :messages, :has_many => [:comments]
         tournament.resources :files, :controller => :attachments
         tournament.resources :matches, :has_many => [:comments] do |match|

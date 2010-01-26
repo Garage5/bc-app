@@ -264,11 +264,18 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
   add_index "tournaments", ["account_id"], :name => "index_tournaments_on_account_id"
 
   create_table "users", :force => true do |t|
-    t.string   "login",                                 :null => false
-    t.string   "email",                                 :null => false
-    t.string   "crypted_password",                      :null => false
-    t.string   "password_salt",                         :null => false
-    t.string   "persistence_token",                     :null => false
+    t.string   "username",                                             :null => false
+    t.string   "email",                                                :null => false
+    t.string   "encrypted_password",   :limit => 40,                   :null => false
+    t.string   "password_salt",                                        :null => false
+    t.string   "reset_password_token", :limit => 20
+    t.string   "remember_token",       :limit => 20
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_activity"
@@ -276,7 +283,7 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.boolean  "admin",               :default => true
+    t.boolean  "admin",                              :default => true
     t.integer  "account_id"
   end
 

@@ -1,4 +1,4 @@
-User.seed_many(:login, :email, [
+User.seed_many(:username, :email, [
     ['dev',    'Developer User'],
     ['bryan',  'Bryan Cinman'],
     ['matt',   'Matt Johnson'],
@@ -9,7 +9,7 @@ User.seed_many(:login, :email, [
     ['jeff',   'Jeff Tang'],
     ['jon',    'Jon Tang']
   ].collect do |u|
-    { :login => u[0], 
+    { :username => u[0], 
       :email => "#{u[0]}@thebattlebegins.com", 
       :password => 'pass', 
       :password_confirmation => 'passpass' }

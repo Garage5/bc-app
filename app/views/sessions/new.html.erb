@@ -1,0 +1,25 @@
+<body id="signup">
+<div id="signup_wrap">
+  <div class="hd">
+		<h1>Login with your BattleID</h1>
+	</div><!-- / hd -->
+		<% form_for resource_name, resource, :url => session_path(resource_name, :ref => params[:ref]) do |f| -%>
+		<div class="section">
+			<%- if flash[:alert] -%>
+			  <div class="error_wrapper"><%= flash[:alert] %></div>
+			<%- end -%>
+			<p><%= f.label :username, "Username" %> <%= f.text_field :username, :class => 'text' %></p>
+			<p><%= f.label :password, "Password" %> <%= f.password_field :password, :class => 'text' %></p>
+		</div><!-- / section -->
+		<div id="signup_finish">
+			<p>
+			  <button type="submit">Login</button> 
+			  <span>
+			    <%= f.check_box :remember_me %>
+			    <%= f.label :remember_me, 'Remember Me', :class => 'remember_label' %>
+			  </span>
+			</p>
+		</div><!-- /signup_finish -->
+		<% end -%>
+		<%= render :partial => "shared/devise_links" %>
+</div><!-- / wrapper -->

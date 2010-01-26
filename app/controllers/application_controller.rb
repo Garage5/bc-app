@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   include SslRequirement
   include SubscriptionSystem
   
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  helper_method :current_user_session, :current_user, :allowed_domains, :logged_in?
+  helper :all
+  helper_method :allowed_domains
+  protect_from_forgery
   
   before_filter :http_authentication
   
@@ -16,10 +16,24 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
   
+  # hack to override devise's SessionController layout
+  layout :lite_if_devise
+  
+  def lite_if_devise
+    if devise_controller? 
+      "accounts"
+    else 
+      "application" 
+    end
+  end
+  
   def http_authentication
-    authenticate_or_request_with_http_basic do |user, pass|
-      user == 'dev' && pass == 'tbbd3v'
-    end if Rails.env != 'production'
+    if Rails.env != 'production'
+      authenticate_or_request_with_http_basic do |user, pass|
+        user == 'dev' && pass == 'tbbd3v'
+      end 
+      warden.custom_failure! if performed?
+    end
   end
 
   private
@@ -40,18 +54,6 @@ class ApplicationController < ActionController::Base
   def must_be_official
     redirect_back_or_default(root_url) unless @tournament.officials.include?(current_user)
   end
-
-  def current_user_session
-    return @current_user_session if defined?(@current_user_session)
-    @current_user_session = UserSession.find
-  end
-
-  def current_user
-    return @current_user if defined?(@current_user)
-    @current_user = current_user_session && current_user_session.user
-    @current_user.update_attribute(:last_activity, Time.now) if @current_user
-    @current_user
-  end
   
   def allowed_domains
     Instance::ALLOWED_DOMAINS
@@ -63,14 +65,14 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "You must be logged in to access this page"
       hostname = TBBLIVE_DOMAIN[Rails.env.to_sym]
       hostname += ":#{request.port}" unless request.port == 80
-      redirect_to login_url
+      redirect_to new_user_session_url
       return false
     end
   end
 
-  def logged_in?
-    !!current_user
-  end
+  # def logged_in?
+  #   !!current_user
+  # end
   
   def store_location
     return if @prevent_store_location == true

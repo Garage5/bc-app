@@ -253,7 +253,7 @@ body#signup #footer {
 }
 
 .error_wrapper {
-  background: #9e0000;
+  background: #000;
   padding: 10px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;

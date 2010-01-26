@@ -2,6 +2,9 @@ require 'test_helper'
 
 class ParticipationsControllerTest < ActionController::TestCase    
   context "A Host" do
+    setup do
+      sign_in Account.first.admin
+    end
     # host joining the tournament
     context "on POST to :create" do
       should_respond_with :unauthorized
@@ -32,6 +35,9 @@ class ParticipationsControllerTest < ActionController::TestCase
   end
   
   context "A Cohost" do
+    setup do
+      sign_in Tournament.first.cohosts.first
+    end
     # cohost joining the tournament
     context "on POST to :create" do
       should_respond_with :unauthorized
@@ -65,6 +71,10 @@ class ParticipationsControllerTest < ActionController::TestCase
   end
   
   context "A Participant" do
+    setup do
+      sign_in Tournament.first.participants.first
+    end
+    
     # participant joing tournament twice
     context "on POST to :create" do
       should_respond_with :unauthorized
@@ -104,6 +114,10 @@ class ParticipationsControllerTest < ActionController::TestCase
   end
   
   context "A Non-participant" do
+    setup do
+      ids = Tournament.participants.map(&:id) + Tournament.account.admin.id
+      sign_in User.first(:conditions => ['id NOT IN ?', ids)
+    end
     # non-participant joining tournament
     context "on POST to :create" do
       should_respond_with :success
