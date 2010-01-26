@@ -2,7 +2,7 @@
 module ApplicationHelper
 
   def button_link_to(text, href, icon = '', options = {})
-    link_to("<span class='icon'></span><span>#{text}</span>", href, {:class => 'btn'}.merge(options))
+    link_to("#{text}", href, {:class => 'modal_btn'}.merge(options))
   end
 
   def flash_notices

@@ -162,12 +162,13 @@ body#signup #signup_wrap .section label {
   display: block;
   float: left;
   font-size: 14px;
-  line-height: 1px;
   font-weight: bold;
   text-transform: uppercase;
   color: #FFF;
   letter-spacing: -0.7px;
   margin: 10px 0 0 0;
+  position: relative;
+  top: 4px;
 }
 
 body#signup #signup_wrap .section input {
@@ -179,7 +180,6 @@ body#signup #signup_wrap .section input {
   font-size: 14px;
   width: 300px;
   margin: 0 5px 0 5px;
-  line-height: 14px;
 }
 
 body#signup #signup_wrap .section p.dropdown {
@@ -250,5 +250,34 @@ div#thanks p a {
 body#signup #footer {
   margin: 15px 0 0 0;
   font-size: 13px;
+}
+
+.error_wrapper {
+  background: #9e0000;
+  padding: 10px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin: 0 0 25px 0;
+}
+
+.error_wrapper h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFF;
+  letter-spacing: -1px;
+  margin: 0 0 10px 0;
+}
+
+.error_wrapper p {
+  color: #FFF;
+}
+
+.error_wrapper ul {
+  margin: 10px 0 0 25px;
+}
+
+.error_wrapper ul li {
+  color: #FFF;
+  list-style-type: disc;
 }
   

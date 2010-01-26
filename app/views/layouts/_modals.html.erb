@@ -21,8 +21,8 @@
 	<div class="modal_inner">
 			<p>You've been invited to join team Valor by <a href="">Spawn</a></p>
 			<div class="btn_wrapper clear">
-			<button class="btn"><span class="icon"></span><span>Accept</span></button>
-			<button class="btn"><span class="icon"></span><span>Decline</span></button>
+			<button class="modal_btn">Accept</button>
+			<button class="modal_btn">Decline</button>
 			</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
@@ -38,8 +38,8 @@
 	<div class="modal_inner">
 			<p style="white-space: nowrap;">Are you sure you want to join this tournament?</p>
 			<div class="btn_wrapper clear">
-		<div style="margin: 0 5px 0 0; display: block; float: left;"><%= link_to '<span class="icon"></span><span>Yes</span>', tournament_participants_path(@tournament), :method => :post, :class => 'btn' %></div>
-		<a onclick="closeModal('#join_confirm'); return false;" href="" class="btn"><span class="icon"></span><span>No</span></a>
+		<div style="margin: 0 5px 0 0; display: block; float: left;"><%= link_to 'Yes', tournament_participants_path(@tournament), :method => :post, :class => 'modal_btn' %></div>
+		<a href="" class="modal_btn btn_cancel modal_close">No</a>
 			</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
@@ -57,8 +57,8 @@
 			    <%= f.label :name, "Team Name" %>
 			    <%= f.text_field :name %>
 			    <div class="btn_wrapper clear">
-					  <button class="btn add"><span class="icon"></span><span>Create Team</span></button>
-					  or <a href="" onclick="closeModal('#create_team'); return false;">Cancel</a>
+					  <button class="modal_btn add">Create Team</button>
+					  or <a href="" class="modal_close">Cancel</a>
 				  </div>
 			  <% end -%>
 	  </div><!-- / modal_inner -->
@@ -76,9 +76,11 @@
 	<div class="modal_inner">
 			<p style="white-space: nowrap;">Enter a BattleID to add a Co-Host to this tournament.</p>
 			<% form_tag add_cohost_tournament_participants_path(@tournament) , :method => :post do %>
-				<div style="margin: 0 0 0 0;"><label for="team_name">Enter a BattleID</label><input size="30" type="text" name="user" /></div>
-					<button class="btn add"><span class="icon"></span><span>Add Co-Host</span></button>
-					or <a class="modal_close" href="">Cancel</a>
+				<label for="team_name">Enter a BattleID</label><input size="30" type="text" name="user" />
+				<div class="btn_wrapper clear">
+					<button class="modal_btn">Add Co-Host</button>
+					<a href="#" class="modal_btn btn_cancel modal_close">No</a>
+				</div>
 			<% end %>
 			
 	</div><!-- / modal_inner -->
@@ -98,8 +100,8 @@
 				<div><label class="textarea" for="deny_reason">Reason for Decline</label><textarea></textarea></div>
 				
 				<div class="btn_wrapper clear">
-					<button class="btn"><span class="icon"></span><span>Yes, decline</span></button>
-					or <a href="">Cancel</a>
+					<button class="modal_btn">Yes, decline</button>
+					<a class="modal_close modal_cancel" href="">Cancel</a>
 				</div>
 			</form>
 			
@@ -117,8 +119,8 @@
 	<div class="modal_inner">
 			<p>Are you sure you want to start this tournament?</p>
 			<div class="btn_wrapper clear">
-			<%= link_to '<span class="icon"></span><span>Yes</span>', start_tournament_path(@tournament), :method => :put, :class => 'btn' %>
-			<button class="btn modal_close"><span class="icon"></span><span>No</span></button>
+			<%= link_to 'Yes', start_tournament_path(@tournament), :method => :put, :class => 'modal_btn' %>
+			<a class="modal_btn btn_cancel modal_close">No</a>
 			</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
@@ -137,10 +139,8 @@
 			    <input id="generic_modal_method" type="hidden" name="_method" value="put" />
 			  </form>
 				<div class="btn_wrapper clear">
-				<a href="#" class="btn" onclick="document.getElementById('generic_modal_form').submit(); return false;">
-					<span class="icon"></span><span>Yes</span>
-				</a>
-				<button class="btn modal_close"><span class="icon"></span><span>No</span></button>
+				<a href="#" class="modal_btn" onclick="document.getElementById('generic_modal_form').submit(); return false;">Yes</a>
+				<a href="#" class="modal_btn btn_cancel modal_close">No</a>
 				</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
