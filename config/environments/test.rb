@@ -2,7 +2,6 @@
 config.gem 'shoulda'
 config.gem 'rspec', :lib => false
 config.gem 'rspec-rails', :lib => false
-config.gem 'paperclip', :lib => 'paperclip'
 config.gem 'factory_girl', :lib => 'factory_girl'
 
 # The test environment is used exclusively to run your application's
