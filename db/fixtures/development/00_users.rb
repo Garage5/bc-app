@@ -7,7 +7,9 @@ User.seed_many(:username, :email, [
     ['david',  'David Nguyen'],
     ['josh',   'Josh Kim'],
     ['jeff',   'Jeff Tang'],
-    ['jon',    'Jon Tang']
+    ['jon',    'Jon Tang'],
+    ['john',    'John Smith'],
+    ['jake',    'Jake Sully']
   ].collect do |u|
     { :username => u[0], 
       :email => "#{u[0]}@thebattlebegins.com", 

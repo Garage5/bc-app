@@ -18,11 +18,6 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'warden'
   config.gem 'devise'
-  config.gem 'shoulda'
-  config.gem 'rspec', :lib => false
-  config.gem 'rspec-rails', :lib => false
-  config.gem 'paperclip', :lib => 'paperclip'
-  config.gem 'factory_girl', :lib => 'factory_girl'
   config.gem 'tlsmail'
   config.gem 'acts_as_markup'
   config.gem 'subdomain-fu'

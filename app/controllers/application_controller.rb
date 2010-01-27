@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   before_filter :http_authentication
   
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "You do not have permission to do that" #exception.message
-    redirect_to root_url
+    flash[:error] = exception.message
+    redirect_to root_url, :status => 401
   end
   
   # hack to override devise's SessionController layout
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
   
   def http_authentication
-    if Rails.env != 'production'
+    unless ['production', 'test'].include?(Rails.env)
       authenticate_or_request_with_http_basic do |user, pass|
         user == 'dev' && pass == 'tbbd3v'
       end 

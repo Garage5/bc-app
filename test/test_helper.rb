@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+eval IO.read(File.expand_path(File.dirname(__FILE__) + "/../Rakefile"))
 
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -37,8 +38,8 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   require 'redgreen' unless ENV['TM_MODE']
   
-  load "#{Rails.root}/db/fixtures/00_subscription_plans.rb"
-  load "#{Rails.root}/db/fixtures/test/all.rb"
+  # require "#{Rails.root}/db/fixtures/00_subscription_plans.rb"
+  # require "#{Rails.root}/db/fixtures/test/all.rb"
 end
 
 class ActionController::TestCase

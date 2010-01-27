@@ -1,8 +1,8 @@
 class ParticipationsController < ApplicationController
   before_filter :find_tournament
-  before_filter :authenticate_user!, :except => [:index]
-  before_filter :must_be_host, :except => [:index, :create, :deny, :accept]
-  before_filter :tournament_not_started, :only => [:create, :accept, :deny]
+  # before_filter :authenticate_user!, :except => [:index]
+  # before_filter :must_be_host, :except => [:index, :create, :deny, :accept]
+  # before_filter :tournament_not_started, :only => [:create, :accept, :deny]
   
   def index
     @officials = [current_account.admin] + @tournament.cohosts
@@ -23,7 +23,7 @@ class ParticipationsController < ApplicationController
   end
   
   def add_cohost
-    user = User.find(:first, :conditions => ['login = ? OR email = ?', params[:user], params[:user]])
+    user = User.find(:first, :conditions => {:username => params[:user]})
 
     unauthorized! if cannot?(:add_cohost, @tournament)
 
@@ -42,6 +42,7 @@ class ParticipationsController < ApplicationController
   end
   
   def create
+    unauthorized!('You are already a participant/pending participant in this tournament') if cannot?(:join, @tournament)
     participation = current_user.join_tournament(@tournament)
     if participation
       flash[:notice] = "You are now pending acceptance into '#{@tournament.name}'"

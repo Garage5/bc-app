@@ -10,5 +10,10 @@ Tournament.seed(:slot_count) do |t|
 end
 
 User.all(:offset => 1, :limit => 4).each do |u|
-  u.join_tournament(Tournament.first).accept!
+  #u.join_tournament(Tournament.first).accept!
+  Participation.seed(:tournament_id, :participant_id) do |p|
+    p.tournament_id = Tournament.first.id
+    p.participant_id = u.id
+    p.state = 'active'
+  end
 end
