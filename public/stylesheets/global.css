@@ -47,7 +47,7 @@ a, a:visited {
 }
 
 #header {
-	background: #017ecc; /* blue */
+	background: #009dff url(../images/new_header_bg.png) center bottom repeat-x; /* blue */
 }
 
 #nav ul li a {
@@ -66,7 +66,7 @@ a, a:visited {
 #subnav ul li a, #right_subnav ul li a {
 	color: #FFF;
 	background: #005e98;
-	background: #000;
+	background: #000 url(../images/nav_tab_bg.gif) center bottom repeat-x;
 }
 
 #subnav ul li a:hover, #right_subnav ul li a:hover {
@@ -403,8 +403,8 @@ div#system_msg a:hover#system_msg_close {
 
 #header {
   width: 1100px;
-  margin: 0 auto;
 	height: 100%;
+  margin: 0 auto;
 	position: relative;
 	-moz-border-radius-topleft:      5px;
 	-moz-border-radius-topright:     5px;
@@ -580,7 +580,7 @@ Navigation - Sub Navigation
 
 #subnav ul li a:hover {
 	color: #FFF;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 #subnav ul li.active a {
