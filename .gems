@@ -9,3 +9,5 @@ aws-s3
 paperclip
 hashie
 cancan
+devise
+warden
