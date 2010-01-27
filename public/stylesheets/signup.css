@@ -209,7 +209,7 @@ body#signup #signup_wrap #signup_finish {
   padding: 0 25px 20px 25px;
 }
 
-body#signup #signup_wrap #signup_finish button {
+body#signup #signup_wrap #signup_finish button, body#signup #signup_wrap #signup_finish input.reset_button {
   background: #64ae00;
   border: 0;
   padding: 10px;
@@ -220,11 +220,11 @@ body#signup #signup_wrap #signup_finish button {
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   text-shadow: -1px -1px 0 #247a00;
-  margin: 15px 0 0 0;
 }
 
-body#signup #signup_wrap #signup_finish button:hover {
+body#signup #signup_wrap #signup_finish button:hover, body#signup #signup_wrap #signup_finish input:hover.reset_button {
   background: #4e8700;
+  cursor: pointer;
 }
 
 div#thanks h2 {
@@ -280,4 +280,55 @@ body#signup #footer {
   color: #FFF;
   list-style-type: disc;
 }
+
+body#signup #signup_finish p#login_remember {
+  float: left;
+}
+
+body#signup #signup_finish #forgot_password {
+  float: right;
+}
+
+body#signup #signup_finish #forgot_password a {
+  background: transparent url(../images/icon_forgotpass.png) 0 7px no-repeat;
+  display: block;
+  padding: 15px 0 15px 35px;
+}
+
+body#signup #signup_finish #forgot_password a:hover {
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+body#signup #signup_finish .reset_or_signin {
+  float: left;
+}
+
+body#signup #signup_finish div.reset_or_signin {
+  position: relative;
+  top: 15px;
+  left: 12px;
+}
+
+body#signup #signup_finish div.reset_or_signin em {
+  display: block;
+  float: left;
+}
+
+body#signup #signup_finish div.reset_or_signin a {
+  background: #000;
+  display: block;
+  padding: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+  position: relative;
+  top: -10px;
+  left: 8px;
+}
+
+body#signup #signup_finish div.reset_or_signin a:hover {
+  color: #FFF;
+  text-decoration: none;
+  background: #111213;
   
