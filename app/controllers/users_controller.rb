@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      UserSession.new(:login => params[:user][:login], :password => params[:user][:password])
       flash[:notice] = "Successfully created user."
       if params[:ref]
         redirect_to CGI.unescape(params[:ref])

@@ -1,6 +1,6 @@
 class ParticipationsController < ApplicationController
   before_filter :find_tournament
-  before_filter :login_required, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index]
   before_filter :must_be_host, :except => [:index, :create, :deny, :accept]
   before_filter :tournament_not_started, :only => [:create, :accept, :deny]
   

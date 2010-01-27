@@ -19,9 +19,6 @@ class Tournament < ActiveRecord::Base
   has_many :public_events, :class_name => "Event", :conditions => ['event_type = ?', 'message']
   has_many :comments, :dependent => :destroy
   
-  # has_many :team_members, :dependent => :destroy
-  # has_many :teams, :dependent => :destroy
-  
   has_many :participations, :dependent => :destroy
   has_many :participants , :through => :participations
 

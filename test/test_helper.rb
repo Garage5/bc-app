@@ -32,7 +32,15 @@ class ActiveSupport::TestCase
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
-  fixtures :all
+  # fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  require 'redgreen' unless ENV['TM_MODE']
+  
+  load "#{Rails.root}/db/fixtures/00_subscription_plans.rb"
+  load "#{Rails.root}/db/fixtures/test/all.rb"
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
 end
