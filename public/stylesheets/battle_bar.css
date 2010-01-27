@@ -359,7 +359,7 @@ User Login
   display: block;
   font-size: 12px;
   float: left;
-  margin: 8px 5px 0 5px;
+  margin: 9px 5px 0 5px;
 }
 
 #logged_out #user_nav ul li#user_login input {
@@ -369,7 +369,7 @@ User Login
   display: block;
   font-size: 13px;
   float: left;
-  margin: 0 10px 0 0;
+  margin: 1px 10px 0 0;
   padding: 5px 3px 5px 3px;
 }
 
@@ -377,4 +377,49 @@ User Login
   background: #FFF;
   border: 1px #000 solid;
   color: #000;
+}
+
+#battle_bar ul li#user_logout {
+  padding: 0 0 0 0;
+  margin: 0 0 0 8px;
+}
+
+#battle_bar ul li#user_logout a {
+	padding: 8px 12px 8px 27px;
+	background: transparent url(/images/icon_logout.png) 6px 6px no-repeat;
+	color: #FFF;
+	color: #BBB;
+	font-size: 12px;
+	display: block;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
+}
+
+#battle_bar ul li#user_logout a:hover {
+	background: #111 url(/images/icon_logout.png) 6px 6px no-repeat;
+	text-decoration: none;
+	color: #FFF;
+}
+
+#battle_bar ul li#feedback {
+  float: left;
+  display: block;
+  margin: 0 3px 0 13px;
+  padding: 0 0 0 0;
+}
+
+#battle_bar ul li#feedback a {
+	padding: 8px 12px 8px 27px;
+	background: transparent url(/images/icon_help.png) 6px 6px no-repeat;
+	color: #BBB;
+	font-size: 12px;
+	display: block;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
+}
+
+#battle_bar ul li#feedback a:hover {
+	background: #000 url(/images/icon_help.png) 6px 6px no-repeat;
+	text-decoration: underline;
+	color: #FFF;
 }

@@ -2,7 +2,12 @@
 	<div id="bar_content">
 		<% if current_user %> <%# if logged in %>
 		<div id="user_avatar">
-			<a id="avatar" href="<%= profile_user_path(current_user.login) %>"><%= image_tag current_user.avatar.url(:small) %> <span><%= current_user.try(:login) || 'nologin' %></span></a>
+		  <ul>
+			  <li>
+			    <a id="avatar" href="<%= profile_user_path(current_user.login) %>"><%= image_tag current_user.avatar.url(:small) %>
+			    <span><%= current_user.try(:login) || 'nologin' %></span></a>
+			  </li>
+			</ul>
 		</div><!-- / user_avatar -->
 		
 		<div class="beta" id="your_tournaments">
@@ -33,13 +38,23 @@
 			<p><a href="/preview/matches/show/">You vs James at 4:53PM</a></p>
 		</div><!-- / your_matches -->
 		
+		
+		<div id="acct_nav" class="clear">
+  		<ul class="clear">
+  		  <% if current_account.admin == current_user %>
+  			  <li><%= link_to "Account", billing_account_path %></li>
+  			  <li><%= link_to "Settings", settings_path %></li>
+        	<% end %>
+  			  <li id="feedback"><a class="feedback" title="" href="">Feedback</a></li>
+    			<% if current_user %>
+    			<li id="user_logout"><%= link_to "Logout", destroy_user_session_url %></li>
+  				<% end %>
+  		</ul>
+  	</div>
+		
 		<div id="user_nav">
 			<ul>
-				<% if current_user %>
-				<li id="user_logout"><%= link_to "Logout", destroy_user_session_url %></li>
-				<% else %>
-				<li id="user_login"><%= link_to "Login", new_user_session_url %></li>
-				<% end %>
+				
 			</ul>
 		</div>
 		<% else %> <%# if not %>
@@ -47,29 +62,21 @@
 		<div id="user_nav">
 		  <ul>
 		    <li id="user_login">
-		      <div class="login_btn">
-		        <p>You are not currently logged in!</p><%= link_to "Login", new_user_session_path %>
-		      </div><!-- / login_btn -->
 		      <% form_for 'user', User.new, :url => new_user_session_url, :html => {:class => 'login_form'} do |f| -%>
 		        <%= f.label :username, "BattleID:" %>
 		        <%= f.text_field :username %>
 		        <%= f.label :password, "Password:" %>
 		        <%= f.password_field :password %>
-		        <button class="btn" type="submit">Login</button>
+		        <button class="btn" type="submit">Sign In</button>
 		      <% end -%>
-		      <!--><div class="login_form">
-		        <label>BattleID:</label>
-		        <input type="text"/>
-		        <label>Password:</label>
-		        <input type="password"/>
-		        <%= link_to "Login", new_user_session_path %>
-		      </div>--><!-- / login_form -->
 		    </li>
-        <li id="user_signup"><p>Don't have a BattleID?</p><%= link_to "Signup", new_user_path %></li>
+        <li id="user_signup"><p>Don't have a BattleID?</p><%= link_to "Sign Up", new_user_path %></li>
+  			<li id="feedback"><a class="feedback" title="" href="">Feedback</a></li>
       </ul>
 		</div><!-- / user_nav -->
 		
 		</div><!-- / logged_out -->
 		<% end %>
+  	</div><!-- / acct_nav -->
 	</div><!-- / bar_content -->
 </div><!-- / battle_bar -->
