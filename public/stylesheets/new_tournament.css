@@ -207,5 +207,38 @@ h1 a:hover {
 
 #sidecol .prizes_tips {
   position: relative;
-  top: 558px;
+  top: 733px;
 }
+
+#delete_btn {
+  margin: 0 0 5px 0;
+  float: left;
+}
+
+a#delete_btn {
+  background: #940000;
+  color: #FFF;
+  display: block;
+  float: left;
+  padding: 10px 20px 9px 20px;
+  line-height: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+a:hover#delete_btn {
+  background: #ae0000;
+  color: #ffd4d4;
+}
+
+p#delete_warning {
+  color: #940000;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 10px 0 0 7px;
+  float: left;
+}
+

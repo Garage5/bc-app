@@ -1,5 +1,5 @@
 <% stylesheet :accounts %>
-<% body 'accounts' %>
+<% body 'plan' %>
 <div id="maincol">
 	<div class="col">
 	<div class="pod">
@@ -16,34 +16,41 @@
         </div>
       <% end %>
       
-      <h1><%= @page_title = 'Change Plan' %></h1>
+      <h1>You can change your plan level at any time.</h1>
+      <p>The features &amp; restrictions of the new plan will be effective immediately, but your bill amount will not change until your next bill date.</p>
       
-      <p>
-        You can change your plan level at any time.  The position limits and other features of the new plan that you select will be effective as soon as you make the change, but your bill amount will not change until your next bill date.  Your next bill date is <%= @subscription.next_renewal_at.to_s(:long_day) %>.
-      </p>
+      
       
       <% if @subscription.needs_payment_info? -%>
-        <p>
-          Please make sure you <%= link_to('enter your billing information', billing_account_url) %> before your bill date to prevent an interruption in service.
-        </p>
+        <p id="force_billinginfo">Please make sure you <%= link_to('enter your billing information', billing_account_url) %> before your bill date to prevent an interruption in service.</p>
       <% end %>
       
-      
-      <p style="padding-top:1em">
-        You are currently subscribed to the <strong><%= @subscription.subscription_plan.name %> Plan</strong>.  Please select your desired plan and click the "Change my plan" button.
-      </p>
+      <div id="current_plan">
+        <div class="clear">
+          <div style="float: left;">
+          <h2>Your Current Plan</h2>
+          <p class="plan"><em><%= @subscription.subscription_plan.name %></em> at <em><%= number_to_currency @subscription.amount %></em> a month.</p>
+          </div>
+        <div id="next_bill">
+          <h2>Your next bill date</h2>
+          <p class="date"><%= @subscription.next_renewal_at.to_s(:long_day) %></p>
+        </div><!-- / next_bill -->
+        </div><!-- / clear -->
+      </div><!-- / current_plan -->
       
       <% form_tag plan_account_url do %>
-        <fieldset>
-          <legend>Choose Plan</legend>
+      <div id="change_plan">
+        <fieldset id="select_plan">
+          <legend>Please select your desired plan and click the "Change my plan" button.</legend>
           <select name="plan_id" onChange="enableButton()">
             <option value=""></option>
             <%= @plans.map {|p| content_tag(:option, p, :value => p.id, :disabled => !current_account.qualifies_for?(p)) } %>
           </select>
-          
         </fieldset>
-      
-        <fieldset id="submit_or_cancel"><input name="commit" type="submit" id="commit" disabled="disabled" value="Change my plan" /> or <a href="/account">Cancel</a></fieldset>
+        <div class="clear"></div>
+        <fieldset id="submit_or_cancel"><input name="commit" type="submit" id="commit" disabled="disabled" value="Change my plan" /> or <a href="/account/billing">Go Back</a></fieldset>
+        
+      </div><!-- / change_plan -->
       <% end %>
         
       <script type="text/javascript" charset="utf-8">

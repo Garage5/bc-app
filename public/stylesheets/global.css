@@ -58,11 +58,6 @@ a, a:visited {
 	background: #0071a0; /* dark blue */
 }
 
-.tnav a.icon-add {
-	background-color: #017ecc; /* blue */
-	border: 1px #003951 solid; /* dark blue */
-}
-
 #subnav ul li a, #right_subnav ul li a {
 	color: #FFF;
 	background: #005e98;
@@ -392,7 +387,7 @@ div#system_msg a:hover#system_msg_close {
 	background: #242729;
 	border-bottom: 1px #303437 solid;
 	margin: 0 0 -1px 0;
-	padding: 5px 0 0 0;
+	padding: 15px 0 0 0;
 }
 
 #content-wrapper {
@@ -485,70 +480,6 @@ div.account_logo {
 	-moz-border-radius:     4px;
 	-webkit-border-radius:  4px;
 	text-decoration: none;
-}
-
-#acct_nav {
-  width: 1100px;
-  margin: 0 auto;
-}
-
-#acct_nav ul {
-	float: right;
-	margin: 0 0 5px 0;
-}
-
-#acct_nav ul li {
-	float: left;
-	display: block;
-	margin: 0 3px 0 3px;
-}
-
-#acct_nav ul li a {
-	color: #BBB;
-	font-size: 12px;
-	display: block;
-	padding: 8px 12px 8px 12px;
-	-moz-border-radius:     4px;
-	-webkit-border-radius:  4px;
-}
-
-#acct_nav ul li a:hover {
-	background: #1a1d1e;
-	color: #FFF;
-	text-decoration: none;
-}
-
-#acct_nav ul li#user_login a {
-	padding: 8px 12px 8px 27px;
-	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
-	color: #FFF;
-}
-
-#acct_nav ul li#user_login a:hover {
-	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
-	text-decoration: underline;
-}
-
-#acct_nav ul li#user_logout a {
-	padding: 8px 12px 8px 27px;
-	background: transparent url(/images/icon_logout.png) 6px 6px no-repeat;
-	color: #FFF;
-}
-
-#acct_nav ul li#user_logout a:hover {
-	background: #1a1d1e url(/images/icon_logout.png) 6px 6px no-repeat;
-	text-decoration: underline;
-}
-
-#acct_nav ul li#feedback a {
-	padding: 8px 12px 8px 27px;
-	background: transparent url(/images/icon_help.png) 6px 6px no-repeat;
-}
-
-#acct_nav ul li#feedback a:hover {
-	background: #1a1d1e url(/images/icon_help.png) 6px 6px no-repeat;
-	text-decoration: underline;
-	color: #FFF;
 }
 
 /* 
@@ -1116,16 +1047,15 @@ Navigation - Tournament - Sidecol
 */
 
 .tnav a.icon-add {
+	background: #017ecc url(/images/icon_add.png) 8px 8px no-repeat;
+	color: #FFF;
+	margin: 2px;
+	padding: 9px 10px 10px 30px;
+	border: 1px #003951 solid; /* dark blue */
 	-moz-border-radius-bottomleft: 5px;
 	-moz-border-radius-bottomright: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
-	background-image: url(/images/icon_add.png);
-	background-position: 8px 8px;
-	background-repeat: no-repeat;
-	color: #FFF;
-	margin: 2px;
-	padding-left: 30px;
 }
 
 .tnav a:hover.icon-add {
@@ -1149,7 +1079,7 @@ Navigation - Tournament - Sidecol
 
 .tnav ul li a {
 	display: block;
-	padding: 10px;
+	padding: 10px 10px 9px 10px;
 }
 
 .tnav ul li.last {
@@ -1287,7 +1217,7 @@ Footer
 
 #footer #meta_copy {
 	float: right;
-	margin: 15px 0 0 0;
+	margin: 30px 10px 0 0;
 }
 
 #footer #meta_copy a#managed_by {
@@ -1321,7 +1251,8 @@ Footer
 
 #footer #gen_info, #footer #support_info {
 	float: left;
-	margin: 0 15px 0 15px;
+	margin: 0 35px 0 15px;
+  padding: 20px 0 0 0;
 }
 
 #footer h2 {
