@@ -225,7 +225,13 @@
 		</div><!-- / pod -->
 		<!-- / Step 5 -->
 		<div style="margin: -20px 0 5px 0;">
-		<button type="submit" class="btn"><span class="icon"></span><span>Save Changes</span></button>
+		  <div class="clear" style="float: left;">
+		    
+		    <a href="" id="delete_btn">Delete Tournament</a>
+  	    <p id="delete_warning">Warning: This action can not be reversed.</p>
+  	   </div>
+		   <div style="float: right;"><button type="submit" class="btn"><span class="icon"></span><span>Save Changes</span></button></div>
+		 
 		</div>
 	</div>
 	<% end -%>
@@ -234,9 +240,19 @@
 
 <div id="sidecol">
 	<div class="col">
-	<div class="save_wrapper clear"></div><!-- / save_wrapper -->
+	<div class="tactions clear">
+	  <div class="pod">
+  	<div class="hd">
+  		<h2>Actions</h2>
+  	</div><!-- / hd -->
+  	<div class="bd clear">
+	  
+	  </div>
+	  </div>
+	  
+	</div><!-- / save_wrapper -->
 	
-	<div class="pod rules_tips">
+	<div class="beta pod rules_tips">
 	<div class="hd">
 		<h2>Rules - Tips &amp; Tricks</h2>
 	</div><!-- / hd -->
@@ -244,10 +260,9 @@
 	<div class="bd clear">
 	<h4>Example HTML Usage</h4>
 	  <ul>
-	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
-	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
-	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
-	    <li class="last"><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.</li>
+	    <li><em class="code">&lt;strong&gt;</em> - will <strong>bold</strong> words.<em class="code">&lt;/strong&gt;</em></li>
+	    <li><em class="code">&lt;a href="http://"&gt;</em> - will <a href="http://www.google.com">create a link</a> <em class="code">&lt;/a&gt;</em>.</li>
+	    <li><em class="code">&lt;i&gt;</em> - will <i>italize</i> words.<em class="code">&lt;/i&gt;</em></li>
 	  </ul>
 	  <a class="btn" href="#rules_example" rel="modal"><span class="icon"></span><span>Example Rules Page</span></a>
 	</div><!-- / bd -->

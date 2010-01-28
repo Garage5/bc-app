@@ -420,6 +420,6 @@ User Login
 
 #battle_bar ul li#feedback a:hover {
 	background: #000 url(/images/icon_help.png) 6px 6px no-repeat;
-	text-decoration: underline;
+	text-decoration: none;
 	color: #FFF;
 }

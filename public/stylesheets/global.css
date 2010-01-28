@@ -1265,7 +1265,7 @@ Footer
 
 #footer #meta_copy {
 	float: right;
-	margin: 15px 0 0 0;
+	margin: 30px 10px 0 0;
 }
 
 #footer #meta_copy a#managed_by {
@@ -1299,7 +1299,8 @@ Footer
 
 #footer #gen_info, #footer #support_info {
 	float: left;
-	margin: 0 15px 0 15px;
+	margin: 0 35px 0 15px;
+  padding: 20px 0 0 0;
 }
 
 #footer h2 {
