@@ -7,7 +7,7 @@
 
 	  <%= hidden_field_tag :ref, params[:ref] || @ref %>
 	<div class="section">
-		<%- if flash[:alert] -%>
+		<%- unless f.error_messages.empty? -%>
 		  <div class="error_wrapper"><%= f.error_messages %></div>
 		<%- end -%>
 		<p><%= f.label :username, "Username" %><%= f.text_field :username %> <span>Must be at least 4 characters.</span></p>
