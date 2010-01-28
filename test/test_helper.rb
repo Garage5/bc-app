@@ -37,6 +37,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   require 'redgreen' unless ENV['TM_MODE']
+  require 'factories'
   
   # require "#{Rails.root}/db/fixtures/00_subscription_plans.rb"
   # require "#{Rails.root}/db/fixtures/test/all.rb"

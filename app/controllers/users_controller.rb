@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
   
   def profile
-    @user = User.find_by_login(params[:id])
+    @user = User.find_by_username(params[:id])
   end
   
   def update
