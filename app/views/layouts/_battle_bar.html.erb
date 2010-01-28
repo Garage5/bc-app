@@ -3,9 +3,10 @@
 		<% if current_user %> <%# if logged in %>
 		<div id="user_avatar">
 		  <ul>
+		    <li id="logged_in">Logged in as</li>
 			  <li>
-			    <a id="avatar" href="<%= profile_user_path(current_user.login) %>"><%= image_tag current_user.avatar.url(:small) %>
-			    <span><%= current_user.try(:login) || 'nologin' %></span></a>
+			  <a class="clear" id="avatar" href="<%= profile_user_path(current_user.login) %>"><%= image_tag current_user.avatar.url(:small) %>
+			  <span><%= current_user.try(:login) || 'nologin' %></span></a>
 			  </li>
 			</ul>
 		</div><!-- / user_avatar -->
