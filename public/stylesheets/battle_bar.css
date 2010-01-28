@@ -4,7 +4,7 @@
 	text-align: left;
 	top: 0;
 	left: 0;
-	padding: 0;
+	padding: 0 0 2px 0;
 	position: relative;
 	margin: 0;
 	width: 100%;
@@ -30,7 +30,7 @@ User Avatar
 
 #battle_bar #user_avatar {
   float: left;
-  padding: 6px 0 0 0;
+  padding: 7px 0 0 0;
 }
 
 #battle_bar #user_avatar ul li {
@@ -41,7 +41,7 @@ User Avatar
 #battle_bar #user_avatar ul li#logged_in {
   font-size: 12px;
   color: #929ca6;
-  padding: 9px 4px 0 0;
+  padding: 9px 5px 0 0;
 }
 
 #battle_bar #user_avatar a#avatar {
@@ -62,13 +62,13 @@ User Avatar
 	float: left;
 	font-size: 13px;
 	font-weight: bold;
-	padding: 2px 0 0 7px;
+	padding: 2px 0 0 10px;
 	color: #FFF;
 }
 
 #battle_bar #user_avatar a#avatar:hover {
-	background: #000 url(../images/acct_nav_icon_settings.png) 90% center no-repeat;
-	padding: 6px 30px 6px 10px;
+	background: #000 url(../images/acct_nav_icon_settings.png) 88% center no-repeat;
+	padding: 6px 34px 6px 10px;
 	text-decoration: none;
 	opacity: 0.75;
 	
@@ -397,24 +397,74 @@ User Login
   color: #000;
 }
 
+#acct_nav {
+  float: right;
+}
+
+#acct_nav ul {
+	float: right;
+	margin: 0 0 5px 0;
+	padding: 8px 0 0 0;
+}
+
+#acct_nav ul li {
+	float: left;
+	display: block;
+	margin: 0 3px 0 3px;
+}
+
+#acct_nav ul li a {
+	color: #FFF;
+	font-size: 12px;
+	display: block;
+	padding: 8px 12px 8px 33px;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
+  opacity: 0.75;
+}
+
+#acct_nav ul li a:hover {
+	background: #000;
+  opacity: 1;
+  text-decoration: none;
+}
+
+#acct_nav ul li#user_login a {
+	background: #017ecc url(/images/icon_login.png) 9px 6px no-repeat;
+}
+
+#acct_nav ul li#user_login a:hover {
+	background: #017ecc url(/images/icon_login.png) 9px 6px no-repeat;
+}
+
+#acct_nav ul li#billing a {
+	background: transparent url(/images/acct_nav_icon_account.png) 9px 6px no-repeat;
+}
+
+#acct_nav ul li#billing a:hover {
+	background: #000 url(/images/acct_nav_icon_account.png) 9px 6px no-repeat;
+}
+
+#acct_nav ul li#settings a {
+	background: transparent url(/images/acct_nav_icon_settings.png) 9px 6px no-repeat;
+}
+
+#acct_nav ul li#settings a:hover {
+	background: #000 url(/images/acct_nav_icon_settings.png) 9px 6px no-repeat;
+}
+
+
 #battle_bar ul li#user_logout {
   padding: 0 0 0 0;
   margin: 0 0 0 8px;
 }
 
 #battle_bar ul li#user_logout a {
-	padding: 8px 12px 8px 27px;
-	background: transparent url(/images/icon_logout.png) 6px 6px no-repeat;
-	font-size: 12px;
-	display: block;
-	-moz-border-radius:     4px;
-	-webkit-border-radius:  4px;
+	background: transparent url(/images/icon_logout.png) 9px 6px no-repeat;
 }
 
 #battle_bar ul li#user_logout a:hover {
-	background: #111 url(/images/icon_logout.png) 6px 6px no-repeat;
-	text-decoration: none;
-	color: #FFF;
+	background: #111 url(/images/icon_logout.png) 9px 6px no-repeat;
 }
 
 #battle_bar ul li#feedback {
@@ -425,16 +475,9 @@ User Login
 }
 
 #battle_bar ul li#feedback a {
-	padding: 8px 12px 8px 27px;
-	background: transparent url(/images/icon_help.png) 6px 6px no-repeat;
-	font-size: 12px;
-	display: block;
-	-moz-border-radius:     4px;
-	-webkit-border-radius:  4px;
+	background: transparent url(/images/icon_help.png) 9px 6px no-repeat;
 }
 
 #battle_bar ul li#feedback a:hover {
-	background: #000 url(/images/icon_help.png) 6px 6px no-repeat;
-	text-decoration: none;
-	color: #FFF;
+	background: #000 url(/images/icon_help.png) 9px 6px no-repeat;
 }
