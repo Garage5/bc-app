@@ -16,7 +16,14 @@ class Ability
       end
       
       can :destroy, Participation do |participation|
-        participation.participant_id == user.id && !participation.tournament.started?
+        tournament = participation.tournament
+        
+        unless participation.state == 'cohost'
+          (is_host_or_cohost?(user, tournament) || me?(user.id, participation.participant_id)) && !tournament.started?
+        else
+          host?(user, tournament) || me?(user.id, participation.participant_id)
+        end
+        
         # if cohost?(user, participation.tournament)
         #   participation.state != 'cohost' || participation.participant == user
         # else
@@ -32,7 +39,7 @@ class Ability
         if message.is_announcement? || message.hosts_only?
           is_host_or_cohost?(user, message.tournament)
         else
-          is_participant?(user, message.tournament)
+          participant?(user, message.tournament)
         end
       end
       
@@ -40,6 +47,10 @@ class Ability
         message.hosts_only? ? is_host_or_cohost?(user, message.tournament) : true
       end
     end
+  end
+
+  def me?(current_id, user_id)
+    current_id == user_id
   end
 
   def participant?(user, tournament)
@@ -51,7 +62,7 @@ class Ability
   end
   
   def cohost?(user, tournament)
-    tournament.cohosts.include?(user)
+    tournament.cohosts.exists?(user.id)
   end
   
   def is_host_or_cohost?(user, tournament)

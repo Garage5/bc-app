@@ -42,12 +42,10 @@ class ParticipationsController < ApplicationController
   end
   
   def create
-    unauthorized!('You are already a participant/pending participant in this tournament') if cannot?(:join, @tournament)
+    unauthorized! if cannot?(:join, @tournament)
     participation = current_user.join_tournament(@tournament)
     if participation
       flash[:notice] = "You are now pending acceptance into '#{@tournament.name}'"
-    else
-      flash[:error] = "Uh oh. Something happened that wasn't supposed to happen."
     end
     redirect_to @tournament
   end
