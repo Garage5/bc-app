@@ -504,7 +504,7 @@ div.account_logo {
 }
 
 #acct_nav ul li a {
-	color: #BBB;
+	color: #FFF;
 	font-size: 12px;
 	display: block;
 	padding: 8px 12px 8px 12px;
@@ -513,9 +513,9 @@ div.account_logo {
 }
 
 #acct_nav ul li a:hover {
-	background: #111;
-	color: #FFF;
-	text-decoration: none;
+	background: #000;
+  opacity: 0.75;
+  text-decoration: none;
 }
 
 #acct_nav ul li#user_login a {
@@ -527,6 +527,28 @@ div.account_logo {
 #acct_nav ul li#user_login a:hover {
 	background: #017ecc url(/images/icon_login.png) 6px 6px no-repeat;
 	text-decoration: underline;
+}
+
+#acct_nav ul li#billing a {
+	padding: 8px 12px 8px 27px;
+	background: transparent url(/images/acct_nav_icon_account.png) 6px 6px no-repeat;
+	color: #FFF;
+}
+
+#acct_nav ul li#billing a:hover {
+	background: #000 url(/images/acct_nav_icon_account.png) 6px 6px no-repeat;
+	opacity: 0.75;
+}
+
+#acct_nav ul li#settings a {
+	padding: 8px 12px 8px 27px;
+	background: transparent url(/images/acct_nav_icon_settings.png) 6px 6px no-repeat;
+	color: #FFF;
+}
+
+#acct_nav ul li#settings a:hover {
+	background: #000 url(/images/acct_nav_icon_settings.png) 6px 6px no-repeat;
+	opacity: 0.75;
 }
 
 /* 

@@ -387,8 +387,6 @@ User Login
 #battle_bar ul li#user_logout a {
 	padding: 8px 12px 8px 27px;
 	background: transparent url(/images/icon_logout.png) 6px 6px no-repeat;
-	color: #FFF;
-	color: #BBB;
 	font-size: 12px;
 	display: block;
 	-moz-border-radius:     4px;
@@ -411,7 +409,6 @@ User Login
 #battle_bar ul li#feedback a {
 	padding: 8px 12px 8px 27px;
 	background: transparent url(/images/icon_help.png) 6px 6px no-repeat;
-	color: #BBB;
 	font-size: 12px;
 	display: block;
 	-moz-border-radius:     4px;
