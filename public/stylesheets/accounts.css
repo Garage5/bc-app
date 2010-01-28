@@ -52,8 +52,128 @@ body#accounts div#current_plan a {
 
 body#accounts div#current_plan a:hover {
   color: #b1b9c0;
-  text-decoration: noneΩ;
+  text-decoration: none;
 }
+
+/* /account/plan Specific styles */
+
+body#plan #maincol {
+  width: 100.5%;
+}
+
+body#plan div#current_plan {
+  float: left;
+  background: #383d41;
+  padding: 13px;
+  margin: 15px 0 0 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+body#plan div#current_plan h2 {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  color: #b1b9c0;
+  text-transform: uppercase;
+  border-bottom: 1px #222 solid;
+  padding: 0 0 3px 0;
+}
+
+body#plan div#current_plan p.plan {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  color: #b1b9c0;
+  padding: 10px 0 0 0;
+  padding: 5px 5px 0 5px;
+  border-top: 1px #4d5459 solid;
+}
+
+body#plan div#current_plan p.plan em {
+  color: #FFF;
+}
+
+body#plan #maincol h1 {
+  font-weight: bold;
+  font-size: 16px;
+  color: #383d41;
+  margin: 0 0 5px 0;
+}
+
+body#plan #maincol p {
+  color: #383d41;
+  font-size: 15px;
+}
+
+body#plan div#next_bill {
+  float: left;
+  margin: 0 0 0 25px;
+}
+
+body#plan div#next_bill p {
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFF;
+  padding: 5px 5px 0 5px;
+  border-top: 1px #4d5459 solid;
+  letter-spacing: -0.5px;
+}
+
+body#plan #change_plan fieldset#select_plan {
+  background: #EEE;
+  border: 1px #CCC solid;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 10px;
+  margin: 25px 0 20px 15px;
+  float: left;
+}
+
+body#plan #change_plan fieldset#select_plan legend {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+body#plan #change_plan fieldset#submit_or_cancel input {
+  background: #017ecc;
+  color: #FFF;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px 13px 8px 13px;
+}
+
+body#plan #change_plan fieldset#submit_or_cancel input:hover {
+  background: #383d41;
+}
+
+body#plan #change_plan fieldset#submit_or_cancel input[disabled] {
+  background: #EEE;
+  color: #999;
+  border: 0;
+}
+
+body#plan p#force_billinginfo {
+  background: #a10000;
+  padding: 14px;
+  color: #FFF;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 14px;
+  margin: 5px 0 0 0;
+}
+
+body#plan p#force_billinginfo a {
+  color: #a10000;
+  background: #FFF;
+  padding: 3px 5px 3px 5px;
+}
+
+/* Billing Info Specific Styles */
 
 body#accounts div#billing_info ul {
   margin: 0 0 0 10px;

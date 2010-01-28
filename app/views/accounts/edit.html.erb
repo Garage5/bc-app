@@ -8,6 +8,9 @@
 <div id="maincol">
 <div class="col">
 	<div class="pod" id="settings">
+	  <div class="hd">
+	    <h2>Settings</h2>
+	  </div>
   <div class="bd clear">
     <% form_for @account, :url => '/settings', :method => :put, :html => {:multipart => true} do |f| %>
 		<div id="account_url" class="clear group darkpod">
@@ -46,12 +49,3 @@
 </div><!-- / pod -->
 </div><!-- / col -->
 </div><!-- / main-col -->
-
-<div class="beta" id="sidecol">
-<div class="col">
-	<div class="pod">
-		<div class="bd">
-		</div><!-- // bd -->
-	</div><!-- // pod -->
-</div><!-- / col -->
-</div><!-- / sidecol -->
