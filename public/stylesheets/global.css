@@ -58,11 +58,6 @@ a, a:visited {
 	background: #0071a0; /* dark blue */
 }
 
-.tnav a.icon-add {
-	background-color: #017ecc; /* blue */
-	border: 1px #003951 solid; /* dark blue */
-}
-
 #subnav ul li a, #right_subnav ul li a {
 	color: #FFF;
 	background: #005e98;
@@ -1052,16 +1047,15 @@ Navigation - Tournament - Sidecol
 */
 
 .tnav a.icon-add {
+	background: #017ecc url(/images/icon_add.png) 8px 8px no-repeat;
+	color: #FFF;
+	margin: 2px;
+	padding: 9px 10px 10px 30px;
+	border: 1px #003951 solid; /* dark blue */
 	-moz-border-radius-bottomleft: 5px;
 	-moz-border-radius-bottomright: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
-	background-image: url(/images/icon_add.png);
-	background-position: 8px 8px;
-	background-repeat: no-repeat;
-	color: #FFF;
-	margin: 2px;
-	padding-left: 30px;
 }
 
 .tnav a:hover.icon-add {
@@ -1085,7 +1079,7 @@ Navigation - Tournament - Sidecol
 
 .tnav ul li a {
 	display: block;
-	padding: 10px;
+	padding: 10px 10px 9px 10px;
 }
 
 .tnav ul li.last {
