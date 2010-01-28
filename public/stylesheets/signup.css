@@ -220,11 +220,17 @@ body#signup #signup_wrap #signup_finish button, body#signup #signup_wrap #signup
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   text-shadow: -1px -1px 0 #247a00;
+  float: left;
 }
 
 body#signup #signup_wrap #signup_finish button:hover, body#signup #signup_wrap #signup_finish input:hover.reset_button {
   background: #4e8700;
   cursor: pointer;
+}
+
+body#signup #signup_wrap #signup_finish p#agree_terms {
+  float: left;
+  margin: 14px 0 0 15px;
 }
 
 div#thanks h2 {
@@ -250,6 +256,7 @@ div#thanks p a {
 body#signup #footer {
   margin: 15px 0 0 0;
   font-size: 13px;
+  color: #444f54;
 }
 
 .error_wrapper {

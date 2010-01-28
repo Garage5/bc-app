@@ -4,18 +4,21 @@
     <h1>Create your BattleID</h1>
   </div>
 	<% form_for @user do |f| -%>
+
 	  <%= hidden_field_tag :ref, params[:ref] || @ref %>
 	<div class="section">
+		<%- if flash[:alert] -%>
 		  <div class="error_wrapper"><%= f.error_messages %></div>
-			<p><%= f.label :login, "Username" %><%= f.text_field :login %> <span>Must be at least 4 characters.</span></p>
-			<p><%= f.label :email, "Email" %><%= f.text_field :email %> <span>Must be a valid email address.</span></p>
-			<p><%= f.label :password, "Password" %><%= f.password_field :password %> <span>Must be at least 7 characters.</span></p>
-			<p><%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation %></p>
+		<%- end -%>
+		<p><%= f.label :username, "Username" %><%= f.text_field :username %> <span>Must be at least 4 characters.</span></p>
+		<p><%= f.label :email, "Email" %><%= f.text_field :email %> <span>Must be a valid email address.</span></p>
+		<p><%= f.label :password, "Password" %><%= f.password_field :password %> <span>Must be at least 7 characters.</span></p>
+		<p><%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation %></p>
 	</div><!-- / section -->
 
-	<div id="signup_finish">
-    <p>By clicking Create my BattleID you agree to the <a href="http://thebattlecenter.com/terms">Terms of Service</a> &amp; <a href="http://thebattlecenter.com/privacy">Privacy</a>.</p>
+	<div id="signup_finish" class="clear">
     <p><button type="submit">Create my BattleID</button></p>
+    <p id="agree_terms">By clicking Create my BattleID you agree to the <a href="http://thebattlecenter.com/terms">Terms of Service</a> &amp; <a href="http://thebattlecenter.com/privacy">Privacy</a>.</p>
   </div><!-- /signup_finish -->
 <% end -%>
 </div><!-- / wrapper -->
