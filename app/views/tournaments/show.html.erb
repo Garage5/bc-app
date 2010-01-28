@@ -17,14 +17,18 @@
   		<h2>Recent Activity</h2>
   	</div><!-- / hd -->
   	<div class="overview bd">
-  	  <% @event_days.sort.each do |day, events| %>
-  	    <h3 class="today"><%= relative_date_or_formatted(day) %></h3>
-  	    <ul>
-  	    <% for event in events %>
-  	      <%= render :partial => "events/#{event.event_type}", :locals => {:event => event, :tournament => @tournament} %>
-  	    <% end %>
-  	    </ul>
-  	  <% end %>
+  	  <% unless @event_days.empty? %>
+    	  <% @event_days.sort.each do |day, events| %>
+    	    <h3 class="today"><%= relative_date_or_formatted(day) %></h3>
+    	    <ul>
+    	    <% for event in events %>
+    	      <%= render :partial => "events/#{event.event_type}", :locals => {:event => event, :tournament => @tournament} %>
+    	    <% end %>
+    	    </ul>
+    	  <% end %>
+    	<% else %>
+    	  No recent activity
+    	<% end %>
   	  <!-->
   	  <h3 class="today">Today</h3>
   	  <ul>

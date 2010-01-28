@@ -17,8 +17,8 @@ class AccountsController < ApplicationController
   ssl_allowed :plans, :thanks, :canceled, :paypal
   
   def show
-    @tournaments = current_account.tournaments.all(:include => :public_events)
-    @tournaments_alpha = @tournaments.sort {|x, y| x.name <=> y.name}
+    @tournaments = current_account.tournaments.all(:joins => :public_events)
+    @tournaments_alpha = current_account.tournaments.all(:order => ['name ASC'])
     render :layout => 'application'
   end
   
