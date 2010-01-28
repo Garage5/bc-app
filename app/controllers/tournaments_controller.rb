@@ -90,10 +90,11 @@ class TournamentsController < ApplicationController
   end
   
   def destroy
+    unauthorized! unless can? :destroy, @tournament
     @tournament = Tournament.find(params[:id])
     @tournament.destroy
     flash[:notice] = "Successfully destroyed tournament."
-    redirect_to tournaments_url
+    redirect_to root_url
   end
   
   def rules

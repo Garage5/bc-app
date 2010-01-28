@@ -7,6 +7,10 @@ class Ability
         is_host_or_cohost?(user, participation.tournament)
       end
       
+      can :destroy, Tournament do |tournament|
+        host?(user, tournament)
+      end
+      
       can :start, Tournament do |tournament|
         is_host_or_cohost?(user, tournament) && !tournament.started?
       end

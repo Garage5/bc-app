@@ -227,7 +227,7 @@
 		<div style="margin: -20px 0 5px 0;">
 		  <div class="clear" style="float: left;">
 		    
-		    <a href="" id="delete_btn">Delete Tournament</a>
+		    <%= link_to "Delete Tournament", tournament_path(@tournament), :method => :delete, :id => "delete_btn" %>
   	    <p id="delete_warning">Warning: This action can not be reversed.</p>
   	   </div>
 		   <div style="float: right;"><button type="submit" class="btn"><span class="icon"></span><span>Save Changes</span></button></div>

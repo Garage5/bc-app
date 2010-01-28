@@ -16,3 +16,11 @@ namespace :db do
     end
   end
 end
+
+namespace :test do
+  Rake::TestTask.new(:features => "db:test:prepare") do |t|
+    t.libs << "test"
+    t.pattern = 'test/features/**/*.rb'
+    t.verbose = true
+  end
+end

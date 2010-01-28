@@ -1,8 +1,8 @@
 Factory.define :user do |u|
   u.sequence(:username) {|n| "user-#{n}"}
   u.sequence(:email) {|n| "user-#{n}@example.com"}
-  u.password 'passpass'
-  u.password_confirmation 'passpass'
+  u.password 'password'
+  u.password_confirmation 'password'
 end
 
 Factory.define :account do |a|

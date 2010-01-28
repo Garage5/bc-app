@@ -39,6 +39,10 @@ class ActiveSupport::TestCase
   require 'redgreen' unless ENV['TM_MODE']
   require 'factories'
   
+  require "webrat"
+  Webrat.configure do |config|
+    config.mode = :rails
+  end
   # require "#{Rails.root}/db/fixtures/00_subscription_plans.rb"
   # require "#{Rails.root}/db/fixtures/test/all.rb"
 end

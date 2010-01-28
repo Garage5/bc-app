@@ -3,6 +3,8 @@ config.gem 'shoulda'
 config.gem 'rspec', :lib => false
 config.gem 'rspec-rails', :lib => false
 config.gem 'factory_girl', :lib => 'factory_girl'
+config.gem 'coulda'
+config.gem 'webrat'
 
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that

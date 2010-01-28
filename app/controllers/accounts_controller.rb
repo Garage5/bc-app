@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   layout 'accounts'
 
   before_filter :store_location, :only => :show
-  before_filter :login_required, :except => [:show]
+  before_filter :authenticate_user!, :except => [:show]
   before_filter :build_user, :only => [:new, :create]
   before_filter :load_billing, :only => [ :new, :create, :billing, :paypal ]
   before_filter :load_subscription, :only => [ :billing, :plan, :paypal, :plan_paypal ]
