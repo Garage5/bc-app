@@ -16,7 +16,7 @@ class Ability
       end
       
       can :join, Tournament do |tournament|
-        user.is_eligible_to_join?(tournament) && !tournament.started? && !is_host_or_cohost?(user, tournament)
+        !participant?(user, tournament) && !tournament.started? && !is_host_or_cohost?(user, tournament)
       end
       
       can :destroy, Participation do |participation|
@@ -58,7 +58,7 @@ class Ability
   end
 
   def participant?(user, tournament)
-    is_host_or_cohost?(user, tournament) || tournament.participants.include?(user)
+    is_host_or_cohost?(user, tournament) || tournament.participations.exists?(:participant_id => user.id)
   end
   
   def host?(user, tournament)
