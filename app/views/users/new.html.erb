@@ -4,7 +4,6 @@
     <h1>Create your BattleID</h1>
   </div>
 	<% form_for @user do |f| -%>
-
 	  <%= hidden_field_tag :ref, params[:ref] || @ref %>
 	<div class="section">
 		<%- unless f.error_messages.blank? -%>

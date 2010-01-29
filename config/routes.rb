@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :member => {:profile => :get}
   
   map.with_options :conditions => {:subdomain => 'signup'} do |signup|
+    signup.root :controller => 'accounts', :action => 'index'
     signup.connect '/signup/d/:discount', :controller => 'accounts', :action => 'plans'
     signup.thanks '/signup/thanks', :controller => 'accounts', :action => 'thanks'
     signup.create '/signup/create/:discount', :controller => 'accounts', :action => 'create', :discount => nil

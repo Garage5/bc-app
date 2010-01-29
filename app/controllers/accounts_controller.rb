@@ -16,6 +16,10 @@ class AccountsController < ApplicationController
   ssl_required :billing, :cancel, :new, :create
   ssl_allowed :plans, :thanks, :canceled, :paypal
   
+  def index
+    redirect_to 'http://thebattlcenter.com'
+  end
+  
   def show
     @tournaments = current_account.tournaments.all(:joins => :public_events)
     @tournaments_alpha = current_account.tournaments.all(:order => ['name ASC'])

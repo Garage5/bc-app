@@ -3,18 +3,19 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
-    session[:'user.return_to'] = params[:ref] if params[:ref]
+    session[:'user.return_to'] = params[:return_to] if params[:return_to] 
     render :layout => 'accounts'
   end
   
   def create
     @user = User.new(params[:user])
     if @user.save
+      # sign_in_and_redirect @user
       flash[:notice] = "Successfully created a BattleID"
-      redirect_back_or_default stored_location_for(:user)
+      sign_in_and_redirect @user
+      # edirect_back_or_default stored_location_for(:user)
     else
-      @ref = params[:ref] if params[:ref]
-      p @user.errors.full_messages
+      @ref = params[:return_to] if params[:return_to]
       render :action => 'new', :layout => 'accounts'
     end
   end

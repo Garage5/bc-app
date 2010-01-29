@@ -4,11 +4,6 @@ class SessionsControllerTest < ActionController::TestCase
   
   context 'A user with a BattleID' do
     
-    # context "on GET to :new" do
-    #   setup { get :new, :ref => 'http://signup.tbbdev.com/signup/Free' }
-    #   should_set_session(:'user.return_to') { 'http://signup.tbbdev.com/signup/Free' }
-    # end
-    
     context "on POST to :create" do
       setup do
         Factory.create(:user, :username => 'jakesully')

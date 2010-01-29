@@ -35,14 +35,6 @@ class ApplicationController < ActionController::Base
       warden.custom_failure! if performed?
     end
   end
-  
-  def after_sign_in_path_for(resource)
-    if session[:return_to]
-      session[:return_to]
-    else
-      super
-    end
-   end
 
   private
   

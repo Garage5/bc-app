@@ -5,7 +5,7 @@ class UsersControllerTest < ActionController::TestCase
   context 'A user without a BattleID' do
     
     context "on GET to :new" do
-      setup { get :new, :ref => 'http://signup.tbbdev.com/signup/Free' }
+      setup { get :new, :return_to => 'http://signup.tbbdev.com/signup/Free' }
       should_set_session(:'user.return_to') { 'http://signup.tbbdev.com/signup/Free' }
     end
     
