@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  has_many :tournaments
+  has_many :tournaments, :dependent => :destroy
   has_many :templates, :class_name => "Tournament", :foreign_key => "account_id", :conditions => {:is_template => true}
   
   has_attached_file :logo,
