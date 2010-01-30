@@ -67,7 +67,7 @@ User Avatar
 }
 
 #battle_bar #user_avatar a#avatar:hover {
-	background: #000 url(../images/acct_nav_icon_settings.png) 88% center no-repeat;
+	background: #000 url(../images/acct_nav_icon_settings.png) 92% center no-repeat;
 	padding: 6px 34px 6px 10px;
 	text-decoration: none;
 	opacity: 0.75;
@@ -395,6 +395,29 @@ User Login
   background: #FFF;
   border: 1px #000 solid;
   color: #000;
+}
+
+#logged_out #user_nav ul li#feedback {
+  float: left;
+  display: block;
+  margin: 0 3px 0 13px;
+  padding: 0 0 0 0;
+}
+
+#logged_out #user_nav ul li#feedback a {
+  color: #FFF;
+	font-size: 12px;
+	display: block;
+	padding: 8px 12px 8px 33px;
+	-moz-border-radius:     4px;
+	-webkit-border-radius:  4px;
+  opacity: 0.75;
+	background: transparent url(/images/icon_help.png) 9px 6px no-repeat;
+}
+
+#logged_out #user_nav ul li#feedback a:hover {
+  opacity: 1.0;
+	background: #000 url(/images/icon_help.png) 9px 6px no-repeat;
 }
 
 #acct_nav {
