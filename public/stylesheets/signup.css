@@ -140,6 +140,10 @@ body#signup #signup_wrap .section {
   -webkit-border-radius: 7px;
 }
 
+body#signup #signup_wrap .bd {
+  margin: 20px;
+}
+
 body#signup #signup_wrap .section h1 {
   font-size: 23px;
   font-weight: bold;
@@ -338,4 +342,59 @@ body#signup #signup_finish div.reset_or_signin a:hover {
   color: #FFF;
   text-decoration: none;
   background: #111213;
+} 
+
+body#signup .cancel_account .bd p {
+  line-height: 24px !important;
+  color: #FFF !important;
+  font-size: 15px;
+}
+
+body#signup .cancel_account .bd .section h2 {
+  color: #f0ff00;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+body#signup .cancel_account .bd .section p.change_plan {
+  margin: 25px 0 10px 0 !important;
+}
+
+body#signup .cancel_account .bd .section p.change_plan a {
+  background: #5cb100;
+  padding: 12px 15px 10px 15px;
+  font-weight: bold;
+  color: #FFF;
+  font-size: 15px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  line-height: 10px;
+}
+
+body#signup .cancel_account .bd .section p.change_plan a:hover {
+  color: #d1e7ba;
+  background: #4d9500;
+  text-decoration: none;
+}
+
+body#signup .cancel_account .bd fieldset legend {
+  font-weight: bold;
+  font-size: 14px;
+  color: #FFF;
+  margin: 0 0 5px 0;
+}
+
+body#signup .cancel_account #signup_finish input {
+  color: #e7bcbc;
+  background: #b10000;
+  padding: 8px 12px 8px 12px;
+  font-weight: bold;
+  color: #FFF;
+  font-size: 12px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  line-height: 10px;
+  border: 0;
+  cursor: pointer;
+}
   

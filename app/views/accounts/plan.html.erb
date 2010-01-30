@@ -20,7 +20,6 @@
       <p>The features &amp; restrictions of the new plan will be effective immediately, but your bill amount will not change until your next bill date.</p>
       
       
-      
       <% if @subscription.needs_payment_info? -%>
         <p id="force_billinginfo">Please make sure you <%= link_to('enter your billing information', billing_account_url) %> before your bill date to prevent an interruption in service.</p>
       <% end %>

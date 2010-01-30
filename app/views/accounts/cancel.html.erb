@@ -1,19 +1,24 @@
-<h1><%= @page_title = 'Cancel Account' %></h1>
-
-<p>You are about to cancel your account.  This will <strong>permanently delete all your data</strong>.  Once you do this, you will no longer have access to your data, so be sure this is really what you want to do. </p>
-
-<h2>Wait!  Before you go...</h2>
-<p>
-  Instead of canceling your account, perhaps you'd like to just switch your plan.  <a href="/account/plan">Change your subscription level now</a>.
-</p>
-
+<body id="signup">
+<div id="signup_wrap" class="cancel_account">
+  <div class="hd">
+		<h1><%= @page_title = 'Cancel Account' %></h1>
+	</div><!-- / hd -->
+	<div class="bd">
+    <p>You are about to cancel your account.  This will <strong>permanently delete all your data</strong>.  Once you do this, you will no longer have access to your data, so be sure this is really what you want to do. </p>
+    
+    <div class="section">
+    <h2>Wait!  Before you go...</h2>
+    <p>Instead of canceling your account, perhaps you'd like to just switch your plan.</p>
+    <p class="change_plan"><a href="/account/plan">Change your subscription level now</a></p>
+  </div><!-- / section -->
 <% form_tag :action => 'cancel' do %>
   <fieldset>
     <legend>Cancel Confirmation</legend>
-
-    <input type="checkbox" name="confirm" class="checkbox" value="1" />
-    I really do want to cancel my account and delete all my data.
+    <label><input type="checkbox" name="confirm" class="checkbox" value="1" /> I really do want to cancel my account and delete all my data.</label>
   </fieldset>
-
-  <%= submit_or_cancel '/account', 'Delete my Account' %>
+  </div><!-- / bd -->
+  <div id="signup_finish">
+    <p><%= submit_or_cancel '/account', 'Delete my Account' %></p>
+  </div><!-- / signup_finish -->
 <% end %>
+</div><!-- / wrapper -->

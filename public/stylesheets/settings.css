@@ -54,7 +54,7 @@ body#settings #account_url ul li#account_url_input {
 }
 
 body#settings #your_site_name {
-  float: right;
+  float: left;
   margin: 0 40px 3px 0;
 }
 
