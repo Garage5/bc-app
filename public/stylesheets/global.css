@@ -1108,6 +1108,13 @@ Navigation - Tournament - Sidecol
 	background-position: bottom;
 }
 
+.tnav ul li#empty_tlist {
+  color: #BBB;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 11px 10px 8px 10px;
+}
+
 /* 
 Navigation - Completed Tournaments - Sidecol
 -------------------------------------------------------------------------------------

@@ -95,3 +95,95 @@ body#new_overview .overview ul li a:hover span.comments {
   background-color: rgba(0, 0, 0, 0.3);
   color: #FFF;
 }
+
+
+body#new_overview .getting_started {
+  border: 0;
+  background: transparent url(/images/blank_start_bg.png) 0 0 no-repeat;
+  width: 806px;
+  height: 227px;
+  position: relative;
+}
+
+body#new_overview .getting_started a#btn_started {
+  width: 424px;
+  height: 118px;
+  background: transparent url(/images/blank_btn_start.png) 0 0 no-repeat;
+  display: block;
+  text-indent: -9999px;
+  position: absolute;
+  top: 83px;
+  left: 187px;
+}
+
+body#new_overview .getting_started a:hover#btn_started {
+  background-position: bottom;
+}
+
+
+body#new_overview #getting_started {
+  width: 905px;
+  height: 450px;
+  background: transparent url(../images/started_modal_bg.png) 0 0 no-repeat;
+  position: relative;
+}
+
+body#new_overview #getting_started .modal_inner {
+  padding: 35px 0 35px 0 !important;
+  margin: 0 !important;
+}
+
+body#new_overview #getting_started ul li {
+  float: left;
+  display: block;
+  width: 227px;
+  margin: 0 35px 0 35px;
+}
+
+body#new_overview #getting_started ul li h1 {
+  color: #242729;
+  font-family: "Myriad Pro", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin: 0 0 0 10px;
+}
+
+body#new_overview #getting_started ul li p {
+  font-size: 18px;
+  line-height: 30px;
+  color: #374046;
+  font-family: "Myriad Pro", Helvetica, Arial, sans-serif;
+  margin: 0 0 0 10px;
+}
+
+body#new_overview #getting_started a#btn_started {
+  width: 214px;
+  height: 42px;
+  background: transparent url(../images/started_btn.png) 0 0 no-repeat;
+  display: block;
+  text-indent: -9999px;
+  position: absolute;
+  bottom: 30px;
+  right: 45px;
+}
+
+body#new_overview #getting_started a:hover#btn_started {
+  background-position: bottom;
+}
+
+body#new_overview #getting_started a#btn_learnmore {
+  text-indent: -9999px;
+  width: 135px;
+  height: 24px;
+  background: transparent url(../images/btn_learnmore.png) 0 0 no-repeat;
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  left: 45px;
+}
+
+body#new_overview #getting_started a:hover#btn_learnmore {
+  opacity: 0.6;
+}
