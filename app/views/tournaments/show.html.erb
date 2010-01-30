@@ -12,12 +12,13 @@
 
 <div id="maincol">
 <div class="col">
+  <% unless @event_days.empty? %>
 	<div class="pod">
   	<div class="hd">
   		<h2>Recent Activity</h2>
   	</div><!-- / hd -->
   	<div class="overview bd">
-  	  <% unless @event_days.empty? %>
+  	  
     	  <% @event_days.sort.each do |day, events| %>
     	    <h3 class="today"><%= relative_date_or_formatted(day) %></h3>
     	    <ul>
@@ -26,11 +27,18 @@
     	    <% end %>
     	    </ul>
     	  <% end %>
-    	<% else %>
-    	  Overview
-    	<% end %>
   	</div><!-- / bd -->
 	</div><!-- / pod -->
+  <% else %>
+  <div class="pod">
+  	<div class="hd">
+  		<h2>No Recent Activity</h2>
+  	</div><!-- / hd -->
+  	<div class="blank_overview bd">
+  	  Some blank shit here bro!
+  	</div><!-- / bd -->
+	</div><!-- / pod -->
+  <% end %>
 </div><!-- / col -->
 </div><!-- / main-col -->
 

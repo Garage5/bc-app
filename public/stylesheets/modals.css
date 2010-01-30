@@ -131,3 +131,10 @@ a:hover.btn_cancel, button:hover.btn_cancel {
   color: #333;
   background: #DDD;
 }
+
+#delete_tournament {
+}
+
+#delete_tournament .modal_hd {
+  background: #6c0000 !important;
+}

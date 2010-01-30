@@ -187,3 +187,12 @@ body#new_overview #getting_started a#btn_learnmore {
 body#new_overview #getting_started a:hover#btn_learnmore {
   opacity: 0.6;
 }
+
+body#new_overview .blank_overview {
+  padding: 0 0 5px 0;
+  margin: 0;
+  background: transparent url(../images/blank_overview_bg.png) 0 0 no-repeat;
+  text-indent: -9999px;
+  width: 783px;
+  height: 160px;
+}
