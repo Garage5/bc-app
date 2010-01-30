@@ -180,8 +180,8 @@ body#new_overview #getting_started a#btn_learnmore {
   background: transparent url(../images/btn_learnmore.png) 0 0 no-repeat;
   display: block;
   position: absolute;
-  bottom: 30px;
-  left: 45px;
+  bottom: 37px;
+  left: 42px;
 }
 
 body#new_overview #getting_started a:hover#btn_learnmore {
