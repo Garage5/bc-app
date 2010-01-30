@@ -14,6 +14,6 @@ User.all(:offset => 1, :limit => 4).each do |u|
   Participation.seed(:tournament_id, :participant_id) do |p|
     p.tournament_id = Tournament.first.id
     p.participant_id = u.id
-    p.state = 'active'
+    p.accepted_at = Time.now
   end
 end

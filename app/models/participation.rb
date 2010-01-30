@@ -7,8 +7,7 @@ class Participation < ActiveRecord::Base
   validate :participant_cannot_be_host
   
   def accept!
-    self.state = 'active'
-    self.save
+    update_attributes(:accepted_at => Time.now)
   end
   
   def participant_cannot_be_host

@@ -1,8 +1,9 @@
 class CreateParticipations < ActiveRecord::Migration
   def self.up
     create_table :participations do |t|
-      t.integer :participant_id
-      t.integer :tournament_id
+      t.integer  :participant_id
+      t.integer  :tournament_id
+      t.datetime :accepted_at
       t.string  :state, :default => 'pending'
       t.timestamps
     end

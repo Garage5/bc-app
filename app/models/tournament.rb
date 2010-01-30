@@ -29,7 +29,7 @@ class Tournament < ActiveRecord::Base
   has_many :pending_participants, :through => :participations, 
            :conditions => ['participations.state = ?', 'pending'], :source => :participant
   has_many :active_participants, :through => :participations, 
-           :conditions => ['participations.state = ?', 'active'], :source => :participant
+           :conditions => 'participations.accepted_at IS NOT NULL', :order => 'participations.accepted_at ASC', :source => :participant
   
   accepts_nested_attributes_for :rounds
   

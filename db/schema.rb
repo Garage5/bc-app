@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
   create_table "participations", :force => true do |t|
     t.integer  "participant_id"
     t.integer  "tournament_id"
+    t.datetime "accepted_at"
     t.string   "state",          :default => "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
