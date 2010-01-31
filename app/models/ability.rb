@@ -50,6 +50,10 @@ class Ability
       can :view, Message do |message|
         message.hosts_only? ? is_host_or_cohost?(user, message.tournament) : true
       end
+    
+      can [:destroy, :edit], Message do |message|
+        is_host_or_cohost?(user, message.tournament)
+      end
     end
   end
 

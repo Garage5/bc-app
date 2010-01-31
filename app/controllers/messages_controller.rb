@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   end
   
   def show
-    @message = Message.find(params[:id], :include => {:comments => [:attachments, :author]})
+    @message = @tournament.messages.find(params[:id], :include => {:comments => [:attachments, :author]})
     unauthorized! if cannot? :view, @message
   end
   
@@ -39,28 +39,31 @@ class MessagesController < ApplicationController
   end
   
   def edit
-    @message = Message.find(params[:id])
+    @message = @tournament.messages.find(params[:id])
+    unauthorized! if cannot? :edit, @message
   end
   
   def update
-    @message = Message.find(params[:id])
+    @message = @tournament.messages.find(params[:id])
+    unauthorized! if cannot? :edit, @message
     if @message.update_attributes(params[:message])
       flash[:notice] = "Successfully updated message."
-      redirect_to @message
+      redirect_to [@tournament, @message]
     else
       render :action => 'edit'
     end
   end
   
   def destroy
-    @message = Message.find(params[:id])
+    @message = @tournament.messages.find(params[:id])
+    unauthorized! if cannot? :destroy, @message
     @message.destroy
     flash[:notice] = "Successfully destroyed message."
-    redirect_to messages_url
+    redirect_to tournament_messages_url(@tournament)
   end
   
   protected
   def find_tournament
-    @tournament = Tournament.find(params[:tournament_id])
+    @tournament = current_account.tournaments.find(params[:tournament_id])
   end
 end

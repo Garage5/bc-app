@@ -21,8 +21,8 @@ class AccountsController < ApplicationController
   end
   
   def show
-    @tournaments = current_account.tournaments.all(:joins => :public_events)
-    @tournaments_alpha = current_account.tournaments.all(:order => ['name ASC'])
+    @tournaments_alpha = current_account.tournaments.all(:include => :public_events)
+    @tournaments = @tournaments_alpha.reject {|t| t.public_events.size == 0 }
     render :layout => 'application'
   end
   

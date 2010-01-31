@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  has_many   :comments, :as => :commentable
+  has_many   :comments, :as => :commentable, :dependent => :destroy
   has_many   :attachments, :as => :attachable, :class_name => '::Attachment'
   
   belongs_to :tournament

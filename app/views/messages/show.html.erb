@@ -21,6 +21,14 @@
 	
 	  <div id="message_body">
 	    <p><%= @message.body %></p>
+	    
+	    <p>
+	      <% if can? [:edit, :destroy], @message %>
+	        <%= link_to "Delete", tournament_message_path(@tournament, @message), :method => 'delete' %>
+          |
+	        <%= link_to "Edit", edit_tournament_message_path(@tournament, @message) %>
+        <% end %>
+	    </p>
 	  </div>
 	  
 	  <%= render :partial => 'attachments/list', :locals => {:attachments => @message.attachments} %>
