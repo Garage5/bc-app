@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.devise_for :user, :as => :sessions, :path_names => {:sign_in => 'login', :sign_out => 'logout'}
-  map.resources :users, :member => {:profile => :get}
+  map.resources :users
   
   map.with_options :conditions => {:subdomain => 'signup'} do |signup|
     signup.root :controller => 'accounts', :action => 'index'

@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates_length_of :username, :within => 4..13
   validates_presence_of :username
   
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :avatar, :email, :password, :password_confirmation
   
   has_attached_file :avatar, :styles => {:large => "75x75#", :medium => "48x48#", :small => "32x32#"},
     :default_url => "/:class/:attachment/missing_:style.jpg",
