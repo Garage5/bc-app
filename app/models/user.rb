@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :teams, :through => :team_members
   
   validates_acceptance_of :terms_of_service, :on => :create
-  validates_length_of :username, :within => 4..13
+  validates_length_of :username, :within => 4..13, :on => :create
   validates_presence_of :username
   
   attr_accessible :avatar, :email, :password, :password_confirmation
