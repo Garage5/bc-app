@@ -147,4 +147,17 @@
 
 <!-- / confirm_start_tournament -->
 
+<div id="delete_tournament" class="modal">
+	  <div class="modal_hd">
+		  <a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+		  <h1>ARE YOU SURE YOU WANT TO DELETE THIS TOURNAMENT?</h1>
+	  </div><!-- / modal_hd -->
+  <div class="modal_inner">
+    <div class="clear">
+    <p>Once you click delete, all data for <strong>this tournament</strong> will be permanently deleted. There is no reversing this action</p>
+    <%= link_to "Delete Tournament", tournament_path(@tournament), :method => :delete, :id => "delete_btn" %>
+    </div>
+  </div><!-- / modal_inner -->
+</div><!-- / modal -->
 
+<!-- / getting_started -->

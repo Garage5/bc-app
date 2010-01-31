@@ -18,30 +18,5 @@
 			<li>2nd Place: <%= @tournament.second_prize %></li>
 			<li class="last">3rd Place:  <%= @tournament.third_prize %></li>
 		</ul>
-		<div class="beta">
-		<h3>Dates/Times</h3>
-		<div id="calendar_canvas">
-  		<%= render :partial => 'layouts/calendar' %>
-    </div>
-		<h4>
-		<ul id="calendar_key" class="clear">
-		<li>
-		  <span class="swatch" style="background-color: #00c277;">&nbsp;</span>
-		  Start Registration
-		</li>
-		<li>
-			<span class="swatch" style="background-color: #00673f;">&nbsp;</span>
-			End Registration
-		</li>
-		<li>
-		  <span class="swatch" style="background-color: #9b00f4;">&nbsp;</span>
-		  Start Tournament
-		</li>
-		<li>
-			<span class="swatch" style="background-color: #410067;">&nbsp;</span>
-		  End Tournament
-		</li>
-		</ul><!-- / calendar_key -->
-		</div><!-- // beta -->
 	</div><!-- / bd -->
 </div><!-- / pod -->

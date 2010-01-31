@@ -59,7 +59,7 @@ jQuery.fn.center = function(params) {
 
 jQuery.fn.modal = function(options){
   var defaults = {
-    overlayOpacity: 0.9,
+    overlayOpacity: 0.1,
     overlayColor: '#000'
   }
   
@@ -138,4 +138,5 @@ jQuery.fn.modal = function(options){
 
 $(document).ready(function(){
   $('a[rel^="modal"]').modal({overlayOpacity: 0.3})
+  $('a[rel^="dark_modal"]').modal({overlayOpacity: 0.9})
 })

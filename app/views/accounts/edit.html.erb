@@ -26,7 +26,6 @@
 			</li>
 			<li id="account_url_input">
 				http:// <%= f.text_field :subdomain  %> .tbblive.com
-				<button type="submit" class="btn"><span class="icon"></span><span>Save</span></button>
 			</li>
   	</ul>
 		</div><!-- // darkpod -->
@@ -34,13 +33,13 @@
     <div id="your_logo" class="darkpod clear">
 	    <p></p>
 	      <div class="clear">
-				<div class="left_block"><%= image_tag current_account.logo.url %></div>
+				<div class="left_block"><%= image_tag current_account.logo.url, :width => '283px'%></div>
         <div class="block">
 					<div><%= f.file_field :logo %></div>
 					<button type="submit" class="btn"><span class="icon"></span><span>Upload Logo</span></button>
+  				<p><strong>NOTE:</strong> The logo must be 283 pixels wide.</p>
 					</div><!-- / clear -->
 				</div>
-				<p><strong>NOTE:</strong> The logo must not be more than 300 pixels wide. If you keep seeing an old logo instead of the new logo you've uploaded <a href="#">see the FAQ</a>.</p>
 	  </div>
 	  <button class="btn save_changes"><span class="icon"></span><span>Save Changes</span></button>
 	  <% end %>

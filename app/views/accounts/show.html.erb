@@ -3,6 +3,30 @@
 <% body 'new_overview' %>
 <% end -%>
 
+<div id="getting_started" class="modal">
+  <div class="modal_inner">
+    <ul>
+      <li>
+        <h1>Join a Tournament</h1>
+        <img src="images/started_join_tournament_thumb.png" />
+        <p>Easily join the tournament you want to join. Once you click the button, the host will be notified and approve your request.</p>
+      </li>
+      <li>
+        <h1>Create a Team</h1>
+        <img src="images/started_join_tournament_thumb.png" />
+        <p>Easily join the tournament you want to join. Once you click the button, the host will be notified and approve your request.</p>
+      </li>
+      <li>
+        <h1>Submit Match Results</h1>
+        <img src="images/started_join_tournament_thumb.png" />
+        <p>Easily join the tournament you want to join. Once you click the button, the host will be notified and approve your request.</p>
+      </li>
+    </ul>
+  </div><!-- / modal_inner -->
+  <a id="btn_started" class="modal_close" href="">Get in the Game!</a>
+  <a id="btn_learnmore" target="_blank" href="http://www.thebattlecenter.com">Learn More</a>
+</div><!-- / modal -->
+
 <div id="maincol">
 <div class="col">
 <% if !@tournaments.blank? %>
@@ -21,7 +45,11 @@
 	</div><!-- / pod -->
   <% end %>
 <% else %>
-  No Tournaments
+    <div class="getting_started pod">
+      <div class="bd">
+        <a id="btn_started" href="#getting_started" rel="dark_modal">Click to Get Started</a>
+      </div>
+  	</div><!-- / pod -->
 <% end %>
 </div><!-- / col -->
 </div><!-- / main-col -->
@@ -30,7 +58,7 @@
 <div class="col">
   <div class="account_logo">
     <% if current_account.logo.exists? %>
-      <%= image_tag current_account.logo.url, :width => '250px' %>
+      <%= image_tag current_account.logo.url, :width => '283px' %>
     <% end %>
   </div><!-- / account_logo -->
 <%= render :partial => "layouts/sidenav" %>

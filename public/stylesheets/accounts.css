@@ -295,3 +295,19 @@ body#accounts div#billing_form div#billing_submit input:hover {
   cursor: pointer;
   background: #5ba100;
 }
+
+body#accounts #cancel_account {
+  margin: 25px 0 10px 0;
+}
+
+body#accounts #cancel_account h1 {
+  color: #333;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom: 1px #DDD solid;
+  margin: 0 0 5px 0;
+}
+
+body#accounts #cancel_account p {
+  margin: 0 0 10px 0;
+}

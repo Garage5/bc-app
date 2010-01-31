@@ -8,6 +8,8 @@
 		    <% for t in @tournaments_alpha %>
 		      <li><%= link_to t.name, tournament_path(t) %></li>
 		    <% end %>
+		    <% else %>
+		      <li id="empty_tlist">No Active Tournaments</li>
 		  <% end %>
 			<li class="beta"><a href="" class="beta tedit">Edit</a><a href="">Valor Tournament</a></li>
 			<% if current_account.admin == current_user %>
