@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   
   attr_accessible :avatar, :email, :password, :password_confirmation
   
+  after_create :deliver_welcome_email
+  
   has_attached_file :avatar, :styles => {:large => "75x75#", :medium => "48x48#", :small => "32x32#"},
     :default_url => "/:class/:attachment/missing_:style.jpg",
     :storage => :s3,
@@ -127,5 +129,11 @@ class User < ActiveRecord::Base
     memb = part.team_memberships.find(:first, :conditions => {:team_id => team.id})
     memb.destroy
   end
+  
+  private
+  
+    def deliver_welcome_email
+      UserMailer.deliver_welcome_email(self)
+    end
   
 end
