@@ -32,7 +32,7 @@
           </div>
         <div id="next_bill">
           <h2>Your next bill date</h2>
-          <p class="date"><%= @subscription.next_renewal_at.to_s(:long_day) %></p>
+          <p class="date"><%= @subscription.next_renewal_at.strftime('%B %d, %Y') %></p>
         </div><!-- / next_bill -->
         </div><!-- / clear -->
       </div><!-- / current_plan -->
