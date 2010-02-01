@@ -30,13 +30,13 @@
             <% if @subscription.state == 'trial' %>
             <li>
               <h3>Trial expiration date:</h3>
-              <span><%= @subscription.next_renewal_at.to_s(:long_day) %></span>
+              <span><%= @subscription.next_renewal_at.strftime('%B %d, %Y') %></span>
             </li>
             <% else %>
             <% if @subscription.amount > 0 %>
           <li>
             <h3>Next charge date:</h3>
-            <span><%= @subscription.next_renewal_at.to_s(:long_day) %></span>
+            <span><%= @subscription.next_renewal_at.strftime('%B %d, %Y') %></span>
           </li>
           <li>
             <h3>Next charge amount:</h3>
