@@ -19,24 +19,24 @@
 # )
 
 users = [
-  ['dev',    'Developer User'],
-  ['bryan',  'Bryan Cinman'],
-  ['matt',   'Matt Johnson'],
-  ['james',  'James Au'],
-  ['victor', 'Victor Au'],
-  ['david',  'David Nguyen'],
-  ['josh',   'Josh Kim'],
-  ['jeff',   'Jeff Tang'],
-  ['jon',    'Jon Tang'],
-  ['john',    'John Smith'],
-  ['jake',    'Jake Sully']
+  'dev',
+  'bryan',
+  'matt',
+  'james',
+  'victor',
+  'david',
+  'josh',
+  'jeff',
+  'jon', 
+  'john',
+  'jake',
 ]
 
 users.each do |u|
-  User.create do |u|
-    u.username = u[0]
-    u.email = "#{u[0]}@thebattlebegins.com"
-    u.password = 'pass'
-    u.password_confirmation = 'pass'
+  User.seed(:username) do |user|
+    user.username = u,
+    user.email = "#{u}@thebattlebegins.com"
+    user.password = 'tbbdev'
+    user.password_confirmation = 'tbbdev'
   end
 end

@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   validates_length_of :username, :within => 3..13, :on => :create
   validates_presence_of :username
   
-  attr_accessible :avatar, :email, :password, :password_confirmation
+  attr_accessible :username, :avatar, :email, :password, :password_confirmation
+  attr_readonly   :username
   
   after_create :deliver_welcome_email
   
@@ -129,7 +130,7 @@ class User < ActiveRecord::Base
   private
   
     def deliver_welcome_email
-      UserMailer.deliver_welcome_email(self)
+      UserMailer.deliver_welcome_email(self) if Rails.env == 'production'
     end
   
 end
