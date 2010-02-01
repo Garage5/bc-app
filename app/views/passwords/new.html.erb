@@ -2,8 +2,8 @@
   <div class="hd">
 		<h1>Forgot your password?</h1>
 	</div><!-- / hd -->
-  <div class="section">
     <% form_for resource_name, resource, :url => password_path(resource_name) do |f| %>
+    <div class="section">
     <%- if flash[:alert] -%>
       <div class="error_wrapper"><%= f.error_messages %></div>
     <%- end -%>
