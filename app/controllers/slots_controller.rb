@@ -10,11 +10,13 @@ class SlotsController < ApplicationController
   end
   
   def advance
+    unauthorized! if cannot? :advance, @slot
     @slot.advance!
     redirect_to [:brackets, @tournament]
   end
   
   def revert
+    unauthorized! if cannot? :revert, @slot
     @slot.revert!
     redirect_to [:brackets, @tournament]
   end

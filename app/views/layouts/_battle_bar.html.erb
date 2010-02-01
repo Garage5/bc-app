@@ -5,7 +5,7 @@
 		  <ul>
 		    <li id="logged_in">Logged in as</li>
 			  <li>
-			  <a class="clear" id="avatar" href="<%= user_path(current_user.login) %>"><%= image_tag current_user.avatar.url(:small) %>
+			  <a class="clear" id="avatar" href="<%= user_path(current_user) %>"><%= image_tag current_user.avatar.url(:small) %>
 			  <span><%= current_user.try(:login) || 'nologin' %></span></a>
 			  </li>
 			</ul>

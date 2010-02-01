@@ -54,6 +54,15 @@ class Ability
       can [:destroy, :edit], Message do |message|
         is_host_or_cohost?(user, message.tournament)
       end
+      
+      
+      can [:advance, :disqualify], Slot do |slot|
+        is_host_or_cohost?(user, slot.tournament) && !slot.opponent.player_id.nil?
+      end
+      
+      can :revert, Slot do |slot|
+        is_host_or_cohost?(user, slot.tournament) && slot.can_revert?
+      end
     end
   end
 

@@ -1,10 +1,6 @@
 class User < ActiveRecord::Base
   devise :authenticatable, :recoverable, :rememberable, :trackable, :validatable
   
-  #acts_as_authentic do |c|
-  #  c.validates_length_of_password_field_options = {:minimum => 7}
-  #end
-  
   has_many :accounts
   has_many :participations, :foreign_key => :participant_id, :dependent => :destroy
   has_many :tournaments, :through => :participations
@@ -12,10 +8,12 @@ class User < ActiveRecord::Base
   has_many :teams, :through => :team_members
   
   validates_acceptance_of :terms_of_service, :on => :create
-  validates_length_of :username, :within => 4..13, :on => :create
+  validates_length_of :username, :within => 3..13, :on => :create
   validates_presence_of :username
+  validates_uniqueness_of :username
   
-  attr_accessible :avatar, :email, :password, :password_confirmation
+  attr_accessible :username, :avatar, :email, :password, :password_confirmation
+  attr_readonly   :username
   
   after_create :deliver_welcome_email
   
