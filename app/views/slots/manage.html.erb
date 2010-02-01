@@ -5,9 +5,19 @@
 		</div><!-- / modal_hd -->
 	<div class="modal_inner">
 			<div style="width: 300px;" class="clear">
-			  <%= button_link_to 'Disqualify', [:disqualify, @tournament, @match, @slot], '', :method => :put %>
-			  <%= button_link_to 'Declare Winner', [:advance, @tournament, @match, @slot], '', :method => :put %>
-			  <%= button_link_to 'Revert', [:revert, @tournament, @match, @slot], '', :method => :put %>
+			  <% if can? [:advance, :revert, :disqualify], @slot %>
+  			  <%= button_link_to 'Disqualify', [:disqualify, @tournament, @match, @slot], '', :method => :put %>
+			  
+  			  <% if can? :advance, @slot %>
+  			    <%= button_link_to 'Declare Winner', [:advance, @tournament, @match, @slot], '', :method => :put %>
+  			  <% end %>
+			  
+  			  <% if can? :revert, @slot %>
+  			    <%= button_link_to 'Revert', [:revert, @tournament, @match, @slot], '', :method => :put %>
+  			  <% end %>
+			  <% else %>
+			    You cannot advance, revert, or disqualify a slot without an opponent
+			  <% end %>
 			</div>
 	</div><!-- / modal_inner -->
 </div><!-- / modal -->
