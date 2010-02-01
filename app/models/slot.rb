@@ -8,12 +8,12 @@ class Slot < ActiveRecord::Base
   def advance!(byed = nil)
     match = self.match
     # if not last match
-    
+
     match_event = self.tournament.events.new(
       :event_type    => 'result',
       :data => Hashie::Mash.new({
         :opponents => [self.player.login, self.opponent.player.login]
-      }))
+      })) unless byed
     
     unless match.round.position == self.tournament.calculate_round_count
       index = match.position.odd? ? 0 : 1
