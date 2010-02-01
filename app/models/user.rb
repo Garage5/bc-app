@@ -130,7 +130,7 @@ class User < ActiveRecord::Base
   private
   
     def deliver_welcome_email
-      UserMailer.deliver_welcome_email(self) if Rails.env == 'production'
+      UserMailer.deliver_welcome_email(self)
     end
   
 end
