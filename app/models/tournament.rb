@@ -27,7 +27,7 @@ class Tournament < ActiveRecord::Base
   has_many :cohosts , :through => :participations,
            :conditions => ['participations.state = ?', 'cohost'], :source => :participant
   has_many :pending_participants, :through => :participations, 
-           :conditions => ['participations.state = ?', 'pending'], :source => :participant
+           :conditions => 'participations.accepted_at IS NULL', :source => :participant
   has_many :active_participants, :through => :participations, 
            :conditions => 'participations.accepted_at IS NOT NULL', :order => 'participations.accepted_at ASC', :source => :participant
   
