@@ -123,16 +123,19 @@ body#new_overview .getting_started a:hover#btn_started {
 
 body#new_overview #getting_started {
   width: 905px;
-  height: 450px;
+  height: 410px;
   background: transparent url(../images/started_modal_bg.png) 0 0 no-repeat;
   position: relative;
 }
 
 body#new_overview #getting_started .modal_inner {
-  padding: 35px 0 35px 0 !important;
-  margin: 0 !important;
+  width: 851px;
+  height: 280px;
+  background: transparent url(../images/blank_started_content.png) 0 0 no-repeat;
+  margin: 25px 0 0 25px;
 }
 
+/*
 body#new_overview #getting_started ul li {
   float: left;
   display: block;
@@ -157,6 +160,7 @@ body#new_overview #getting_started ul li p {
   font-family: "Myriad Pro", Helvetica, Arial, sans-serif;
   margin: 0 0 0 10px;
 }
+*/
 
 body#new_overview #getting_started a#btn_started {
   width: 214px;
