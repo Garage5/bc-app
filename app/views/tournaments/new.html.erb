@@ -192,43 +192,6 @@
 		</div><!-- / pod -->
 		<!-- / Step 4 -->
 		
-		<!-- Step 5 -->
-		<h3>Dates</h3>
-		<div id="tournament_dates" class="pod clear">
-		<div class="bd">
-			
-			<div class="clear">
-		    <div class="beta" id="calendar_canvas">
-      		<%#= render :partial => 'layouts/calendar', :locals => {:show_date => @tournament.registration_start_date} %>
-        </div>
-				
-				<div class="tournament_dates">
-				  <table>
-						<tr>
-							<th>&nbsp;</th>
-							<td class="date">&nbsp;</td>
-							<td class="edit">&nbsp;</td>
-						</tr>
-						<tr>
-							<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
-							<td class="date">
-                <%= f.date_select :registration_start_date, :order => [:month, :day, :year] %>
-							</td>
-							<td class="edit">&nbsp;</td>
-						</tr>
-						<tr>
-							<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
-							<td class="date">
-							  <%= f.date_select :registration_end_date, :order => [:month, :day, :year] %>                
-							</td>
-							<td class="edit">&nbsp;</td>
-						</tr>
-					</table>
-			  </div><!-- / tournament_dates -->
-			</div><!-- / clear -->
-		</div><!-- / bd -->
-		</div><!-- / pod -->
-		<!-- / Step 5 -->
 		<div style="margin: -20px 0 5px 0;">
 		<button type="submit" class="btn"><span class="icon"></span><span>Create Tournament</span></button>
 		</div>

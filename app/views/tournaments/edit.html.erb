@@ -163,67 +163,6 @@
 		</div><!-- / pod -->
 		<!-- / Step 4 -->
 		
-		<!-- Step 5 -->
-		<h3>Dates</h3>
-		<div id="tournament_dates" class="pod clear">
-		<div class="bd">
-			
-			<div class="clear">
-		    <div id="calendar_canvas">
-      		<%= render :partial => 'layouts/calendar', :locals => {:show_date => @tournament.registration_start_date} %>
-        </div>
-				
-				<div class="tournament_dates">
-				  <table>
-						<tr>
-							<th>&nbsp;</th>
-							<td class="date">&nbsp;</td>
-							<td class="edit">&nbsp;</td>
-						</tr>
-						<tr>
-							<th><span class="swatch" style="background-color: #00c277;">&nbsp;</span> Registration Start:</th>
-							<td class="date">
-                <%= f.date_select :registration_start_date, :order => [:month, :day, :year] %>
-							</td>
-							<td class="edit">&nbsp;</td>
-						</tr>
-						<tr>
-							<th><span class="swatch" style="background-color: #00673f;">&nbsp;</span> Registration End:</th>
-							<td class="date">
-							  <%= f.date_select :registration_end_date, :order => [:month, :day, :year] %>                
-							</td>
-							<td class="edit">&nbsp;</td>
-						</tr>
-						<% 0.times do |n| %>
-						  <tr class="time" id="round_<%= n+1 %>_canvas" style="display: none;">
-							  <th>Round #<%= n+1 %> Start Time:</th>
-							  <td class="time">
-							  <div class="group">
-							    <input type="text" class="date_month" name="tournament[rounds_attributes][<%= n %>][start_date(2i)]" id="tournament_rounds_<%= n %>_start_date_month" title="mm" maxlength="2" value="<%= @tournament.rounds[n].start_date.try(:month) if @tournament.rounds[n] %>" />
-							    / <input type="text" class="date_day" name="tournament[rounds_attributes][<%= n %>][start_date(3i)]" id="tournament_rounds_<%= n %>_start_date_day" title="dd" maxlength="2" value="<%= @tournament.rounds[n].start_date.try(:day) if @tournament.rounds[n] %>" />
-							    / <input type="text" class="date_year" name="tournament[rounds_attributes][<%= n %>][start_date(1i)]" id="tournament_rounds_<%= n %>_start_date_year" title="yyyy" maxlength="4" value="<%= @tournament.rounds[n].start_date.try(:year) if @tournament.rounds[n] %>" />
-							    - <input type="text" class="date_hour" name="tournament[rounds_attributes][<%= n %>][start_date(4i)]" id="tournament_rounds_<%= n %>_start_date_hour" title="hh" maxlength="2" />
-							    : <input type="text" class="date_minutes" name="tournament[rounds_attributes][<%= n %>][start_date(5i)]" id="tournament_rounds_<%= n %>_start_date_minutes" title="mm" maxlength="2" />
-							  </div>
-							    
-							   
-							  <div>
-							    <input type="radio" value="AM" id="tournament_rounds_<%= n %>_start_date_p_am" name="tournament[rounds_attributes][<%= n %>][start_date(6i)]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i < 12 %>/>
-							    <label for="tournament_rounds_<%= n %>_start_date_p_am">AM</label>
-							    <input type="radio" value="PM" id="tournament_rounds_<%= n %>_start_date_p_pm" name="tournament[rounds_attributes][<%= n %>][start_date(6i)]" <%= "checked='checked'" if @tournament.rounds[n] && @tournament.rounds[n].start_time.try(:hour).to_i >= 12 %>/>
-							    <label for="tournament_rounds_<%= n %>_start_date_p_pm">PM</label>
-							  </div>
-							  <input type="hidden" name="tournament[rounds_attributes][<%= n %>][number]" value="<%= n %>" />
-							  </td>
-							  <td class="edit">&nbsp;</td>
-						  </tr>
-					  <% end %>
-					</table>
-			  </div><!-- / tournament_dates -->
-			</div><!-- / clear -->
-		</div><!-- / bd -->
-		</div><!-- / pod -->
-		<!-- / Step 5 -->
 		<div style="margin: -20px 0 5px 0;">
 		  <div class="clear" style="float: left;">
 		    

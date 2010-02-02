@@ -34,12 +34,7 @@ class Tournament < ActiveRecord::Base
   accepts_nested_attributes_for :rounds
   
   validates_presence_of :name, :game, :rules, :slot_count, :account_id
-  
-  validates_date :registration_start_date, :after => Date.today-1, :on => :create
-  validates_date :registration_end_date, :after => :registration_start_date, :on => :create
-
   validates_numericality_of :entry_fee
-  
   validate_on_create :check_slot_limit
   
   def to_param

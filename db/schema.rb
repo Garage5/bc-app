@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091111204149) do
+ActiveRecord::Schema.define(:version => 20100202061001) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
 
   create_table "password_resets", :force => true do |t|
     t.string   "email"
-    t.integer  "user_id",    :limit => 11
+    t.integer  "user_id"
     t.string   "remote_ip"
     t.string   "token"
     t.datetime "created_at"
@@ -175,16 +175,16 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
   end
 
   create_table "subscription_payments", :force => true do |t|
-    t.integer  "account_id",                :limit => 11
-    t.integer  "subscription_id",           :limit => 11
-    t.decimal  "amount",                                  :precision => 10, :scale => 2, :default => 0.0
+    t.integer  "account_id"
+    t.integer  "subscription_id"
+    t.decimal  "amount",                    :precision => 10, :scale => 2, :default => 0.0
     t.string   "transaction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "setup"
     t.boolean  "misc"
     t.integer  "subscription_affiliate_id"
-    t.decimal  "affiliate_amount",                        :precision => 6,  :scale => 2, :default => 0.0
+    t.decimal  "affiliate_amount",          :precision => 6,  :scale => 2, :default => 0.0
   end
 
   add_index "subscription_payments", ["account_id"], :name => "index_subscription_payments_on_account_id"
@@ -192,31 +192,31 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
 
   create_table "subscription_plans", :force => true do |t|
     t.string   "name"
-    t.decimal  "amount",                         :precision => 10, :scale => 2
+    t.decimal  "amount",           :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tournament_limit", :limit => 11
-    t.integer  "slot_limit",       :limit => 3
-    t.integer  "renewal_period",   :limit => 11,                                :default => 1
-    t.decimal  "setup_amount",                   :precision => 10, :scale => 2
-    t.integer  "trial_period",     :limit => 11,                                :default => 1
+    t.integer  "tournament_limit"
+    t.integer  "slot_limit"
+    t.integer  "renewal_period",                                  :default => 1
+    t.decimal  "setup_amount",     :precision => 10, :scale => 2
+    t.integer  "trial_period",                                    :default => 1
   end
 
   create_table "subscriptions", :force => true do |t|
-    t.decimal  "amount",                                  :precision => 10, :scale => 2
+    t.decimal  "amount",                    :precision => 10, :scale => 2
     t.datetime "next_renewal_at"
     t.string   "card_number"
     t.string   "card_expiration"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",                                                                  :default => "trial"
-    t.integer  "subscription_plan_id",      :limit => 11
-    t.integer  "account_id",                :limit => 11
-    t.integer  "tournament_limit",          :limit => 11
-    t.integer  "slot_limit",                :limit => 3
-    t.integer  "renewal_period",            :limit => 11,                                :default => 1
+    t.string   "state",                                                    :default => "trial"
+    t.integer  "subscription_plan_id"
+    t.integer  "account_id"
+    t.integer  "tournament_limit"
+    t.integer  "slot_limit"
+    t.integer  "renewal_period",                                           :default => 1
     t.string   "billing_id"
-    t.integer  "subscription_discount_id",  :limit => 11
+    t.integer  "subscription_discount_id"
     t.integer  "subscription_affiliate_id"
   end
 
@@ -243,21 +243,19 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.string   "game"
     t.text     "rules"
     t.integer  "slot_count"
-    t.boolean  "use_teams",               :default => false
+    t.boolean  "use_teams",        :default => false
     t.integer  "players_per_team"
     t.string   "places"
     t.integer  "first_place_id"
     t.string   "first_place_type"
-    t.date     "registration_start_date"
-    t.date     "registration_end_date"
-    t.string   "first_prize",             :default => "0"
-    t.string   "second_prize",            :default => "0"
-    t.string   "third_prize",             :default => "0"
-    t.integer  "entry_fee",               :default => 0
+    t.string   "first_prize",      :default => "0"
+    t.string   "second_prize",     :default => "0"
+    t.string   "third_prize",      :default => "0"
+    t.integer  "entry_fee",        :default => 0
     t.text     "other_prizes"
-    t.boolean  "is_template",             :default => false
+    t.boolean  "is_template",      :default => false
     t.integer  "account_id"
-    t.string   "state",                   :default => "active"
+    t.string   "state",            :default => "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -287,7 +285,5 @@ ActiveRecord::Schema.define(:version => 20091111204149) do
     t.boolean  "admin",                              :default => true
     t.integer  "account_id"
   end
-
-  add_index "users", ["account_id"], :name => "index_users_on_account_id"
 
 end

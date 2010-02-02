@@ -8,8 +8,6 @@
 			<li><strong>Tournament Type:</strong> Single Elimination</li>
 			<li><strong>Total Slots:</strong> <%= @tournament.slot_count %></li>
 			<li><strong>Slots Open:</strong> <%= @tournament.slot_count - @tournament.active_participants.count %></li>
-			<li><strong>Registration Start:</strong> <%= @tournament.registration_start_date.strftime('%B %d, %Y') %></li>
-			<li><strong>Registration End:</strong> <%= @tournament.registration_end_date.strftime('%B %d, %Y') %></li>
 			<li class="last"><strong>Entry Fee:</strong> <%= @tournament.entry_fee == 0 ? 'N/A' : @tournament.entry_fee %></li>
 		</ul>
 		<h3>Prizes</h3>
