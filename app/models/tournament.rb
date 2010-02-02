@@ -16,7 +16,7 @@ class Tournament < ActiveRecord::Base
   has_many :rounds, :dependent => :destroy
   has_many :matches, :dependent => :destroy
   has_many :events, :order => 'created_at DESC', :dependent => :destroy
-  has_many :public_events, :class_name => "Event", :conditions => ['event_type = ?', 'message'], :order => 'created_at DESC'
+  has_many :public_events, :class_name => "Event", :conditions => ['event_type != ?', 'private_message'], :order => 'created_at DESC'
   has_many :comments, :dependent => :destroy
   
   has_many :participations, :dependent => :destroy
