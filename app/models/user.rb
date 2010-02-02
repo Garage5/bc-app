@@ -131,7 +131,7 @@ class User < ActiveRecord::Base
   private
   
     def deliver_welcome_email
-      UserMailer.deliver_welcome_email(self)
+      UserMailer.deliver_welcome_email(self) unless ['development', 'test'].include?(Rails.env)
     end
   
 end
