@@ -47,11 +47,22 @@
 	</div><!-- / pod -->
   <% end %>
 <% else %>
+  <% if current_account.admin == current_user %>
     <div class="getting_started pod">
       <div class="bd">
         <a id="btn_started" href="#getting_started" rel="dark_modal">Click to Get Started</a>
       </div>
   	</div><!-- / pod -->
+  <% else %>
+  <div class="pod">
+  	<div class="hd">
+  		<h2>No Recent Activity</h2>
+  	</div><!-- / hd -->
+  	<div class="blank_overview bd"><!-- this is the real overview/bank 2/2/2010 -->
+  	  <p>There is no recent activity to show you here.</p>
+  	</div><!-- / bd -->
+	</div><!-- / pod -->
+  <% end %>
 <% end %>
 </div><!-- / col -->
 </div><!-- / main-col -->
