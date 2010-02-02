@@ -31,7 +31,6 @@ class UsersController < ApplicationController
       @success = @user.save
     else
       unless @user.update_attributes(params[:user])
-        y @user.errors.full_messages
         flash[:alert] = @user.errors.on(:avatar)
       end
       redirect_to @user
