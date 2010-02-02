@@ -22,20 +22,7 @@
 </div><!-- / header -->
   <div id="content" class="clear">
     <div id="content_wrapper">
-      <ul>
-			  <% if admin_subdomain? %>
-			    <li><%= link_to('Subscriptions', admin_subscriptions_path) %></li>
-			    <li><%= link_to('Accounts', admin_accounts_path) %></li>
-			    <li><%= link_to('Plans', admin_subscription_plans_path) %></li>
-			    <li><%= link_to('Discounts', admin_subscription_discounts_path) %></li>
-			    <li><%= link_to('Affiliates', admin_subscription_affiliates_path) %></li>
-			  <% elsif logged_in? %>
-					<li><a href="/">Home</a></li>
-					<li><a href="/users">Users</a></li>
-					<%= content_tag(:li, link_to("Account", account_url)) if admin? %>
-					<li><%= link_to("Log out #{current_user.name}", session_url, :method => :delete) %></li>
-				<% end %>
-			</ul>
+      
     <%= flash_notices %>
     <%= yield %>
     <div id="footer">
