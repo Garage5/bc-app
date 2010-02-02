@@ -18,6 +18,15 @@
       <div class="clear">
       <h1>BattleCenter</h1>
       </div><!-- / clear -->
+      <ul>
+			  <% if admin_subdomain? %>
+			    <li><%= link_to('Subscriptions', admin_subscriptions_path) %></li>
+			    <li><%= link_to('Accounts', admin_accounts_path) %></li>
+			    <li><%= link_to('Plans', admin_subscription_plans_path) %></li>
+			    <li><%= link_to('Discounts', admin_subscription_discounts_path) %></li>
+			    <li><%= link_to('Affiliates', admin_subscription_affiliates_path) %></li>
+				<% end %>
+			</ul>
   </div><!-- / header_wrapper -->
 </div><!-- / header -->
   <div id="content" class="clear">
