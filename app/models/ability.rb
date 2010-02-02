@@ -56,7 +56,11 @@ class Ability
       end
       
       
-      can [:advance, :disqualify], Slot do |slot|
+      can :advance, Slot do |slot|
+        is_host_or_cohost?(user, slot.tournament) && !slot.opponent.player_id.nil?
+      end
+      
+      can :disqualify, Slot do |slot|
         is_host_or_cohost?(user, slot.tournament) && !slot.opponent.player_id.nil?
       end
       
