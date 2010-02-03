@@ -1,5 +1,4 @@
 <% team ||= nil %>
-<% show_invite ||= nil %>
 <% show_checkbox ||= nil %>
 <% role ||= nil %>
 <% profile_title = "View #{participant.login}'#{'s' unless participant.login[-1..-1] == 's'} profile" %>
@@ -31,10 +30,6 @@
   
   <% if show_checkbox %>
     <%= link_to "Accept", accept_tournament_participants_path(:participant => participant.id), :class => 'user_accept' %>
-  <% end %>
-  
-  <% if show_invite %>
-    <%#= link_to "Invite", tournament_team_invite_path(@tournament, participant) %>
   <% end %>
 </li>
 
