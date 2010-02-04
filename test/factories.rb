@@ -17,8 +17,6 @@ Factory.define :tournament do |t|
   t.game                    'Starcraft 2'
   t.rules                   'These are the rules...'
   t.slot_count              8
-  t.registration_start_date Date.today
-  t.registration_end_date   Date.today + 1
   t.association             :account_id, :factory => :account
 end
 

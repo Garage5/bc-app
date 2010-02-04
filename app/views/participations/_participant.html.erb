@@ -24,12 +24,12 @@
 	  (current_user == participant)) &&
 	  !@tournament.started? %>
   	
-  	  <%= link_to('Decline', deny_tournament_participants_path(:participant => participant.id), :title => 'Delete User', :class => 'user_delete', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" } this tournament?'}") %>
+  	  <%= link_to('Decline', deny_tournament_participants_path(:participation => participation.id), :title => 'Delete User', :class => 'user_delete', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ participant == current_user ? 'leave' : "remove <b>#{participant.login}</b> from" } this tournament?'}") %>
   
   <% end %>
   
   <% if show_checkbox %>
-    <%= link_to "Accept", accept_tournament_participants_path(:participant => participant.id), :class => 'user_accept' %>
+    <%= link_to "Accept", accept_tournament_participants_path(:participation => participation.id), :class => 'user_accept' %>
   <% end %>
 </li>
 
