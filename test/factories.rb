@@ -20,7 +20,16 @@ Factory.define :tournament do |t|
   t.association             :account_id, :factory => :account
 end
 
-Factory.define :participations do |p|
+Factory.define :participation do |p|
   p.association :participant_id, :factory => :user
   p.association :tournament_id, :factory => :tournament
+end
+
+Factory.define :team do |t|
+  t.name 'Navi'
+end
+
+Factory.define :membership do |m|
+  m.association :team_id, :factory => :team
+  m.association :member_id, :factory => :user
 end
