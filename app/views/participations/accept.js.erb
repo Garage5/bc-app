@@ -1,2 +1,2 @@
 $('<%= "#user-#{@participation.participant.id}" %>').fadeOut(500);
-$('#list_participants').append('<%= escape_javascript render(:partial => 'participant', :locals => {:participant => @participation.participant}) %>')
+$('#list_participants').append('<%= escape_javascript render(@participation) %>')
