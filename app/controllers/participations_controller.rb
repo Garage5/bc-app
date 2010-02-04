@@ -47,52 +47,18 @@ class ParticipationsController < ApplicationController
     else
       render :nothing => true
     end
-    
-    # ids = params[:participant_ids] || []
-    # if ids.size > @tournament.open_slots
-    #   flash[:error] = "Cannot accept #{ids.size} participants because there are only #{@tournament.open_slots} open slots."
-    # else
-    #   @participants = User.find(ids)
-    #   if !@participants.empty?
-    #     Participation.update_all("state = 'active'", 
-    #     "participant_id IN(#{ids.join(',')}) AND tournament_id = #{@tournament.id}")
-    #   end
-    # end
-    
-    # redirect_to tournament_participants_path(@tournament)
   end
   
   def deny
     @participation = Participation.find_by_participant_id_and_tournament_id(params[:participant], @tournament.id)
     unauthorized! if cannot? :destroy, @participation
     @participation.destroy
-    
-    # if !ids.blank?
-    #   @participants.delete_if do |user|
-    #     !current_user.is_hosting?(current_account) && user != current_user
-    #   end
-    #   if !@participants.blank?
-    #     parts = Participation.find(:all, :conditions => {:participant_id => @participants.collect{|p| p.id}, :tournament_id => @tournament.id})
-    #     parts.each { |p| p.destroy }
-    #   end
-    # end
-    # 
     respond_to do |format|
       format.html { redirect_to tournament_participants_path(@tournament) }
       format.js { render :text => ("location.href = '#{tournament_participants_path(@tournament)}'") }
     end
   end
 
-  # def update
-  #   @participation = Participation.find(params[:id])
-  #   if @participation.update_attributes(params[:participation])
-  #     flash[:notice] = "Successfully updated participation."
-  #     redirect_to root_url
-  #   else
-  #     render :action => 'edit'
-  #   end
-  # end
-  
   protected
   
   def tournament_not_started

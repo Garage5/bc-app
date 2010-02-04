@@ -21,7 +21,6 @@
 	  </div>
 	  <div class="bd clear player_list">
 	    <ul class="clear players" id="list_officialts">
-	      
 	      <!-- host -->
 	      <li class="clear" id="host">
         	<div class="user_avatar">
@@ -108,7 +107,6 @@
 	    <ul class="clear players" id="list_participants">
         <% @active.each do |participation| %>
           <%= render participation %>
-          <%#= render(:partial => 'participant', :locals => {:participant => participant }) %>
         <% end %>
 	    </ul>
 	  </div>
@@ -122,8 +120,8 @@
 	  </div>
 	  <div class="bd clear player_list">
 	    <ul class="clear players" id="list_officials">
-        <% @pending.each do |participant| %>
-          <%= render(:partial => 'participant', :locals => {:participant => participant, :show_checkbox => true}) %>
+        <% @pending.each do |participation| %>
+          <%= render participation %>
         <% end %>
 	    </ul>
 	  </div>
