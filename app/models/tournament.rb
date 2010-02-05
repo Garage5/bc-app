@@ -22,6 +22,8 @@ class Tournament < ActiveRecord::Base
   has_many :participations, :dependent => :destroy
   has_many :participants , :through => :participations
 
+  has_many :teams
+  
   belongs_to :first_place, :polymorphic => true
 
   has_many :cohosts , :through => :participations,

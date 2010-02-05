@@ -68,6 +68,11 @@ class Ability
       can :revert, Slot do |slot|
         is_host_or_cohost?(user, slot.tournament) && slot.can_revert?
       end
+    
+    
+      can :destroy, Team do |team|
+        is_host_or_cohost?(user, team.tournament)
+      end
     end
   end
 

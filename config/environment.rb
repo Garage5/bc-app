@@ -25,6 +25,7 @@ Rails::Initializer.run do |config|
   config.gem 'hashie'
   config.gem 'cancan'
   config.gem 'paperclip', :lib => 'paperclip'
+  config.gem 'inherited_resources'
   
   require 'array'
   # Only load the plugins named here, in the order given (default is alphabetical).
