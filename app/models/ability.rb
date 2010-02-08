@@ -71,7 +71,16 @@ class Ability
     
     
       can :destroy, Team do |team|
-        is_host_or_cohost?(user, team.tournament)
+        captain?(user, team) || is_host_or_cohost?(user, team.tournament)
+      end
+      
+      can :create, Team do |team|
+        tournament = team.tournament
+        participant?(user, tournament) && !teamed?(user, tournament) && !is_host_or_cohost?(user, tournament)
+      end
+      
+      can :edit, Team do |team|
+        captain?(user, team)
       end
     end
   end
@@ -94,5 +103,13 @@ class Ability
   
   def is_host_or_cohost?(user, tournament)
     host?(user, tournament) || cohost?(user, tournament)
+  end
+  
+  def teamed?(user, tournament)
+    tournament.memberships.exists?(:member_id => user.id)
+  end
+  
+  def captain?(user, team)
+    team.captain_id == user.id
   end
 end

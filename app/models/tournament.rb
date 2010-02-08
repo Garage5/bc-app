@@ -23,6 +23,7 @@ class Tournament < ActiveRecord::Base
   has_many :participants , :through => :participations
 
   has_many :teams
+  has_many :memberships
   
   belongs_to :first_place, :polymorphic => true
 

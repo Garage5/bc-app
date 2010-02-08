@@ -30,7 +30,11 @@ ActionController::Routing::Routes.draw do |map|
         tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
         tournament.resources :messages, :has_many => [:comments]
         tournament.resources :files, :controller => :attachments
-        tournament.resources :teams
+        
+        tournament.resources :teams do |team|
+          team.resources :members, :controller => :memberships
+        end
+        
         tournament.resources :matches, :has_many => [:comments] do |match|
           match.resources :slots, :member => {
             :manage => :get, 
