@@ -33,7 +33,7 @@
     <div id="your_logo" class="darkpod clear">
 	    <p></p>
 	      <div class="clear">
-				<div class="left_block"><%= image_tag current_account.logo.url, :width => '283px'%></div>
+				<div class="left_block account_logo"><%= image_tag current_account.logo.url %></div>
         <div class="block">
 					<div><%= f.file_field :logo %></div>
 					<button type="submit" class="btn"><span class="icon"></span><span>Upload Logo</span></button>
