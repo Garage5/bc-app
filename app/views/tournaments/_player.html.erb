@@ -9,7 +9,7 @@ player ||= slot.player if slot
     
     
     <a <% if match.active? %>href="<%= tournament_match_path(@tournament, match) %>"<% end %> class="player_link slot_<%= player.login %>">
-      <% unless player.is_a?(Team) %><%= image_tag player.avatar.url(:small), :class => "bracket_avatar", :height => 30 %><% end %>
+      <%= image_tag player.avatar.url(:small), :class => "bracket_avatar", :height => 30 %>
       <%= player.login %>
     </a>
     
