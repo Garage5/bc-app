@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     can :view, Message do |message|
       if message.hosts_only?
-        is_host_or_cohost?(user, message.tournament)
+        is_host_or_cohost?(user, message.tournament) if user
       else
         true
       end
