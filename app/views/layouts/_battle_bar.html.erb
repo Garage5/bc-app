@@ -46,10 +46,10 @@
   			  <li id="billing"><%= link_to "Account", billing_account_path %></li>
   			  <li id="settings"><%= link_to "Settings", settings_path %></li>
         	<% end %>
-  			  <li id="feedback"><a class="feedback" title="" href="">Feedback</a></li>
     			<% if current_user %>
     			<li id="user_logout"><%= link_to "Logout", destroy_user_session_url %></li>
   				<% end %>
+  			  <li id="feedback"><a class="feedback" title="" href="">Feedback</a></li>
   		</ul>
   	</div>
 		

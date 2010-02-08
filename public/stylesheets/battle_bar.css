@@ -411,13 +411,13 @@ User Login
 	padding: 8px 12px 8px 33px;
 	-moz-border-radius:     4px;
 	-webkit-border-radius:  4px;
-  opacity: 0.75;
-	background: transparent url(/images/icon_help.png) 9px 6px no-repeat;
+  opacity: 1.00;
+	background: #499c00 url(/images/icon_help.png) 9px 6px no-repeat;
 }
 
 #logged_out #user_nav ul li#feedback a:hover {
   opacity: 1.0;
-	background: #000 url(/images/icon_help.png) 9px 6px no-repeat;
+  text-decoration: underline;
 }
 
 #acct_nav {
@@ -498,9 +498,10 @@ User Login
 }
 
 #battle_bar ul li#feedback a {
-	background: transparent url(/images/icon_help.png) 9px 6px no-repeat;
+	opacity: 1.00;
+	background: #499c00 url(/images/icon_help.png) 9px 6px no-repeat;
 }
 
 #battle_bar ul li#feedback a:hover {
-	background: #000 url(/images/icon_help.png) 9px 6px no-repeat;
+	text-decoration: underline;
 }

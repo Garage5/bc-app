@@ -96,6 +96,27 @@ body#new_overview .overview ul li a:hover span.comments {
   color: #FFF;
 }
 
+/* WINNER STYLES */
+
+body#new_overview .overview ul li.winner a {
+  background: transparent url(/images/overview_winner_row_bg.png) center top repeat-x;
+  border-top: 1px #CCC solid;
+  border-bottom: 1px #CCC solid;
+  padding: 14px 12px 14px 12px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+  display: block;
+  margin: -1px 0 0 0;
+}
+
+body#new_overview .overview ul li.winner a:hover {
+  background-position: bottom;
+}
+
+body#new_overview .overview ul li.winner a span.icon { background: transparent url(/images/icon_overview_winner.png) 0 0 no-repeat; }
+
 
 body#new_overview .getting_started {
   border: 0;
