@@ -3,18 +3,14 @@
 <table id="subscription_affiliate">
   <tr>
     <th>Name</th>
-    <td><%= h(@subscription_affiliate.name) %></td>
-  </tr>
-  <tr>
     <th>Affiliate URL</th>
-    <td><%= @subscription_affiliate.url %></td>
-  </tr>
-  <tr>
     <th>Rate</th>
-    <td><%= number_to_percentage(@subscription_affiliate.rate * 100, :precision => 0) %></td>
+    <th>Last Month's Earnings</th>
   </tr>
   <tr>
-    <th>Last Month's Earnings</th>
+    <td><%= h(@subscription_affiliate.name) %></td>
+     <td><%= @subscription_affiliate.url %></td>
+     <td><%= number_to_percentage(@subscription_affiliate.rate * 100, :precision => 0) %></td>
     <td><%= number_to_currency(@subscription_affiliate.fees) %></td>
   </tr>
 </table>
