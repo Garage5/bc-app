@@ -16,6 +16,10 @@ class SubscriptionAffiliate < ActiveRecord::Base
   
   # Return the fees owed to an affiliate for a particular time
   # period. The period defaults to the previous month.
+  def url
+    "http://thebattlecenter.com/plans?ref=#{token}"
+  end
+  
   def fees(period = (Time.now.beginning_of_month - 1).beginning_of_month .. (Time.now.beginning_of_month - 1).end_of_month)
     subscription_payments.all(:conditions => { :created_at => period }).collect(&:affiliate_amount).sum    
   end

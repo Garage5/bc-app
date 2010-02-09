@@ -49,10 +49,6 @@ class Account < ActiveRecord::Base
     [4, 8, 16, 32, 64].reject {|i| i > self.subscription.slot_limit}
   end
   
-  def to_param
-    subdomain
-  end
-  
   def needs_payment_info?
     if new_record?
       AppConfig['require_payment_info_for_trials'] && @plan && @plan.amount.to_f + @plan.setup_amount.to_f > 0
