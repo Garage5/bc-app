@@ -3,10 +3,10 @@
 <table id="subscription_plan">
   <tr>
     <th>Name</th>
-    <td><%= h(@subscription_plan.name) %></td>
+    <th>Revenue per Month</th>
   </tr>
   <tr>
-    <th>Revenue per Month</th>
+    <td><%= h(@subscription_plan.name) %></td>
     <td><%= @subscription_plan.revenues.map {|r| "#{r[0].capitalize}: #{number_to_currency(r[1])}" }.join(' / ') %></td>
   </tr>
 </table>

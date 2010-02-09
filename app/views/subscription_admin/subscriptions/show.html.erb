@@ -3,38 +3,28 @@
 <table id="subscription">
   <tr>
     <th>Account</th>
-    <td><%= link_to(h(@subscription.account), [:admin, @subscription.account]) %></td>
-  </tr>
-  <tr>
     <th>Amount</th>
-    <td><%= number_to_currency(@subscription.amount) %></td>
-  </tr>
-  <tr>
     <th>Created</th>
-    <td><%= @subscription.created_at.to_s(:short_day) %></td>
-  </tr>
-  <tr class="<%= 'expired' unless @subscription.current? %>">
     <th>Next Renewal</th>
-    <td><%= @subscription.next_renewal_at.to_s(:short_day) %></td>
-  </tr>
-  <tr>
     <th>Plan</th>
-    <td><%= link_to(@subscription.subscription_plan, [:admin, @subscription.subscription_plan]) %></td>
-  </tr>
-  <tr>
     <th>Discount</th>
-    <td><%= @subscription.discount ? "#{@subscription.discount.name} (#{@subscription.discount.code}) - #{discount_label(@subscription.discount)}" : 'None' %></td>
+    <th>State</th>
   </tr>
   <tr>
-    <th>State</th>
+    <td><%= link_to(h(@subscription.account), [:admin, @subscription.account]) %></td>
+    <td><%= number_to_currency(@subscription.amount) %></td>
+    <td><%= @subscription.created_at.strftime('%B %d, %Y') %></td>
+    <td class="<%= 'expired' unless @subscription.current? %>"><%= @subscription.next_renewal_at.strftime('%B %d, %Y') %></td>
+    <td><%= link_to(@subscription.subscription_plan, [:admin, @subscription.subscription_plan]) %></td>
+    <td><%= @subscription.discount ? "#{@subscription.discount.name} (#{@subscription.discount.code}) - #{discount_label(@subscription.discount)}" : 'None' %></td>
     <td><%= @subscription.state %></td>
   </tr>
 </table>
 
-<h2>Charge Subscription</h2>
-<p>
-  Use this form to make a one-time charge against the card on file for the subscription.  A transaction will happen as soon as you submit this form.  Amounts should be entered as dollars and cents, without the dollar sign or commas: e.g., 1.50 to charge $1.50.
-</p>
+<div class="section">
+<h1>Charge Subscription</h1>
+<p>Use this form to make a one-time charge against the card on file for the subscription.  A transaction will happen as soon as you submit this form.  Amounts should be entered as dollars and cents, without the dollar sign or commas: e.g., 1.50 to charge $1.50.</p>
+
 <% if @subscription.errors.any? %>
 <div class="errorExplanation" id="errorExplanation">
   <h3>Errors encountered while charging the card:</h3>
@@ -49,8 +39,10 @@
   <input type="text" name="amount" id="amount" />
   <input type="submit" value="Charge card" />
 <% end %>
+</div>
 
-<h2>Transactions</h2>
+<div class="section">
+<h1>Transactions</h1>
 <table id="transactions">
   <tr>
     <th>Date</th>
@@ -59,12 +51,13 @@
   </tr>
   <% @subscription.subscription_payments.each do |payment| %>
     <tr>
-      <td><%= payment.created_at.to_s(:short_day) %></td>
+      <td><%= payment.created_at.strftime('%B %d, %Y') %></td>
       <td><%= number_to_currency(payment.amount) %></td>
       <td><%= payment.transaction_id %></td>
     </tr>
   <% end %>
 </table>
+</div>
 
 <% content_for :head do -%>
   <script type="text/javascript" charset="utf-8">
