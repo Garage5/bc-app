@@ -8,4 +8,8 @@ class PreviewController < ApplicationController
     render params[:view].join('/'), :layout => 'lite'
   end
   
+  def email
+    render params[:view].join('/'), :layout => 'email'
+  end
+  
 end

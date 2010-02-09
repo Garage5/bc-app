@@ -1,0 +1,67 @@
+<style>
+  body {
+    background: #393f42;
+    padding: 25px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  a, a:visited {
+    color: #009cea;
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  #content {
+    background: #FFF;
+    padding: 25px;
+  }
+  
+  #footer p {
+    color: #86949b;
+  }
+  
+  h1, h2 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    color: #009cea;
+  }
+  
+  h2 {
+    color: #4a5155;
+    font-size: 16px;
+    margin: 0 0 5px 0;
+  }
+  
+  p {
+    color: #4a5155;
+  }
+  
+  .section {
+    margin: 25px 0 0 0;
+  }
+  
+</style>
+<table style="width: 700px;">
+  <tr>
+    <td>
+      <div style="padding: 0 0 10px 0; text-align: right;"><a href=""><img border="0" src="/images/email_logo.jpg" alt="Battle Center"/></a></div>
+        <div id="content">
+          <%= yield %>
+        </div>
+      <div id="footer">
+        <table style="padding: 10px 0 0 0; width: 100%;">
+          <tr>
+            <td><p>If you have any questions about or problems with the service, <a href="">please don't hesitate to contact us</a>.</p></td>
+            <td style="text-align: right;"><a href=""><img border="0" src="/images/email_tbb_logo.jpg" alt="The Battle Begins LLC" /></a></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>
