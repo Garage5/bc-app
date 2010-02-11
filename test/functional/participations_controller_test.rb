@@ -223,6 +223,11 @@ class ParticipationsControllerTest < ActionController::TestCase
 
   
   context "A Teams Tournament" do
+    setup do
+      @tournament = Factory(:tournament, :use_teams => true)
+      @user = User.find_by_username('bryan')
+      @team = Team.new :name => 'Navi', :captain => @user, :tournament_id => @tournament.id, :battleids =>  ['matt', 'james']
+    end
     
   end
 end
