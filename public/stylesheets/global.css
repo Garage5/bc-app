@@ -462,6 +462,10 @@ div.account_logo {
 	margin: 10px 0 10px 0;
 }
 
+div.account_logo img {
+  max-width: 283px;
+}
+
 #back_dashboard {
 	float: left;
 	margin: 0 30px 5px 30px;

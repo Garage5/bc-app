@@ -1,13 +1,22 @@
 <%= form.error_messages %>
 <fieldset>
+  <%= form.label :name %>
   <%= form.text_field :name %>
+  <%= form.label :code %>
   <%= form.text_field :code %>
+  <%= form.label :ammount %>
   <%= form.text_field :amount %>
+  <%= form.label :percent %>
   <%= form.check_box :percent %>
+  <%= form.label :start_on %>
   <%= form.text_field :start_on %>
+  <%= form.label :end_on %>
   <%= form.text_field :end_on %>
+  <%= form.label :apply_to_recurring %>
   <%= form.check_box :apply_to_recurring %>
+  <%= form.label :apply_to_setup %>
   <%= form.check_box :apply_to_setup %>
+  <%= form.label :trial_period_extension %>
   <%= form.text_field :trial_period_extension %>
 </fieldset>
 <%= submit_tag %>

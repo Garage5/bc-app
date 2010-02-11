@@ -1,6 +1,7 @@
 class SubscriptionAdmin::SubscriptionPlansController < ApplicationController
   include ModelControllerMethods
   include AdminControllerMethods
+  layout 'admin'
   
   protected
   

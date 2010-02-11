@@ -9,7 +9,7 @@
     <tr>
       <td><%= link_to(h(account.name), [:admin, account]) %></td>
       <td><%= account.full_domain %></td>
-      <td><%= account.created_at.to_s(:short_day) %></td>
+      <td><%= account.created_at.strftime('%B %d, %Y') %></td>
     </tr>
   <% end %>
 </table>

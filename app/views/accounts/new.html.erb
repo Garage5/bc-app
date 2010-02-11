@@ -1,3 +1,11 @@
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+    $('input#account_subdomain').blur(function(event){
+      value = $(this).val()
+      $(this).val(value.toLowerCase())
+    })
+  })
+</script>
 <div id="signup_wrap">
   <div class="hd">
     <h1>SIGN UP</h1>

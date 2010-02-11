@@ -41,12 +41,12 @@ class Account < ActiveRecord::Base
     end
   end
   
-  def slot_multiples
-    [4, 8, 16, 32, 64].reject {|i| i > self.subscription.slot_limit}
+  def subdomain=(subdomain)
+    write_attribute(:subdomain, subdomain.downcase)
   end
   
-  def to_param
-    subdomain
+  def slot_multiples
+    [4, 8, 16, 32, 64].reject {|i| i > self.subscription.slot_limit}
   end
   
   def needs_payment_info?

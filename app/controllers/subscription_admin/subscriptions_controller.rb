@@ -2,7 +2,7 @@ class SubscriptionAdmin::SubscriptionsController < ApplicationController
   include ModelControllerMethods
   include AdminControllerMethods
   
-  layout 'accounts'
+  layout 'admin'
   
   def index
     @stats = SubscriptionPayment.stats if params[:page].blank?

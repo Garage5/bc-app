@@ -9,7 +9,7 @@
   <% @subscription_affiliates.each do |affiliate| %>
     <tr>
       <td><%= link_to(h(affiliate.name), [:admin, affiliate]) %></td>
-      <td><%= plans_url(:host => AppConfig['base_domain'], :ref => affiliate.token) %></td>
+      <td><%= affiliate.url %></td>
       <td><%= number_to_percentage(affiliate.rate * 100, :precision => 0) %></td>
     </tr>
   <% end %>

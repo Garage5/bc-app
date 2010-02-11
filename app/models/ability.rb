@@ -2,6 +2,14 @@ class Ability
   include CanCan::Ability
   
   def initialize(user)
+    can :view, Message do |message|
+      if message.hosts_only?
+        is_host_or_cohost?(user, message.tournament) if user
+      else
+        true
+      end
+    end
+    
     if user
       can :accept, Participation do |participation|
         tournament = participation.tournament
@@ -47,10 +55,6 @@ class Ability
           participant?(user, message.tournament)
         end
       end
-      
-      can :view, Message do |message|
-        message.hosts_only? ? is_host_or_cohost?(user, message.tournament) : true
-      end
     
       can [:destroy, :edit], Message do |message|
         is_host_or_cohost?(user, message.tournament)
@@ -90,7 +94,7 @@ class Ability
   end
 
   def participant?(user, tournament)
-    is_host_or_cohost?(user, tournament) || tournament.participations.exists?(:participant_id => user.id)
+    is_host_or_cohost?(user, tournament) || tournament.participations.accepted.exists?(:participant_id => user.id)
   end
   
   def host?(user, tournament)

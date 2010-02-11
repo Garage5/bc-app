@@ -9,17 +9,19 @@ class Comment < ActiveRecord::Base
   accepts_nested_attributes_for :attachments
   
   after_create do |e|
-    Event.create(
-      :tournament_id => e.commentable.tournament_id,
-      :event_type    => 'comment',
-      :data => Hashie::Mash.new({
-        :author => e.author.login,
-        :commentable => {
-          :id => e.commentable.id,
-          :subject => e.commentable.subject,
-          :klass => e.commentable_type
-        }
-      })
-    )
+    unless e.commentable.try(:hosts_only?)
+      Event.create(
+        :tournament_id => e.commentable.tournament_id,
+        :event_type    => 'comment',
+        :data => Hashie::Mash.new({
+          :author => e.author.login,
+          :commentable => {
+            :id => e.commentable.id,
+            :subject => e.commentable.subject,
+            :klass => e.commentable_type
+          }
+        })
+      )
+    end
   end
 end

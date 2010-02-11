@@ -1,11 +1,24 @@
 <%= form.error_messages %>
 <fieldset>
+  <%= form.label :name %>
   <%= form.text_field :name %>
+  
+  <%= form.label :amount %>  
   <%= form.text_field :amount %>
+  
+  <%= form.label :setup_amount %>
   <%= form.text_field :setup_amount %>
+  
+  <%= form.label :renewal_period %>
   <%= form.text_field :renewal_period %>
+  
+  <%= form.label :trail_period %>
   <%= form.text_field :trial_period %>
+  
+  <%= form.label :tournament_limit %>
   <%= form.text_field :tournament_limit %>
+  
+  <%= form.label :slot_limit %>
   <%= form.text_field :slot_limit %>
 </fieldset>
 <%= submit_tag %>
