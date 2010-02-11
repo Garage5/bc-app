@@ -124,6 +124,9 @@ ActiveRecord::Schema.define(:version => 20100204203036) do
     t.string   "state",          :default => "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "captain_id"
+    t.string   "type"
   end
 
   add_index "participations", ["tournament_id"], :name => "index_participations_on_tournament_id"
@@ -236,14 +239,6 @@ ActiveRecord::Schema.define(:version => 20100204203036) do
     t.integer  "member_id",                            :null => false
     t.integer  "tournament_id",                        :null => false
     t.string   "state",         :default => "pending", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "teams", :force => true do |t|
-    t.string   "name",          :null => false
-    t.integer  "tournament_id", :null => false
-    t.integer  "captain_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

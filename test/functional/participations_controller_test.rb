@@ -220,4 +220,9 @@ class ParticipationsControllerTest < ActionController::TestCase
       should_not_change("the number of participants") { Tournament.first.participants.count }
     end
   end
+
+  
+  context "A Teams Tournament" do
+    
+  end
 end

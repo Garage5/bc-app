@@ -12,7 +12,7 @@ require 'tasks/rails'
 namespace :db do
   namespace :test do
     task :prepare => :environment do
-      Rake::Task["db:seed"].invoke
+      Rake::Task["db:seed_fu"].invoke
     end
   end
 end
