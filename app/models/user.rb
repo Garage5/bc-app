@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
     Participation.create(:participant => self, :tournament => tournament)
   end
   
-  def cohost_tournament(tournament)
-    Participation.create(:participant => self, :tournament => tournament, :state => 'cohost')
+  def pending?(tournament)
+    tournament.participations.exists?(['state != ? AND accepted_at IS NULL AND participant_id = ?', 'cohost', self.id])
   end
   
   def is_hosting?(account)

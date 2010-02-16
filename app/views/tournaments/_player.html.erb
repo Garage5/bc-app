@@ -19,7 +19,8 @@ player ||= slot.player if slot
     <% if current_user && current_user.is_hosting?(current_account) && match.winner.nil? %>
       <%= link_to "Manage", 
         [:manage, @tournament, match, slot], 
-        :rel => 'modal', 
+        :'data-remote' => true, 
+        :'data-modal' => true, 
         :class => 'manage_player_link' %>
     <% end %>
 

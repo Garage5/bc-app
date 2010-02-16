@@ -7,7 +7,7 @@ class Participation < ActiveRecord::Base
   belongs_to :tournament
   belongs_to :account
   
-  validates_uniqueness_of :participant_id, :scope => :tournament_id
+  validates_uniqueness_of :participant_id, :scope => :tournament_id, :message => 'User is already participating in this tournament.'
   
   def accept!
     update_attributes(:accepted_at => Time.now)

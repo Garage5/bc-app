@@ -1,14 +1,4 @@
-<% if @tournament.use_teams? %>
-
-  <% form_for @team do |f| -%>
-  
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    
-    <% (@tournament.players_per_team - 1).times do |n| %>
-      <%= b.text_field 'battleids[]' %>
-    <% end %>
-    
-  <% end -%>
-  
-<% end %>
+<script type="text/javascript" charset="utf-8">
+  modal = new Modal("<%= escape_javascript(render :partial => 'form') %>")
+  show_modal(modal)
+</script>

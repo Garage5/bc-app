@@ -1,22 +1,20 @@
-<div id="manage_player" class="modal" style="display: block;">
-		<div class="modal_hd">
-			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
-			<h1>Manage Player: <%= @slot.player.login %></h1>
-		</div><!-- / modal_hd -->
-	<div class="modal_inner">
-			<div style="width: 300px;" class="clear">			  
-  			  <% if can?(:advance, @slot) && can?(:disqualify, @slot) %>
-  			    <%= button_link_to 'Disqualify', [:disqualify, @tournament, @match, @slot], '', :method => :put %>
-  			    <%= button_link_to 'Declare Winner', [:advance, @tournament, @match, @slot], '', :method => :put %>
-  			  <% end %>
-			  
-  			  <% if can? :revert, @slot %>
-  			    <%= button_link_to 'Revert', [:revert, @tournament, @match, @slot], '', :method => :put %>
-  			  <% end %>
-          
-          <% unless can?(:advance, @slot) || can?(:disqualify, @slot) || can?(:revert, @slot) %>
-			      You cannot advance, revert, or disqualify a slot without an opponent
-          <% end %>
-			</div>
-	</div><!-- / modal_inner -->
-</div><!-- / modal -->
+<div class="modal_hd">
+	<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
+	<h1>Manage Player: <%= @slot.player.login %></h1>
+</div><!-- / modal_hd -->
+<div class="modal_inner">
+	<div style="width: 300px;" class="clear">			  
+	  <% if can?(:advance, @slot) && can?(:disqualify, @slot) %>
+	    <%= link_to "Disqualify", [:disqualify, @tournament, @match, @slot], :'data-method' => 'put', :class => 'button' %>
+	    <%= link_to "Declare Winner", [:advance, @tournament, @match, @slot], :'data-method' => 'put', :class => 'button' %>
+	  <% end %>
+  
+	  <% if can? :revert, @slot %>
+	    <%= link_to "Revert", [:revert, @tournament, @match, @slot], :'data-method' => 'put', :class => 'button' %>
+	  <% end %>
+    
+    <% unless can?(:advance, @slot) || can?(:disqualify, @slot) || can?(:revert, @slot) %>
+      You cannot advance, revert, or disqualify a slot without an opponent
+    <% end %>
+	</div>
+</div><!-- / modal_inner -->

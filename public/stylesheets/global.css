@@ -319,6 +319,20 @@ a#btn_start_tournament, a#join_tournament {
 	position: absolute;
 }
 
+#user_pending {
+  background-color: rgba(255,255,255,0.5);
+  padding: 10px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  top: 35px;
+	right: 30px;
+	position: absolute;
+	float: right;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0px -1px 0px rgba(255,255,255,0.55);
+}
+
 
 /* 
 Main Structure

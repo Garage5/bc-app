@@ -1,6 +1,6 @@
 class ParticipationsController < InheritedResources::Base
   belongs_to :tournament, :instance_name => :tournament
-  
+  respond_to :html
   # before_filter :authenticate_user!, :except => [:index]
   # before_filter :must_be_host, :except => [:index, :create, :deny, :accept]
   # before_filter :tournament_not_started, :only => [:create, :accept, :deny]
@@ -13,36 +13,39 @@ class ParticipationsController < InheritedResources::Base
   end
   
   def add_cohost
-    user = User.find(:first, :conditions => {:username => params[:user]})
-
     unauthorized! if cannot?(:add_cohost, parent)
-
-    if user
-      if user.is_cohosting?(parent)
-        flash[:error] = "This user is already hosting or co-hosting this tournament."
-      elsif user.is_participant_of?(parent)
-        flash[:error] = "You can not add a participant as a co-host. Please remove the user from participants first."
+    if request.post?
+      @user = User.find(:first, :conditions => {:username => params[:user]})
+      if @user
+        @participation = @tournament.participations.create(:participant => @user, :state => 'cohost')
+        if @participation.save
+          render_success tournament_participants_path(parent)
+        else
+          render_alert(@participation.errors.first[1])
+        end
       else
-        participation = user.cohost_tournament parent
+        render_alert('BattleID not found.')
       end
     else
-      flash[:error] = "No user with this BattleID or e-mail was found."
+      render :layout => false
     end
-    redirect_to tournament_participants_path(parent)
   end
   
   def new
     unauthorized! if cannot?(:join, parent)
-    new!
+    new! do |format|
+      format.html { render :layout => false }
+    end
   end
   
   def create
     unauthorized! if cannot?(:join, parent)
-    participation = current_user.join_tournament(parent)
-    if participation
-      flash[:notice] = "You are now pending acceptance into '#{parent.name}'"
+    @participation = parent.participations.new(:participant => current_user)
+    @participation.type = 'Team' if @tournament.use_teams?
+    create! do |success, failure|
+      success.html { render_success tournament_participants_path(@tournament) }
+      failure.html { render_alert   @participation.errors.full_messages.first }
     end
-    redirect_to parent
   end
   
   def accept
@@ -62,7 +65,7 @@ class ParticipationsController < InheritedResources::Base
     @participation.destroy
     respond_to do |format|
       format.html { redirect_to tournament_participants_path(parent) }
-      format.js { render :text => ("location.href = '#{tournament_participants_path(parent)}'") }
+      format.js   { render :text => ("location.href = '#{tournament_participants_path(parent)}'") }
     end
   end
 

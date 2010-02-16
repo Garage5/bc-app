@@ -25,9 +25,9 @@ ActionController::Routing::Routes.draw do |map|
     account.settings '/settings', :controller => 'accounts', :action => 'edit', :conditions => {:method => :get}
     account.settings '/settings', :controller => 'accounts', :action => 'update', :conditions => {:method => :put}
     
-    account.resources :tournaments, :member => {:rules => :get, :start => :put, :brackets => :get}, :collection => {:calendar => :get} do |tournaments|
+    account.resources :tournaments, :member => {:rules => :get, :start => [:get, :put], :brackets => :get}, :collection => {:calendar => :get} do |tournaments|
       tournaments.with_options :conditions => {:subdomain => /^(?!www|admin$).+/} do |tournament|
-        tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => :post}
+        tournament.resources :participants, :controller => :participations, :collection => {:accept => :put, :deny => :delete, :add_cohost => [:get, :post]}
         tournament.resources :messages, :has_many => [:comments]
         tournament.resources :files, :controller => :attachments
         

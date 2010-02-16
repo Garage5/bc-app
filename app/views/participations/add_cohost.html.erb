@@ -1,0 +1,11 @@
+<h2>Add a Co-Host</h2>
+
+<% form_tag add_cohost_tournament_participants_path(@tournament), :'data-remote' => true do |f| -%>
+  <%= label_tag :user, "BattleID" %>
+  <%= text_field_tag :user %>
+  
+  <div class="buttons">
+    <button type="submit">Add Co-Host</button>&nbsp;&nbsp;
+    <a href="#cancel" data-close-modal="true">cancel</a>
+  </div>
+<% end -%>

@@ -12,58 +12,7 @@
 
 <!-- / match_submit_results -->
 
-
-<div id="team_invite" class="modal">
-		<div class="modal_hd">
-			<a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
-			<h1>Invite</h1>
-		</div><!-- / modal_hd -->
-	<div class="modal_inner">
-			<p>You've been invited to join team Valor by <a href="">Spawn</a></p>
-			<div class="btn_wrapper clear">
-			<button class="modal_btn">Accept</button>
-			<button class="modal_btn">Decline</button>
-			</div>
-	</div><!-- / modal_inner -->
-</div><!-- / modal -->
-
-<!-- / team_invite -->
-
-
-<div id="join_confirm" class="modal">
-		<div class="modal_hd">
-			<a onclick="closeModal('#join_confirm'); return false;" class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
-			<h1>Confirm</h1>
-		</div><!-- / modal_hd -->
-	<div class="modal_inner">
-			<p style="white-space: nowrap;">Are you sure you want to join this tournament?</p>
-			<div class="btn_wrapper clear">
-		<div style="margin: 0 5px 0 0; display: block; float: left;"><%= link_to 'Yes', tournament_participants_path(@tournament), :method => :post, :class => 'modal_btn' %></div>
-		<a href="" class="modal_btn btn_cancel modal_close">No</a>
-			</div>
-	</div><!-- / modal_inner -->
-</div><!-- / modal -->
-
 <!-- / join_confirm -->
-
-<% if false # if current_user && @tournament && current_user.is_participant_of?(@tournament) %>
-  <div id="create_team" class="modal">
-		  <div class="modal_hd">
-			  <a class="modal_close" href=""><img src="/images/icon_close.gif" /></a>
-			  <h1>Create Team</h1>
-		  </div><!-- / modal_hd -->
-	  <div class="modal_inner">
-			  <% form_for [@tournament, Team.new] do |f| -%>
-			    <%= f.label :name, "Team Name" %>
-			    <%= f.text_field :name %>
-			    <div class="btn_wrapper clear">
-					  <button class="modal_btn add">Create Team</button>
-					  or <a href="" class="modal_close">Cancel</a>
-				  </div>
-			  <% end -%>
-	  </div><!-- / modal_inner -->
-  </div><!-- / modal -->
-<% end %>
 
 <!-- / create_team -->
 

@@ -59,14 +59,14 @@ class Tournament < ActiveRecord::Base
   def start
     if self.started?
       self.errors.add_to_base("Tournament has already been started")
-      return self
+      return false
     end
     
     participants = self.use_teams? ? self.teams : self.active_participants
     
     if participants.size < 4
-      self.errors.add_to_base("Alteast 4 slots are required to start a tournament")
-      return self
+      self.errors.add_to_base("Alteast 4 participants are required to start a tournament")
+      return false
     end
     
     Tournament.transaction do

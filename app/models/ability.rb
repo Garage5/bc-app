@@ -93,8 +93,16 @@ class Ability
     current_id == user_id
   end
 
+  def pending?(user, tournament)
+    if user
+      tournament.participations.pending.exists?(:participant_id => user.id)
+    else
+      false
+    end
+  end
+  
   def participant?(user, tournament)
-    is_host_or_cohost?(user, tournament) || tournament.participations.accepted.exists?(:participant_id => user.id)
+    is_host_or_cohost?(user, tournament) || tournament.participations.exists?(:participant_id => user.id)
   end
   
   def host?(user, tournament)

@@ -1,6 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-
+  
   def button_link_to(text, href, icon = '', options = {})
     link_to("#{text}", href, {:class => 'modal_btn'}.merge(options))
   end
