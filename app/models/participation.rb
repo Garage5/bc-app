@@ -11,5 +11,16 @@ class Participation < ActiveRecord::Base
   
   def accept!
     update_attributes(:accepted_at => Time.now)
+    UserMailer.send_accepted_to_tournament_email(self.participant, self.tournament)
+  end
+  
+  after_create :send_email_notification
+  
+  def send_email_notification
+    if @state == 'cohost'
+      UserMailer.send_invited_to_cohost_email(self.participant, self.tournament)
+    else
+      UserMailer.send_joined_tournament_email(self.participant, self.tournament)
+    end
   end
 end
