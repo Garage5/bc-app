@@ -30,9 +30,9 @@ body#signup #header_wrapper {
 }
 
 body#signup #header h1 {
-  margin: 0 auto;
   position: relative;
   top: 50px;
+  left: 100px;
   width: 342px;
   height: 63px;
   background: transparent url(../images/tbc_logo.png) 0 0 no-repeat;
@@ -47,135 +47,70 @@ body#signup #content {
 }
 
 body#signup #content_wrapper {
+  width: 900px;
   margin: 20px auto;
-  width: 800px;
 }
 
 body#signup #signup_wrap {
-  background: #1a1d1f;
-  border: 1px #25292c solid;
+  background: #111314;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.30) 0 0 15px;
-	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.30);
+	width: 700px;
+	float: left;
 }
 
 body#signup #signup_wrap .hd {
-  background: #131617;
-  border-bottom: 1px #25292c solid;
   -moz-border-radius-topleft: 10px;
   -moz-border-radius-topright: 10px;
   -webkit-border-radius-top-left: 10px;
   -webkit-border-radius-top-right: 10px;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
 }
 
 body#signup #signup_wrap .hd h1 {
-  font-size: 23px;
+  font-size: 21px;
   font-weight: bold;
-  letter-spacing: -1px;
-  color: #FFF;
-}
-
-body#signup .signup_options {
-  padding: 20px;
-  margin: 0 auto;
-}
-
-body#signup .step1 {
-  width: 380px;
-}
-
-body#signup .step2 {
-  width: 490px;
-}
-
-body#signup .signup_options h1 {
-  color: #FFF;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0 0 15px 0;
-  text-align: center;
-}
-
-body#signup .signup_options a.options {
-  display: block;
-  float: left;
-  padding: 40px;
-  background: #131617;
-  font-size: 14px;
-  color: #818e96;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-  margin: 0 5px 0 5px;
-  text-align: center;
-  text-decoration: none;
-}
-
-body#signup .signup_options a.options span {
-  font-size: 18px;
-  font-weight: bold;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   text-transform: uppercase;
-  color: #f0ff00;
-  display: block;
-  padding: 0 0 7px 0;
-}
-
-body#signup .signup_options a.options:hover {
-  text-decoration: none;
-  color: #5f696f;
-  background: #000;
-}
-
-body#signup .signup_options a.options:hover span {
-  text-decoration: underline;
-}
-
-body#signup #signup_wrap .section {
-  margin: 20px;
-  padding: 20px;
-  background: #131617;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
+  color: #FFF;
+  font-family: "Myriad Pro", Helvetica, Arial, sans-serif;
 }
 
 body#signup #signup_wrap .bd {
   margin: 20px;
 }
 
-body#signup #signup_wrap .section h1 {
-  font-size: 23px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  color: #FFF;
-  margin: 0 0 20px 0;
+body#signup #signup_wrap fieldset {
+  margin: 10px 20px 20px 20px;
+  padding: 20px;
+  background: #232628;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
 }
 
-body#signup #signup_wrap .section p {
+body#signup #signup_wrap fieldset p {
   margin: 5px 0 5px 0;
 }
 
-body#signup #signup_wrap .section p span {
-  font-size: 12px;
-}
-
-body#signup #signup_wrap .section label {
+body#signup #signup_wrap fieldset label {
   width: 175px;
   text-align: right;
   display: block;
   float: left;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: normal;
   color: #FFF;
-  letter-spacing: -0.7px;
-  margin: 10px 0 0 0;
+  letter-spacing: -0.5px;
+  margin: 10px 5px 0 0;
   position: relative;
   top: 4px;
 }
 
-body#signup #signup_wrap .section input {
+body#signup #signup_wrap fieldset label.error {
+  color: #ff0600;
+}
+
+body#signup #signup_wrap fieldset input {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border: 0;
@@ -186,27 +121,87 @@ body#signup #signup_wrap .section input {
   margin: 0 5px 0 5px;
 }
 
-body#signup #signup_wrap .section p.dropdown {
-  height: 35px;
+body#signup #signup_wrap fieldset p#dropdown {
+  height: 40px;
 }
 
-body#signup #signup_wrap .section p.dropdown select {
-  margin: 7px 0 0 10px;
+body#signup #signup_wrap fieldset p#dropdown select {
+  margin: 9px 0 0 5px;
   padding: 3px;
 }
 
-body#signup #signup_wrap .section fieldset {
-  margin: 0 0 25px 0;
-  border-top: 1px #2a2f32 solid;
-  padding: 0 0 0 15px;
-}
-
-body#signup #signup_wrap .section fieldset legend {
+body#signup #signup_wrap fieldset h1 {
   padding: 7px;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  border-bottom: 1px solid #373c3e;
+  margin: 0 0 20px 0;
 }
 
-body#signup #signup_wrap .section fieldset.last {
+body#signup #signup_wrap fieldset h1 span {
+  color: #656f76;
+  font-size: 14px;
+}
+
+body#signup #signup_wrap fieldset.last {
   margin: 0;
+}
+
+body#signup #signup_wrap fieldset p em {
+  display: block;
+  width: 300px;
+  margin: 0 0 0 175px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+fieldset#billing p span#card_num, fieldset#billing p span#ccv {
+  float: left;
+  display: block;
+}
+
+fieldset#billing p span#card_num input {
+  width: 175px;
+}
+
+fieldset#billing p span#ccv input {
+  width: 60px;
+}
+
+fieldset#billing p span#ccv label {
+  width: 50px;
+}
+
+fieldset#billing p span#ccv_tip {
+  padding: 15px 0 0 5px;
+  float: left;
+}
+
+fieldset#confirm em {
+  font-size: 18px;
+  color: #98a4ac;
+  display: block;
+  padding: 10px;
+  background: #1a1c1d;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 0 0 15px 0;
+}
+
+fieldset#confirm em strong {
+  font-weight: bold;
+  color: #FFF;
+}
+
+fieldset#confirm p {
+  color: #b7c6cf;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+fieldset#confirm p strong {
+  color: #FFF;
+  font-weight: bold;
 }
 
 body#signup #signup_wrap #signup_finish {
@@ -237,6 +232,15 @@ body#signup #signup_wrap #signup_finish p#agree_terms {
   margin: 14px 0 0 15px;
 }
 
+/* Tips & Additional Info about Sign Up */
+
+body#signup #signup_sidebar {
+  float: left;
+  margin: 20px;
+}
+
+/* Thank You Page after signing up */
+
 div#thanks h2 {
   font-size: 25px;
   font-weight: bold;
@@ -264,11 +268,10 @@ body#signup #footer {
 }
 
 .error_wrapper {
-  background: #000;
-  padding: 10px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  margin: 0 0 25px 0;
+  background: #a40400;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  margin: 0 20px 20px 20px;
 }
 
 .error_wrapper h2 {
@@ -277,19 +280,30 @@ body#signup #footer {
   color: #FFF;
   letter-spacing: -1px;
   margin: 0 0 10px 0;
+  background: #7b0300;
+  padding: 10px;
+  -moz-border-radius-topleft: 7px;
+  -moz-border-radius-topright: 7px;
+  -webkit-border-radius-top-right: 7px;
+  -webkit-border-radius-top-left: 7px;
+  border-bottom: 1px #c70500 solid;
 }
 
 .error_wrapper p {
   color: #FFF;
+  padding: 10px;
+  display: none;
 }
 
 .error_wrapper ul {
-  margin: 10px 0 0 25px;
+  padding: 10px;
+  margin: 0 0 0 25px;
 }
 
 .error_wrapper ul li {
   color: #FFF;
-  list-style-type: disc;
+  list-style-type: decimal;
+  margin: 0 0 12px 0;
 }
 
 body#signup #signup_finish p#login_remember {

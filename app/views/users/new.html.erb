@@ -1,24 +1,62 @@
-<body id="signup">
+<div class="clear">
 <div id="signup_wrap">
   <div class="hd">
-    <h1>Create your BattleID</h1>
+    <h1>Create your Battle Center account</h1>
   </div>
 	<% form_for @user do |f| -%>
 	  <%= hidden_field_tag :ref, params[:ref] || @ref %>
-	<div class="section">
-		<%- unless f.error_messages.blank? -%>
-		  <div class="error_wrapper"><%= f.error_messages %></div>
-		<%- end -%>
-		<p><%= f.label :username, "Username" %><%= f.text_field :username %> <span>Must be at least 3 characters.</span></p>
-		<p><%= f.label :email, "Email" %><%= f.text_field :email %> <span>Must be a valid email address.</span></p>
-		<p><%= f.label :password, "Password" %><%= f.password_field :password %> <span>Must be at least 6 characters.</span></p>
+  		<%- unless f.error_messages.blank? -%>
+  		  <div class="error_wrapper"><%= f.error_messages %>hey</div>
+  		<%- end -%>
+  		<div class="error_wrapper"><div class="errorExplanation" id="errorExplanation"><h2>4 errors prohibited this user from being saved</h2><p>There were problems with the following fields:</p><ul><li>Email can't be blank</li><li>Password can't be blank</li><li>Username can't be blank</li><li>Username is too short (minimum is 3 characters)</li></ul></div></div>
+
+	  <fieldset>
+	  <h1>Choose a Username &amp; Password</h1>
+		<p><%= f.label :username, "Username" %><%= f.text_field :username %> <em>Must be at least 3 characters.</em></p>
+		<p><%= f.label :email, "Email" %><%= f.text_field :email %> <em>Must be a valid email address.</em></p>
+		<p><%= f.label :password, "Password" %><%= f.password_field :password %> <em>Must be at least 6 characters.</em></p>
 		<p><%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation %></p>
-	</div><!-- / section -->
+		</fieldset>
+		
+    <fieldset>
+	  <h1>Account Information <span>&mdash; You can change these at anytime later.</span></h1>
+		<p><label class="error">Account Name</label><input class="error" type="text"/></p>
+		<p><label>Account URL</label><input type="text"/> <span>.tbblive.com</span></p>
+		</fieldset>
+		
+		<fieldset id="billing">
+	  <h1>Billing Information</h1>
+		<p><label>Name on Card</label><input type="text"/></p>
+		<p class="clear">
+		  <span id="card_num"><label>Card Number</label><input size="16" type="text"/></span>
+		  <span id="ccv"><label>CCV</label><%= text_field :creditcard, :verification_value, :size => 3 %></span>
+		  <span id="ccv_tip"><a href="">What is this?</a></span>
+		</p>
+		<p id="dropdown" class="clear"><label>Expiration</label>
+		    <select>
+		      <option>01 - January</option>
+		    </select>
+		    <select>
+		      <option>2010</option>
+		    </select>
+		</p>
+		<p><label>Zip/Postal Code</label><input type="text"/></p>
+		</fieldset>
+		
+		<fieldset id="confirm">
+		<h1>Confirm Your Details</h1>
+		<em>Selected Plan: <strong>Pro</strong></em>
+		<p>Your 30-day free trial lasts until <strong>midnight on March 19, 2010</strong>. If you don't want to continue using Battle Center, just cancel before the trial ends and you won't be charged (we'll email you 5 days before the trial ends to remind you). Otherwise, you'll pay just $12/month for the service as long as your account is open. <strong>You can upgrade, downgrade, or cancel any time</strong>.</p>
+	  </fieldset>
+
 
 	<div id="signup_finish" class="clear">
-    <p><button type="submit">Create my BattleID</button></p>
-    <p id="agree_terms">By clicking Create my BattleID you agree to the <a href="http://thebattlecenter.com/terms">Terms of Service</a> &amp; <a href="http://thebattlecenter.com/privacy">Privacy</a>.</p>
+    <p><button type="submit">Create my account</button></p>
+    <p id="agree_terms">By clicking you agree to the <a href="http://thebattlecenter.com/terms">Terms of Service</a> &amp; <a href="http://thebattlecenter.com/privacy">Privacy</a>.</p>
   </div><!-- /signup_finish -->
 <% end -%>
-</div><!-- / wrapper -->
-this is only on signup branch.
+</div><!-- / signup_wrap -->
+<div id="signup_sidebar">
+  Hello
+</div><!-- // signup_sidebar -->
+</div><!-- // clear -->
