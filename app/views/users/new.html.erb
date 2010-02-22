@@ -1,3 +1,19 @@
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+    $('#need_user .switch_form').click(function(e){
+      e.preventDefault()
+      $('#need_user').slideUp()
+      $('#have_user').slideDown()
+    })
+    
+    $('#have_user .switch_form').click(function(e){
+      e.preventDefault()
+      $('#have_user').slideUp()
+      $('#need_user').slideDown()
+    })
+  })
+</script>
+
 <div class="clear">
 <div id="signup_wrap">
   <div class="hd">
@@ -5,17 +21,29 @@
   </div>
 	<% form_for @user do |f| -%>
 	  <%= hidden_field_tag :ref, params[:ref] || @ref %>
-  		<%- unless f.error_messages.blank? -%>
-  		  <div class="error_wrapper"><%= f.error_messages %>hey</div>
-  		<%- end -%>
-  		<div class="error_wrapper"><div class="errorExplanation" id="errorExplanation"><h2>4 errors prohibited this user from being saved</h2><p>There were problems with the following fields:</p><ul><li>Email can't be blank</li><li>Password can't be blank</li><li>Username can't be blank</li><li>Username is too short (minimum is 3 characters)</li></ul></div></div>
+	  
+		<%- unless f.error_messages.blank? -%>
+		  <div class="error_wrapper"><%= f.error_messages %>hey</div>
+		<%- end -%>
+		
+		<div class="error_wrapper"><div class="errorExplanation" id="errorExplanation"><h2>4 errors prohibited this user from being saved</h2><p>There were problems with the following fields:</p><ul><li>Email can't be blank</li><li>Password can't be blank</li><li>Username can't be blank</li><li>Username is too short (minimum is 3 characters)</li></ul></div></div>
 
 	  <fieldset>
-	  <h1>Choose a Username &amp; Password</h1>
-		<p><%= f.label :username, "Username" %><%= f.text_field :username %> <em>Must be at least 3 characters.</em></p>
-		<p><%= f.label :email, "Email" %><%= f.text_field :email %> <em>Must be a valid email address.</em></p>
-		<p><%= f.label :password, "Password" %><%= f.password_field :password %> <em>Must be at least 6 characters.</em></p>
-		<p><%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation %></p>
+  	  <div id="need_user">
+  	    <a href="#" class="switch_form">I already have an account</a>
+  	    <h1>Choose a Username &amp; Password</h1>
+    		<p><%= f.label :username, "Username" %><%= f.text_field :username %> <em>Must be at least 3 characters.</em></p>
+    		<p><%= f.label :email, "Email" %><%= f.text_field :email %> <em>Must be a valid email address.</em></p>
+    		<p><%= f.label :password, "Password" %><%= f.password_field :password %> <em>Must be at least 6 characters.</em></p>
+    		<p><%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation %></p>
+  	  </div>
+	  
+  	  <div id="have_user" style="display:none">
+  	    <a href="#" class="switch_form">I don't have an account</a>
+  	    <h1>Login</h1>
+    		<p><%= f.label :username, "Username" %><%= f.text_field :username %></p>
+    		<p><%= f.label :password, "Password" %><%= f.password_field :password %></p>
+  	  </div>
 		</fieldset>
 		
     <fieldset>
