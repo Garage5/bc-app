@@ -3,6 +3,9 @@ require 'test_helper'
 class AccountTest < ActionController::TestCase
   
   context 'A new account' do
+    setup do
+      @account = Account.new
+    end
     
     context 'with signup' do
       
