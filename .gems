@@ -1,1 +1,10 @@
+warden
+devise
 tlsmail
+acts_as_markup
+subdomain-fu
+aws-s3
+hashie
+cancan
+paperclip
+inherited_resources --version 1.0.3
