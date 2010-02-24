@@ -40,11 +40,18 @@ class ParticipationsController < InheritedResources::Base
   
   def create
     unauthorized! if cannot?(:join, parent)
-    @participation = parent.participations.new(:participant => current_user)
-    @participation.type = 'Team' if @tournament.use_teams?
+
+    unless @tournament.use_teams?
+      @participation = Participation.new(:participant => current_user, :tournament => parent)
+    else
+      @participation = Team.new(params[:participation])
+      @participation.captain = current_user
+      @participation.tournament = parent
+    end
+
     create! do |success, failure|
       success.html { render_success tournament_participants_path(@tournament) }
-      failure.html { render_alert   @participation.errors.full_messages.first }
+      failure.html { render_alert @participation.errors.full_messages.join('\n') }
     end
   end
   

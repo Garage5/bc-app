@@ -36,8 +36,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  include ActionView::Helpers::JavaScriptHelper
+
   def render_alert(message)
-    render :text => "<script>alert('#{message}')</script>"  
+    render :text => %Q(<script>alert("#{message}")</script>)  
   end
   
   def render_success(to)

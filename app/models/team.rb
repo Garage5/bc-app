@@ -22,17 +22,17 @@ class Team < Participation
   
   def valid_members?
     if battleids.uniq != battleids
-      errors.add_to_base("BattleIDs must be unique")
+      errors.add_to_base("BattleIDs must be unique.")
     else
       battleids.each do |u|
         if user = User.find_by_username(u)
           if Membership.exists?(:tournament_id => self.tournament_id, :member_id => user.id)
-            errors.add_to_base("#{user.username} is already participating in this tournament")
+            errors.add_to_base("#{user.username} is already participating in this tournament.")
           else
             self.memberships.build(:member => user)
           end
         else
-          errors.add_to_base("BattleID #{u} doesn't exists")
+          errors.add_to_base("BattleID #{u} doesn't exists.")
         end
       end
     end
