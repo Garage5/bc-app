@@ -1,0 +1,115 @@
+--- !ruby/object:Gem::Specification 
+name: wikitext
+version: !ruby/object:Gem::Version 
+  version: "1.9"
+platform: ruby
+authors: 
+- Wincent Colaiuta
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-08-05 00:00:00 -04:00
+default_executable: 
+dependencies: []
+
+description: Wikitext is a fast wikitext-to-HTML translator written in C.
+email: win@wincent.com
+executables: []
+
+extensions: 
+- ext/extconf.rb
+extra_rdoc_files: []
+
+files: 
+- spec/autolinking_spec.rb
+- spec/base_heading_level_spec.rb
+- spec/blockquote_spec.rb
+- spec/em_spec.rb
+- spec/encoding_spec.rb
+- spec/entity_spec.rb
+- spec/external_link_spec.rb
+- spec/fulltext_spec.rb
+- spec/h1_spec.rb
+- spec/h2_spec.rb
+- spec/h3_spec.rb
+- spec/h4_spec.rb
+- spec/h5_spec.rb
+- spec/h6_spec.rb
+- spec/img_spec.rb
+- spec/indentation_spec.rb
+- spec/integration_spec.rb
+- spec/internal_link_spec.rb
+- spec/line_endings_spec.rb
+- spec/link_encoding_spec.rb
+- spec/link_sanitizing_spec.rb
+- spec/nil_class_spec.rb
+- spec/nowiki_spec.rb
+- spec/p_spec.rb
+- spec/parser_spec.rb
+- spec/pre_spec.rb
+- spec/rails_spec.rb
+- spec/regressions_spec.rb
+- spec/spec_helper.rb
+- spec/string_spec.rb
+- spec/strong_em_spec.rb
+- spec/strong_spec.rb
+- spec/tokenizing_spec.rb
+- spec/trash
+- spec/tt_spec.rb
+- spec/ul_spec.rb
+- spec/version_spec.rb
+- spec/vim_formatter.rb
+- spec/wikitext_spec.rb
+- ext/wikitext_ragel.c
+- ext/extconf.rb
+- ext/ary.c
+- ext/parser.c
+- ext/str.c
+- ext/token.c
+- ext/wikitext.c
+- ext/ary.h
+- ext/parser.h
+- ext/ruby_compat.h
+- ext/str.h
+- ext/token.h
+- ext/wikitext.h
+- ext/wikitext_ragel.h
+- ext/depend
+- lib/wikitext/nil_class.rb
+- lib/wikitext/parser.rb
+- lib/wikitext/rails.rb
+- lib/wikitext/string.rb
+- lib/wikitext/version.rb
+- rails/init.rb
+has_rdoc: true
+homepage: http://wikitext.rubyforge.org/
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- ext
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: wikitext
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 2
+summary: Wikitext-to-HTML translator
+test_files: []
+

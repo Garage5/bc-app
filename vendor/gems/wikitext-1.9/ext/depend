@@ -1,0 +1,25 @@
+# depend
+# Additional material for Makefile
+# Copyright 2008 Wincent Colaiuta
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# don't warn about unused params because many Ruby methods accept "self" but don't use it
+CFLAGS += -std=gnu99 -Wall -Wextra -Wno-unused-parameter
+
+ary.o : ary.c ary.h ruby_compat.h
+parser.o : ary.c ary.h parser.c parser.h ruby_compat.h str.c str.h token.h wikitext.h wikitext_ragel.h
+str.o : ruby_compat.h str.c str.h
+token.o : ruby_compat.h token.c token.h wikitext.h
+wikitext.o : parser.h ruby_compat.h token.h wikitext.c wikitext.h wikitext_ragel.h
+wikitext_ragel.o : ruby_compat.h token.h wikitext.h wikitext_ragel.h wikitext_ragel.c
