@@ -8,3 +8,4 @@ hashie
 cancan
 devise
 warden
+inherited_resources
