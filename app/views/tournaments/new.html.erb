@@ -155,13 +155,12 @@
 		<!-- / Step 2 -->
 		
 		<!-- Step 3 -->
-		<div class="beta">
 		<h3>Players &amp; Teams</h3>
 		<div id="tournament_players" class="pod clear">
 		<div class="bd">
 		  <div class="group">
 		    <%= f.check_box :use_teams, :onclick => '($(this).attr("checked"))?$("#players_per_team_canvas").show():$("#players_per_team_canvas").hide();'  %>
-		    <%= f.label :use_teams, "Enable Teams", :class => 'checkbox' %>
+		    <%= f.label :use_teams, "Team Based", :class => 'checkbox' %>
 		  </div>
 		
 			<div class="group" style="<%= 'display: none;' unless @tournament.use_teams? %>" id="players_per_team_canvas">
@@ -171,7 +170,6 @@
 			<div><%= f.select :slot_count, current_account.slot_multiples, {}, :onchange => 'updateRounds();' %> <%= f.label :slot_count, "Maximum Slots" %></div>
 		</div><!-- / bd -->
 		</div><!-- / pod -->
-		</div><!-- / beta -->
 		<!-- / Step 3 -->
 		
 		<!-- Step 4 -->
