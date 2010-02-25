@@ -1,0 +1,24 @@
+<% form_for @participation, :url => tournament_participants_path(@tournament), :html => {:'data-remote' => true} do |f| -%>
+  <h2>Join Tournament</h2>
+  
+  <% if @tournament.use_teams? %>
+
+    <%= f.text_field :name, :class => 'text', :title => 'Team Name', :value => 'Team Name' %><br />
+    
+    <div id="team_members">
+      <% (@tournament.players_per_team - 1).times do %>
+        <%= text_field_tag 'participation[battleids][]', :class => 'text' %><br />
+      <% end %>
+    </div>
+    
+  <% else %>
+    
+    <p>Are you sure you want to join this tournament?</p>
+
+  <% end %>
+  
+  <div class="buttons">
+    <button type="submit">Confirm</button>&nbsp;&nbsp;
+    <a href="#cancel" data-close-modal="true">cancel</a>
+  </div>
+<% end -%>

@@ -11,7 +11,11 @@
 	</div><!-- / user_name -->
 
 	<% if can? :destroy, participation %>
-  	  <%= link_to('Decline', deny_tournament_participants_path(:participant => user.id), :title => 'Delete User', :class => 'user_delete', :rel => "modal {method: 'delete', title: 'Are You Sure?', text: 'Do you really want to #{ user == current_user ? 'leave' : "remove <b>#{user.login}</b> from" } this tournament?'}") %>
+  	  <%= link_to 'Decline', deny_tournament_participants_path(:participant => user.id), 
+  	      :class => 'user_delete', 
+  	      :'data-remote' => true, 
+  	      :'data-method' => 'delete',
+  	      :'data-confirm' => "Are you sure you want to remove #{user.username}?" %>
   <% end %>
   
   <% if can? :accept, participation %>

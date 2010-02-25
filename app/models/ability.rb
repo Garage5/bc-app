@@ -72,6 +72,20 @@ class Ability
       can :revert, Slot do |slot|
         is_host_or_cohost?(user, slot.tournament) && slot.can_revert?
       end
+    
+    
+      can :destroy, Team do |team|
+        captain?(user, team) || is_host_or_cohost?(user, team.tournament)
+      end
+      
+      can :create, Team do |team|
+        tournament = team.tournament
+        participant?(user, tournament) && !teamed?(user, tournament) && !is_host_or_cohost?(user, tournament)
+      end
+      
+      can :edit, Team do |team|
+        captain?(user, team)
+      end
     end
   end
 
@@ -79,8 +93,16 @@ class Ability
     current_id == user_id
   end
 
+  def pending?(user, tournament)
+    if user
+      tournament.participations.pending.exists?(:participant_id => user.id)
+    else
+      false
+    end
+  end
+  
   def participant?(user, tournament)
-    is_host_or_cohost?(user, tournament) || tournament.participations.accepted.exists?(:participant_id => user.id)
+    is_host_or_cohost?(user, tournament) || tournament.participations.exists?(:participant_id => user.id)
   end
   
   def host?(user, tournament)
@@ -93,5 +115,13 @@ class Ability
   
   def is_host_or_cohost?(user, tournament)
     host?(user, tournament) || cohost?(user, tournament)
+  end
+  
+  def teamed?(user, tournament)
+    tournament.memberships.exists?(:member_id => user.id)
+  end
+  
+  def captain?(user, team)
+    team.captain_id == user.id
   end
 end

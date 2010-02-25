@@ -1,0 +1,8 @@
+<h2>Start Tournament</h2>
+
+<p>Are you sure?</p>
+
+<div class="buttons">
+  <%= link_to "Start", start_tournament_path(@tournament), :'data-remote' => true, :'data-method' => 'put', :class => 'button' %>&nbsp;&nbsp;
+  <a href="#cancel" data-close-modal="true">cancel</a>
+</div>

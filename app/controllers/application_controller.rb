@@ -36,6 +36,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  include ActionView::Helpers::JavaScriptHelper
+
+  def render_alert(message)
+    render :text => %Q(<script>alert("#{message}")</script>)  
+  end
+  
+  def render_success(to)
+    render 'shared/modal_success', :locals => {:to => to}, :layout => false
+  end
+  
   private
   
   def find_tournament

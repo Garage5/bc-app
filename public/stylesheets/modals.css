@@ -1,3 +1,27 @@
+.mask, .spinner {
+  background-color: rgba(18, 22, 24, 0.7);
+	position: absolute;
+	z-index: 999;
+}
+
+.spinner-msg {
+	text-align: center;
+	font-weight: bold;
+}
+
+.spinner-img {
+	background: #000 url(../images/spinner.gif) center center no-repeat;
+	opacity: 0.65;
+	-moz-opacity: 0.65;
+  filter:alpha(opacity=65);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	width: 24px;
+	height: 24px;
+	padding: 10px;
+	margin: 0 auto;
+}
+
 .overlay {
 	background: #000;
   width: 100%;
@@ -6,6 +30,85 @@
 }
 
 .modal {
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 0;
+  -moz-opacity: 0;
+  filter:alpha(opacity=0);
+  padding: 5px;
+  background-color: rgba(0,0,0, 0.3);
+  position: absolute;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+}
+
+.modal, .modal a {
+  color: #8d9aa0;
+	font-size: 12px;
+}
+
+.modal a {
+  text-decoration: underline;
+}
+
+.modal input.text {
+  width: 225px;
+}
+
+.modal-inner {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#dcf1f9), to(#ffffff));
+  padding: 15px 20px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+  text-align: center;	
+}
+
+.modal h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #232d30;
+  margin-bottom: 10px;
+}
+
+.modal .buttons {
+  padding: 15px 0 5px 0;
+}
+
+.modal .close-modal {
+  float: left;
+  position: absolute;
+}
+
+.modal button,
+.modal .button {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#88a9b7), to(#a3bfc9));
+  height: 24px;
+  line-height: 24px;
+  border-width: 0;
+  padding: 0 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid #89aab7;
+  -webkit-box-shadow: 0px 0px 1px #fff;
+  -moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+}
+
+/*----------------------------------------------------------------------
+ PARTICIPANTS MODAL STYLES
+----------------------------------------------------------------------*/
+
+.modal input#participation_name {
+  text-align: center;
+  font-weight: bold;
+  color: #c0c0c0;
+}
+
+
+/* .modal {
 	display: none;
   z-index: 3;
   position: absolute;
@@ -18,7 +121,7 @@
 	-webkit-border-radius: 7px;
 	-moz-box-shadow: rgba(0, 0, 0, 0.30) 0 0 40px;
 	-webkit-box-shadow: 0 0 50px rgba(0, 0, 0, 0.30);
-}
+} */
 
 .modal .modal_hd {
 	padding: 13px 0 10px 15px;

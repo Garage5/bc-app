@@ -6,15 +6,19 @@
 
 
 <% if can? :start, @tournament %>
-  <a id="btn_start_tournament" class="btn" href="#confirm_start_tournament" rel="modal">
+  <% link_to start_tournament_path(@tournament), :class => 'btn', :id => 'btn_start_tournament', :'data-remote' => true, :'data-modal' => true do %>
     <span class="icon"></span><span>Start Tournament</span>
-  </a>
+  <% end %>
 <% end %>
 
 <% if can? :join, @tournament %>
-	<a id="join_tournament" class="btn" href="#join_confirm" rel="modal">
-	  <span class="icon"></span><span>Join Tournament</span>
-	</a>
+  <% link_to new_tournament_participant_path(@tournament), :class => 'btn', :id => 'join_tournament', :'data-remote' => true, :'data-modal' => true do %>
+    <span class="icon"></span><span>Join Tournament</span>
+  <% end %>
+<% elsif current_user %>
+  <% if current_user.pending?(@tournament) %>
+    <a id='user_pending'>You Are Pending!</a>
+  <% end %>
 <% end %>
 
 <div id="subnav">

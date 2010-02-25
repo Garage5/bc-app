@@ -11,6 +11,20 @@ class UserMailer < ActionMailer::Base
     setup_email(user, "Your BattleID")
     @body = { :user => user }
   end
-
+  
+  def joined_tournament_email(user, tournament)
+    setup_email(user, "You have applied to participate in #{tournament.name}")
+    @body = {:user => user, :tournament => tournament}
+  end
+  
+  def accepted_to_tournament_email(user, tournament)
+    setup_email(user, "You have been accepted to participate in #{tournament.name}")
+    @body = {:user => user, :tournament => tournament}
+  end
+  
+  def invited_to_cohost_email(user, tournament)
+    setup_email(user, "You have been invited to cohost #{tournament.name}")
+    @body = {:user => user, :tournament => tournament}
+  end
 
 end

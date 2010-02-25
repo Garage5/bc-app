@@ -1,0 +1,10 @@
+<script type="text/javascript" charset="utf-8">
+  modal = document.getElement('.modal')
+  modal.getElement('.modal-inner').set('text', 'Success!').setStyles({
+    'color': 'green',
+    'font-weight': 'bold'
+  })
+  modal.position({position: {x: 'center', y: 'center'}})
+  to = "<%= tournament_participants_path(@tournament) %>".toURI()
+  setTimeout('to.go()', 500)
+</script>

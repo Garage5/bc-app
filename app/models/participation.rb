@@ -7,16 +7,20 @@ class Participation < ActiveRecord::Base
   belongs_to :tournament
   belongs_to :account
   
-  validates_uniqueness_of :participant_id, :scope => :tournament_id
-  validate :participant_cannot_be_host
+  validates_uniqueness_of :participant_id, :scope => :tournament_id, :message => 'User is already participating in this tournament.'
   
   def accept!
     update_attributes(:accepted_at => Time.now)
+    UserMailer.deliver_accepted_to_tournament_email(self.participant, self.tournament)
   end
   
-  def participant_cannot_be_host
-    tournament = Tournament.find(self.tournament_id)    
-    errors.add_to_base('Officials cannot participate in tournaments') if 
-      tournament.account.admin_id == self.participant_id
+  # after_create :send_email_notification
+  
+  def send_email_notification
+    if @state == 'cohost'
+      UserMailer.deliver_invited_to_cohost_email(self.participant, self.tournament)
+    else
+      UserMailer.deliver_joined_tournament_email(self.participant, self.tournament)
+    end
   end
 end

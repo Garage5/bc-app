@@ -12,15 +12,7 @@ require 'tasks/rails'
 namespace :db do
   namespace :test do
     task :prepare => :environment do
-      Rake::Task["db:seed"].invoke
+      Rake::Task["db:seed_fu"].invoke
     end
-  end
-end
-
-namespace :test do
-  Rake::TestTask.new(:features => "db:test:prepare") do |t|
-    t.libs << "test"
-    t.pattern = 'test/features/**/*.rb'
-    t.verbose = true
   end
 end

@@ -107,10 +107,14 @@ class TournamentsController < ApplicationController
 
   def start
     unauthorized! if cannot? :start, @tournament
-    if @tournament.start
-      redirect_to brackets_tournament_path(@tournament)
+    if request.put?
+      if @tournament.start
+        render_success brackets_tournament_path(@tournament)
+      else
+        render_alert @tournament.errors.full_messages.join("\n")
+      end
     else
-      render :text => @tournament.errors
+      render :layout => false
     end
   end
   

@@ -1,10 +1,10 @@
-ryanb-acts-as-list --source gems.github.com
+warden
+devise
 tlsmail
 acts_as_markup
 subdomain-fu
 aws-s3
-paperclip
 hashie
 cancan
-devise
-warden
+paperclip
+inherited_resources --version 1.0.3

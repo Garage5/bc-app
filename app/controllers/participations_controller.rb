@@ -1,48 +1,65 @@
-class ParticipationsController < ApplicationController
-  before_filter :find_tournament
+class ParticipationsController < InheritedResources::Base
+  belongs_to :tournament, :instance_name => :tournament
+  respond_to :html
   # before_filter :authenticate_user!, :except => [:index]
   # before_filter :must_be_host, :except => [:index, :create, :deny, :accept]
   # before_filter :tournament_not_started, :only => [:create, :accept, :deny]
   
   def index
-    @officials = @tournament.participations.cohost
-    @pending = @tournament.participations.pending
-    @active = @tournament.participations.accepted
+    @officials = parent.participations.cohost
+    @pending = parent.participations.pending
+    @active = parent.participations.accepted
+    index!
   end
   
   def add_cohost
-    user = User.find(:first, :conditions => {:username => params[:user]})
-
-    unauthorized! if cannot?(:add_cohost, @tournament)
-
-    if user
-      if user.is_cohosting?(@tournament)
-        flash[:error] = "This user is already hosting or co-hosting this tournament."
-      elsif user.is_participant_of?(@tournament)
-        flash[:error] = "You can not add a participant as a co-host. Please remove the user from participants first."
+    unauthorized! if cannot?(:add_cohost, parent)
+    if request.post?
+      @user = User.find(:first, :conditions => {:username => params[:user]})
+      if @user
+        @participation = @tournament.participations.create(:participant => @user, :state => 'cohost')
+        if @participation.save
+          render_success tournament_participants_path(parent)
+        else
+          render_alert(@participation.errors.first[1])
+        end
       else
-        participation = user.cohost_tournament @tournament
+        render_alert('BattleID not found.')
       end
     else
-      flash[:error] = "No user with this BattleID or e-mail was found."
+      render :layout => false
     end
-    redirect_to tournament_participants_path(@tournament)
+  end
+  
+  def new
+    unauthorized! if cannot?(:join, parent)
+    new! do |format|
+      format.html { render :layout => false }
+    end
   end
   
   def create
-    unauthorized! if cannot?(:join, @tournament)
-    participation = current_user.join_tournament(@tournament)
-    if participation
-      flash[:notice] = "You are now pending acceptance into '#{@tournament.name}'"
+    unauthorized! if cannot?(:join, parent)
+
+    unless @tournament.use_teams?
+      @participation = Participation.new(:participant => current_user, :tournament => parent)
+    else
+      @participation = Team.new(params[:participation])
+      @participation.captain = current_user
+      @participation.tournament = parent
     end
-    redirect_to @tournament
+
+    create! do |success, failure|
+      success.html { render_success tournament_participants_path(@tournament) }
+      failure.html { render_alert @participation.errors.full_messages.join('\n') }
+    end
   end
   
   def accept
-    @participation = Participation.find_by_participant_id_and_tournament_id(params[:participant], @tournament.id)
+    @participation = Participation.find_by_participant_id_and_tournament_id(params[:participant], parent.id)
     unauthorized! if cannot? :accept, @participation
     if @participation.accept!
-      @officials = @tournament.officials
+      @officials = parent.officials
       render :layout => false
     else
       render :nothing => true
@@ -50,21 +67,21 @@ class ParticipationsController < ApplicationController
   end
   
   def deny
-    @participation = Participation.find_by_participant_id_and_tournament_id(params[:participant], @tournament.id)
+    @participation = Participation.find_by_participant_id_and_tournament_id(params[:participant], parent.id)
     unauthorized! if cannot? :destroy, @participation
     @participation.destroy
     respond_to do |format|
-      format.html { redirect_to tournament_participants_path(@tournament) }
-      format.js { render :text => ("location.href = '#{tournament_participants_path(@tournament)}'") }
+      format.html { redirect_to tournament_participants_path(parent) }
+      format.js   { render :text => ("location.href = '#{tournament_participants_path(parent)}'") }
     end
   end
 
   protected
   
   def tournament_not_started
-    if @tournament.started?
+    if parent.started?
       flash[:error] = "Participants cannot be added or removed once a tournament has started."
-      redirect_back_or_default tournament_participants_path(@tournament)
+      redirect_back_or_default tournament_participants_path(parent)
     end  
   end
 end
