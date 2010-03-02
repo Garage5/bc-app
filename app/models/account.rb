@@ -17,7 +17,7 @@ class Account < ActiveRecord::Base
   validates_format_of :subdomain, :with => /\A[a-zA-Z][a-zA-Z0-9]*\Z/
   validates_exclusion_of :subdomain, :in => %W( app support blog www billing help api login #{AppConfig['admin_subdomain']} ), :message => "The domain <strong>{{value}}</strong> is not available."
   validate :valid_domain?
-  # validate_on_create :valid_user?
+  validate_on_create :valid_user?
   validate_on_create :valid_plan?
   validate_on_create :valid_payment_info?
   validate_on_create :valid_subscription?
@@ -25,7 +25,7 @@ class Account < ActiveRecord::Base
   attr_accessible :name, :subdomain, :admin, :plan, :plan_start, :creditcard, :address, :logo
   attr_accessor :user, :plan, :plan_start, :creditcard, :address, :affiliate
   
-  # after_create :create_admin
+  after_create :create_admin
   after_create :send_welcome_email
   
   acts_as_paranoid
@@ -98,7 +98,7 @@ class Account < ActiveRecord::Base
     # An account must have an associated user to be the administrator
     def valid_user?
       if !@user
-        errors.add_to_base("Missing user information")
+        errors.add_to_base("Missing user information") unless errors.include?('Invalid username or password')
       elsif !@user.valid?
         @user.errors.full_messages.each do |err|
           errors.add_to_base(err)
@@ -132,9 +132,9 @@ class Account < ActiveRecord::Base
     end
     
     def create_admin
-      self.user.admin = true
-      self.user.account = self
-      self.user.save
+      self.user.save if self.user.new_record?
+      self.admin = self.user
+      self.save
     end
     
     def send_welcome_email

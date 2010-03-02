@@ -1,98 +1,104 @@
 <script type="text/javascript" charset="utf-8">
   $(function(){
-    $('input#account_subdomain').blur(function(event){
-      value = $(this).val()
-      $(this).val(value.toLowerCase())
+    var login_form = $('#have_user')
+        signup_form = $('#need_user')
+        
+    signup_form.find('.switch_form').click(function(e){
+      e.preventDefault()
+      signup_form.slideUp()                             // hide signup form
+      signup_form.find('input').attr('disabled', true)  // disable signup form
+      login_form.slideDown()                            // show login form
+      login_form.find('input').removeAttr('disabled')   // enable login form
+    })
+    
+    login_form.find('.switch_form').click(function(e){
+      e.preventDefault()
+      login_form.slideUp()                              // hide login form
+      login_form.find('input').attr('disabled', true)   // disable inputs for signup
+      signup_form.slideDown()                           // show signup form
+      signup_form.find('input').removeAttr('disabled')  // enable signup form
     })
   })
 </script>
+
+<div class="clear">
 <div id="signup_wrap">
   <div class="hd">
-    <h1>SIGN UP</h1>
+    <h1>Create your Battle Center account</h1>
   </div>
-  <% form_tag :action => 'create' do %>
-  <%= hidden_field_tag 'plan', params[:plan] %>
-  
-  <div class="section">
-    <h1>Admin Account</h1>
-    <%= image_tag current_user.avatar.url, :size => '20x20' %>
-    <%= current_user.login %> (<%= link_to 'logout', destroy_user_session_url(:ref => request.url) %>)
-  </div>
-  
-  <div class="section">
-    <% if @account.errors.any? %>
-      <div class="errorExplanation">
-        <h2>Errors encountered with your account information:</h2>
-        <ul>
-          <%= @account.errors.full_messages.map {|m| content_tag('li', m)} %>
-        </ul>
-      </div>
-    <% end %>
-    
-    <h1>Host Account Sign Up</h1>
+	<% form_tag :action => 'create' do %>
+	  <%= hidden_field_tag 'plan', params[:plan] %>
+		<%- unless @account.errors.blank? -%>
+		  <div class="error_wrapper"><%= error_messages_for 'account', :object => @account %></div>
+		<%- end -%>
+		
+		<!--<div class="error_wrapper"><div class="errorExplanation" id="errorExplanation"><h2>4 errors prohibited this user from being saved</h2><p>There were problems with the following fields:</p><ul><li>Email can't be blank</li><li>Password can't be blank</li><li>Username can't be blank</li><li>Username is too short (minimum is 3 characters)</li></ul></div></div>-->
+
+	  <fieldset>
+      <% fields_for :signup do |f| -%>
+  	  <div id="need_user">
+  	    <a href="#" class="switch_form">I already have an account</a>
+  	    <h1>Choose a Username &amp; Password</h1>
+        <p><%= f.label :username, "Username" %><%= f.text_field :username %> <em>Must be at least 3 characters.</em></p>
+        <p><%= f.label :email, "Email" %><%= f.text_field :email %> <em>Must be a valid email address.</em></p>
+        <p><%= f.label :password, "Password" %><%= f.password_field :password %> <em>Must be at least 6 characters.</em></p>
+        <p><%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation %></p>
+  	  </div>
+	    <% end -%>
+	    
+	    <% fields_for :login do |f| -%>
+  	  <div id="have_user" style="display:none">
+  	    <a href="#" class="switch_form">I don't have an account</a>
+  	    <h1>Login</h1>
+    		<p><%= f.label :username, "Username" %><%= f.text_field :username, :disabled => true %></p>
+    		<p><%= f.label :password, "Password" %><%= f.password_field :password, :disabled => true %></p>
+  	  </div>	     
+	    <% end -%>
+		</fieldset>
+		
     <fieldset>
-      <% fields_for :account do |f| %>
-      <legend>Account Information</legend>
-      <p><label>Organization Name</label><%= f.text_field :name %><span>Or Company, Community, non-profit etc.</span></p>
-      <p><label>Account URL</label><%= f.text_field :subdomain %><span>.<%= AppConfig['base_domain'] %></span></p>
-      <% end %>
-    </fieldset>
-    
-    <% if @account.needs_payment_info? %>
-    <fieldset class="last">
-      
-      <% if @creditcard.errors.any? %>
-        <div class="errorExplanation">
-          <h2>Errors encountered with your payment information:</h2>
-          <ul>
-            <%= @creditcard.errors.full_messages.map {|m| content_tag('li', m)} %>
-          </ul>
-        </div>
-      <% end %>
+    <% fields_for :account do |f| -%>
+    <h1>Account Information <span>&mdash; You can change these at anytime later.</span></h1>
+		<p><label>Account Name</label><%= f.text_field :name %></p>
+		<p><label>Account URL</label><%= f.text_field :subdomain %> <span>.tbblive.com</span></p>
+    <% end -%>
+		</fieldset>
+		
+		<% if @account.needs_payment_info? %>
+		<fieldset id="billing">
+	  <h1>Billing Information</h1>
+		<p><label>Name on Card</label><input type="text"/></p>
+		<p class="clear">
+		  <span id="card_num"><label>Card Number</label><input size="16" type="text"/></span>
+		  <span id="ccv"><label>CCV</label><%= text_field :creditcard, :verification_value, :size => 3 %></span>
+		  <span id="ccv_tip"><a href="">What is this?</a></span>
+		</p>
+		<p id="dropdown" class="clear"><label>Expiration</label>
+		    <select>
+		      <option>01 - January</option>
+		    </select>
+		    <select>
+		      <option>2010</option>
+		    </select>
+		</p>
+		<p><label>Zip/Postal Code</label><input type="text"/></p>
+		</fieldset>
+		<% end %>
+		
+		<fieldset id="confirm">
+		<h1>Confirm Your Details</h1>
+		<em>Selected Plan: <strong>Pro</strong></em>
+		<p>Your 30-day free trial lasts until <strong>midnight on March 19, 2010</strong>. If you don't want to continue using Battle Center, just cancel before the trial ends and you won't be charged (we'll email you 5 days before the trial ends to remind you). Otherwise, you'll pay just $12/month for the service as long as your account is open. <strong>You can upgrade, downgrade, or cancel any time</strong>.</p>
+	  </fieldset>
 
-      <% if @address.errors.any? %>
-        <div class="errorExplanation">
-          <h2>Errors encountered with your address:</h2>
-          <ul>
-            <%= @address.errors.full_messages.map {|m| content_tag('li', m)} %>
-          </ul>
-        </div>
-      <% end %>
 
-      <% if @subscription && @subscription.errors.any? %>
-        <div class="errorExplanation">
-          <h2>Errors encountered with your payment:</h2>
-          <ul>
-            <%= @subscription.errors.full_messages.map {|m| content_tag('li', m)} %>
-          </ul>
-        </div>
-      <% end %>
-      
-      <legend>Billing Information</legend>
-        <p><label>First Name:</label>  <%= text_field :creditcard, :first_name %></p>
-        <p><label>Last Name:</label>   <%= text_field :creditcard, :last_name %></p>
-        <p><label>Card Number:</label> <%= text_field :creditcard, :number, :size => 20 %></p>
-        <p><label>Type:</label> <%= select :creditcard, :type, [['Visa', 'visa'], ['MasterCard', 'master'], ['American Express', 'american_express']] %></p>
-        <p class="dropdown">
-          <label>Expiration:</label>
-          <%= select :creditcard, :month, (1 .. 12) %>
-          <%= select :creditcard, :year, (Time.now.year .. 10.years.from_now.year) %>
-        </p>
-        <p><label>CVV:</label><%= text_field :creditcard, :verification_value, :size => 4 %><span><a href="">What is this?</a></span></p>
-        <p><label>Address 1:</label><%= text_field :address, :address1 %></p>
-        <p><label>Address 2:</label><%= text_field :address, :address2 %></p>
-        <p><label>City:</label><%= text_field :address, :city %></p>
-        <p><label>State:</label><%= text_field :address, :state %></p>
-        <p><label>Zip:</label><%= text_field :address, :zip %></p>
-        <p class="dropdown"><label>Country:</label><%= country_select :address, :country, ['United States', 'Canada'] %></p>
-        <p><label>Phone:</label><%= text_field :address ,:phone %></p>
-    </fieldset>
-    <% end %>
-  </div>
-  <div id="signup_finish" class="clear">
-    
-    <p><button>Create my account</button></p>
-    <p id="agree_terms">By clicking Create my account you agree to the <a href="http://thebattlecenter.com/terms">Terms of Service</a> &amp; <a href="http://thebattlecenter.com/privacy">Privacy</a>.</p>
+	<div id="signup_finish" class="clear">
+    <p><button type="submit">Create my account</button></p>
+    <p id="agree_terms">By clicking you agree to the <a href="http://thebattlecenter.com/terms">Terms of Service</a> &amp; <a href="http://thebattlecenter.com/privacy">Privacy</a>.</p>
   </div><!-- /signup_finish -->
-  <% end %>
-</div>
+<% end -%>
+</div><!-- / signup_wrap -->
+<div id="signup_sidebar">
+  Hello
+</div><!-- // signup_sidebar -->
+</div><!-- // clear -->

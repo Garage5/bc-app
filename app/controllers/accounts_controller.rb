@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   layout 'accounts'
 
   before_filter :store_location, :only => :show
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!, :except => [:new, :create, :show]
   before_filter :build_user, :only => [:new, :create]
   before_filter :load_billing, :only => [ :new, :create, :billing, :paypal ]
   before_filter :load_subscription, :only => [ :billing, :plan, :paypal, :plan_paypal ]
@@ -48,7 +48,13 @@ class AccountsController < ApplicationController
   end
   
   def create
-    @account.admin = current_user
+    if params[:signup]
+      @account.user = User.new(params[:signup])
+    elsif params[:login]
+      @account.user = User.authenticate(params[:login])
+      @account.errors.add_to_base('Invalid username or password') unless @account.user
+    end
+    
     @account.affiliate = SubscriptionAffiliate.find_by_token(cookies[:affiliate]) unless cookies[:affiliate].blank?
 
     if @account.needs_payment_info?
@@ -59,6 +65,7 @@ class AccountsController < ApplicationController
     end
     
     if @account.save
+      sign_in @account.user
       flash[:domain] = @account.subdomain
       redirect_to :action => 'thanks'
     else
@@ -189,7 +196,11 @@ class AccountsController < ApplicationController
     end
     
     def build_user
-      @account.user = @user = User.new(params[:user])
+      unless params[:login]
+        @account.user = @user = User.new(params[:user])
+      else
+        @account.user = @user = User.new(params[:user])      
+      end
     end
     
     def build_plan

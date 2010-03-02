@@ -19,23 +19,23 @@
   <div class="hd">
     <h1>Create your Battle Center account</h1>
   </div>
-	<% form_for @user do |f| -%>
-	  <%= hidden_field_tag :ref, params[:ref] || @ref %>
-	  
+	<% form_tag :action => 'create' do %>
+	  <%= hidden_field_tag 'plan', params[:plan] %>
 		<%- unless f.error_messages.blank? -%>
-		  <div class="error_wrapper"><%= f.error_messages %>hey</div>
+		  <div class="error_wrapper"><%= f.error_messages %></div>
 		<%- end -%>
 		
-		<div class="error_wrapper"><div class="errorExplanation" id="errorExplanation"><h2>4 errors prohibited this user from being saved</h2><p>There were problems with the following fields:</p><ul><li>Email can't be blank</li><li>Password can't be blank</li><li>Username can't be blank</li><li>Username is too short (minimum is 3 characters)</li></ul></div></div>
+		<!--<div class="error_wrapper"><div class="errorExplanation" id="errorExplanation"><h2>4 errors prohibited this user from being saved</h2><p>There were problems with the following fields:</p><ul><li>Email can't be blank</li><li>Password can't be blank</li><li>Username can't be blank</li><li>Username is too short (minimum is 3 characters)</li></ul></div></div>-->
 
 	  <fieldset>
+      <% fields_for :user do |f| -%>
   	  <div id="need_user">
   	    <a href="#" class="switch_form">I already have an account</a>
   	    <h1>Choose a Username &amp; Password</h1>
-    		<p><%= f.label :username, "Username" %><%= f.text_field :username %> <em>Must be at least 3 characters.</em></p>
-    		<p><%= f.label :email, "Email" %><%= f.text_field :email %> <em>Must be a valid email address.</em></p>
-    		<p><%= f.label :password, "Password" %><%= f.password_field :password %> <em>Must be at least 6 characters.</em></p>
-    		<p><%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation %></p>
+        <p><%= f.label :username, "Username" %><%= f.text_field :username %> <em>Must be at least 3 characters.</em></p>
+        <p><%= f.label :email, "Email" %><%= f.text_field :email %> <em>Must be a valid email address.</em></p>
+        <p><%= f.label :password, "Password" %><%= f.password_field :password %> <em>Must be at least 6 characters.</em></p>
+        <p><%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation %></p>
   	  </div>
 	  
   	  <div id="have_user" style="display:none">
@@ -44,14 +44,18 @@
     		<p><%= f.label :username, "Username" %><%= f.text_field :username %></p>
     		<p><%= f.label :password, "Password" %><%= f.password_field :password %></p>
   	  </div>
+      <% end -%>
 		</fieldset>
 		
     <fieldset>
-	  <h1>Account Information <span>&mdash; You can change these at anytime later.</span></h1>
+    <% fields_for :account do |f| -%>
+    <h1>Account Information <span>&mdash; You can change these at anytime later.</span></h1>
 		<p><label class="error">Account Name</label><input class="error" type="text"/></p>
 		<p><label>Account URL</label><input type="text"/> <span>.tbblive.com</span></p>
+    <% end -%>
 		</fieldset>
 		
+		<% if @account.needs_payment_info? %>
 		<fieldset id="billing">
 	  <h1>Billing Information</h1>
 		<p><label>Name on Card</label><input type="text"/></p>
@@ -70,6 +74,7 @@
 		</p>
 		<p><label>Zip/Postal Code</label><input type="text"/></p>
 		</fieldset>
+		<% end %>
 		
 		<fieldset id="confirm">
 		<h1>Confirm Your Details</h1>
